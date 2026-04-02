@@ -435,6 +435,9 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/features/FeatureCards.astro` | Grid de cards de funcionalidades |
 | `blocks/features/FeatureList.astro` | Seção de funcionalidades em lista |
 | `blocks/features/FeatureSticky.astro` | Seção de funcionalidades com scroll sticky |
+| `blocks/features/SplitFeature.astro` | Seção de funcionalidades dividida com imagem lateral |
+| `blocks/features/ScreenshotFeature.astro` | Seção de funcionalidades com screenshot central e grid abaixo |
+| `blocks/features/FeatureWithTestimonial.astro` | Seção de funcionalidades com imagem lateral e depoimento |
 | `blocks/highlights/HightlightRows.astro` | Linhas alternadas de imagem + texto |
 | `blocks/testimonials/BasicDark.astro` | Bloco de depoimentos em fundo escuro |
 | `blocks/pricing/PricingColumns.astro` | Seção de preços em múltiplas colunas |

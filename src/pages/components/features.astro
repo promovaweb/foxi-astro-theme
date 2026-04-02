@@ -4,6 +4,9 @@ import PageHeader from '../../components/blocks/hero/PageHeader.astro'
 import FeatureSticky from '../../components/blocks/features/FeatureSticky.astro'
 import FeatureCards from '../../components/blocks/features/FeatureCards.astro'
 import FeatureList from '../../components/blocks/features/FeatureList.astro'
+import SplitFeature from '../../components/blocks/features/SplitFeature.astro'
+import ScreenshotFeature from '../../components/blocks/features/ScreenshotFeature.astro'
+import FeatureWithTestimonial from '../../components/blocks/features/FeatureWithTestimonial.astro'
 import Section from '../../components/ui/Section.astro'
 import Row from '../../components/ui/Row.astro'
 import Col from '../../components/ui/Col.astro'
@@ -56,4 +59,31 @@ const header = {
 		</Row>
 	</Section>
 	<FeatureList />
+
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Split Feature</h2>
+			</Col>
+		</Row>
+	</Section>
+	<SplitFeature />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Screenshot Feature</h2>
+			</Col>
+		</Row>
+	</Section>
+	<ScreenshotFeature />
+
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Feature with Testimonial</h2>
+			</Col>
+		</Row>
+	</Section>
+	<FeatureWithTestimonial />
 </Layout>

@@ -1,0 +1,135 @@
+---
+// Screenshot Feature
+// ------------
+// Description: A feature section with a centered header, a large product screenshot with a gradient fade, and a grid of features below.
+// Properties:
+// - badge: Optional text for the top badge
+// - title: The main title of the section
+// - text: The description text of the section
+// - features: Array of feature objects (name, description, icon)
+// - image: Object with src, alt, width, and height for the screenshot
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+
+interface FeatureItem {
+	name: string
+	description: string
+	icon: string
+}
+
+interface ImageProps {
+	src: string
+	alt: string
+	width?: number
+	height?: number
+}
+
+type Props = {
+	badge?: string
+	title?: string
+	text?: string
+	features?: FeatureItem[]
+	image?: ImageProps
+}
+
+const {
+	badge = 'Tudo o que você precisa',
+	title = 'Sem servidor? <strong>Sem problemas.</strong>',
+	text = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis.',
+	features = [
+		{
+			name: 'Push para deploy.',
+			description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+			icon: 'rocket'
+		},
+		{
+			name: 'Certificados SSL.',
+			description:
+				'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+			icon: 'shield-check'
+		},
+		{
+			name: 'Filas simples.',
+			description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
+			icon: 'arrow-path-rounded-square'
+		},
+		{
+			name: 'Segurança avançada.',
+			description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+			icon: 'identification'
+		},
+		{
+			name: 'API poderosa.',
+			description:
+				'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+			icon: 'bolt'
+		},
+		{
+			name: 'Backups de banco de dados.',
+			description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
+			icon: 'circle-stack'
+		}
+	],
+	image = {
+		src: 'https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png',
+		alt: 'App screenshot',
+		width: 2432,
+		height: 1442
+	}
+} = Astro.props
+---
+
+<Section id="screenshot-feature" classes="screenshot-feature bg-white py-24 sm:py-32 dark:bg-neutral-950">
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl sm:text-center">
+			{badge && <h2 class="screenshot-feature__badge text-base font-semibold leading-7 text-primary-500">{badge}</h2>}
+			<p class="screenshot-feature__title mt-2 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl sm:text-balance dark:text-white" set:html={title} />
+			<p class="screenshot-feature__text mt-6 text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+				{text}
+			</p>
+		</div>
+	</div>
+	
+	<div class="screenshot-feature__image-container relative overflow-hidden pt-16">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<img
+				src={image.src}
+				alt={image.alt}
+				width={image.width}
+				height={image.height}
+				class="screenshot-feature__image mb-[-12%] rounded-xl shadow-2xl ring-1 ring-neutral-900/10 dark:ring-white/10"
+			/>
+			<div aria-hidden="true" class="screenshot-feature__overlay relative">
+				<div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%] dark:from-neutral-950" />
+			</div>
+		</div>
+	</div>
+
+	<div class="screenshot-feature__list-container mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
+		<dl class="screenshot-feature__list mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-neutral-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 dark:text-neutral-400">
+			{
+				features.map((feature) => (
+					<div class="screenshot-feature__item relative pl-9">
+						<dt class="screenshot-feature__item-title inline font-semibold text-neutral-900 dark:text-white">
+							<Icon name={feature.icon} class="screenshot-feature__icon absolute left-1 top-1 h-5 w-5 text-primary-500" aria-hidden="true" />
+							{feature.name}
+						</dt>
+						<dd class="screenshot-feature__item-text inline">{feature.description}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</div>
+</Section>
+
+<style>
+	.screenshot-feature__title {
+		@apply text-pretty;
+	}
+	.screenshot-feature__text {
+		@apply text-pretty;
+	}
+</style>
