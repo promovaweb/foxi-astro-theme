@@ -49,6 +49,7 @@ export const navigationBarData: NavData = {
 				{ name: 'Funcionalidades', link: '/components/features' },
 				{ name: 'Depoimentos', link: '/components/testimonials' },
 				{ name: 'CTA', link: '/components/cta' },
+				{ name: 'Bento Grids', link: '/components/bento' },
 				{ name: 'FAQ', link: '/components/faq' },
 				{ name: 'Contato', link: '/components/contact' }
 			]

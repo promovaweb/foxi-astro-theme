@@ -1,0 +1,128 @@
+---
+// Bento Grid Balanced
+// ------------
+// Description: A balanced bento grid with 2 large top items and 3 smaller bottom items.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+
+type Props = {
+	badge?: string
+	title?: string
+}
+
+const {
+	badge = 'Deploy mais rápido',
+	title = 'Tudo o que você precisa para fazer o deploy do seu app'
+} = Astro.props
+---
+
+<Section id="bento-balanced" classes="bg-white dark:bg-neutral-950">
+	<div class="mx-auto max-w-2xl lg:max-w-7xl">
+		<h2 class="text-base font-semibold leading-7 text-primary-500">{badge}</h2>
+		<p class="mt-2 max-w-lg text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl dark:text-white" set:html={title} />
+		
+		<div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+			<!-- Performance -->
+			<div class="relative lg:col-span-3">
+				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
+				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
+					<img
+						alt="Performance preview"
+						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-performance.png"
+						class="h-80 w-full object-cover object-left"
+					/>
+					<div class="p-10 pt-4">
+						<h3 class="text-sm font-semibold text-primary-500">Performance</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Lightning-fast builds</p>
+						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida justo et nulla efficitur, maximus egestas sem pellentesque.
+						</p>
+					</div>
+				</div>
+				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
+			</div>
+
+			<!-- Releases -->
+			<div class="relative lg:col-span-3">
+				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 lg:rounded-tr-[2rem]" />
+				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] lg:rounded-tr-[calc(2rem+1px)]">
+					<img
+						alt="Releases preview"
+						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-releases.png"
+						class="h-80 w-full object-cover object-left lg:object-right"
+					/>
+					<div class="p-10 pt-4">
+						<h3 class="text-sm font-semibold text-primary-500">Releases</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Push to deploy</p>
+						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+							Curabitur auctor, ex quis auctor venenatis, eros arcu rhoncus massa, laoreet dapibus ex elit vitae odio.
+						</p>
+					</div>
+				</div>
+				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 lg:rounded-tr-[2rem]" />
+			</div>
+
+			<!-- Speed -->
+			<div class="relative lg:col-span-2">
+				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 lg:rounded-bl-[2rem]" />
+				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] lg:rounded-bl-[calc(2rem+1px)]">
+					<img
+						alt="Speed preview"
+						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-speed.png"
+						class="h-80 w-full object-cover object-left"
+					/>
+					<div class="p-10 pt-4">
+						<h3 class="text-sm font-semibold text-primary-500">Speed</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Built for power users</p>
+						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+							Sed congue eros non finibus molestie. Vestibulum euismod augue.
+						</p>
+					</div>
+				</div>
+				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 lg:rounded-bl-[2rem]" />
+			</div>
+
+			<!-- Integrations -->
+			<div class="relative lg:col-span-2">
+				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900" />
+				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)]">
+					<img
+						alt="Integrations preview"
+						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-integrations.png"
+						class="h-80 w-full object-cover"
+					/>
+					<div class="p-10 pt-4">
+						<h3 class="text-sm font-semibold text-primary-500">Integrations</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Connect your favorite tools</p>
+						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+							Maecenas at augue sed elit dictum vulputate, in nisi aliquam maximus arcu.
+						</p>
+					</div>
+				</div>
+				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10" />
+			</div>
+
+			<!-- Network -->
+			<div class="relative lg:col-span-2">
+				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
+				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
+					<img
+						alt="Network preview"
+						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-network.png"
+						class="h-80 w-full object-cover"
+					/>
+					<div class="p-10 pt-4">
+						<h3 class="text-sm font-semibold text-primary-500">Network</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Globally distributed CDN</p>
+						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+							Aenean vulputate justo commodo auctor vehicula in malesuada semper.
+						</p>
+					</div>
+				</div>
+				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
+			</div>
+		</div>
+	</div>
+</Section>

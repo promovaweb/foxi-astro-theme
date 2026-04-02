@@ -438,6 +438,11 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/features/SplitFeature.astro` | Seção de funcionalidades dividida com imagem lateral |
 | `blocks/features/ScreenshotFeature.astro` | Seção de funcionalidades com screenshot central e grid abaixo |
 | `blocks/features/FeatureWithTestimonial.astro` | Seção de funcionalidades com imagem lateral e depoimento |
+| `blocks/highlights/BentoThreeColumns.astro` | Bento Grid 3-colunas com preview mobile e código |
+| `blocks/highlights/BentoAlternative.astro` | Bento Grid assimétrico 6-colunas com imagens grandes |
+| `blocks/highlights/BentoBalanced.astro` | Bento Grid 6-colunas com blocos superiores em destaque |
+| `blocks/highlights/BentoHighlight.astro` | Bento Grid com destaque central e recursos laterais |
+| `blocks/highlights/BentoMixed.astro` | Bento Grid misto com ícones, imagens e elementos de marca |
 | `blocks/highlights/HightlightRows.astro` | Linhas alternadas de imagem + texto |
 | `blocks/testimonials/BasicDark.astro` | Bloco de depoimentos em fundo escuro |
 | `blocks/pricing/PricingColumns.astro` | Seção de preços em múltiplas colunas |

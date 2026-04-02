@@ -1,0 +1,78 @@
+---
+// Bento Grid Section
+// ------------
+// Description: A section with a bento-style grid of features or highlights.
+// Properties:
+// - title: The title of the section
+// - text: The description of the section
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import Card from '../../ui/cards/BasicCard.astro'
+
+// Content
+import feature01 from '../../../assets/cards/feature-01.svg'
+
+type Props = {
+	title?: string
+	text?: string
+}
+
+const {
+	title = 'Tudo o que você precisa para <strong>escalar</strong> seu negócio',
+	text = 'Nossas ferramentas são projetadas para ajudá-lo a crescer de forma rápida e segura.'
+} = Astro.props
+---
+
+<Section id="bento-grid">
+	<Row>
+		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+			<h2 class="text-pretty" set:html={title} />
+			<p class="pb-0 text-lg">
+				{text}
+			</p>
+		</Col>
+	</Row>
+	<Row classes="lg:grid-rows-2">
+		<!-- Bento item 1 (Main feature) -->
+		<Col span="6" classes="lg:row-span-2">
+			<Card
+				title="Visibilidade Total do Projeto"
+				subtitle="Tenha uma visão clara de todos os seus projetos e tarefas em um único painel intuitivo."
+				image={feature01}
+				classes="h-full"
+			/>
+		</Col>
+		<!-- Bento item 2 -->
+		<Col span="6">
+			<Card
+				title="Automação Avançada"
+				subtitle="Automatize tarefas repetitivas e economize tempo valioso."
+				icon="bolt"
+				classes="h-full"
+			/>
+		</Col>
+		<!-- Bento item 3 -->
+		<Col span="3">
+			<Card
+				title="Segurança"
+				subtitle="Dados protegidos."
+				icon="shield-check"
+				classes="h-full"
+			/>
+		</Col>
+		<!-- Bento item 4 -->
+		<Col span="3">
+			<Card
+				title="Analytics"
+				subtitle="Insights reais."
+				icon="chart-pie"
+				classes="h-full"
+			/>
+		</Col>
+	</Row>
+</Section>

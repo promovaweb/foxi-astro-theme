@@ -1,0 +1,73 @@
+---
+// Bento Grid Mixed
+// ------------
+// Description: A mixed bento grid combining icons, images, and text-only blocks.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+
+type Props = {
+	title?: string
+}
+
+const {
+	title = 'Desenvolvido para o <strong>futuro</strong>'
+} = Astro.props
+---
+
+<Section id="bento-mixed">
+	<div class="mx-auto max-w-7xl">
+		<h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl dark:text-white mb-12" set:html={title} />
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<!-- Block 1 -->
+			<div class="md:col-span-2 bg-primary-500 p-10 rounded-3xl text-white flex flex-col justify-between min-h-[320px]">
+				<Icon name="rocket" class="size-12 mb-8" />
+				<div>
+					<h3 class="text-2xl font-bold mb-2">Lançamento Rápido</h3>
+					<p class="text-primary-50 max-w-md">Vá do zero ao deploy em minutos. Nossa infraestrutura cuida de toda a complexidade para você focar no que importa.</p>
+				</div>
+			</div>
+
+			<!-- Block 2 -->
+			<div class="bg-neutral-100 dark:bg-neutral-900 p-1 p-px rounded-3xl overflow-hidden">
+				<img 
+					src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+					alt="Team collaboration" 
+					class="size-full object-cover rounded-[1.4rem]"
+				/>
+			</div>
+
+			<!-- Block 3 -->
+			<div class="bg-neutral-900 p-10 rounded-3xl text-white">
+				<h3 class="text-xl font-bold mb-4">Cloud Nativo</h3>
+				<p class="text-neutral-400 text-sm">Arquitetura moderna baseada em microserviços e containers.</p>
+				<div class="mt-8 flex gap-2">
+					<div class="size-2 rounded-full bg-green-500 animate-pulse"></div>
+					<span class="text-xs text-neutral-500 uppercase tracking-widest font-bold">Sistema Online</span>
+				</div>
+			</div>
+
+			<!-- Block 4 -->
+			<div class="md:col-span-2 bg-white dark:bg-neutral-950 p-10 rounded-3xl shadow-sm ring-1 ring-black/5 dark:ring-white/10 flex flex-col md:flex-row gap-8 items-center">
+				<div class="flex-1">
+					<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Integração Global</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 text-sm">Conecte-se com as ferramentas que você já usa e ama. API aberta e webhooks personalizáveis.</p>
+				</div>
+				<div class="grid grid-cols-3 gap-4 shrink-0">
+					<div class="size-12 bg-neutral-50 dark:bg-neutral-900 rounded-xl flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
+						<Icon name="google-logo" class="size-6" />
+					</div>
+					<div class="size-12 bg-neutral-50 dark:bg-neutral-900 rounded-xl flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
+						<Icon name="twitter-icon" class="size-6" />
+					</div>
+					<div class="size-12 bg-neutral-50 dark:bg-neutral-900 rounded-xl flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
+						<Icon name="discord-icon" class="size-6" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</Section>

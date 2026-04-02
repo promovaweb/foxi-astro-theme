@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/blocks/hero/PageHeader.astro'
+import BentoThreeColumns from '../../components/blocks/highlights/BentoThreeColumns.astro'
+import BentoAlternative from '../../components/blocks/highlights/BentoAlternative.astro'
+import BentoBalanced from '../../components/blocks/highlights/BentoBalanced.astro'
+import BentoHighlight from '../../components/blocks/highlights/BentoHighlight.astro'
+import BentoMixed from '../../components/blocks/highlights/BentoMixed.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+
+const SEO = {
+	title: 'Componentes de Bento Grid | Foxi Astro Theme',
+	description: 'Explore os layouts de Bento Grid disponíveis no Foxi Astro Theme para apresentar recursos de forma moderna.'
+}
+
+const header = {
+	title: 'Componentes de <strong>Bento Grid</strong>',
+	text: 'Apresente suas funcionalidades com layouts modernos, dinâmicos e altamente visuais.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<PageHeader title={header.title} text={header.text} />
+	
+	<Section classes="!pb-0">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-4 text-primary-500 text-base font-bold uppercase tracking-widest">Modelo 01</h2>
+				<p class="text-neutral-500 dark:text-neutral-400">Três colunas com foco em preview de produto e código.</p>
+			</Col>
+		</Row>
+	</Section>
+	<BentoThreeColumns />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 !pb-0">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-4 text-primary-500 text-base font-bold uppercase tracking-widest">Modelo 02</h2>
+				<p class="text-neutral-500 dark:text-neutral-400">Layout assimétrico 6-colunas com grandes áreas de imagem.</p>
+			</Col>
+		</Row>
+	</Section>
+	<BentoAlternative />
+
+	<Section classes="!pb-0">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-4 text-primary-500 text-base font-bold uppercase tracking-widest">Modelo 03</h2>
+				<p class="text-neutral-500 dark:text-neutral-400">Layout balanceado com blocos superiores em destaque.</p>
+			</Col>
+		</Row>
+	</Section>
+	<BentoBalanced />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 !pb-0">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-4 text-primary-500 text-base font-bold uppercase tracking-widest">Modelo 04</h2>
+				<p class="text-neutral-500 dark:text-neutral-400">Destaque central com recursos laterais.</p>
+			</Col>
+		</Row>
+	</Section>
+	<BentoHighlight />
+
+	<Section classes="!pb-0">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-4 text-primary-500 text-base font-bold uppercase tracking-widest">Modelo 05</h2>
+				<p class="text-neutral-500 dark:text-neutral-400">Layout misto com ícones, imagens e elementos de marca.</p>
+			</Col>
+		</Row>
+	</Section>
+	<BentoMixed />
+</Layout>
