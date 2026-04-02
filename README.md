@@ -88,6 +88,24 @@ After downloading the template, you'll need to install some dependencies. Once t
 | `npm run build`   | Build your production site to `./dist/`                                                                   |
 | `npm run preview` | Preview your build locally, before deploying                                                              |
 
+### Network Access
+
+By default, the development server is only accessible from `localhost`. To allow access from other devices on your local network (e.g., for mobile testing), the `dev` script includes the `--host` flag.
+
+Additionally, to prevent "Blocked request" errors when accessing via a custom hostname or IP, the `astro.config.mjs` is configured to allow all hosts:
+
+```javascript
+// astro.config.mjs
+export default defineConfig({
+  // ...
+  vite: {
+    server: {
+      allowedHosts: true,
+    },
+  },
+});
+```
+
 ### Folder structure
 
 Inside Foxi Astro project, you'll see the following folders and files:

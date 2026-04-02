@@ -7,4 +7,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://foxi.netlify.app",
   integrations: [icon(), sitemap()],
+  vite: {
+    server: {
+      allowedHosts: true,
+    },
+  },
 });
