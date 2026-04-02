@@ -429,6 +429,8 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/hero/HomeCTA.astro` | Hero da homepage com título e botões CTA |
 | `blocks/hero/PageHeader.astro` | Banner hero de páginas internas |
 | `blocks/hero/ContactHero.astro` | Hero da página de contato |
+| `blocks/hero/CentredHero.astro` | Hero centralizado com blobs decorativos |
+| `blocks/hero/SplitHero.astro` | Hero dividido com texto e screenshot do app |
 | `blocks/features/FeatureCards.astro` | Grid de cards de funcionalidades |
 | `blocks/features/FeatureList.astro` | Seção de funcionalidades em lista |
 | `blocks/features/FeatureSticky.astro` | Seção de funcionalidades com scroll sticky |

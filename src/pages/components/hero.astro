@@ -4,6 +4,7 @@ import PageHeader from '../../components/blocks/hero/PageHeader.astro'
 import HomeCTA from '../../components/blocks/hero/HomeCTA.astro'
 import ContactHero from '../../components/blocks/hero/ContactHero.astro'
 import CentredHero from '../../components/blocks/hero/CentredHero.astro'
+import SplitHero from '../../components/blocks/hero/SplitHero.astro'
 import Section from '../../components/ui/Section.astro'
 import Row from '../../components/ui/Row.astro'
 import Col from '../../components/ui/Col.astro'
@@ -48,4 +49,13 @@ const header = {
 		</Row>
 	</Section>
 	<CentredHero />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12">
+				<h2 class="text-center mb-12">Split Hero</h2>
+			</Col>
+		</Row>
+	</Section>
+	<SplitHero />
 </Layout>

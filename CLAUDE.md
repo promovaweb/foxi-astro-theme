@@ -39,6 +39,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 9. **Dados em config** — Conteúdo repetido (itens de nav, links do rodapé, listas de funcionalidades, dados de preços) deve ficar em `src/config/` ou `src/data/json-files/`. Nunca hardcodar nos componentes.
 10. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 11. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
+12. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
 
 ---
 
@@ -55,6 +56,7 @@ Ao criar um novo componente:
 - [ ] Usar `primary-500` como cor da marca/destaque
 - [ ] Verificar se o nome do ícone existe em `src/icons/` antes de referenciá-lo
 - [ ] Comentários e textos de interface em pt-BR
+- [ ] Documentar o novo componente no `DESIGN.md` (tabela de componentes de bloco ou UI)
 
 ---
 

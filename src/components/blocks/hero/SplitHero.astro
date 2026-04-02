@@ -1,0 +1,163 @@
+---
+// Split Hero
+// ------------
+// Description: A split hero section with text on the left and a screenshot on the right.
+// Properties:
+// - title: The title of the hero section
+// - text: The description text of the hero section
+// - primaryButton: Object with name and link for the primary action
+// - secondaryButton: Object with name and link for the secondary action
+// - badge: Optional text for the highlight badge
+// - badgeText: Optional secondary text for the highlight badge
+// - badgeLink: Optional link for the highlight badge
+// - image: Object with src, alt, width and height for the hero image
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+interface ButtonProps {
+	name: string
+	link: string
+}
+
+interface ImageProps {
+	src: any
+	alt: string
+	width?: number
+	height?: number
+}
+
+type Props = {
+	title?: string
+	text?: string
+	primaryButton?: ButtonProps
+	secondaryButton?: ButtonProps
+	badge?: string
+	badgeText?: string
+	badgeLink?: string
+	image?: ImageProps
+}
+
+// Default Image
+const defaultScreenshot = "https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
+
+const {
+	title = 'Faça o deploy para a nuvem com <strong>confiança total</strong>',
+	text = 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.',
+	primaryButton = { name: 'Começar agora', link: '/' },
+	secondaryButton = { name: 'Saiba mais', link: '/' },
+	badge = "O que há de novo",
+	badgeText = "Acabamos de lançar a v1.0",
+	badgeLink = "/",
+	image = { src: defaultScreenshot, alt: 'App screenshot', width: 2432, height: 1442 }
+} = Astro.props
+---
+
+<Section id="split-hero" classes="split-hero overflow-hidden relative isolate">
+	<!-- Background SVG Pattern -->
+	<svg
+		aria-hidden="true"
+		class="split-hero__pattern absolute inset-0 -z-10 h-full w-full stroke-neutral-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-neutral-800"
+	>
+		<defs>
+			<pattern
+				x="50%"
+				y="-1"
+				id="hero-pattern"
+				width="200"
+				height="200"
+				patternUnits="userSpaceOnUse"
+			>
+				<path d="M.5 200V.5H200" fill="none"></path>
+			</pattern>
+		</defs>
+		<svg x="50%" y="-1" class="overflow-visible fill-neutral-50 dark:fill-neutral-900/50">
+			<path
+				d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+				stroke-width="0"></path>
+		</svg>
+		<rect width="100%" height="100%" stroke-width="0" fill="url(#hero-pattern)"></rect>
+	</svg>
+
+	<!-- Decorative Blob -->
+	<div
+		aria-hidden="true"
+		class="split-hero__blob absolute top-10 left-[calc(50%-4rem)] -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:top-[calc(50%-30rem)] lg:left-48 xl:left-[calc(50%-24rem)]"
+	>
+		<div
+			style={{
+				clipPath:
+					'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)'
+			}}
+			class="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-primary-400 to-primary-700 opacity-20 dark:from-primary-600 dark:to-primary-900"
+		>
+		</div>
+	</div>
+
+	<Row>
+		<Col span="5" classes="pt-10 pb-24 sm:pb-32 lg:py-40">
+			<div class="split-hero__content max-w-2xl">
+				{
+					badge && (
+						<div class="split-hero__badge mt-24 sm:mt-32 lg:mt-16">
+							<a href={badgeLink} class="inline-flex space-x-6 items-center">
+								<span class="rounded-full bg-primary-50 px-3 py-1 text-sm font-semibold text-primary-500 ring-1 ring-inset ring-primary-500/20 dark:bg-primary-950/30 dark:ring-primary-500/30">
+									{badge}
+								</span>
+								<span class="inline-flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+									<span>{badgeText}</span>
+									<Icon name="long-arrow-right" class="h-5 w-5 text-neutral-400" />
+								</span>
+							</a>
+						</div>
+					)
+				}
+				<h1
+					class="split-hero__title mt-10 text-5xl font-bold tracking-tight text-neutral-900 sm:text-7xl dark:text-white"
+					set:html={title}
+				/>
+				<p class="split-hero__text mt-8 text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+					{text}
+				</p>
+				<div class="split-hero__actions mt-10 flex items-center gap-x-6">
+					<Button size="lg" link={primaryButton.link} style="primary" elevated>
+						{primaryButton.name}
+					</Button>
+					<Button size="lg" link={secondaryButton.link} style="neutral" variation="link">
+						{secondaryButton.name} <span aria-hidden="true" class="ml-1">&rarr;</span>
+					</Button>
+				</div>
+			</div>
+		</Col>
+		<Col span="7" classes="mt-16 sm:mt-24 lg:mt-0 lg:flex-none">
+			<div class="split-hero__image-wrapper mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+				<div class="relative max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+					<img
+						src={image.src}
+						alt={image.alt}
+						width={image.width}
+						height={image.height}
+						class="split-hero__image w-[76rem] rounded-md bg-neutral-50 shadow-2xl ring-1 ring-neutral-900/10 dark:bg-neutral-900 dark:ring-white/10"
+					/>
+				</div>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.split-hero {
+		@apply bg-white dark:bg-neutral-950;
+	}
+	.split-hero__title {
+		@apply text-pretty;
+	}
+	.split-hero__text {
+		@apply text-pretty;
+	}
+</style>
