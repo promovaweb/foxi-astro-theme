@@ -38,20 +38,31 @@ export const navigationBarData: NavData = {
 		text: 'Foxi.'
 	},
 	navItems: [
-		{ name: 'Home', link: '/' },
-		{ name: 'Pricing', link: '/pricing' },
-		{ name: 'Features', link: '/features' },
+		{ name: 'Início', link: '/' },
+		{ name: 'Preços', link: '/pricing' },
+		{ name: 'Recursos', link: '/features' },
 		{
-			name: 'Resources',
+			name: 'Componentes',
 			link: '#',
 			submenu: [
-				{ name: 'Blog', link: '/blog' },
-				{ name: 'Changelog', link: '/changelog' },
-				{ name: 'FAQ', link: '/faq' },
-				{ name: 'Terms', link: '/terms' }
+				{ name: 'Heros', link: '/components/hero' },
+				{ name: 'Funcionalidades', link: '/components/features' },
+				{ name: 'Depoimentos', link: '/components/testimonials' },
+				{ name: 'CTA', link: '/components/cta' },
+				{ name: 'FAQ', link: '/components/faq' },
+				{ name: 'Contato', link: '/components/contact' }
 			]
 		},
-		{ name: 'Contact', link: '/contact' }
+		{
+			name: 'Blog',
+			link: '#',
+			submenu: [
+				{ name: 'Ver Blog', link: '/blog' },
+				{ name: 'Changelog', link: '/changelog' },
+				{ name: 'Termos', link: '/terms' }
+			]
+		},
+		{ name: 'Contato', link: '/contact' }
 	],
-	navActions: [{ name: 'Try it now', link: '/', style: 'primary', size: 'lg' }]
+	navActions: [{ name: 'Experimente agora', link: '/', style: 'primary', size: 'lg' }]
 }

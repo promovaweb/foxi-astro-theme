@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/blocks/hero/PageHeader.astro'
+import ContactCards from '../../components/blocks/contact/ContactCards.astro'
+import ContactForm from '../../components/blocks/contact/BasicForm.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+
+const SEO = {
+	title: 'Componentes de Contato | Foxi Astro Theme',
+	description: 'Exemplos de blocos de contato e formulários disponíveis no Foxi Astro Theme.'
+}
+
+const header = {
+	title: 'Componentes de <strong>Contato</strong>',
+	text: 'Facilite o contato dos seus clientes com sua equipe.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<PageHeader title={header.title} text={header.text} />
+	
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Contact Cards</h2>
+			</Col>
+		</Row>
+	</Section>
+	<ContactCards />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Formulário de Contato</h2>
+			</Col>
+		</Row>
+	</Section>
+	<ContactForm />
+</Layout>

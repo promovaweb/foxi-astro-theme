@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/blocks/hero/PageHeader.astro'
+import TestimonialSection from '../../components/blocks/testimonials/BasicDark.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+
+// Assets
+import bg01 from '../../assets/testimonial-bg-01.webp'
+import bg02 from '../../assets/testimonial-bg-02.webp'
+
+const SEO = {
+	title: 'Componentes de Depoimentos | Foxi Astro Theme',
+	description: 'Exemplos de blocos de depoimentos e prova social disponíveis no Foxi Astro Theme.'
+}
+
+const header = {
+	title: 'Componentes de <strong>Depoimentos</strong>',
+	text: 'Mostre o que seus clientes estão dizendo sobre você.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<PageHeader title={header.title} text={header.text} />
+	
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Depoimento Dark com Fundo</h2>
+			</Col>
+		</Row>
+	</Section>
+	<TestimonialSection 
+		bg={bg01}
+		blockquote="O Foxi transformou nossa maneira de trabalhar. A integração é perfeita e a interface é extremamente intuitiva."
+		figcaption="Maria Silva"
+		cite="Diretora de Operações, TechFlow"
+	/>
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Segunda Variação de Depoimento</h2>
+			</Col>
+		</Row>
+	</Section>
+	<TestimonialSection 
+		bg={bg02}
+		blockquote="Não conseguimos mais imaginar nosso fluxo de trabalho sem as ferramentas do Foxi. É um divisor de águas."
+		figcaption="João Pereira"
+		cite="Fundador, CreativeHub"
+	/>
+</Layout>

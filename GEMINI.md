@@ -4,6 +4,8 @@
 
 **Todo o código, comentários, documentação, nomes de variáveis descritivas, textos de interface e respostas geradas para este projeto devem estar em Português do Brasil (pt-BR).** Isso inclui comentários em arquivos `.astro`, `.ts` e `.css`, conteúdo de componentes, mensagens de erro e qualquer texto visível ao usuário.
 
+**Regra importante: Não é permitido traduzir termos técnicos (ex: props, slot, layout, frontmatter, etc.). Mantenha os termos técnicos em sua forma original.**
+
 ---
 
 ## Referência ao Design System

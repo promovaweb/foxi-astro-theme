@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/blocks/hero/PageHeader.astro'
+import HomeCTA from '../../components/blocks/hero/HomeCTA.astro'
+import ContactHero from '../../components/blocks/hero/ContactHero.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+
+const SEO = {
+	title: 'Componentes de Hero | Foxi Astro Theme',
+	description: 'Explore os diferentes estilos de cabeçalhos e seções de hero disponíveis no Foxi Astro Theme.'
+}
+
+const header = {
+	title: 'Componentes de <strong>Hero</strong>',
+	text: 'Exemplos de cabeçalhos de página e seções de destaque.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<PageHeader title={header.title} text={header.text} />
+	
+	<Section>
+		<Row>
+			<Col span="12">
+				<h2 class="text-center mb-12">Home CTA Hero</h2>
+			</Col>
+		</Row>
+	</Section>
+	<HomeCTA />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12">
+				<h2 class="text-center mb-12">Contact Hero</h2>
+			</Col>
+		</Row>
+	</Section>
+	<ContactHero />
+</Layout>

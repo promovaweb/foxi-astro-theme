@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/blocks/hero/PageHeader.astro'
+import CTADark from '../../components/blocks/CTA/BasicDark.astro'
+import CTALight from '../../components/blocks/CTA/BasicLight.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+
+const SEO = {
+	title: 'Componentes de CTA | Foxi Astro Theme',
+	description: 'Exemplos de blocos de CTA disponíveis no Foxi Astro Theme.'
+}
+
+const header = {
+	title: 'Componentes de <strong>CTA</strong>',
+	text: 'Converta seus visitantes em clientes com CTAs impactantes.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<PageHeader title={header.title} text={header.text} />
+	
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">CTA Dark</h2>
+			</Col>
+		</Row>
+	</Section>
+	<CTADark />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">CTA Light</h2>
+			</Col>
+		</Row>
+	</Section>
+	<CTALight />
+</Layout>

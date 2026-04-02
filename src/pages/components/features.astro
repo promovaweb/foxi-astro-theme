@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/blocks/hero/PageHeader.astro'
+import FeatureSticky from '../../components/blocks/features/FeatureSticky.astro'
+import FeatureCards from '../../components/blocks/features/FeatureCards.astro'
+import FeatureList from '../../components/blocks/features/FeatureList.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+
+// Content
+import featuresData from '../../data/json-files/featuresData.json'
+const featuresList = featuresData.filter((feature) => feature.category === 'Analytics')
+
+const SEO = {
+	title: 'Componentes de Funcionalidades | Foxi Astro Theme',
+	description: 'Exemplos de blocos de funcionalidades disponíveis no Foxi Astro Theme.'
+}
+
+const header = {
+	title: 'Componentes de <strong>Funcionalidades</strong>',
+	text: 'Explore diferentes formas de apresentar as vantagens do seu produto.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<PageHeader title={header.title} text={header.text} />
+	
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Sticky Features</h2>
+			</Col>
+		</Row>
+	</Section>
+	<FeatureSticky
+		title="Insightful Analytics"
+		text="Delve into your data with precision and uncover actionable insights."
+		data={featuresList}
+	/>
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Feature Cards</h2>
+			</Col>
+		</Row>
+	</Section>
+	<FeatureCards />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Feature List</h2>
+			</Col>
+		</Row>
+	</Section>
+	<FeatureList />
+</Layout>
