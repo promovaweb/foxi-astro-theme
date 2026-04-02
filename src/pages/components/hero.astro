@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import PageHeader from '../../components/blocks/hero/PageHeader.astro'
 import HomeCTA from '../../components/blocks/hero/HomeCTA.astro'
 import ContactHero from '../../components/blocks/hero/ContactHero.astro'
+import CentredHero from '../../components/blocks/hero/CentredHero.astro'
 import Section from '../../components/ui/Section.astro'
 import Row from '../../components/ui/Row.astro'
 import Col from '../../components/ui/Col.astro'
@@ -38,4 +39,13 @@ const header = {
 		</Row>
 	</Section>
 	<ContactHero />
+
+	<Section>
+		<Row>
+			<Col span="12">
+				<h2 class="text-center mb-12">Centred Hero</h2>
+			</Col>
+		</Row>
+	</Section>
+	<CentredHero />
 </Layout>

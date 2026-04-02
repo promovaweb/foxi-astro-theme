@@ -1,0 +1,118 @@
+---
+// Centred Hero
+// ------------
+// Description: A centred hero section with decorative background blobs, title, description and actions.
+// Properties:
+// - title: The title of the hero section
+// - text: The description text of the hero section
+// - primaryButton: Object with name and link for the primary action
+// - secondaryButton: Object with name and link for the secondary action
+// - notification: Optional text for the top notification chip
+// - notificationLink: Optional link for the notification chip
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import Highlight from '../../ui/Highlight.astro'
+
+interface ButtonProps {
+	name: string
+	link: string
+}
+
+type Props = {
+	title?: string
+	text?: string
+	primaryButton?: ButtonProps
+	secondaryButton?: ButtonProps
+	notification?: string
+	notificationLink?: string
+}
+
+const {
+	title = 'Dados para enriquecer seu <strong>negócio online</strong>',
+	text = 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.',
+	primaryButton = { name: 'Começar agora', link: '/' },
+	secondaryButton = { name: 'Saiba mais', link: '/' },
+	notification = 'Anunciando nossa próxima rodada de investimentos.',
+	notificationLink = '/'
+} = Astro.props
+---
+
+<Section id="hero" classes="hero overflow-hidden relative isolate">
+	<!-- Background Blobs -->
+	<div
+		aria-hidden="true"
+		class="hero__blob hero__blob--top absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+	>
+		<div
+			style={{
+				clipPath:
+					'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
+			}}
+			class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary-200 to-primary-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] dark:from-primary-900 dark:to-primary-500"
+		>
+		</div>
+	</div>
+
+	<Row>
+		<Col span="2" />
+		<Col span="8" align="center" classes="py-32 sm:py-48 lg:py-56">
+			{
+				notification && (
+					<div class="hero__notification mb-8 flex justify-center">
+						<div class="relative rounded-full px-3 py-1 text-sm leading-6 text-neutral-600 ring-1 ring-neutral-900/10 hover:ring-neutral-900/20 dark:text-neutral-400 dark:ring-neutral-100/10 dark:hover:ring-neutral-100/20">
+							{notification}{' '}
+							<a href={notificationLink} class="font-semibold text-primary-500">
+								<span class="absolute inset-0" aria-hidden="true" />
+								Leia mais <span aria-hidden="true">&rarr;</span>
+							</a>
+						</div>
+					</div>
+				)
+			}
+			<h1 class="hero__title text-5xl font-bold tracking-tight text-neutral-900 sm:text-7xl dark:text-white" set:html={title} />
+			<p class="hero__text mt-8 text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+				{text}
+			</p>
+			<div class="hero__actions mt-10 flex items-center justify-center gap-x-6">
+				<Button size="lg" link={primaryButton.link} style="primary" elevated>
+					{primaryButton.name}
+				</Button>
+				<Button size="lg" link={secondaryButton.link} style="neutral" variation="link">
+					{secondaryButton.name} <span aria-hidden="true" class="ml-1">&rarr;</span>
+				</Button>
+			</div>
+		</Col>
+		<Col span="2" />
+	</Row>
+
+	<div
+		aria-hidden="true"
+		class="hero__blob hero__blob--bottom absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+	>
+		<div
+			style={{
+				clipPath:
+					'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
+			}}
+			class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-primary-200 to-primary-500 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] dark:from-primary-900 dark:to-primary-500"
+		>
+		</div>
+	</div>
+</Section>
+
+<style>
+	.hero {
+		@apply bg-white dark:bg-neutral-950;
+	}
+	.hero__title {
+		@apply text-balance;
+	}
+	.hero__text {
+		@apply text-pretty;
+	}
+</style>
