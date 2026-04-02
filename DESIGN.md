@@ -446,6 +446,19 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/highlights/HightlightRows.astro` | Linhas alternadas de imagem + texto |
 | `blocks/testimonials/BasicDark.astro` | Bloco de depoimentos em fundo escuro |
 | `blocks/pricing/PricingColumns.astro` | Seção de preços em múltiplas colunas |
+| `blocks/pricing/PricingTwoTiers.astro` | Seção de preços com dois planos (destaque lateral) |
+| `blocks/pricing/PricingPersonalTeam.astro` | Seção de preços com dois planos (card central em destaque) |
+| `blocks/pricing/PricingComparison.astro` | Tabela de comparação detalhada de recursos |
+| `blocks/pricing/PricingSplitDark.astro` | Seção com cabeçalho escuro e cards de preço brancos |
+| `blocks/pricing/PricingLifetime.astro` | Seção de assinatura vitalícia com box de preço lateral |
+| `blocks/pricing/PricingThreeColumns.astro` | Seção de três colunas com badge de "Mais Popular" |
+| `blocks/pricing/PricingDetails.astro` | Seção detalhada com preços mensais e anuais |
+| `blocks/pricing/PricingToggle.astro` | Seção de preços com alternância dinâmica Mensal/Anual |
+| `blocks/pricing/PricingGrowing.astro` | Tabela de comparação avançada para planos em crescimento |
+| `blocks/pricing/PricingSplitDarkFreq.astro` | Seção escura com alternância de frequência e tabela de comparação |
+| `blocks/pricing/PricingFullFeatured.astro` | Layout dividido com lista de recursos detalhada e box de preço lateral |
+| `blocks/pricing/PricingOverlapping.astro` | Layout de três colunas com o card central sobreposto e maior |
+| `blocks/pricing/PricingStandardEnterprise.astro` | Comparação de dois planos com faixa de desconto para projetos solo |
 | `blocks/FAQ/Basic.astro` | Lista de FAQ em accordion |
 | `blocks/FAQ/FaqSticky.astro` | FAQ com imagem lateral sticky |
 | `blocks/blog/BlogPosts.astro` | Grid de posts do blog |

@@ -1,0 +1,192 @@
+---
+// PricingComparison
+// ------------
+// Description: Three tiers with a detailed feature comparison table.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import pricingDataRaw from '../../../data/json-files/pricingComparison.json'
+const pricingData = pricingDataRaw as any;
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section classes={`pricing-comparison ${classes || ''}`}>
+	<Row>
+		<Col span="12" classes="max-lg:text-center mb-16">
+			<h2 class="pricing-comparison__heading">{pricingData.heading}</h2>
+			<p class="pricing-comparison__description">{pricingData.description}</p>
+		</Col>
+	</Row>
+
+	<div class="pricing-comparison__relative pt-16 sm:pt-24">
+		<div class="pricing-comparison__glow" aria-hidden="true"></div>
+		
+		<Row classes="pricing-comparison__tiers-grid relative">
+			{
+				pricingData.tiers.map((tier: any) => (
+					<Col span="4">
+						<div class="tier-card">
+							<div class="tier-card__inner">
+								<h3 class="tier-card__name">{tier.name}</h3>
+								<p class="tier-card__description">{tier.description}</p>
+								<div class="tier-card__price-box">
+									<div class="tier-card__price">{tier.priceMonthly}</div>
+									<div class="tier-card__currency">
+										<p>BRL</p>
+										<p>por mês</p>
+									</div>
+								</div>
+								<div class="mt-8">
+									<a href={tier.href} class="tier-card__button">
+										Iniciar teste gratuito
+									</a>
+								</div>
+								<div class="mt-8">
+									<h4 class="tier-card__list-title">Comece a vender com:</h4>
+									<ul class="tier-card__list">
+										{tier.highlights.map((highlight: any) => (
+											<li class:list={['tier-card__item', { 'tier-card__item--disabled': highlight.disabled }]}>
+												<Icon name="plus" class="tier-card__icon" />
+												{highlight.description}
+											</li>
+										))}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</Col>
+				) )
+			}
+		</Row>
+	</div>
+
+	<div class="pricing-comparison__table-container mt-24 max-sm:hidden">
+		<table class="pricing-table">
+			<thead>
+				<tr>
+					<th class="p-0"></th>
+					{pricingData.tiers.map((tier: any) => (
+						<th class="pricing-table__header-cell">
+							<div class="text-primary-500 font-headings">{tier.name}</div>
+						</th>
+					))}
+				</tr>
+			</thead>
+			{
+				pricingData.sections.map((section: any) => (
+					<tbody class="pricing-table__section">
+						<tr>
+							<th colspan="4" class="pricing-table__section-title">
+								<div class="pricing-table__section-bg">{section.name}</div>
+							</th>
+						</tr>
+						{section.features.map((feature: any) => (
+							<tr class="pricing-table__row">
+								<th scope="row" class="pricing-table__feature-name">
+									{feature.name}
+								</th>
+								{pricingData.tiers.map((tier: any) => (
+									<td class="pricing-table__feature-value">
+										{typeof feature.tiers[tier.name] === 'string' ? (
+											<span class="text-neutral-900 dark:text-white font-medium">{feature.tiers[tier.name]}</span>
+										) : (
+											feature.tiers[tier.name] === true ? (
+												<Icon name="check-circle" class="size-5 text-primary-500 inline" />
+											) : (
+												<span class="text-neutral-300 dark:text-neutral-600">—</span>
+											)
+										)}
+									</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				))
+			}
+		</table>
+	</div>
+</Section>
+
+<style>
+	.pricing-comparison {
+		@apply py-24 sm:py-32;
+	}
+	.pricing-comparison__heading {
+		@apply text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl font-headings dark:text-white;
+	}
+	.pricing-comparison__description {
+		@apply mt-6 max-w-2xl text-lg font-medium text-neutral-600 dark:text-neutral-400;
+	}
+	.pricing-comparison__relative {
+		@apply relative;
+	}
+	.pricing-comparison__glow {
+		@apply absolute inset-x-0 top-48 bottom-0 bg-[radial-gradient(circle_at_center_center,#E2187D,#500724,#020617_70%)] opacity-20;
+	}
+	.tier-card {
+		@apply -m-2 grid grid-cols-1 rounded-[2.5rem] bg-white/5 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 dark:bg-neutral-900/40;
+	}
+	.tier-card__inner {
+		@apply rounded-[2.5rem] p-2 shadow-md bg-white dark:bg-neutral-800 ring-1 ring-neutral-200 dark:ring-neutral-700 m-2 p-10;
+	}
+	.tier-card__name {
+		@apply text-sm font-semibold text-primary-500 font-headings;
+	}
+	.tier-card__description {
+		@apply mt-2 text-sm text-neutral-600 dark:text-neutral-400;
+	}
+	.tier-card__price-box {
+		@apply mt-8 flex items-center gap-4;
+	}
+	.tier-card__price {
+		@apply text-5xl font-bold text-neutral-900 dark:text-white font-headings;
+	}
+	.tier-card__currency {
+		@apply text-xs text-neutral-500 dark:text-neutral-400 uppercase;
+	}
+	.tier-card__button {
+		@apply inline-block w-full rounded-md bg-primary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-400 transition-colors;
+	}
+	.tier-card__list-title {
+		@apply text-sm font-medium text-neutral-900 dark:text-white;
+	}
+	.tier-card__list {
+		@apply mt-4 space-y-3;
+	}
+	.tier-card__item {
+		@apply flex items-start gap-3 text-sm text-neutral-600 dark:text-neutral-400;
+	}
+	.tier-card__item--disabled {
+		@apply opacity-40 grayscale;
+	}
+	.tier-card__icon {
+		@apply size-4 text-primary-500 mt-1;
+	}
+	.pricing-table {
+		@apply w-full text-left border-collapse;
+	}
+	.pricing-table__header-cell {
+		@apply px-4 py-8 text-center text-sm font-semibold;
+	}
+	.pricing-table__section-title {
+		@apply px-0 pt-10 pb-0;
+	}
+	.pricing-table__section-bg {
+		@apply -mx-4 rounded-lg bg-neutral-50 dark:bg-neutral-900 px-4 py-3 text-sm font-bold text-neutral-900 dark:text-white;
+	}
+	.pricing-table__row {
+		@apply border-b border-neutral-100 dark:border-neutral-800;
+	}
+	.pricing-table__feature-name {
+		@apply px-0 py-4 text-sm font-normal text-neutral-600 dark:text-neutral-400;
+	}
+	.pricing-table__feature-value {
+		@apply p-4 text-center;
+	}
+</style>

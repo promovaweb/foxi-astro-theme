@@ -1,0 +1,37 @@
+{
+  "title": "Preços",
+  "heading": "Escolha o plano ideal para você",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "tiers": [
+    {
+      "name": "Pessoal",
+      "id": "tier-personal",
+      "href": "#",
+      "priceMonthly": "R$ 149",
+      "description": "O plano perfeito se você está apenas começando com nosso produto.",
+      "features": [
+        "25 produtos",
+        "Até 10.000 inscritos",
+        "Segmentação de público",
+        "Análises avançadas",
+        "Suporte por e-mail",
+        "Automações de marketing"
+      ],
+      "featured": true
+    },
+    {
+      "name": "Equipe",
+      "id": "tier-team",
+      "href": "#",
+      "priceMonthly": "R$ 499",
+      "description": "Um plano que escala com o crescimento acelerado do seu negócio.",
+      "features": [
+        "Suporte prioritário",
+        "Single sign-on (SSO)",
+        "Integrações corporativas",
+        "Ferramentas de relatórios personalizados"
+      ],
+      "featured": false
+    }
+  ]
+}

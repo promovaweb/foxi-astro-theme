@@ -1,0 +1,55 @@
+{
+  "heading": "Preços que crescem com você",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "frequencies": [
+    { "value": "monthly", "label": "Mensal" },
+    { "value": "annually", "label": "Anual" }
+  ],
+  "tiers": [
+    {
+      "name": "Iniciante",
+      "id": "tier-starter",
+      "href": "#",
+      "featured": false,
+      "description": "Tudo o que você precisa para começar.",
+      "price": { "monthly": "R$ 99", "annually": "R$ 999" },
+      "highlights": ["Domínios personalizados", "Entrega de conteúdo Edge", "Análises avançadas"]
+    },
+    {
+      "name": "Escala",
+      "id": "tier-scale",
+      "href": "#",
+      "featured": true,
+      "description": "Flexibilidade adicional em escala.",
+      "price": { "monthly": "R$ 499", "annually": "R$ 4.999" },
+      "highlights": [
+        "Domínios personalizados",
+        "Entrega de conteúdo Edge",
+        "Análises avançadas",
+        "Workshops trimestrais",
+        "Single sign-on (SSO)",
+        "Suporte por telefone prioritário"
+      ]
+    },
+    {
+      "name": "Crescimento",
+      "id": "tier-growth",
+      "href": "#",
+      "featured": false,
+      "description": "Todos os extras para sua equipe em crescimento.",
+      "price": { "monthly": "R$ 249", "annually": "R$ 2.499" },
+      "highlights": ["Domínios personalizados", "Entrega de conteúdo Edge", "Análises avançadas", "Workshops trimestrais"]
+    }
+  ],
+  "sections": [
+    {
+      "name": "Recursos",
+      "features": [
+        { "name": "Entrega de conteúdo Edge", "tiers": { "Iniciante": true, "Crescimento": true, "Escala": true } },
+        { "name": "Domínios personalizados", "tiers": { "Iniciante": "1", "Crescimento": "3", "Escala": "Ilimitado" } },
+        { "name": "Membros da equipe", "tiers": { "Iniciante": "3", "Crescimento": "20", "Escala": "Ilimitado" } },
+        { "name": "Single sign-on (SSO)", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } }
+      ]
+    }
+  ]
+}

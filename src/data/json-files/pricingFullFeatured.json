@@ -1,0 +1,38 @@
+{
+  "title": "Recursos Completos",
+  "heading": "Tudo o que você precisa para falar com seus clientes",
+  "features": [
+    {
+      "name": "Visualização em lista",
+      "icon": "rectangle-stack",
+      "description": "Nunc a, lacinia sed risus neque, arcu, rhoncus. Id mauris justo facilisis aliquam platea vestibulum condimentum morbi."
+    },
+    {
+      "name": "Quadros",
+      "icon": "squares-plus",
+      "description": "Purus lobortis volutpat posuere id integer nunc tellus. Non mauris malesuada feugiat massa mi pellentesque cum est."
+    },
+    {
+      "name": "Calendário",
+      "icon": "document-text",
+      "description": "Purus lobortis volutpat posuere id integer nunc tellus. Non mauris malesuada feugiat massa mi pellentesque cum est."
+    },
+    {
+      "name": "Equipes",
+      "icon": "user-group",
+      "description": "Tincidunt sollicitudin interdum nunc sit risus at bibendum vitae. Urna, quam ut sit justo non, consectetur et varius."
+    }
+  ],
+  "checklist": [
+    "Projetos ilimitados",
+    "Sem taxas por usuário",
+    "Armazenamento ilimitado",
+    "Suporte 24/7",
+    "Cancele a qualquer momento",
+    "14 dias grátis"
+  ],
+  "price": "R$ 499",
+  "priceLabel": "Taxa de configuração",
+  "monthlyPrice": "R$ 25",
+  "monthlyLabel": "Por mês"
+}

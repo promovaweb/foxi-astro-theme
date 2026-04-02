@@ -1,0 +1,88 @@
+---
+// PricingStandardEnterprise
+// ------------
+// Description: Two tiers with a discount box at the bottom.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import pricingData from '../../../data/json-files/pricingStandardEnterprise.json'
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section classes={`pricing-std-ent ${classes || ''}`}>
+	<Row classes="mb-16">
+		<Col span="12" align="center">
+			<h2 class="text-base font-semibold text-primary-500 font-headings uppercase tracking-wider">{pricingData.title}</h2>
+			<p class="mt-2 text-4xl font-bold text-neutral-900 dark:text-white sm:text-6xl font-headings">{pricingData.heading}</p>
+			<p class="mt-6 text-xl text-neutral-500 dark:text-neutral-400 max-w-3xl mx-auto">{pricingData.description}</p>
+		</Col>
+	</Row>
+
+	<div class="relative">
+		<div class="absolute inset-0 h-3/4 bg-neutral-900 dark:bg-neutral-950 rounded-3xl -mx-4 lg:-mx-8"></div>
+		
+		<Row classes="relative z-10 max-w-5xl mx-auto items-stretch gap-8 pt-12">
+			{pricingData.tiers.map(tier => (
+				<Col span="6" classes="flex">
+					<div class="card flex flex-col w-full bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl overflow-hidden border border-neutral-100 dark:border-neutral-800">
+						<div class="p-8 lg:p-12 border-b border-neutral-100 dark:border-neutral-800">
+							<span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-500 font-bold text-sm uppercase mb-4">
+								{tier.name}
+							</span>
+							<div class="flex items-baseline gap-1">
+								<span class="text-6xl font-bold text-neutral-900 dark:text-white font-headings">R$ {tier.price}</span>
+								<span class="text-xl text-neutral-500">/mês</span>
+							</div>
+							<p class="mt-6 text-neutral-500 dark:text-neutral-400">{tier.description}</p>
+						</div>
+						<div class="p-8 lg:p-12 bg-neutral-50 dark:bg-neutral-800/30 flex-1 flex flex-col justify-between">
+							<ul class="space-y-4">
+								{tier.features.map(f => (
+									<li class="flex gap-3 text-neutral-600 dark:text-neutral-400">
+										<Icon name="check-circle" class="size-6 text-primary-500 flex-none" />
+										{f}
+									</li>
+								))}
+							</ul>
+							<a href="#" class="mt-10 block w-full py-4 px-8 text-center bg-neutral-900 dark:bg-primary-500 text-white font-bold rounded-xl hover:bg-neutral-800 dark:hover:bg-primary-400 transition-colors">
+								Começar agora
+							</a>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+
+		<Row classes="relative z-10 max-w-5xl mx-auto mt-8">
+			<Col span="12">
+				<div class="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-12 bg-neutral-100 dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700">
+					<div class="lg:flex-1">
+						<span class="inline-block px-3 py-1 rounded-full bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-bold text-xs uppercase mb-4">
+							{pricingData.discounted.title}
+						</span>
+						<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+							{pricingData.discounted.description} <strong class="text-neutral-900 dark:text-white">{pricingData.discounted.price}</strong>.
+						</p>
+					</div>
+					<div class="mt-8 lg:mt-0 lg:ml-12">
+						<a href="#" class="whitespace-nowrap py-4 px-8 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white font-bold rounded-xl shadow-md hover:bg-neutral-50 dark:hover:bg-neutral-600 transition-all">
+							{pricingData.discounted.buttonText}
+						</a>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.pricing-std-ent {
+		@apply py-24 sm:py-32;
+	}
+</style>

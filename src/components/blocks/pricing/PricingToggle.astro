@@ -1,0 +1,209 @@
+---
+// PricingToggle
+// ------------
+// Description: Pricing plans with a monthly/annually toggle.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import Toggle from '../../ui/forms/form-elements/Toggle.astro'
+import pricingData from '../../../data/json-files/pricingToggle.json'
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section classes={`pricing-toggle ${classes || ''}`}>
+	<Row>
+		<Col span="12" align="center" classes="mx-auto max-w-4xl text-center mb-16">
+			<h2 class="pricing-toggle__title">{pricingData.title}</h2>
+			<p class="pricing-toggle__heading">{pricingData.heading}</p>
+			<p class="pricing-toggle__description">{pricingData.description}</p>
+		</Col>
+	</Row>
+
+	<div class="pricing-toggle__container">
+		<div class="flex justify-center items-center gap-4 mb-16">
+			<span id="monthlyLabel" class="text-sm font-semibold text-neutral-500">Mensal</span>
+			<Toggle id="pricingType" label="pricing" showLabel={false} checked={true} />
+			<span id="annualLabel" class="text-sm font-semibold text-primary-500">Anual</span>
+		</div>
+
+		<Row classes="pricing-toggle__grid items-stretch">
+			{
+				pricingData.tiers.map((tier) => (
+					<Col span="4" classes="flex">
+						<div
+							class:list={[
+								'toggle-card',
+								{ 'toggle-card--featured': tier.featured }
+							]}
+							data-pricing-card
+						>
+							<div class="flex items-center justify-between gap-x-4">
+								<h3 class:list={['toggle-card__name', { 'toggle-card__name--featured': tier.featured }]}>
+									{tier.name}
+								</h3>
+								{tier.featured && <span class="toggle-card__badge">Mais popular</span>}
+							</div>
+							<p class="toggle-card__description">{tier.description}</p>
+							
+							<div class="toggle-card__price-wrapper">
+								{typeof tier.price === 'string' ? (
+									<p class="toggle-card__price-static">{tier.price}</p>
+								) : (
+									<>
+										<p class="toggle-card__price toggle-card__price--monthly" data-monthly-price>
+											<span class="toggle-card__price-amount">{tier.price.monthly}</span>
+											<span class="toggle-card__price-label">/mês</span>
+										</p>
+										<p class="toggle-card__price toggle-card__price--annually hidden" data-annual-price>
+											<span class="toggle-card__price-amount">{tier.price.annually}</span>
+											<span class="toggle-card__price-label">/ano</span>
+										</p>
+									</>
+								)}
+							</div>
+
+							<a
+								href={tier.href}
+								class:list={[
+									'toggle-card__button',
+									tier.featured ? 'toggle-card__button--primary' : 'toggle-card__button--outline'
+								]}
+							>
+								{tier.cta}
+							</a>
+							
+							<ul role="list" class="toggle-card__list">
+								{tier.features.map((feature) => (
+									<li class="toggle-card__item">
+										<Icon name="check-circle" class="toggle-card__icon" />
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</div>
+</Section>
+
+<script>
+	const toggle = document.querySelector('#pricingType') as HTMLInputElement;
+	const monthlyPrices = document.querySelectorAll('[data-monthly-price]');
+	const annualPrices = document.querySelectorAll('[data-annual-price]');
+	const monthlyLabel = document.querySelector('#monthlyLabel');
+	const annualLabel = document.querySelector('#annualLabel');
+
+	if (toggle) {
+		toggle.addEventListener('change', () => {
+			const isAnnual = toggle.checked;
+			
+			if (isAnnual) {
+				monthlyPrices.forEach(el => el.classList.add('hidden'));
+				annualPrices.forEach(el => el.classList.remove('hidden'));
+				annualLabel?.classList.add('text-primary-500');
+				annualLabel?.classList.remove('text-neutral-500');
+				monthlyLabel?.classList.add('text-neutral-500');
+				monthlyLabel?.classList.remove('text-primary-500');
+			} else {
+				monthlyPrices.forEach(el => el.classList.remove('hidden'));
+				annualPrices.forEach(el => el.classList.add('hidden'));
+				monthlyLabel?.classList.add('text-primary-500');
+				monthlyLabel?.classList.remove('text-neutral-500');
+				annualLabel?.classList.add('text-neutral-500');
+				annualLabel?.classList.remove('text-primary-500');
+			}
+		});
+	}
+</script>
+
+<style>
+	.pricing-toggle {
+		@apply py-24 sm:py-32;
+	}
+	.pricing-toggle__title {
+		@apply text-base font-semibold leading-7 text-primary-500 font-headings;
+	}
+	.pricing-toggle__heading {
+		@apply mt-2 text-4xl font-bold tracking-tight text-neutral-900 sm:text-6xl font-headings dark:text-white;
+	}
+	.pricing-toggle__description {
+		@apply mx-auto mt-6 max-w-2xl text-lg font-medium text-neutral-600 dark:text-neutral-400;
+	}
+	.pricing-toggle__container {
+		@apply mt-16;
+	}
+	.toggle-card {
+		@apply flex flex-col w-full rounded-3xl p-8 ring-1 ring-neutral-200 xl:p-10 bg-white dark:bg-neutral-900 dark:ring-neutral-800 transition-all duration-300;
+	}
+	.toggle-card--featured {
+		@apply bg-neutral-900 dark:bg-neutral-950 ring-neutral-900 dark:ring-primary-500/50 shadow-2xl;
+	}
+	.toggle-card__name {
+		@apply text-lg font-semibold leading-8 text-neutral-900 dark:text-white font-headings;
+	}
+	.toggle-card__name--featured {
+		@apply text-white;
+	}
+	.toggle-card__badge {
+		@apply rounded-full bg-primary-500/10 px-2.5 py-1 text-xs font-semibold text-primary-500;
+	}
+	.toggle-card__description {
+		@apply mt-4 text-sm leading-6 text-neutral-600 dark:text-neutral-400;
+	}
+	.toggle-card--featured .toggle-card__description {
+		@apply text-neutral-300;
+	}
+	.toggle-card__price-wrapper {
+		@apply mt-6 h-12;
+	}
+	.toggle-card__price-static {
+		@apply text-4xl font-bold tracking-tight text-neutral-900 dark:text-white font-headings;
+	}
+	.toggle-card--featured .toggle-card__price-static {
+		@apply text-white;
+	}
+	.toggle-card__price {
+		@apply flex items-baseline gap-x-1;
+	}
+	.toggle-card__price-amount {
+		@apply text-4xl font-bold tracking-tight text-neutral-900 dark:text-white font-headings;
+	}
+	.toggle-card--featured .toggle-card__price-amount {
+		@apply text-white;
+	}
+	.toggle-card__price-label {
+		@apply text-sm font-semibold text-neutral-600 dark:text-neutral-400;
+	}
+	.toggle-card--featured .toggle-card__price-label {
+		@apply text-neutral-300;
+	}
+	.toggle-card__button {
+		@apply mt-6 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 transition-all;
+	}
+	.toggle-card__button--primary {
+		@apply bg-primary-500 text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500;
+	}
+	.toggle-card__button--outline {
+		@apply text-primary-500 ring-1 ring-inset ring-primary-200 hover:ring-primary-300 dark:ring-primary-900 dark:hover:ring-primary-700;
+	}
+	.toggle-card__list {
+		@apply mt-8 space-y-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400;
+	}
+	.toggle-card--featured .toggle-card__list {
+		@apply text-neutral-300;
+	}
+	.toggle-card__item {
+		@apply flex gap-x-3;
+	}
+	.toggle-card__icon {
+		@apply h-6 w-5 flex-none text-primary-500;
+	}
+</style>

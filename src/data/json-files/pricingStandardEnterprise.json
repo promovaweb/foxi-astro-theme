@@ -1,0 +1,35 @@
+{
+  "title": "Preços",
+  "heading": "O preço certo para você, quem quer que você seja",
+  "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.",
+  "tiers": [
+    {
+      "name": "Padrão",
+      "price": "249",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "features": [
+        "Pariatur quod similique",
+        "Sapiente libero doloribus modi nostrum",
+        "Vel ipsa esse repudiandae excepturi",
+        "Itaque cupiditate adipisci quibusdam"
+      ]
+    },
+    {
+      "name": "Corporativo",
+      "price": "399",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "features": [
+        "Pariatur quod similique",
+        "Sapiente libero doloribus modi nostrum",
+        "Vel ipsa esse repudiandae excepturi",
+        "Itaque cupiditate adipisci quibusdam"
+      ]
+    }
+  ],
+  "discounted": {
+    "title": "Com Desconto",
+    "description": "Obtenha acesso total a todos os recursos da licença padrão para projetos solo que faturam menos de R$ 100k por apenas",
+    "price": "R$ 149",
+    "buttonText": "Comprar Licença com Desconto"
+  }
+}

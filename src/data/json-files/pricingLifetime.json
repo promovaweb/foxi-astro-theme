@@ -1,0 +1,19 @@
+{
+  "heading": "Preços simples e sem truques",
+  "description": "Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.",
+  "title": "Assinatura Vitalícia",
+  "text": "Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis repellendus etur quidem assumenda.",
+  "includedHeading": "O que está incluído",
+  "features": [
+    "Acesso ao fórum privado",
+    "Recursos para membros",
+    "Entrada para conferência anual",
+    "Camiseta oficial de membro"
+  ],
+  "price": "R$ 1.749",
+  "priceLabel": "BRL",
+  "priceDescription": "Pague uma vez, seja dono para sempre",
+  "buttonText": "Obter acesso",
+  "href": "#",
+  "footerText": "Faturas e recibos disponíveis para fácil reembolso da empresa"
+}

@@ -1,0 +1,138 @@
+---
+// Components
+// - Layout
+import Layout from '../../layouts/Layout.astro'
+// - UI
+import Hero from '../../components/blocks/hero/PageHeader.astro'
+import PricingColumns from '../../components/blocks/pricing/PricingColumns.astro'
+import PricingTwoTiers from '../../components/blocks/pricing/PricingTwoTiers.astro'
+import PricingPersonalTeam from '../../components/blocks/pricing/PricingPersonalTeam.astro'
+import PricingComparison from '../../components/blocks/pricing/PricingComparison.astro'
+import PricingSplitDark from '../../components/blocks/pricing/PricingSplitDark.astro'
+import PricingLifetime from '../../components/blocks/pricing/PricingLifetime.astro'
+import PricingThreeColumns from '../../components/blocks/pricing/PricingThreeColumns.astro'
+import PricingDetails from '../../components/blocks/pricing/PricingDetails.astro'
+import PricingToggle from '../../components/blocks/pricing/PricingToggle.astro'
+import PricingGrowing from '../../components/blocks/pricing/PricingGrowing.astro'
+import PricingSplitDarkFreq from '../../components/blocks/pricing/PricingSplitDarkFreq.astro'
+import PricingFullFeatured from '../../components/blocks/pricing/PricingFullFeatured.astro'
+import PricingOverlapping from '../../components/blocks/pricing/PricingOverlapping.astro'
+import PricingStandardEnterprise from '../../components/blocks/pricing/PricingStandardEnterprise.astro'
+import CTA from '../../components/blocks/CTA/BasicDark.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Componentes de Preço | Foxi',
+	description: 'Veja os diferentes componentes de preço disponíveis no tema Foxi Astro.'
+}
+// - Page Header
+const header = {
+	title: 'Componentes de <strong>Preço</strong>',
+	text: 'Exiba seus planos de preços com diferentes estilos e layouts.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+
+	<div class="py-12 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">1. Colunas de Preço (Padrão)</h2>
+		</div>
+		<PricingColumns />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">2. Dois Planos (Destaque Lateral)</h2>
+		</div>
+		<PricingTwoTiers />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">3. Pessoal vs Equipe (Card em Destaque)</h2>
+		</div>
+		<PricingPersonalTeam />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">4. Comparação Detalhada</h2>
+		</div>
+		<PricingComparison />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">5. Cabeçalho Escuro Dividido</h2>
+		</div>
+		<PricingSplitDark />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">6. Assinatura Vitalícia</h2>
+		</div>
+		<PricingLifetime />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">7. Três Colunas (Destaque Central)</h2>
+		</div>
+		<PricingThreeColumns />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">8. Detalhes de Pagamento</h2>
+		</div>
+		<PricingDetails />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">9. Alternância Mensal/Anual</h2>
+		</div>
+		<PricingToggle />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">10. Tabela de Comparação (Growing)</h2>
+		</div>
+		<PricingGrowing />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">11. Cabeçalho Escuro com Alternância</h2>
+		</div>
+		<PricingSplitDarkFreq />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">12. Recursos Completos Divididos</h2>
+		</div>
+		<PricingFullFeatured />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">13. Cards Sobrepostos</h2>
+		</div>
+		<PricingOverlapping />
+	</div>
+
+	<div class="py-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40">
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl font-bold mb-8 font-headings dark:text-white">14. Padrão vs Corporativo (Com Desconto)</h2>
+		</div>
+		<PricingStandardEnterprise />
+	</div>
+
+	<CTA />
+</Layout>

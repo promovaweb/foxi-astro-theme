@@ -47,8 +47,8 @@ export const navigationBarData: NavData = {
 			submenu: [
 				{ name: 'Heros', link: '/components/hero' },
 				{ name: 'Funcionalidades', link: '/components/features' },
-				{ name: 'Depoimentos', link: '/components/testimonials' },
-				{ name: 'CTA', link: '/components/cta' },
+				{ name: 'Preços', link: '/components/pricing' },
+				{ name: 'Depoimentos', link: '/components/testimonials' },				{ name: 'CTA', link: '/components/cta' },
 				{ name: 'Bento Grids', link: '/components/bento' },
 				{ name: 'FAQ', link: '/components/faq' },
 				{ name: 'Contato', link: '/components/contact' }

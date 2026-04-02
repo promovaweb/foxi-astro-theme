@@ -1,0 +1,77 @@
+{
+  "heading": "Preços que crescem com o tamanho da sua equipe",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "tiers": [
+    {
+      "name": "Iniciante",
+      "description": "Tudo o que você precisa para começar.",
+      "priceMonthly": "R$ 99",
+      "href": "#",
+      "highlights": [
+        { "description": "Domínios personalizados" },
+        { "description": "Entrega de conteúdo Edge" },
+        { "description": "Análises avançadas" },
+        { "description": "Workshops trimestrais", "disabled": true },
+        { "description": "Single sign-on (SSO)", "disabled": true },
+        { "description": "Suporte por telefone prioritário", "disabled": true }
+      ]
+    },
+    {
+      "name": "Crescimento",
+      "description": "Todos os extras para sua equipe em crescimento.",
+      "priceMonthly": "R$ 249",
+      "href": "#",
+      "highlights": [
+        { "description": "Domínios personalizados" },
+        { "description": "Entrega de conteúdo Edge" },
+        { "description": "Análises avançadas" },
+        { "description": "Workshops trimestrais" },
+        { "description": "Single sign-on (SSO)", "disabled": true },
+        { "description": "Suporte por telefone prioritário", "disabled": true }
+      ]
+    },
+    {
+      "name": "Escala",
+      "description": "Flexibilidade adicional em escala.",
+      "priceMonthly": "R$ 499",
+      "href": "#",
+      "highlights": [
+        { "description": "Domínios personalizados" },
+        { "description": "Entrega de conteúdo Edge" },
+        { "description": "Análises avançadas" },
+        { "description": "Workshops trimestrais" },
+        { "description": "Single sign-on (SSO)" },
+        { "description": "Suporte por telefone prioritário" }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "name": "Recursos",
+      "features": [
+        { "name": "Entrega de conteúdo Edge", "tiers": { "Iniciante": true, "Crescimento": true, "Escala": true } },
+        { "name": "Domínios personalizados", "tiers": { "Iniciante": "1", "Crescimento": "3", "Escala": "Ilimitado" } },
+        { "name": "Membros da equipe", "tiers": { "Iniciante": "3", "Crescimento": "20", "Escala": "Ilimitado" } },
+        { "name": "Single sign-on (SSO)", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } }
+      ]
+    },
+    {
+      "name": "Relatórios",
+      "features": [
+        { "name": "Análises avançadas", "tiers": { "Iniciante": true, "Crescimento": true, "Escala": true } },
+        { "name": "Relatórios básicos", "tiers": { "Iniciante": false, "Crescimento": true, "Escala": true } },
+        { "name": "Relatórios profissionais", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } },
+        { "name": "Construtor de relatórios personalizados", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } }
+      ]
+    },
+    {
+      "name": "Suporte",
+      "features": [
+        { "name": "Suporte online 24/7", "tiers": { "Iniciante": true, "Crescimento": true, "Escala": true } },
+        { "name": "Workshops trimestrais", "tiers": { "Iniciante": false, "Crescimento": true, "Escala": true } },
+        { "name": "Suporte por telefone prioritário", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } },
+        { "name": "Tour de onboarding 1:1", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+---
+// PricingLifetime
+// ------------
+// Description: Lifetime membership with a lateral price box.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import pricingData from '../../../data/json-files/pricingLifetime.json'
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section classes={`pricing-lifetime ${classes || ''}`}>
+	<Row>
+		<Col span="12" align="center" classes="mx-auto max-w-4xl sm:text-center mb-16">
+			<h2 class="pricing-lifetime__heading">{pricingData.heading}</h2>
+			<p class="pricing-lifetime__description">{pricingData.description}</p>
+		</Col>
+	</Row>
+
+	<div class="pricing-lifetime__box">
+		<Row classes="items-stretch">
+			<Col span="8" classes="p-8 sm:p-10 lg:flex-auto">
+				<h3 class="pricing-lifetime__title">{pricingData.title}</h3>
+				<p class="pricing-lifetime__text">{pricingData.text}</p>
+				<div class="mt-10 flex items-center gap-x-4">
+					<h4 class="pricing-lifetime__included-heading">{pricingData.includedHeading}</h4>
+					<div class="h-px flex-auto bg-neutral-100 dark:bg-neutral-800"></div>
+				</div>
+				<ul role="list" class="pricing-lifetime__features">
+					{pricingData.features.map((feature) => (
+						<li class="pricing-lifetime__feature">
+							<Icon name="check-circle" class="pricing-lifetime__feature-icon" />
+							{feature}
+						</li>
+					))}
+				</ul>
+			</Col>
+			<Col span="4" classes="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:shrink-0">
+				<div class="price-box">
+					<div class="price-box__inner">
+						<p class="price-box__description">{pricingData.priceDescription}</p>
+						<p class="price-box__price">
+							<span class="price-box__amount">{pricingData.price}</span>
+							<span class="price-box__label">{pricingData.priceLabel}</span>
+						</p>
+						<a href={pricingData.href} class="price-box__button">
+							{pricingData.buttonText}
+						</a>
+						<p class="price-box__footer">{pricingData.footerText}</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.pricing-lifetime {
+		@apply py-24 sm:py-32;
+	}
+	.pricing-lifetime__heading {
+		@apply text-4xl font-bold tracking-tight text-neutral-900 sm:text-6xl font-headings dark:text-white;
+	}
+	.pricing-lifetime__description {
+		@apply mx-auto mt-6 max-w-2xl text-lg font-medium text-neutral-50 dark:text-neutral-400;
+	}
+	.pricing-lifetime__box {
+		@apply mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-neutral-200 dark:ring-neutral-800 lg:mx-0 lg:max-w-none bg-white dark:bg-neutral-900/50 shadow-lg;
+	}
+	.pricing-lifetime__title {
+		@apply text-3xl font-bold tracking-tight text-neutral-900 dark:text-white font-headings;
+	}
+	.pricing-lifetime__text {
+		@apply mt-6 text-base leading-7 text-neutral-600 dark:text-neutral-400;
+	}
+	.pricing-lifetime__included-heading {
+		@apply flex-none text-sm font-semibold text-primary-500 font-headings;
+	}
+	.pricing-lifetime__features {
+		@apply mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-neutral-600 sm:grid-cols-2 sm:gap-6 dark:text-neutral-400;
+	}
+	.pricing-lifetime__feature {
+		@apply flex gap-x-3;
+	}
+	.pricing-lifetime__feature-icon {
+		@apply h-6 w-5 flex-none text-primary-500;
+	}
+	.price-box {
+		@apply h-full;
+	}
+	.price-box__inner {
+		@apply h-full rounded-2xl bg-neutral-50 py-10 text-center ring-1 ring-inset ring-neutral-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16 dark:bg-neutral-800;
+	}
+	.price-box__description {
+		@apply text-base font-semibold text-neutral-600 dark:text-neutral-400;
+	}
+	.price-box__price {
+		@apply mt-6 flex items-baseline justify-center gap-x-2;
+	}
+	.price-box__amount {
+		@apply text-5xl font-bold tracking-tight text-neutral-900 dark:text-white font-headings;
+	}
+	.price-box__label {
+		@apply text-sm font-semibold tracking-wide text-neutral-500 dark:text-neutral-400;
+	}
+	.price-box__button {
+		@apply mt-10 block w-full max-w-xs mx-auto rounded-md bg-primary-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-400 transition-colors;
+	}
+	.price-box__footer {
+		@apply mt-6 text-xs leading-5 text-neutral-500 dark:text-neutral-400 px-8;
+	}
+</style>

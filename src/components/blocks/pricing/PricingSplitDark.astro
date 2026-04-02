@@ -1,0 +1,159 @@
+---
+// PricingSplitDark
+// ------------
+// Description: Dark header with white pricing cards and a discounted footer.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import pricingData from '../../../data/json-files/pricingSplitDark.json'
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section padding="none" classes={`pricing-split-dark ${classes || ''}`}>
+	<div class="pricing-split-dark__header">
+		<Row>
+			<Col span="12" align="center" classes="mx-auto max-w-4xl pt-24 pb-96">
+				<h2 class="pricing-split-dark__title">{pricingData.title}</h2>
+				<p class="pricing-split-dark__heading">{pricingData.heading}</p>
+				<div class="relative mt-6">
+					<p class="pricing-split-dark__description">{pricingData.description}</p>
+					<svg viewBox="0 0 1208 1024" class="pricing-split-dark__svg" aria-hidden="true">
+						<ellipse cx="604" cy="512" rx="604" ry="512" fill="url(#pricing-split-gradient)" />
+						<defs>
+							<radialGradient id="pricing-split-gradient">
+								<stop stop-color="#E2187D" />
+								<stop offset="1" stop-color="#500724" />
+							</radialGradient>
+						</defs>
+					</svg>
+				</div>
+			</Col>
+		</Row>
+	</div>
+
+	<div class="pricing-split-dark__body">
+		<div class="pricing-split-dark__cards-wrapper">
+			<Row classes="pricing-split-dark__grid">
+				{
+					pricingData.tiers.map((tier) => (
+						<Col span="6">
+							<div class="split-card">
+								<div class="split-card__content">
+									<h3 id={tier.id} class="split-card__name">{tier.name}</h3>
+									<div class="split-card__price-box">
+										<span class="split-card__price">{tier.priceMonthly}</span>
+										<span class="split-card__label">/mês</span>
+									</div>
+									<p class="split-card__description">{tier.description}</p>
+									<ul role="list" class="split-card__list">
+										{tier.features.map((feature) => (
+											<li class="split-card__item">
+												<Icon name="check-circle" class="split-card__icon" />
+												{feature}
+											</li>
+										))}
+									</ul>
+								</div>
+								<a href={tier.href} class="split-card__button">
+									Comece agora
+								</a>
+							</div>
+						</Col>
+					))
+				}
+				<Col span="12">
+					<div class="discount-box">
+						<div class="discount-box__text">
+							<h3 class="discount-box__title">{pricingData.discounted.title}</h3>
+							<p class="discount-box__description">{pricingData.discounted.description}</p>
+						</div>
+						<a href={pricingData.discounted.href} class="discount-box__button">
+							{pricingData.discounted.buttonText} <span aria-hidden="true">&rarr;</span>
+						</a>
+					</div>
+				</Col>
+			</Row>
+		</div>
+	</div>
+</Section>
+
+<style>
+	.pricing-split-dark {
+		@apply isolate overflow-hidden bg-neutral-900;
+	}
+	.pricing-split-dark__header {
+		@apply text-center;
+	}
+	.pricing-split-dark__title {
+		@apply text-base font-semibold leading-7 text-primary-400 font-headings;
+	}
+	.pricing-split-dark__heading {
+		@apply mt-2 text-4xl font-bold tracking-tight text-white sm:text-6xl font-headings;
+	}
+	.pricing-split-dark__description {
+		@apply mx-auto max-w-2xl text-lg font-medium text-neutral-400 sm:text-xl/8;
+	}
+	.pricing-split-dark__svg {
+		@apply absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] opacity-20;
+	}
+	.pricing-split-dark__body {
+		@apply bg-neutral-50 dark:bg-neutral-950 pb-24 sm:pb-32;
+	}
+	.pricing-split-dark__cards-wrapper {
+		@apply -mt-80 px-6 lg:px-8;
+	}
+	.pricing-split-dark__grid {
+		@apply mx-auto max-w-md lg:max-w-4xl;
+	}
+	.split-card {
+		@apply flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-neutral-900/10 sm:p-10 dark:bg-neutral-900 dark:ring-neutral-800 transition-all duration-300;
+	}
+	.split-card__name {
+		@apply text-base font-semibold text-primary-500 font-headings;
+	}
+	.split-card__price-box {
+		@apply mt-4 flex items-baseline gap-x-2;
+	}
+	.split-card__price {
+		@apply text-5xl font-bold tracking-tight text-neutral-900 dark:text-white font-headings;
+	}
+	.split-card__label {
+		@apply text-base font-semibold text-neutral-500 dark:text-neutral-400;
+	}
+	.split-card__description {
+		@apply mt-6 text-base text-neutral-600 dark:text-neutral-400;
+	}
+	.split-card__list {
+		@apply mt-10 space-y-4 text-sm text-neutral-600 dark:text-neutral-400;
+	}
+	.split-card__item {
+		@apply flex gap-x-3;
+	}
+	.split-card__icon {
+		@apply h-6 w-5 flex-none text-primary-500;
+	}
+	.split-card__button {
+		@apply mt-8 block rounded-md bg-primary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 transition-colors;
+	}
+	.discount-box {
+		@apply flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-neutral-900/10 sm:gap-y-10 sm:p-10 lg:flex-row lg:items-center bg-white/50 dark:bg-neutral-900/50 mt-8;
+	}
+	.discount-box__text {
+		@apply lg:min-w-0 lg:flex-1;
+	}
+	.discount-box__title {
+		@apply text-base font-semibold text-primary-500 font-headings;
+	}
+	.discount-box__description {
+		@apply mt-1 text-base text-neutral-600 dark:text-neutral-400;
+	}
+	.discount-box__button {
+		@apply rounded-md px-3.5 py-2 text-sm font-semibold text-primary-500 ring-1 ring-inset ring-primary-200 hover:ring-primary-300 dark:ring-primary-900 dark:hover:ring-primary-700 transition-all;
+	}
+</style>

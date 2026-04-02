@@ -1,0 +1,146 @@
+---
+// PricingGrowing
+// ------------
+// Description: Detailed comparison table with a focus on growth plans.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import pricingDataRaw from '../../../data/json-files/pricingGrowing.json'
+const pricingData = pricingDataRaw as any
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section classes={`pricing-growing ${classes || ''}`}>
+	<Row>
+		<Col span="12" align="center" classes="mx-auto max-w-4xl text-center mb-16">
+			<h2 class="pricing-growing__title">{pricingData.title}</h2>
+			<p class="pricing-growing__heading">{pricingData.heading}</p>
+			<p class="pricing-growing__description">{pricingData.description}</p>
+		</Col>
+	</Row>
+
+	{/* Mobile version */}
+	<div class="lg:hidden space-y-8">
+		{pricingData.tiers.map((tier: any) => (
+			<div class:list={['growing-mobile-card', { 'growing-mobile-card--popular': tier.mostPopular }]}>
+				<h3 class="text-lg font-bold text-neutral-900 dark:text-white font-headings">{tier.name}</h3>
+				<p class="mt-2 flex items-baseline gap-1">
+					<span class="text-4xl font-bold text-neutral-900 dark:text-white font-headings">{tier.priceMonthly}</span>
+					<span class="text-sm text-neutral-500 dark:text-neutral-400">/mês</span>
+				</p>
+				<a href={tier.href} class:list={['growing-button', tier.mostPopular ? 'growing-button--primary' : 'growing-button--outline']}>
+					Comprar plano
+				</a>
+				<ul class="mt-8 space-y-4">
+					{pricingData.sections.map((section: any) => (
+						section.features.map((feature: any) => (
+							feature.tiers[tier.name] && (
+								<li class="flex gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+									<Icon name="check-circle" class="size-5 text-primary-500 flex-none" />
+									<span>
+										{feature.name} {typeof feature.tiers[tier.name] === 'string' ? `(${feature.tiers[tier.name]})` : ''}
+									</span>
+								</li>
+							)
+						))
+					))}
+				</ul>
+			</div>
+		))}
+	</div>
+
+	{/* Desktop version */}
+	<div class="hidden lg:block mt-20 relative">
+		<table class="growing-table">
+			<colgroup>
+				<col class="w-1/4" />
+				<col class="w-1/4" />
+				<col class="w-1/4" />
+				<col class="w-1/4" />
+			</colgroup>
+			<thead>
+				<tr>
+					<td></td>
+					{pricingData.tiers.map((tier: any) => (
+						<th class="px-6 py-6 font-headings text-lg font-bold text-neutral-900 dark:text-white">
+							{tier.name}
+							{tier.mostPopular && <div class="text-xs font-semibold text-primary-500 mt-1 uppercase">Mais Popular</div>}
+						</th>
+					))}
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="sr-only">Preço</th>
+					{pricingData.tiers.map((tier: any) => (
+						<td class="px-6 pb-8">
+							<div class="flex items-baseline gap-1 mb-6">
+								<span class="text-4xl font-bold text-neutral-900 dark:text-white font-headings">{tier.priceMonthly}</span>
+								<span class="text-sm text-neutral-500">/mês</span>
+							</div>
+							<a href={tier.href} class:list={['growing-button', tier.mostPopular ? 'growing-button--primary' : 'growing-button--outline']}>
+								Comprar plano
+							</a>
+						</td>
+					))}
+				</tr>
+				{pricingData.sections.map((section: any) => (
+					<>
+						<tr>
+							<th colspan="4" class="pt-12 pb-4 text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider border-b border-neutral-100 dark:border-neutral-800">
+								{section.name}
+							</th>
+						</tr>
+						{section.features.map((feature: any) => (
+							<tr class="border-b border-neutral-50 dark:border-neutral-900/50">
+								<th scope="row" class="py-4 text-sm font-normal text-neutral-600 dark:text-neutral-400">
+									{feature.name}
+								</th>
+								{pricingData.tiers.map((tier: any) => (
+									<td class="px-6 py-4 text-center">
+										{typeof feature.tiers[tier.name] === 'string' ? (
+											<span class="text-sm text-neutral-500">{feature.tiers[tier.name]}</span>
+										) : (
+											feature.tiers[tier.name] === true ? (
+												<Icon name="check-circle" class="size-5 text-primary-500 mx-auto" />
+											) : (
+												<span class="text-neutral-200 dark:text-neutral-700">—</span>
+											)
+										)}
+									</td>
+								))}
+							</tr>
+						))}
+					</>
+				))}
+			</tbody>
+		</table>
+	</div>
+</Section>
+
+<style>
+	.growing-mobile-card {
+		@apply p-8 border border-neutral-100 dark:border-neutral-800 rounded-2xl bg-white dark:bg-neutral-900;
+	}
+	.growing-mobile-card--popular {
+		@apply ring-2 ring-primary-500 dark:ring-primary-500 shadow-xl;
+	}
+	.growing-button {
+		@apply mt-8 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold transition-all;
+	}
+	.growing-button--primary {
+		@apply bg-primary-500 text-white hover:bg-primary-400;
+	}
+	.growing-button--outline {
+		@apply text-primary-500 ring-1 ring-inset ring-primary-200 hover:ring-primary-300 dark:ring-primary-900 dark:hover:ring-primary-700;
+	}
+	.growing-table {
+		@apply w-full border-separate border-spacing-0;
+	}
+</style>

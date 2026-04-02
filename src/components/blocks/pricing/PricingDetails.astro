@@ -1,0 +1,113 @@
+---
+// PricingDetails
+// ------------
+// Description: Detailed plans with monthly/annually breakdown.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import pricingData from '../../../data/json-files/pricingDetails.json'
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section classes={`pricing-details ${classes || ''}`}>
+	<Row>
+		<Col span="12" align="center" classes="mx-auto max-w-4xl text-center mb-16">
+			<h2 class="pricing-details__title">{pricingData.title}</h2>
+			<p class="pricing-details__heading">{pricingData.heading}</p>
+			<p class="pricing-details__description">{pricingData.description}</p>
+		</Col>
+	</Row>
+
+	<div class="pricing-details__container">
+		<Row classes="pricing-details__grid divide-y divide-neutral-100 dark:divide-neutral-800 lg:divide-x lg:divide-y-0 items-stretch">
+			{
+				pricingData.tiers.map((tier) => (
+					<Col span="4" classes="flex">
+						<div class="details-card">
+							<h3 id={tier.id} class="details-card__name">{tier.name}</h3>
+							<p class="details-card__price">
+								<span class="details-card__price-amount">{tier.price.monthly}</span>
+								<span class="details-card__price-label">/mês</span>
+							</p>
+							<p class="details-card__annually">
+								{tier.price.annually} por mês se pago anualmente
+							</p>
+							<a href={tier.href} class="details-card__button">
+								Comprar plano
+							</a>
+							<p class="details-card__description-title">{tier.description}</p>
+							<ul role="list" class="details-card__list">
+								{tier.features.map((feature) => (
+									<li class="details-card__item">
+										<Icon name="check-circle" class="details-card__icon" />
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.pricing-details {
+		@apply py-24 sm:py-32 bg-white dark:bg-neutral-950;
+	}
+	.pricing-details__title {
+		@apply text-base font-semibold leading-7 text-primary-500 font-headings;
+	}
+	.pricing-details__heading {
+		@apply mt-2 text-4xl font-bold tracking-tight text-neutral-900 sm:text-6xl font-headings dark:text-white;
+	}
+	.pricing-details__description {
+		@apply mx-auto mt-6 max-w-2xl text-lg font-medium text-neutral-600 dark:text-neutral-400;
+	}
+	.pricing-details__container {
+		@apply mt-20 flow-root;
+	}
+	.pricing-details__grid {
+		@apply isolate -mt-16 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none xl:-mx-4;
+	}
+	.details-card {
+		@apply w-full pt-16 lg:px-8 lg:pt-0 xl:px-14 flex flex-col;
+	}
+	.details-card__name {
+		@apply text-base font-semibold text-neutral-900 dark:text-white font-headings;
+	}
+	.details-card__price {
+		@apply mt-6 flex items-baseline gap-x-1;
+	}
+	.details-card__price-amount {
+		@apply text-5xl font-bold tracking-tight text-neutral-900 dark:text-white font-headings;
+	}
+	.details-card__price-label {
+		@apply text-sm font-semibold text-neutral-500 dark:text-neutral-400;
+	}
+	.details-card__annually {
+		@apply mt-3 text-sm text-neutral-500 dark:text-neutral-400;
+	}
+	.details-card__button {
+		@apply mt-10 block rounded-md bg-primary-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-400 transition-colors;
+	}
+	.details-card__description-title {
+		@apply mt-10 text-sm font-semibold text-neutral-900 dark:text-white;
+	}
+	.details-card__list {
+		@apply mt-6 space-y-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400;
+	}
+	.details-card__item {
+		@apply flex gap-x-3;
+	}
+	.details-card__icon {
+		@apply h-6 w-5 flex-none text-primary-500;
+	}
+</style>

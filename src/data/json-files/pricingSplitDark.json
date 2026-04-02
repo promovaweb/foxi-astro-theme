@@ -1,0 +1,35 @@
+{
+  "title": "Preços",
+  "heading": "Escolha o plano ideal para você",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "tiers": [
+    {
+      "name": "Hobby",
+      "id": "tier-hobby",
+      "href": "#",
+      "priceMonthly": "R$ 149",
+      "description": "Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.",
+      "features": ["5 produtos", "Até 1.000 inscritos", "Análises básicas", "Tempo de resposta de 48 horas"]
+    },
+    {
+      "name": "Equipe",
+      "id": "tier-team",
+      "href": "#",
+      "priceMonthly": "R$ 499",
+      "description": "Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.",
+      "features": [
+        "Produtos ilimitados",
+        "Inscritos ilimitados",
+        "Análises avançadas",
+        "Resposta de suporte dedicada em 1 hora",
+        "Automações de marketing"
+      ]
+    }
+  ],
+  "discounted": {
+    "title": "Com Desconto",
+    "description": "Dolor dolores repudiandae doloribus. Rerum sunt aut eum. Odit omnis non voluptatem sunt eos nostrum.",
+    "buttonText": "Comprar licença com desconto",
+    "href": "#"
+  }
+}

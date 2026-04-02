@@ -1,0 +1,156 @@
+---
+// PricingSplitDarkFreq
+// ------------
+// Description: Dark header with toggle and detailed comparison table.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+import Toggle from '../../ui/forms/form-elements/Toggle.astro'
+import pricingDataRaw from '../../../data/json-files/pricingSplitDarkFreq.json'
+const pricingData = pricingDataRaw as any
+
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props
+---
+
+<Section padding="none" classes={`pricing-split-dark-freq ${classes || ''}`}>
+	<div class="pricing-split-dark-freq__header bg-neutral-900 pt-24 pb-16 lg:pb-32">
+		<Row>
+			<Col span="12" align="center" classes="mx-auto max-w-4xl text-center">
+				<h2 class="text-4xl font-bold text-white sm:text-6xl font-headings">{pricingData.heading}</h2>
+				<p class="mt-6 text-lg text-neutral-400">{pricingData.description}</p>
+				
+				<div class="mt-12 flex justify-center items-center gap-4">
+					<span id="monthlyLabel" class="text-sm font-semibold text-primary-500">Mensal</span>
+					<Toggle id="freqToggle" label="frequencia" showLabel={false} checked={true} />
+					<span id="annualLabel" class="text-sm font-semibold text-neutral-400">Anual</span>
+				</div>
+			</Col>
+		</Row>
+
+		<div class="relative mx-auto mt-16 px-6 lg:px-8 max-w-7xl">
+			<Row classes="lg:-mb-32 relative z-10 items-stretch gap-y-8">
+				{pricingData.tiers.map((tier: any) => (
+					<Col span="4" classes="flex">
+						<div class:list={['tier-card', { 'tier-card--featured': tier.featured }]}>
+							<h3 class="tier-card__name">{tier.name}</h3>
+							<div class="mt-4 flex flex-col">
+								<div class="flex items-baseline gap-1" data-monthly-price>
+									<span class="text-4xl font-bold font-headings">{tier.price.monthly}</span>
+									<span class="text-sm opacity-60">/mês</span>
+								</div>
+								<div class="flex items-baseline gap-1 hidden" data-annual-price>
+									<span class="text-4xl font-bold font-headings">{tier.price.annually}</span>
+									<span class="text-sm opacity-60">/ano</span>
+								</div>
+							</div>
+							<a href={tier.href} class:list={['tier-card__button', tier.featured ? 'tier-card__button--primary' : 'tier-card__button--outline']}>
+								Comprar este plano
+							</a>
+							<ul class="mt-8 space-y-3">
+								{tier.highlights.map((h: any) => (
+									<li class="flex gap-2 text-sm">
+										<Icon name="check-circle" class:list={['size-5', tier.featured ? 'text-primary-500' : 'text-primary-400']} />
+										{h}
+									</li>
+								))}
+							</ul>
+						</div>
+					</Col>
+				))}
+			</Row>
+		</div>
+	</div>
+
+	<div class="bg-neutral-50 dark:bg-neutral-950 pt-32 pb-24 lg:pt-48">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 hidden lg:block">
+			<table class="w-full text-left border-collapse">
+				<thead>
+					<tr>
+						<th class="py-4"></th>
+						{pricingData.tiers.map((tier: any) => (
+							<th class="py-4 px-6 font-headings font-bold text-neutral-900 dark:text-white">{tier.name}</th>
+						))}
+					</tr>
+				</thead>
+				{pricingData.sections.map((section: any) => (
+					<tbody>
+						<tr>
+							<th colspan="4" class="py-3 px-4 bg-neutral-100 dark:bg-neutral-900 rounded-lg text-sm font-bold uppercase tracking-wider text-neutral-900 dark:text-white">
+								{section.name}
+							</th>
+						</tr>
+						{section.features.map((feature: any) => (
+							<tr class="border-b border-neutral-200 dark:border-neutral-800">
+								<th class="py-4 text-sm font-normal text-neutral-600 dark:text-neutral-400">{feature.name}</th>
+								{pricingData.tiers.map((tier: any) => (
+									<td class="py-4 px-6 text-center">
+										{typeof feature.tiers[tier.name] === 'string' ? (
+											<span class="text-sm font-medium">{feature.tiers[tier.name]}</span>
+										) : (
+											feature.tiers[tier.name] === true ? <Icon name="check-circle" class="size-5 text-primary-500 mx-auto" /> : <span class="text-neutral-300">—</span>
+										)}
+									</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				))}
+			</table>
+		</div>
+	</div>
+</Section>
+
+<script>
+	const toggle = document.querySelector('#freqToggle') as HTMLInputElement;
+	const monthlyPrices = document.querySelectorAll('[data-monthly-price]');
+	const annualPrices = document.querySelectorAll('[data-annual-price]');
+	const monthlyLabel = document.querySelector('#monthlyLabel');
+	const annualLabel = document.querySelector('#annualLabel');
+
+	if (toggle) {
+		toggle.addEventListener('change', () => {
+			const isAnnual = toggle.checked;
+			if (isAnnual) {
+				monthlyPrices.forEach(el => el.classList.add('hidden'));
+				annualPrices.forEach(el => el.classList.remove('hidden'));
+				annualLabel?.classList.add('text-primary-500');
+				annualLabel?.classList.remove('text-neutral-400');
+				monthlyLabel?.classList.add('text-neutral-400');
+				monthlyLabel?.classList.remove('text-primary-500');
+			} else {
+				monthlyPrices.forEach(el => el.classList.remove('hidden'));
+				annualPrices.forEach(el => el.classList.add('hidden'));
+				monthlyLabel?.classList.add('text-primary-500');
+				monthlyLabel?.classList.remove('text-neutral-400');
+				annualLabel?.classList.add('text-neutral-400');
+				annualLabel?.classList.remove('text-primary-500');
+			}
+		});
+	}
+</script>
+
+<style>
+	.tier-card {
+		@apply flex flex-col w-full rounded-2xl p-8 bg-neutral-800/80 text-white ring-1 ring-white/10;
+	}
+	.tier-card--featured {
+		@apply bg-white text-neutral-900 shadow-2xl ring-0;
+	}
+	.tier-card__name {
+		@apply text-sm font-semibold font-headings uppercase tracking-wider;
+	}
+	.tier-card__button {
+		@apply mt-8 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold transition-all;
+	}
+	.tier-card__button--primary {
+		@apply bg-primary-500 text-white hover:bg-primary-400;
+	}
+	.tier-card__button--outline {
+		@apply bg-white/10 text-white hover:bg-white/20 ring-1 ring-white/10;
+	}
+</style>

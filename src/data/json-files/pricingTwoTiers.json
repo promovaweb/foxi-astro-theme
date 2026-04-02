@@ -1,0 +1,37 @@
+{
+  "title": "Preços",
+  "heading": "Escolha o plano ideal para você",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "tiers": [
+    {
+      "name": "Hobby",
+      "id": "tier-hobby",
+      "href": "#",
+      "priceMonthly": "R$ 149",
+      "description": "O plano perfeito se você está apenas começando com nosso produto.",
+      "features": [
+        "25 produtos",
+        "Até 10.000 inscritos",
+        "Análises avançadas",
+        "Tempo de resposta de suporte de 24 horas"
+      ],
+      "featured": false
+    },
+    {
+      "name": "Enterprise",
+      "id": "tier-enterprise",
+      "href": "#",
+      "priceMonthly": "R$ 499",
+      "description": "Suporte dedicado e infraestrutura para sua empresa.",
+      "features": [
+        "Produtos ilimitados",
+        "Inscritos ilimitados",
+        "Análises avançadas",
+        "Representante de suporte dedicado",
+        "Automações de marketing",
+        "Integrações personalizadas"
+      ],
+      "featured": true
+    }
+  ]
+}

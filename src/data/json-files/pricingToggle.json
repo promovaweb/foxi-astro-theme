@@ -1,0 +1,54 @@
+{
+  "title": "Preços",
+  "heading": "Preços que crescem com você",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "frequencies": [
+    { "value": "monthly", "label": "Mensal" },
+    { "value": "annually", "label": "Anual" }
+  ],
+  "tiers": [
+    {
+      "name": "Freelancer",
+      "id": "tier-freelancer",
+      "href": "#",
+      "price": { "monthly": "R$ 99", "annually": "R$ 999" },
+      "description": "O essencial para fornecer seu melhor trabalho para os clientes.",
+      "features": ["5 produtos", "Até 1.000 inscritos", "Análises básicas", "Tempo de resposta de 48 horas"],
+      "featured": false,
+      "cta": "Comprar plano"
+    },
+    {
+      "name": "Startup",
+      "id": "tier-startup",
+      "href": "#",
+      "price": { "monthly": "R$ 149", "annually": "R$ 1.499" },
+      "description": "Um plano que escala com o crescimento acelerado do seu negócio.",
+      "features": [
+        "25 produtos",
+        "Até 10.000 inscritos",
+        "Análises avançadas",
+        "Tempo de resposta de 24 horas",
+        "Automações de marketing"
+      ],
+      "featured": false,
+      "cta": "Comprar plano"
+    },
+    {
+      "name": "Corporativo",
+      "id": "tier-enterprise",
+      "href": "#",
+      "price": "Personalizado",
+      "description": "Suporte dedicado e infraestrutura para sua empresa.",
+      "features": [
+        "Produtos ilimitados",
+        "Inscritos ilimitados",
+        "Análises avançadas",
+        "Resposta de suporte dedicada em 1 hora",
+        "Automações de marketing",
+        "Ferramentas de relatórios personalizados"
+      ],
+      "featured": true,
+      "cta": "Falar com vendas"
+    }
+  ]
+}

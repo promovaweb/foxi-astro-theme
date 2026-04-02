@@ -1,0 +1,44 @@
+{
+  "title": "Preços",
+  "heading": "Preços que crescem com você",
+  "description": "Escolha um plano acessível repleto dos melhores recursos para engajar seu público, criar fidelidade do cliente e impulsionar vendas.",
+  "tiers": [
+    {
+      "name": "Básico",
+      "id": "tier-basic",
+      "href": "#",
+      "price": { "monthly": "R$ 99", "annually": "R$ 79" },
+      "description": "Tudo o que é necessário para começar.",
+      "features": ["5 produtos", "Até 1.000 inscritos", "Análises básicas", "Tempo de resposta de 48 horas"]
+    },
+    {
+      "name": "Essencial",
+      "id": "tier-essential",
+      "href": "#",
+      "price": { "monthly": "R$ 249", "annually": "R$ 199" },
+      "description": "Tudo no Básico, além de ferramentas essenciais para expandir seu negócio.",
+      "features": [
+        "25 produtos",
+        "Até 10.000 inscritos",
+        "Análises avançadas",
+        "Tempo de resposta de 24 horas",
+        "Automações de marketing"
+      ]
+    },
+    {
+      "name": "Crescimento",
+      "id": "tier-growth",
+      "href": "#",
+      "price": { "monthly": "R$ 499", "annually": "R$ 399" },
+      "description": "Tudo no Essencial, além de ferramentas de colaboração e insights mais profundos.",
+      "features": [
+        "Produtos ilimitados",
+        "Inscritos ilimitados",
+        "Análises avançadas",
+        "Resposta de suporte dedicada em 1 hora",
+        "Automações de marketing",
+        "Ferramentas de relatórios personalizados"
+      ]
+    }
+  ]
+}
