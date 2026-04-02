@@ -447,6 +447,11 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/blog/BlogPostHero.astro` | Seção hero de post do blog |
 | `blocks/CTA/BasicDark.astro` | Banner CTA com fundo escuro |
 | `blocks/CTA/BasicLight.astro` | Banner CTA com fundo claro |
+| `blocks/CTA/SimpleCTA.astro` | Banner CTA simples com título e dois botões |
+| `blocks/CTA/CenteredCTA.astro` | Banner CTA centralizado com fundo escuro e gradiente radial |
+| `blocks/CTA/CenteredTextCTA.astro` | Banner CTA centralizado apenas com texto e botões |
+| `blocks/CTA/BrandCTA.astro` | Banner CTA centralizado com fundo na cor da marca |
+| `blocks/CTA/SplitCTA.astro` | Banner CTA dividido com imagem lateral absoluta e conteúdo alinhado |
 | `blocks/contact/BasicForm.astro` | Seção com formulário de contato |
 | `blocks/contact/ContactCards.astro` | Cards de informações de contato |
 | `blocks/socialproof/Basic.astro` | Faixa de logos / prova social |

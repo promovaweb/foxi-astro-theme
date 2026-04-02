@@ -1,0 +1,73 @@
+---
+// Brand CTA
+// ------------
+// Description: A centered call to action section with a solid brand color background.
+// Properties:
+// - title: The title of the CTA section
+// - text: The description text of the CTA section
+// - primaryButton: Object with name and link for the primary action
+// - secondaryButton: Object with name and link for the secondary action
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+
+interface ButtonProps {
+	name: string
+	link: string
+}
+
+type Props = {
+	title?: string
+	text?: string
+	primaryButton?: ButtonProps
+	secondaryButton?: ButtonProps
+}
+
+const {
+	title = 'Aumente sua produtividade. <strong>Comece a usar nosso app hoje.</strong>',
+	text = 'Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.',
+	primaryButton = { name: 'Começar agora', link: '/' },
+	secondaryButton = { name: 'Saiba mais', link: '/' }
+} = Astro.props
+---
+
+<Section id="brand-cta" classes="brand-cta bg-primary-700">
+	<Row>
+		<Col span="12" align="center">
+			<div class="mx-auto max-w-2xl text-center">
+				<h2
+					class="brand-cta__title text-4xl font-bold tracking-tight text-white sm:text-5xl"
+					set:html={title}
+				/>
+				<p class="brand-cta__text mx-auto mt-6 max-w-xl text-lg leading-8 text-white/90">
+					{text}
+				</p>
+				<div class="brand-cta__actions mt-10 flex items-center justify-center gap-x-6">
+					<!-- Custom styled white button to match original design intent -->
+					<a
+						href={primaryButton.link}
+						class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-700 shadow-sm hover:bg-primary-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+					>
+						{primaryButton.name}
+					</a>
+					<Button link={secondaryButton.link} style="white" variation="link">
+						<span class="text-white hover:text-primary-100">{secondaryButton.name}</span> <span aria-hidden="true" class="ml-1 text-white">→</span>
+					</Button>
+				</div>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.brand-cta__title {
+		@apply text-balance;
+	}
+	.brand-cta__text {
+		@apply text-pretty;
+	}
+</style>

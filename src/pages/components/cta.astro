@@ -3,6 +3,11 @@ import Layout from '../../layouts/Layout.astro'
 import PageHeader from '../../components/blocks/hero/PageHeader.astro'
 import CTADark from '../../components/blocks/CTA/BasicDark.astro'
 import CTALight from '../../components/blocks/CTA/BasicLight.astro'
+import SimpleCTA from '../../components/blocks/CTA/SimpleCTA.astro'
+import CenteredCTA from '../../components/blocks/CTA/CenteredCTA.astro'
+import CenteredTextCTA from '../../components/blocks/CTA/CenteredTextCTA.astro'
+import BrandCTA from '../../components/blocks/CTA/BrandCTA.astro'
+import SplitCTA from '../../components/blocks/CTA/SplitCTA.astro'
 import Section from '../../components/ui/Section.astro'
 import Row from '../../components/ui/Row.astro'
 import Col from '../../components/ui/Col.astro'
@@ -38,4 +43,49 @@ const header = {
 		</Row>
 	</Section>
 	<CTALight />
+
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Simple CTA</h2>
+			</Col>
+		</Row>
+	</Section>
+	<SimpleCTA />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Centered CTA</h2>
+			</Col>
+		</Row>
+	</Section>
+	<CenteredCTA />
+
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Centered Text CTA</h2>
+			</Col>
+		</Row>
+	</Section>
+	<CenteredTextCTA />
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Brand CTA</h2>
+			</Col>
+		</Row>
+	</Section>
+	<BrandCTA />
+
+	<Section>
+		<Row>
+			<Col span="12" align="center">
+				<h2 class="mb-12">Split CTA</h2>
+			</Col>
+		</Row>
+	</Section>
+	<SplitCTA />
 </Layout>
