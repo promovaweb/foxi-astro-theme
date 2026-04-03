@@ -1,0 +1,70 @@
+---
+// SocialIcon Component
+// Descrição: Ícone de rede social sólido com a cor da marca, tamanho ajustável e tooltip.
+// Propriedades: platform, link, size (number), classes
+
+import { Icon } from 'astro-icon/components'
+
+type Platform = 'website' | 'instagram' | 'facebook' | 'linkedin' | 'tiktok' | 'youtube' | 'whatsapp' | 'twitter';
+
+type Props = {
+	platform: Platform
+	link: string
+	size?: number
+	classes?: string
+}
+
+const { platform, link, size = 20, classes } = Astro.props
+
+const platformData: Record<Platform, { name: string, icon: string, color: string }> = {
+	website: { name: 'Website', icon: 'globe-icon', color: '#6366f1' },
+	instagram: { name: 'Instagram', icon: 'instagram-icon', color: '#E4405F' },
+	facebook: { name: 'Facebook', icon: 'fb-icon', color: '#1877F2' },
+	linkedin: { name: 'LinkedIn', icon: 'linkedin-icon', color: '#0A66C2' },
+	tiktok: { name: 'TikTok', icon: 'tiktok-icon', color: '#000000' },
+	youtube: { name: 'YouTube', icon: 'youtube-icon', color: '#FF0000' },
+	whatsapp: { name: 'WhatsApp', icon: 'whatsapp-icon', color: '#25D366' },
+	twitter: { name: 'X / Twitter', icon: 'twitter-icon', color: '#000000' }
+};
+
+const current = platformData[platform] || platformData.website;
+
+// Cálculo do tamanho do container baseado no tamanho do ícone
+const containerSize = Math.round(size * 1.8);
+---
+
+<div class:list={["social-icon-wrapper relative group inline-block", classes]}>
+	<a 
+		href={link} 
+		target="_blank" 
+		rel="noopener noreferrer"
+		class="social-icon flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95 shadow-sm hover:shadow-md border border-transparent dark:border-white/10"
+		style={`background-color: ${current.color}; width: ${containerSize}px; height: ${containerSize}px; color: #FFFFFF;`}
+	>
+		<Icon name={current.icon} style={{ width: `${size}px`, height: `${size}px` }} />
+	</a>
+	
+	<!-- Tooltip -->
+	<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[10px] font-black uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 translate-y-1 group-hover:translate-y-0 shadow-xl">
+		{current.name}
+		<div class="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-neutral-900 dark:border-t-white"></div>
+	</div>
+</div>
+
+<style>
+	.social-icon :global(svg) {
+		fill: currentColor !important;
+		stroke: none !important;
+	}
+	
+	.social-icon :global(path) {
+		fill: currentColor !important;
+		stroke: none !important;
+	}
+
+	/* Ajuste de contraste para ícones pretos no modo escuro */
+	:global(.dark) .social-icon-wrapper a[style*="background-color: #000000"] {
+		border-color: rgba(255, 255, 255, 0.2);
+		background-color: #1a1a1a !important;
+	}
+</style>

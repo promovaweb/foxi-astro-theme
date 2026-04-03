@@ -343,6 +343,17 @@ Embed responsivo de vídeo do YouTube (16:9).
 | `videoId` | `string` | ID do vídeo no YouTube (ex: `dQw4w9WgXcQ`) |
 | `title` | `string` | Título para acessibilidade do iframe |
 
+#### `<SocialIcon>` — `src/components/ui/SocialIcon.astro`
+
+Ícone de rede social com cor da marca e tooltip.
+
+| Prop | Tipo | Descrição |
+|---|---|---|
+| `platform` | `string` | Plataforma (ex: `instagram`, `facebook`, `linkedin`, `whatsapp`, `twitter`, `tiktok`, `youtube`, `website`) |
+| `link` | `string` | URL de destino |
+| `size` | `number` | Tamanho em pixels (padrão: 24) |
+| `classes` | `string` | Classes adicionais |
+
 #### `<DownloadDetails>` — `src/components/blocks/landing/DownloadDetails.astro`
 
 Exibe detalhes técnicos de um arquivo para download.

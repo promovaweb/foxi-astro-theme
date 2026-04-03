@@ -7,6 +7,7 @@ import LandingForm from '@components/blocks/landing/LandingForm.astro'
 import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
 import DownloadDetails from '@components/blocks/landing/DownloadDetails.astro'
 import ContentList from '@components/blocks/landing/ContentList.astro'
+import SocialIcon from '@components/ui/SocialIcon.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
 import Section from '@components/ui/Section.astro'
@@ -37,21 +38,22 @@ const discussionPoints = [
 	"Futuro do escritório físico nas corporações"
 ]
 
+// Configuração de redes sociais para os organizadores
 const organizers = {
 	host: {
 		name: "Ricardo Fonseca",
 		role: "Diretor de Tecnologia na TechFlow",
 		image: "/blog/post-01.png",
 		bio: "Com mais de 15 anos de experiência liderando times distribuídos em 3 continentes, Ricardo foca em resultados e cultura.",
-		socials: {
-			website: '#',
-			instagram: '#',
-			facebook: '#',
-			linkedin: '#',
-			tiktok: '#',
-			youtube: '#',
-			whatsapp: '#'
-		}
+		socials: [
+			{ platform: 'website', link: '#' },
+			{ platform: 'instagram', link: '#' },
+			{ platform: 'facebook', link: '#' },
+			{ platform: 'linkedin', link: '#' },
+			{ platform: 'tiktok', link: '#' },
+			{ platform: 'youtube', link: '#' },
+			{ platform: 'whatsapp', link: '#' }
+		]
 	},
 	speakers: [
 		{
@@ -59,20 +61,22 @@ const organizers = {
 			role: "Head de People @ GlobalSync",
 			image: "/blog/post-02.png",
 			bio: "Especialista em cultura organizacional e estratégias de retenção para talentos remotos.",
-			socials: {
-				instagram: '#',
-				linkedin: '#'
-			}
+			socials: [
+				{ platform: 'instagram', link: '#' },
+				{ platform: 'linkedin', link: '#' },
+				{ platform: 'twitter', link: '#' }
+			]
 		},
 		{
 			name: "Marcus Santos",
 			role: "Consultor de Operações Ágeis",
 			image: "/blog/post-03.png",
 			bio: "Ajuda empresas a escalarem seus processos internos usando metodologias assíncronas.",
-			socials: {
-				website: '#',
-				linkedin: '#'
-			}
+			socials: [
+				{ platform: 'website', link: '#' },
+				{ platform: 'linkedin', link: '#' },
+				{ platform: 'whatsapp', link: '#' }
+			]
 		}
 	],
 	team: [
@@ -81,34 +85,23 @@ const organizers = {
 			role: "Moderação", 
 			image: "/blog/post-04.png", 
 			bio: "Especialista em engajamento de comunidades digitais.", 
-			socials: { instagram: '#' } 
+			socials: [ { platform: 'instagram', link: '#' } ] 
 		},
 		{ 
 			name: "Paulo Mendes", 
 			role: "Suporte Técnico", 
 			image: "/blog/post-05.png", 
 			bio: "Garante a melhor experiência de áudio e vídeo.", 
-			socials: { whatsapp: '#' } 
+			socials: [ { platform: 'whatsapp', link: '#' }, { platform: 'youtube', link: '#' } ] 
 		},
 		{ 
 			name: "Carla Souza", 
 			role: "Curadoria", 
 			image: "/blog/post-06.png", 
 			bio: "Responsável pela seleção dos temas e palestrantes.", 
-			socials: { linkedin: '#' } 
+			socials: [ { platform: 'linkedin', link: '#' }, { platform: 'facebook', link: '#' } ] 
 		}
 	]
-}
-
-// Mapeamento de nomes de icones para as chaves de redes sociais
-const iconMap = {
-	website: 'globe-icon',
-	instagram: 'instagram-icon',
-	facebook: 'fb-icon',
-	linkedin: 'linkedin-icon',
-	tiktok: 'tiktok-icon',
-	youtube: 'youtube-icon',
-	whatsapp: 'whatsapp-icon'
 }
 ---
 
@@ -198,12 +191,8 @@ const iconMap = {
 				<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{organizers.host.role}</p>
 				
 				<div class="flex justify-center gap-4 mb-6">
-					{Object.entries(organizers.host.socials).map(([platform, link]) => (
-						link && (
-							<a href={link} class="text-neutral-400 hover:text-primary-500 transition-colors">
-								<Icon name={iconMap[platform]} class="w-5 h-5" />
-							</a>
-						)
+					{organizers.host.socials.map(social => (
+						<SocialIcon platform={social.platform as any} link={social.link} size={20} />
 					))}
 				</div>
 
@@ -229,12 +218,8 @@ const iconMap = {
 					<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{speaker.role}</p>
 					
 					<div class="flex justify-center gap-4 mb-6">
-						{Object.entries(speaker.socials).map(([platform, link]) => (
-							link && (
-								<a href={link} class="text-neutral-400 hover:text-primary-500 transition-colors">
-									<Icon name={iconMap[platform]} class="w-5 h-5" />
-								</a>
-							)
+						{speaker.socials.map(social => (
+							<SocialIcon platform={social.platform as any} link={social.link} size={20} />
 						))}
 					</div>
 
@@ -261,12 +246,8 @@ const iconMap = {
 					<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{member.role}</p>
 					
 					<div class="flex justify-center gap-4 mb-6">
-						{Object.entries(member.socials).map(([platform, link]) => (
-							link && (
-								<a href={link} class="text-neutral-400 hover:text-primary-500 transition-colors">
-									<Icon name={iconMap[platform]} class="w-5 h-5" />
-								</a>
-							)
+						{member.socials.map(social => (
+							<SocialIcon platform={social.platform as any} link={social.link} size={20} />
 						))}
 					</div>
 
