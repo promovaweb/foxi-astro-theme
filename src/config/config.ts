@@ -1,6 +1,6 @@
 // Config
 // ------------
-// Description: The configuration file for the website.
+// Description: O arquivo de configuração do site.
 
 export interface Logo {
 	src: string
@@ -21,13 +21,13 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Foxi. Tailwind CSS Astro Starter Kit by Oxygenna',
+	siteTitle: 'Foxi. Tailwind CSS Astro Starter Kit da Oxygenna',
 	siteDescription:
-		'Foxi is a design and development agency that specializes in creating beautiful and functional websites.',
+		'Foxi é uma agência de design e desenvolvimento especializada na criação de sites bonitos e funcionais.',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/logo.svg',
-		alt: 'Foxi. logo'
+		alt: 'Logotipo Foxi.'
 	},
 	canonical: true,
 	noindex: false,

@@ -18,27 +18,27 @@ const faqIntegrations = faqData.filter((faq) => faq.category === 'integrations')
 import faqImage1 from '@/assets/faq/faq-01.png'
 // - SEO
 const SEO = {
-	title: 'Foxi | Get Your Questions Answered with a Smile',
+	title: 'Foxi | Tire Suas Dúvidas com um Sorriso',
 	description:
-		'Dive into the Foxi FAQ Funhouse to get answers to all your questions about pricing, integrations, features, and more. Discover how Foxi can make your work life more productive and enjoyable.'
+		'Mergulhe na Central de Perguntas Frequentes do Foxi para obter respostas a todas as suas dúvidas sobre preços, integrações, recursos e muito mais. Descubra como o Foxi pode tornar sua vida profissional mais produtiva e agradável.'
 }
 // - Page Header
 const header = {
-	title: 'Get Answers to Your <strong>Foxi</strong> Questions.',
-	text: 'Find answers to common questions about Foxi '
+	title: 'Obtenha Respostas para Suas Perguntas sobre o <strong>Foxi</strong>.',
+	text: 'Encontre respostas para as perguntas mais comuns sobre o Foxi'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<FAQ
-		title="Understanding Our Pricing Plans"
-		text="Get all the details on Foxi’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
+		title="Entendendo Nossos Planos de Preços"
+		text="Obtenha todos os detalhes sobre os planos de preços do Foxi. Saiba mais sobre custos, descontos e opções de assinatura para encontrar o melhor plano que se adapta às suas necessidades e orçamento."
 		data={faqPricing}
 	/>
 	<TextImage
-		title="Why Foxi’s Pricing Plans Offer Great Value"
-		text="At Foxi, we believe in providing exceptional value at every price point. Our pricing plans are designed to cater to a variety of needs, from individuals and small teams to large enterprises. Each plan includes access to our powerful features, seamless integrations, and top-notch customer support. "
+		title="Por que os Planos de Preços do Foxi Oferecem Grande Valor"
+		text="No Foxi, acreditamos em fornecer um valor excepcional em todos os níveis de preço. Nossos planos de preços são projetados para atender a uma variedade de necessidades, de indivíduos e pequenas equipes a grandes empresas. Cada plano inclui acesso aos nossos recursos poderosos, integrações perfeitas e suporte ao cliente de primeira classe. "
 		image={faqImage1}
 		mobileImage={faqImage1}
 		imagePosition="left"
@@ -46,8 +46,8 @@ const header = {
 		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
 	/>
 	<FAQ
-		title="Integrations Made Easy"
-		text="Discover how Foxi seamlessly integrates with your favorite tools and platforms. From Google Calendar to Slack, find out how to connect and enhance your productivity with powerful integrations."
+		title="Integrações Facilitadas"
+		text="Descubra como o Foxi se integra perfeitamente com suas ferramentas e plataformas favoritas. Do Google Calendar ao Slack, saiba como se conectar e aumentar sua produtividade com integrações poderosas."
 		data={faqIntegrations}
 	/>
 	<CTA />

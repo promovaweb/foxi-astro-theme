@@ -1,28 +1,28 @@
 {
   "title": "Preços",
   "heading": "O preço certo para você, quem quer que você seja",
-  "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum.",
+  "description": "Oferecemos opções flexíveis para atender às suas necessidades específicas, desde projetos individuais até grandes escalas.",
   "tiers": [
     {
       "name": "Hobby",
       "price": "399",
-      "features": ["Pariatur quod similique", "Sapiente libero doloribus", "Vel ipsa esse repudiandae"]
+      "features": ["Recursos essenciais para começar", "Suporte da comunidade", "Atualizações mensais"]
     },
     {
       "name": "Crescimento",
       "price": "749",
       "features": [
-        "Quia rem est sed impedit magnam",
-        "Dolorem vero ratione voluptates",
-        "Qui sed ab doloribus voluptatem dolore",
-        "Laborum commodi molestiae id et fugiat",
-        "Nam ut ipsa nesciunt culpa modi dolor"
+        "Tudo no plano Hobby",
+        "Suporte prioritário por e-mail",
+        "Acesso antecipado a novos recursos",
+        "Ferramentas de análise avançada",
+        "Até 5 usuários na equipe"
       ]
     },
     {
       "name": "Escala",
       "price": "1.749",
-      "features": ["Pariatur quod similique", "Sapiente libero doloribus", "Vel ipsa esse repudiandae"]
+      "features": ["Tudo no plano Crescimento", "Gerente de conta dedicado", "SLA personalizado"]
     }
   ]
 }

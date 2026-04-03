@@ -1,7 +1,7 @@
 ---
 // Blog Index Page
 // ------------
-// Description: The blog index page.
+// Descrição: A página de índice do blog.
 
 // Components
 // - Layout
@@ -16,14 +16,14 @@ import { getCollection } from 'astro:content'
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Latest Foxi News and updates',
+	title: 'Foxi | Últimas Notícias e atualizações da Foxi',
 	description:
-		"Explore Foxi's latest news designed to enhance productivity, ensure top-notch security, and integrate seamlessly with your favorite tools. Join thousands of satisfied users and transform your workflow with Foxi today!"
+		'Explore as últimas notícias da Foxi projetadas para aumentar a produtividade, garantir segurança de alto nível e integrar-se perfeitamente às suas ferramentas favoritas. Junte-se a milhares de usuários satisfeitos e transforme seu fluxo de trabalho com a Foxi hoje mesmo!'
 }
 // - Page Header
 const header = {
-	title: 'The <strong>Foxi</strong> Blog. Tips, Updates & Stories',
-	text: 'Stay informed, stay productive. All the latest from the world of Foxi.'
+	title: 'O Blog <strong>Foxi</strong>. Dicas, Atualizações e Histórias',
+	text: 'Mantenha-se informado, mantenha-se produtivo. Todas as novidades do mundo Foxi.'
 }
 
 const allPosts = await getCollection('blog')

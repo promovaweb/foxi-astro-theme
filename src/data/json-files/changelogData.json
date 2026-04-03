@@ -1,36 +1,36 @@
 [
 	{
-		"title": "v1.0.6: Enhanced Security Features",
+		"title": "v1.0.6: Recursos de Segurança Aprimorados",
 		"date": "2024-07-01",
-		"text": "<p>We've implemented new security protocols to safeguard your data. Enjoy peace of mind with improved encryption and multi-factor authentication.</p> <ul><li>2FA enabled by default</li><li>HubSpot integration</li><li>Zoho CRM integration</li></ul>",
+		"text": "<p>Implementamos novos protocolos de segurança para proteger seus dados. Desfrute de tranquilidade com criptografia aprimorada e autenticação multifator.</p> <ul><li>2FA ativado por padrão</li><li>Integração HubSpot</li><li>Integração Zoho CRM</li></ul>",
 		"image": "/feeds/feed-01.png"
 	},
 	{
-		"title": "v1.0.5: User Interface Improvements",
+		"title": "v1.0.5: Melhorias na Interface do Usuário",
 		"date": "2024-06-15",
-		"text": "<p>Our latest update brings a revamped user interface for a more intuitive and visually appealing experience. Navigation and usability have been greatly enhanced.</p><ul><li>Updated dashboard layout</li><li>Improved accessibility features</li><li>Streamlined navigation menus</li></ul>",
+		"text": "<p>Nossa atualização mais recente traz uma interface de usuário reformulada para uma experiência mais intuitiva e visualmente atraente. A navegação e a usabilidade foram amplamente aprimoradas.</p><ul><li>Layout do dashboard atualizado</li><li>Recursos de acessibilidade aprimorados</li><li>Menus de navegação simplificados</li></ul>",
 		"image": "/feeds/feed-02.png"
 	},
 	{
-		"title": "v1.0.4: New In-App Messaging",
+		"title": "v1.0.4: Novas Mensagens no App",
 		"date": "2024-05-20",
-		"text": "<p>Introducing in-app messaging! Communicate directly within the app to keep conversations organized and accessible without switching between tools.</p>"
+		"text": "<p>Apresentando mensagens no app! Comunique-se diretamente no aplicativo para manter as conversas organizadas e acessíveis sem alternar entre ferramentas.</p>"
 	},
 	{
-		"title": "v1.0.3: Performance Enhancements",
+		"title": "v1.0.3: Melhorias de Desempenho",
 		"date": "2024-04-10",
-		"text": "<p>We've optimized the app to run faster and smoother. Experience improved load times and overall performance.</p>",
+		"text": "<p>Otimizamos o aplicativo para rodar mais rápido e suavemente. Experimente tempos de carregamento aprimorados e desempenho geral superior.</p>",
 		"image": "/feeds/feed-03.png"
 	},
 	{
-		"title": "v1.0.2: CRM Integration",
+		"title": "v1.0.2: Integração com CRM",
 		"date": "2024-03-25",
-		"text": "<p>Connect your app with popular CRM systems to streamline customer management. Synchronize data and improve customer relationship processes.</p><ul><li>Salesforce integration</li><li>HubSpot integration</li><li>Zoho CRM integration</li></ul>"
+		"text": "<p>Conecte seu aplicativo com sistemas CRM populares para simplificar o gerenciamento de clientes. Sincronize dados e melhore os processos de relacionamento com o cliente.</p><ul><li>Integração Salesforce</li><li>Integração HubSpot</li><li>Integração Zoho CRM</li></ul>"
 	},
 	{
-		"title": "v1.0.1: Third-Party API Support",
+		"title": "v1.0.1: Suporte a API de Terceiros",
 		"date": "2024-02-15",
-		"text": "<p>Seamlessly integrate with third-party APIs to extend the functionality of your app. Enjoy smooth data exchange and enhanced performance.</p>",
+		"text": "<p>Integre-se perfeitamente com APIs de terceiros para estender a funcionalidade do seu aplicativo. Desfrute de uma troca de dados suave e desempenho aprimorado.</p>",
 		"image": "/feeds/feed-04.png"
 	}
 ]

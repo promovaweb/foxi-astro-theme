@@ -1,27 +1,27 @@
 ---
-title: 'Welcome to Foxi!'
+title: 'Bem-vindo ao Foxi!'
 pubDate: 2024-04-04T05:00:00Z
-description: "We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly to help you stay organized and efficient."
+description: "Estamos entusiasmados em apresentar o aplicativo de produtividade definitivo, projetado para ajudar você a gerenciar suas tarefas sem esforço e a se manter organizado e eficiente."
 author: 'Eleni K'
 image: '/blog/post-01-cover.png'
-tags: ['productivity', 'announcement']
+tags: ['produtividade', 'anúncio']
 ---
 
-Welcome to Foxi! We're excited to introduce you to the ultimate productivity app designed to help you manage your tasks effortlessly. Foxi combines powerful features with an intuitive interface to help you stay organized and efficient.
+Bem-vindo ao Foxi! Estamos entusiasmados em apresentar o aplicativo de produtividade definitivo, projetado para ajudar você a gerenciar suas tarefas sem esforço. O Foxi combina recursos poderosos com uma interface intuitiva para ajudar você a se manter organizado e eficiente.
 
-![Foxi is here.](/blog/post-01.png)
+![Foxi está aqui.](/blog/post-01.png)
 
-We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.
+Lançamos novas atualizações de segurança para manter seus dados protegidos e seguros. Saiba mais sobre nossas melhorias de segurança mais recentes e como elas protegem você.
 
-Whether you're managing personal tasks, collaborating with a team, or tracking your projects, Foxi has you covered. Our mission is to provide you with the tools you need to succeed.
+Seja você gerenciando tarefas pessoais, colaborando com uma equipe ou acompanhando seus projetos, o Foxi tem tudo o que você precisa. Nossa missão é fornecer as ferramentas necessárias para você ter sucesso.
 
-> Foxi combines powerful features with an intuitive interface to help you stay organized and efficient!
+> O Foxi combina recursos poderosos com uma interface intuitiva para ajudar você a se manter organizado e eficiente!
 
-### Key Features
+### Recursos Principais
 
-- **In-App Messaging**: Communicate directly within the app using our integrated messaging system.
-- **Project Management**: Organize and manage your projects with ease.
-- **Time Tracking**: Keep track of the time spent on tasks to improve productivity.
-- **Customizable Dashboards**: Tailor your workspace to fit your needs.
+- **Mensagens Internas (In-App Messaging)**: Comunique-se diretamente no aplicativo usando nosso sistema de mensagens integrado.
+- **Gestão de Projetos (Project Management)**: Organize e gerencie seus projetos com facilidade.
+- **Rastreamento de Tempo (Time Tracking)**: Acompanhe o tempo gasto nas tarefas para melhorar a produtividade.
+- **Dashboards Customizáveis**: Personalize seu espaço de trabalho para atender às suas necessidades.
 
-Thank you for choosing Foxi. We look forward to helping you achieve your goals!
+Obrigado por escolher o Foxi. Estamos ansiosos para ajudar você a atingir seus objetivos!

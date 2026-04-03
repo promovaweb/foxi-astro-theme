@@ -8,7 +8,7 @@
       "id": "tier-hobby",
       "href": "#",
       "priceMonthly": "R$ 149",
-      "description": "Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.",
+      "description": "Perfeito para projetos paralelos e aprendizado.",
       "features": ["5 produtos", "Até 1.000 inscritos", "Análises básicas", "Tempo de resposta de 48 horas"]
     },
     {
@@ -16,7 +16,7 @@
       "id": "tier-team",
       "href": "#",
       "priceMonthly": "R$ 499",
-      "description": "Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.",
+      "description": "Colaboração avançada para equipes profissionais.",
       "features": [
         "Produtos ilimitados",
         "Inscritos ilimitados",
@@ -28,7 +28,7 @@
   ],
   "discounted": {
     "title": "Com Desconto",
-    "description": "Dolor dolores repudiandae doloribus. Rerum sunt aut eum. Odit omnis non voluptatem sunt eos nostrum.",
+    "description": "Oferecemos condições especiais para instituições de ensino e organizações sem fins lucrativos.",
     "buttonText": "Comprar licença com desconto",
     "href": "#"
   }

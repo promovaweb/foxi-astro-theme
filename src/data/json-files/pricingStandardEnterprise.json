@@ -1,28 +1,28 @@
 {
   "title": "Preços",
   "heading": "O preço certo para você, quem quer que você seja",
-  "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.",
+  "description": "Nossos planos são projetados para escalar com você, desde pequenos projetos até grandes operações corporativas.",
   "tiers": [
     {
       "name": "Padrão",
       "price": "249",
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "description": "Ideal para profissionais e equipes em crescimento.",
       "features": [
-        "Pariatur quod similique",
-        "Sapiente libero doloribus modi nostrum",
-        "Vel ipsa esse repudiandae excepturi",
-        "Itaque cupiditate adipisci quibusdam"
+        "Acesso total a todos os recursos básicos",
+        "Suporte prioritário por e-mail",
+        "Integrações padrão incluídas",
+        "Relatórios mensais detalhados"
       ]
     },
     {
       "name": "Corporativo",
       "price": "399",
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "description": "Soluções sob medida para grandes organizações.",
       "features": [
-        "Pariatur quod similique",
-        "Sapiente libero doloribus modi nostrum",
-        "Vel ipsa esse repudiandae excepturi",
-        "Itaque cupiditate adipisci quibusdam"
+        "Tudo no plano Padrão",
+        "Segurança avançada e conformidade",
+        "Gerente de sucesso do cliente dedicado",
+        "Acesso antecipado a novos recursos"
       ]
     }
   ],

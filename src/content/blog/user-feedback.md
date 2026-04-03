@@ -1,21 +1,20 @@
 ---
-title: 'User feedback on foxi'
+title: 'Feedback dos usuários sobre o Foxi'
 pubDate: 2024-05-05T05:00:00Z
-description: "Your feedback is crucial to us. We are constantly striving to improve Foxi based on your suggestions. Here are some of the latest improvements.
-"
+description: "Seu feedback é fundamental para nós. Estamos constantemente nos esforçando para melhorar o Foxi com base em suas sugestões. Aqui estão algumas das melhorias mais recentes."
 author: 'Eleni K'
 image: '/blog/post-04-cover.png'
-tags: ['productivity', 'app']
+tags: ['produtividade', 'app']
 ---
 
-Your feedback is crucial to us. We are constantly striving to improve Foxi based on your suggestions. Here are some of the latest improvements we've made thanks to your valuable feedback.
+Seu feedback é fundamental para nós. Estamos constantemente nos esforçando para melhorar o Foxi com base em suas sugestões. Aqui estão algumas das melhorias mais recentes que fizemos graças ao seu valioso feedback.
 
-![Foxi is here.](/blog/post-01.png)
+![Foxi está aqui.](/blog/post-01.png)
 
-### Improvements
+### Melhorias
 
-1. **Enhanced Performance**: We've optimized the app to run faster and more efficiently, ensuring a smooth user experience.
-2. **Bug Fixes**: Our team has addressed various bugs and issues reported by users. Thank you for helping us identify and resolve these problems.
-3. **New User Interface Tweaks**: We've made several UI adjustments to enhance usability and aesthetics. These changes are designed to make Foxi more intuitive and visually appealing.
+1. **Desempenho Aprimorado**: Otimizamos o aplicativo para rodar de forma mais rápida e eficiente, garantindo uma experiência de usuário suave.
+2. **Correções de Bugs**: Nossa equipe corrigiu vários bugs e problemas relatados pelos usuários. Obrigado por nos ajudar a identificar e resolver esses problemas.
+3. **Ajustes na Interface do Usuário**: Fizemos vários ajustes na UI para melhorar a usabilidade e a estética. Essas mudanças foram projetadas para tornar o Foxi mais intuitivo e visualmente atraente.
 
-Download the Foxi mobile app today from the App Store or Google Play and take your productivity with you wherever you go!
+Baixe o aplicativo móvel Foxi hoje mesmo na App Store ou no Google Play e leve sua produtividade com você para onde quer que vá!

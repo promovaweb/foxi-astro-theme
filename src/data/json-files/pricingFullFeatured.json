@@ -5,22 +5,22 @@
     {
       "name": "Visualização em lista",
       "icon": "rectangle-stack",
-      "description": "Nunc a, lacinia sed risus neque, arcu, rhoncus. Id mauris justo facilisis aliquam platea vestibulum condimentum morbi."
+      "description": "Visualize suas tarefas em uma lista organizada e fácil de gerenciar para máxima produtividade."
     },
     {
       "name": "Quadros",
       "icon": "squares-plus",
-      "description": "Purus lobortis volutpat posuere id integer nunc tellus. Non mauris malesuada feugiat massa mi pellentesque cum est."
+      "description": "Gerencie seus projetos visualmente com quadros Kanban flexíveis e intuitivos."
     },
     {
       "name": "Calendário",
       "icon": "document-text",
-      "description": "Purus lobortis volutpat posuere id integer nunc tellus. Non mauris malesuada feugiat massa mi pellentesque cum est."
+      "description": "Mantenha-se em dia com seus prazos e agendamentos em uma visualização de calendário integrada."
     },
     {
       "name": "Equipes",
       "icon": "user-group",
-      "description": "Tincidunt sollicitudin interdum nunc sit risus at bibendum vitae. Urna, quam ut sit justo non, consectetur et varius."
+      "description": "Colabore perfeitamente com os membros da sua equipe em tempo real em todos os seus projetos."
     }
   ],
   "checklist": [

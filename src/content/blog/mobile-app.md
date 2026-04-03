@@ -1,30 +1,30 @@
 ---
-title: 'Foxi Mobile App Launch'
+title: 'Lançamento do App Móvel Foxi'
 pubDate: 2024-04-05T05:00:00Z
-description: 'We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.'
+description: 'Lançamos novas atualizações de segurança para manter seus dados protegidos e seguros. Saiba mais sobre nossas melhorias de segurança mais recentes e como elas protegem você.'
 author: 'Eleni K'
 image: '/blog/post-02-cover.png'
-tags: ['app', 'announcement']
+tags: ['app', 'anúncio']
 ---
 
-The Foxi mobile app is now available! Manage your tasks and projects on the go with our new mobile app. Stay connected and productive no matter where you are.
+O aplicativo móvel Foxi já está disponível! Gerencie suas tarefas e projetos em qualquer lugar com nosso novo app móvel. Mantenha-se conectado e produtivo, não importa onde você esteja.
 
-### Features
+### Recursos
 
-- **Full Functionality on Mobile**: Access all of Foxi's features from your mobile device. Manage tasks, communicate with your team, and track your projects with ease.
-- **Sync with Desktop**: Seamlessly sync your data between the mobile app and the desktop version of Foxi. Keep your information up-to-date across all devices.
-- **Offline Mode**: Use Foxi even when you don't have an internet connection. Your changes will sync automatically once you're back online.
+- **Funcionalidade Total no Mobile**: Acesse todos os recursos do Foxi em seu dispositivo móvel. Gerencie tarefas, comunique-se com sua equipe e acompanhe seus projetos com facilidade.
+- **Sincronização com Desktop**: Sincronize perfeitamente seus dados entre o aplicativo móvel e a versão desktop do Foxi. Mantenha suas informações atualizadas em todos os dispositivos.
+- **Modo Offline**: Use o Foxi mesmo quando não tiver uma conexão com a internet. Suas alterações serão sincronizadas automaticamente assim que você estiver online novamente.
 
-Download the Foxi mobile app today from the App Store or Google Play and take your productivity with you wherever you go!
+Baixe o aplicativo móvel Foxi hoje mesmo na App Store ou no Google Play e leve sua produtividade com você para onde quer que vá!
 
-![Foxi is here.](/blog/post-02.png)
+![Foxi está aqui.](/blog/post-02.png)
 
-We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.
+Lançamos novas atualizações de segurança para manter seus dados protegidos e seguros. Saiba mais sobre nossas melhorias de segurança mais recentes e como elas protegem você.
 
-### App Enhancements
+### Melhorias no App
 
-- **Two-Factor Authentication**: Add an extra layer of security to your account with two-factor authentication. This feature requires you to verify your identity using a second device or method.
-- **Data Encryption**: All data transmitted and stored within Foxi is now encrypted using industry-standard encryption protocols. Your information is protected from unauthorized access.
-- **Regular Security Audits**: We conduct regular security audits to identify and address potential vulnerabilities. Our commitment to security ensures that your data remains safe.
+- **Autenticação de Dois Fatores**: Adicione uma camada extra de segurança à sua conta com a autenticação de dois fatores. Este recurso exige que você verifique sua identidade usando um segundo dispositivo ou método.
+- **Criptografia de Dados**: Todos os dados transmitidos e armazenados no Foxi são agora criptografados usando protocolos de criptografia padrão da indústria. Suas informações estão protegidas contra acesso não autorizado.
+- **Auditorias de Segurança Regulares**: Realizamos auditorias de segurança regulares para identificar e corrigir vulnerabilidades potenciais. Nosso compromisso com a segurança garante que seus dados permaneçam seguros.
 
-Your security is our top priority. Thank you for trusting Foxi with your valuable data.
+Sua segurança é nossa prioridade máxima. Obrigado por confiar no Foxi com seus dados valiosos.

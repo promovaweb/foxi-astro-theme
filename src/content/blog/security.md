@@ -1,22 +1,22 @@
 ---
-title: 'Security Enhancements now here!'
+title: 'Melhorias de segurança já estão aqui!'
 pubDate: 2024-05-05T05:00:00Z
-description: 'The Foxi mobile app is now available! Manage your tasks and projects on the go with our new mobile app. Stay connected and productive no matter where you are.'
+description: 'O aplicativo móvel Foxi já está disponível! Gerencie suas tarefas e projetos em qualquer lugar com nosso novo app móvel. Mantenha-se conectado e produtivo, não importa onde você esteja.'
 author: 'Christos P'
 image: '/blog/post-03-cover.png'
-tags: ['productivity', 'app']
+tags: ['produtividade', 'app']
 ---
 
-The Foxi mobile app is now available! Manage your tasks and projects on the go with our new mobile app. Stay connected and productive no matter where you are.
+O aplicativo móvel Foxi já está disponível! Gerencie suas tarefas e projetos em qualquer lugar com nosso novo app móvel. Mantenha-se conectado e produtivo, não importa onde você esteja.
 
-![Foxi is here.](/blog/post-03.png)
+![Foxi está aqui.](/blog/post-03.png)
 
-We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.
+Lançamos novas atualizações de segurança para manter seus dados protegidos e seguros. Saiba mais sobre nossas melhorias de segurança mais recentes e como elas protegem você.
 
-### Security Enhancements
+### Melhorias de Segurança
 
-- **Two-Factor Authentication**: Add an extra layer of security to your account with two-factor authentication. This feature requires you to verify your identity using a second device or method.
-- **Data Encryption**: All data transmitted and stored within Foxi is now encrypted using industry-standard encryption protocols. Your information is protected from unauthorized access.
-- **Regular Security Audits**: We conduct regular security audits to identify and address potential vulnerabilities. Our commitment to security ensures that your data remains safe.
+- **Autenticação de Dois Fatores**: Adicione uma camada extra de segurança à sua conta com a autenticação de dois fatores. Este recurso exige que você verifique sua identidade usando um segundo dispositivo ou método.
+- **Criptografia de Dados**: Todos os dados transmitidos e armazenados no Foxi são agora criptografados usando protocolos de criptografia padrão da indústria. Suas informações estão protegidas contra acesso não autorizado.
+- **Auditorias de Segurança Regulares**: Realizamos auditorias de segurança regulares para identificar e corrigir vulnerabilidades potenciais. Nosso compromisso com a segurança garante que seus dados permaneçam seguros.
 
-Your security is our top priority. Thank you for trusting Foxi with your valuable data.
+Sua segurança é nossa prioridade máxima. Obrigado por confiar no Foxi com seus dados valiosos.

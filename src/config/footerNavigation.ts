@@ -1,6 +1,6 @@
 // Footer Navigation
 // ------------
-// Description: The footer navigation data for the website.
+// Description: Os dados de navegação do rodapé do site.
 export interface Logo {
 	src: string
 	alt: string
@@ -37,19 +37,19 @@ export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Foxi.',
 		aboutText:
-			'Expertly made, responsive, accessible components in React and HTML ready to be used on your website or app. Just copy and paste them on your Tailwind CSS project.',
+			'Componentes responsivos, acessíveis e feitos por especialistas em React e HTML, prontos para serem usados em seu site ou aplicativo. Basta copiar e colar em seu projeto Tailwind CSS.',
 		logo: {
 			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
+			alt: 'O tema tailwind astro',
 			text: 'Foxi.'
 		}
 	},
 	footerColumns: [
 		{
-			category: 'Product',
+			category: 'Produto',
 			subCategories: [
 				{
-					subCategory: 'Features',
+					subCategory: 'Recursos',
 					subCategoryLink: '/features'
 				},
 				{
@@ -57,7 +57,7 @@ export const footerNavigationData: FooterData = {
 					subCategoryLink: '/faq'
 				},
 				{
-					subCategory: 'Pricing',
+					subCategory: 'Preços',
 					subCategoryLink: '/pricing'
 				},
 				{
@@ -65,41 +65,41 @@ export const footerNavigationData: FooterData = {
 					subCategoryLink: '/changelog'
 				},
 				{
-					subCategory: 'Terms',
+					subCategory: 'Termos',
 					subCategoryLink: '/terms'
 				}
 			]
 		},
 		{
-			category: 'About us',
+			category: 'Sobre nós',
 			subCategories: [
 				{
-					subCategory: 'About us',
+					subCategory: 'Sobre nós',
 					subCategoryLink: '/'
 				},
 				{
-					subCategory: 'News',
+					subCategory: 'Notícias',
 					subCategoryLink: '/blog'
 				},
 				{
-					subCategory: 'Careers',
+					subCategory: 'Carreiras',
 					subCategoryLink: '/blog'
 				}
 			]
 		},
 		{
-			category: 'Get in touch',
+			category: 'Entre em contato',
 			subCategories: [
 				{
-					subCategory: 'Contact',
+					subCategory: 'Contato',
 					subCategoryLink: '/contact'
 				},
 				{
-					subCategory: 'Support',
+					subCategory: 'Suporte',
 					subCategoryLink: '/contact'
 				},
 				{
-					subCategory: 'Join us',
+					subCategory: 'Junte-se a nós',
 					subCategoryLink: '/contact'
 				}
 			]

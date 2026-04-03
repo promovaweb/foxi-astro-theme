@@ -1,104 +1,104 @@
 [
 	{
-		"question": "What is the cost of the basic plan?",
-		"reply": "The basic plan is $9.99 per month, which includes access to core features and limited integrations. This plan is perfect for individuals or small teams looking to improve their productivity without a large investment.",
-		"category": "pricing",
+		"question": "Qual é o custo do plano básico?",
+		"reply": "O plano básico custa $9,99 por mês, o que inclui acesso aos recursos principais e integrações limitadas. Este plano é perfeito para indivíduos ou pequenas equipes que buscam melhorar sua produtividade sem um grande investimento.",
+		"category": "preços",
 		"open": true
 	},
 	{
-		"question": "Are there any discounts for annual subscriptions?",
-		"reply": "Yes, we offer a 20% discount on annual subscriptions for all our plans. By choosing an annual subscription, you can save money and ensure uninterrupted access to all Foxi features for the entire year.",
-		"category": "pricing",
+		"question": "Há descontos para assinaturas anuais?",
+		"reply": "Sim, oferecemos um desconto de 20% em assinaturas anuais para todos os nossos planos. Ao escolher uma assinatura anual, você economiza dinheiro e garante acesso ininterrupto a todos os recursos do Foxi durante todo o ano.",
+		"category": "preços",
 		"open": false
 	},
 	{
-		"question": "Can I change my subscription plan at any time?",
-		"reply": "Yes, you can upgrade or downgrade your subscription plan at any time from your account settings. This flexibility allows you to adjust your plan based on your changing needs and usage.",
-		"category": "pricing",
+		"question": "Posso alterar meu plano de assinatura a qualquer momento?",
+		"reply": "Sim, você pode fazer upgrade ou downgrade do seu plano de assinatura a qualquer momento nas configurações da sua conta. Essa flexibilidade permite ajustar seu plano com base em suas necessidades e uso em constante mudança.",
+		"category": "preços",
 		"open": false
 	},
 	{
-		"question": "Is there a free trial available?",
-		"reply": "Yes, we offer a 14-day free trial for all new users. During the trial, you can explore all the features of Foxi without any commitment, allowing you to see how it fits into your workflow.",
-		"category": "pricing",
+		"question": "Existe um período de teste gratuito disponível?",
+		"reply": "Sim, oferecemos um teste gratuito de 14 dias para todos os novos usuários. Durante o teste, você pode explorar todos os recursos do Foxi sem qualquer compromisso, permitindo ver como ele se adapta ao seu fluxo de trabalho.",
+		"category": "preços",
 		"open": false
 	},
 	{
-		"question": "Do you offer refunds?",
-		"reply": "We offer a 30-day money-back guarantee if you are not satisfied with our service. Simply contact our support team within 30 days of your purchase, and we'll process your refund.",
-		"category": "pricing",
+		"question": "Vocês oferecem reembolsos?",
+		"reply": "Oferecemos uma garantia de reembolso de 30 dias se você não estiver satisfeito com nosso serviço. Basta entrar em contato com nossa equipe de suporte em até 30 dias após a compra e processaremos seu reembolso.",
+		"category": "preços",
 		"open": false
 	},
 	{
-		"question": "How do I cancel my subscription?",
-		"reply": "You can cancel your subscription from your account settings at any time. After cancellation, you will still have access to your account until the end of the billing cycle.",
-		"category": "pricing",
+		"question": "Como cancelo minha assinatura?",
+		"reply": "Você pode cancelar sua assinatura nas configurações da sua conta a qualquer momento. Após o cancelamento, você ainda terá acesso à sua conta até o final do ciclo de faturamento.",
+		"category": "preços",
 		"open": false
 	},
 	{
-		"question": "Can I use Foxi with Google Calendar?",
-		"reply": "Yes, Foxi integrates seamlessly with Google Calendar for easy scheduling and task management. This integration helps you keep track of your events and tasks in one place.",
-		"category": "integrations",
+		"question": "Posso usar o Foxi com o Google Calendar?",
+		"reply": "Sim, o Foxi se integra perfeitamente ao Google Calendar para facilitar o agendamento e o gerenciamento de tarefas. Essa integração ajuda você a acompanhar seus eventos e tarefas em um só lugar.",
+		"category": "integrações",
 		"open": true
 	},
 	{
-		"question": "Does Foxi work with Slack?",
-		"reply": "Yes, you can integrate Foxi with Slack to receive notifications and updates directly in your channels. This allows you to stay informed about your projects without leaving Slack.",
-		"category": "integrations",
+		"question": "O Foxi funciona com o Slack?",
+		"reply": "Sim, você pode integrar o Foxi com o Slack para receber notificações e atualizações diretamente em seus canais. Isso permite que você se mantenha informado sobre seus projetos sem sair do Slack.",
+		"category": "integrações",
 		"open": false
 	},
 	{
-		"question": "How do I connect Foxi with Trello?",
-		"reply": "To connect Foxi with Trello, go to the integrations page in your settings and follow the instructions to link your accounts. This integration helps you manage your Trello boards and Foxi projects together.",
-		"category": "integrations",
+		"question": "Como conecto o Foxi ao Trello?",
+		"reply": "Para conectar o Foxi ao Trello, vá para a página de integrações em suas configurações e siga as instruções para vincular suas contas. Essa integração ajuda você a gerenciar seus quadros do Trello e projetos do Foxi juntos.",
+		"category": "integrações",
 		"open": false
 	},
 	{
-		"question": "Is there an API for custom integrations?",
-		"reply": "Yes, we provide an API that allows you to create custom integrations with Foxi. Our API documentation provides detailed instructions and examples to help you get started.",
-		"category": "integrations",
+		"question": "Existe uma API para integrações personalizadas?",
+		"reply": "Sim, fornecemos uma API que permite criar integrações personalizadas com o Foxi. Nossa documentação de API fornece instruções detalhadas e exemplos para ajudar você a começar.",
+		"category": "integrações",
 		"open": false
 	},
 	{
-		"question": "Can I sync Foxi with my email?",
-		"reply": "Currently, we do not support email integration, but this feature is on our roadmap for future releases. Stay tuned for updates as we continue to enhance Foxi's capabilities.",
-		"category": "integrations",
+		"question": "Posso sincronizar o Foxi com meu e-mail?",
+		"reply": "Atualmente, não oferecemos suporte para integração de e-mail, mas esse recurso está em nosso roadmap para versões futuras. Fique atento às atualizações conforme continuamos a aprimorar as capacidades do Foxi.",
+		"category": "integrações",
 		"open": false
 	},
 	{
-		"question": "Does Foxi support Zapier?",
-		"reply": "Yes, Foxi integrates with Zapier, allowing you to connect with over 2,000 apps and automate your workflows. This integration helps you streamline your processes and improve efficiency.",
-		"category": "integrations",
+		"question": "O Foxi suporta o Zapier?",
+		"reply": "Sim, o Foxi se integra ao Zapier, permitindo que você se conecte a mais de 2.000 apps e automatize seus fluxos de trabalho. Essa integração ajuda você a otimizar seus processos e melhorar a eficiência.",
+		"category": "integrações",
 		"open": false
 	},
 	{
-		"question": "What are the main features of Foxi?",
-		"reply": "Foxi includes in-app messaging, project management, time tracking, customizable dashboards, and more. These features are designed to help you stay organized, communicate effectively, and manage your time efficiently.",
-		"category": "features",
+		"question": "Quais são os principais recursos do Foxi?",
+		"reply": "O Foxi inclui mensagens no app, gerenciamento de projetos, acompanhamento de tempo, dashboards customizáveis e muito mais. Esses recursos são projetados para ajudar você a se manter organizado, comunicar-se de forma eficaz e gerenciar seu tempo com eficiência.",
+		"category": "recursos",
 		"open": true
 	},
 	{
-		"question": "How do I use the in-app messaging feature?",
-		"reply": "In-app messaging allows you to communicate with your team directly within Foxi. Simply navigate to the messaging tab to start a conversation. You can send messages, share files, and create group chats.",
-		"category": "features",
+		"question": "Como uso o recurso de mensagens no app?",
+		"reply": "As mensagens no app permitem que você se comunique com sua equipe diretamente no Foxi. Basta navegar até a guia de mensagens para iniciar uma conversa. Você pode enviar mensagens, compartilhar arquivos e criar chats em grupo.",
+		"category": "recursos",
 		"open": false
 	},
 	{
-		"question": "Can I customize my dashboard?",
-		"reply": "Yes, you can customize your dashboard by adding, removing, and rearranging widgets to fit your workflow. This customization helps you keep important information at your fingertips.",
-		"category": "features",
+		"question": "Posso personalizar meu dashboard?",
+		"reply": "Sim, você pode personalizar seu dashboard adicionando, removendo e reorganizando widgets para se adequar ao seu fluxo de trabalho. Essa personalização ajuda a manter as informações importantes na ponta dos dedos.",
+		"category": "recursos",
 		"open": false
 	},
 	{
-		"question": "How does the time tracking feature work?",
-		"reply": "Time tracking allows you to log the time spent on tasks and projects. Start the timer when you begin a task and stop it when you're done. You can also manually log time if needed.",
-		"category": "features",
+		"question": "Como funciona o recurso de acompanhamento de tempo?",
+		"reply": "O acompanhamento de tempo permite registrar o tempo gasto em tarefas e projetos. Inicie o cronômetro quando começar uma tarefa e pare-o quando terminar. Você também pode registrar o tempo manualmente, se necessário.",
+		"category": "recursos",
 		"open": false
 	},
 	{
-		"question": "Is there a mobile app for Foxi?",
-		"reply": "Yes, Foxi is available on both iOS and Android, allowing you to manage your tasks and projects on the go. Download the app from the App Store or Google Play to stay productive anywhere.",
-		"category": "features",
+		"question": "Existe um app móvel para o Foxi?",
+		"reply": "Sim, o Foxi está disponível para iOS e Android, permitindo que você gerencie suas tarefas e projetos em qualquer lugar. Baixe o app na App Store ou Google Play para se manter produtivo em qualquer lugar.",
+		"category": "recursos",
 		"open": false
 	}
 ]

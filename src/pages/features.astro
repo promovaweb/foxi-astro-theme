@@ -19,44 +19,44 @@ const featuresSupport = featuresData.filter((feature) => feature.category === 'S
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Features to Boost Productivity & Security',
+	title: 'Foxi | Recursos para Aumentar a Produtividade e Segurança',
 	description:
-		"Explore Foxi's powerful features designed to enhance productivity, ensure top-notch security, and integrate seamlessly with your favorite tools. Join thousands of satisfied users and transform your workflow with Foxi today!"
+		'Explore os poderosos recursos do Foxi projetados para aumentar a produtividade, garantir segurança de alto nível e integrar-se perfeitamente com suas ferramentas favoritas. Junte-se a milhares de usuários satisfeitos e transforme seu fluxo de trabalho com o Foxi hoje!'
 }
 // - Page Header
 const header = {
-	title: 'Why you and your team will <strong>love</strong> foxi.',
-	text: 'Streamline your tasks, protect your data, and enjoy working with our tools!'
+	title: 'Por que você e sua equipe vão <strong>amar</strong> o foxi.',
+	text: 'Simplifique suas tarefas, proteja seus dados e aproveite o trabalho com nossas ferramentas!'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<Feature
-		title="Insightful Analytics"
-		text="Delve into your data with precision and uncover actionable insights."
+		title="Analytics Detalhados"
+		text="Mergulhe em seus dados com precisão e descubra insights acionáveis."
 		data={featuresAnalytics}
 	/>
 	<Feature
-		title="Efficiency Unleashed"
-		text="Streamline tasks and focus on what matters with tools designed to boost your productivity."
+		title="Eficiência Liberada"
+		text="Simplifique tarefas e foque no que importa com ferramentas projetadas para aumentar sua produtividade."
 		data={featuresSecurity}
 		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
 	<Feature
-		title="Ultimate Data Protection"
-		text="Keep your data safe with top-notch security measures and real-time threat detection."
+		title="Proteção de Dados Definitiva"
+		text="Mantenha seus dados seguros com medidas de segurança de ponta e detecção de ameaças em tempo real."
 		data={featuresProductivity}
 	/>
 	<Feature
-		title="Seamless Connectivity"
-		text="Effortlessly connect your favorite apps and automate workflows for a smoother workday."
+		title="Conectividade Perfeita"
+		text="Conecte sem esforço seus aplicativos favoritos e automatize fluxos de trabalho para um dia de trabalho mais tranquilo."
 		data={featuresIntegrations}
 		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
 	<Feature
-		title="24/7 Expert Help"
-		text="Our friendly support team is always here to assist you with any questions or issues."
+		title="Ajuda Especializada 24/7"
+		text="Nossa amigável equipe de suporte está sempre aqui para ajudá-lo com qualquer dúvida ou problema."
 		data={featuresSupport}
 	/>
 	<CTA />

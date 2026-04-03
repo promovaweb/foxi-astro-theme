@@ -32,7 +32,7 @@
         { "name": "Suporte online 24/7", "tiers": { "Iniciante": true, "Crescimento": true, "Escala": true } },
         { "name": "Workshops trimestrais", "tiers": { "Iniciante": false, "Crescimento": true, "Escala": true } },
         { "name": "Suporte por telefone prioritário", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } },
-        { "name": "Tour de onboarding 1:1", "tiers": { "Iniciante": false, "Crescimento": false, "Scale": true } }
+        { "name": "Tour de onboarding 1:1", "tiers": { "Iniciante": false, "Crescimento": false, "Escala": true } }
       ]
     }
   ]

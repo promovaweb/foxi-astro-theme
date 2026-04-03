@@ -1,26 +1,26 @@
 ---
-title: 'Enhancing Team Collaboration'
+title: 'Aprimorando a Colaboração em Equipe'
 pubDate: 2024-06-04T05:00:00Z
-description: 'At Foxi, we believe that effective team collaboration is key to achieving great results. Our latest update introduces new features designed to enhance how your team works together.'
+description: 'No Foxi, acreditamos que a colaboração eficaz em equipe é a chave para alcançar grandes resultados. Nossa atualização mais recente introduz novos recursos projetados para aprimorar como sua equipe trabalha em conjunto.'
 author: 'Eleni K'
 image: '/blog/post-05-cover.png'
-tags: ['app', 'announcement']
+tags: ['app', 'anúncio']
 ---
 
-![Foxi is here.](/blog/post-05.png)
+![Foxi está aqui.](/blog/post-05.png)
 
-At Foxi, we believe that effective team collaboration is key to achieving great results. Our latest update introduces new features designed to enhance how your team works together.
+No Foxi, acreditamos que a colaboração eficaz em equipe é a chave para alcançar grandes resultados. Nossa atualização mais recente introduz novos recursos projetados para aprimorar como sua equipe trabalha em conjunto.
 
-### New Collaboration Features
+### Novos Recursos de Colaboração
 
-- **Shared Task Lists**: Create and share task lists with your team. Keep everyone on the same page and ensure that no task is overlooked.
-- **Team Messaging Enhancements**: We've improved our in-app messaging with new features like message threading, mentions, and file sharing to make communication smoother and more organized.
-- **Collaborative Notes**: Take notes during meetings and brainstorming sessions, and share them with your team instantly. Everyone can contribute and stay updated.
+- **Listas de Tarefas Compartilhadas**: Crie e compartilhe listas de tarefas com sua equipe. Mantenha todos na mesma página e garanta que nenhuma tarefa seja esquecida.
+- **Melhorias nas Mensagens de Equipe**: Melhoramos nossas mensagens internas com novos recursos como encadeamento de mensagens (threading), menções e compartilhamento de arquivos para tornar a comunicação mais fluida e organizada.
+- **Notas Colaborativas**: Tome notas durante reuniões e sessões de brainstorming, e compartilhe-as com sua equipe instantaneamente. Todos podem contribuir e manter-se atualizados.
 
-#### Why Collaboration Matters
+#### Por que a Colaboração Importa
 
-> The strength of the team is each individual member. The strength of each member is the team.
+> A força da equipe é cada membro individual. A força de cada membro é a equipe.
 
-Effective collaboration leads to better decision-making, faster problem-solving, and a more engaged team. With these new features, Foxi is more equipped than ever to help your team succeed.
+A colaboração eficaz leva a uma melhor tomada de decisão, resolução de problemas mais rápida e uma equipe mais engajada. Com esses novos recursos, o Foxi está mais equipado do que nunca para ajudar sua equipe a ter sucesso.
 
-Start using these features today and see the difference in your team's productivity and collaboration.
+Comece a usar esses recursos hoje e veja a diferença na produtividade e colaboração da sua equipe.
