@@ -2,6 +2,7 @@
 // Ebook: Guia de Produtividade
 // ------------
 import Layout from '@layouts/landing/EbookLanding.astro'
+import EbookCover from '@components/ui/EbookCover.astro'
 import LandingHero from '@components/blocks/landing/LandingHero.astro'
 import LandingForm from '@components/blocks/landing/LandingForm.astro'
 import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
@@ -41,14 +42,7 @@ const metadata = {
 	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24 lg:py-40">
 		<Row>
 			<Col span="12" lg="5">
-				<div class="relative group">
-					<div class="absolute -inset-4 bg-primary-500/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-700" />
-					<img 
-						src={material.image} 
-						alt="Capa do Ebook Guia de Produtividade" 
-						class="relative w-full h-auto rounded-3xl shadow-2xl border border-neutral-200 dark:border-neutral-800"
-					/>
-				</div>
+				<EbookCover title={material.title} mainColor={material.color} classes="max-w-sm" />
 			</Col>
 			<Col span="12" lg="7" classes="flex flex-col justify-center pt-12 lg:pt-0 lg:pl-16">
 				<h2 class="text-3xl lg:text-4xl font-bold mb-6 text-neutral-900 dark:text-white">

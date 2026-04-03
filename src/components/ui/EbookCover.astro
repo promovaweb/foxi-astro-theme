@@ -1,0 +1,132 @@
+---
+// EbookCover
+// Descrição: Placeholder de capa de ebook vertical (A4) com visual moderno
+// Propriedades:
+// - title: Título do ebook
+// - author: Autor do material (opcional)
+// - mainColor: Cor principal do fundo (Tailwind class, default: bg-primary-500)
+// - classes: Classes extras para o container
+
+type Props = {
+	title: string
+	author?: string
+	mainColor?: string
+	classes?: string
+}
+
+const { 
+	title, 
+	author = "Foxi Astro Theme", 
+	mainColor = "bg-primary-500",
+	classes 
+} = Astro.props
+---
+
+<div class:list={["ebook-cover", classes]}>
+	<div class:list={["ebook-cover__wrapper", mainColor]}>
+		<!-- Spine Shadow Effect -->
+		<div class="ebook-cover__spine"></div>
+		
+		<!-- Decorative Elements -->
+		<div class="ebook-cover__decoration ebook-cover__decoration--top"></div>
+		<div class="ebook-cover__decoration ebook-cover__decoration--bottom"></div>
+
+		<!-- Content -->
+		<div class="ebook-cover__content">
+			<div class="ebook-cover__header">
+				<div class="ebook-cover__line"></div>
+				<p class="ebook-cover__tag">Material Exclusivo</p>
+			</div>
+
+			<h3 class="ebook-cover__title" set:html={title} />
+
+			<div class="ebook-cover__footer">
+				<div class="ebook-cover__author-box">
+					<p class="ebook-cover__label">Autor</p>
+					<p class="ebook-cover__author">{author}</p>
+				</div>
+				<div class="ebook-cover__logo">
+					<span>F.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.ebook-cover {
+		@apply relative w-full mx-auto perspective-1000;
+	}
+
+	.ebook-cover__wrapper {
+		@apply relative aspect-[1/1.41] rounded-r-lg shadow-2xl overflow-hidden flex flex-col p-8 lg:p-12 transition-transform duration-500 ease-out;
+		transform: rotateY(-8deg);
+		box-shadow: 
+			15px 15px 40px -10px rgba(0,0,0,0.5),
+			inset -2px 0 5px rgba(255,255,255,0.1),
+			inset 2px 0 5px rgba(0,0,0,0.2);
+	}
+
+	.ebook-cover:hover .ebook-cover__wrapper {
+		transform: rotateY(-15deg) scale(1.03);
+	}
+
+	.ebook-cover__spine {
+		@apply absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/30 via-black/10 to-transparent;
+	}
+
+	/* Pages effect on the right edge */
+	.ebook-cover__wrapper::after {
+		content: '';
+		@apply absolute inset-y-0 right-0 w-1 bg-gradient-to-l from-black/10 to-transparent;
+	}
+
+	.ebook-cover__decoration {
+		@apply absolute rounded-full blur-3xl opacity-30;
+	}
+
+	.ebook-cover__decoration--top {
+		@apply -top-20 -right-20 w-64 h-64 bg-white;
+	}
+
+	.ebook-cover__decoration--bottom {
+		@apply -bottom-20 -left-20 w-64 h-64 bg-black;
+	}
+
+	.ebook-cover__content {
+		@apply relative z-10 flex flex-col justify-between h-full text-white;
+	}
+
+	.ebook-cover__line {
+		@apply w-12 h-1.5 bg-white/40 rounded-full mb-4;
+	}
+
+	.ebook-cover__tag {
+		@apply text-xs font-bold uppercase tracking-widest text-white/70;
+	}
+
+	.ebook-cover__title {
+		@apply text-3xl lg:text-4xl font-bold font-headings leading-tight mt-6;
+	}
+
+	.ebook-cover__footer {
+		@apply flex items-end justify-between mt-auto;
+	}
+
+	.ebook-cover__label {
+		@apply text-[10px] uppercase tracking-tighter text-white/60 mb-1;
+	}
+
+	.ebook-cover__author {
+		@apply font-bold text-sm lg:text-base;
+	}
+
+	.ebook-cover__logo {
+		@apply w-10 h-10 border border-white/30 rounded-full flex items-center justify-center font-bold text-xl;
+	}
+
+	/* Perspective Utility if not in Tailwind */
+	.perspective-1000 {
+		perspective: 1000px;
+	}
+</style>

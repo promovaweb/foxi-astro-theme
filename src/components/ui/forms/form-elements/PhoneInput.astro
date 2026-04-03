@@ -54,14 +54,39 @@ const inputName = name || inputId
 					separateDialCode: true,
 					utilsScript: utilsScript,
 					preferredCountries: ["br", "us", "pt"],
-					autoPlaceholder: "aggressive",
+					autoPlaceholder: "polite",
 					nationalMode: true,
 				} as any);
 				
 				(input as any)._iti = iti;
 				input.dataset.intlInit = "true";
 
-				// Formatação ao perder foco
+				// Máscara brasileira em tempo real
+				const maskBR = (value: string) => {
+					const numbers = value.replace(/\D/g, "").slice(0, 11);
+					if (numbers.length === 0) return "";
+					if (numbers.length <= 2) return `(${numbers}`;
+					if (numbers.length <= 6) return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+					if (numbers.length <= 10) return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 6)}-${numbers.slice(6)}`;
+					return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7)}`;
+				};
+
+				input.addEventListener('input', () => {
+					if (iti.getSelectedCountryData().iso2 === 'br') {
+						const start = input.selectionStart;
+						const oldVal = input.value;
+						const newVal = maskBR(oldVal);
+						
+						if (oldVal !== newVal && start !== null) {
+							input.value = newVal;
+							// Calcula o deslocamento do cursor baseado na diferença de caracteres
+							const delta = newVal.length - oldVal.length;
+							input.setSelectionRange(start + delta, start + delta);
+						}
+					}
+				});
+
+				// Formatação final ao perder foco para outros países
 				input.addEventListener('blur', () => {
 					if (input.value.trim() && iti.isValidNumber()) {
 						input.value = iti.getNumber(1); // NATIONAL format
@@ -119,23 +144,19 @@ const inputName = name || inputId
 		@apply text-red-500 dark:text-red-400;
 	}
 
-	/* Estados de flutuação ajustados para o campo de telefone */
-	.input__field:focus ~ .input__label,
-	.input__field:not(:placeholder-shown) ~ .input__label,
-	.input__field:-webkit-autofill ~ .input__label {
-		@apply -top-3 left-3 text-xs font-bold text-primary-500 bg-white dark:bg-neutral-950 z-[10];
+	/* Estado fixo de flutuação para o campo de telefone para evitar sobreposição com a bandeira */
+	.input--phone .input__label {
+		@apply -top-3 left-3 text-xs font-bold text-neutral-600 bg-white dark:bg-neutral-950 z-[10] dark:text-neutral-400;
 	}
 
-	/* No modo telefone, como o código do país ocupa espaço, movemos o label para cima logo no focus ou preenchimento */
-	/* O layout do ITI coloca o input dentro do wrapper, precisamos garantir que o label flutue corretamente */
-	
+	.input--phone:focus-within .input__label {
+		@apply text-primary-500;
+	}
+
 	.input__field.is-invalid:focus ~ .input__label,
-	.input__field.is-invalid:not(:placeholder-shown) ~ .input__label {
+	.input__field.is-invalid:not(:placeholder-shown) ~ .input__label,
+	.input--phone .input__field.is-invalid ~ .input__label {
 		@apply text-red-500;
-	}
-
-	.input__field:not(:focus):not(:placeholder-shown) ~ .input__label {
-		@apply text-neutral-600 dark:text-neutral-400;
 	}
 
 	.input__error-message {

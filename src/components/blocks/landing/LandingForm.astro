@@ -218,8 +218,8 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 		@apply mt-2;
 	}
 
-	.landing-form__button {
-		@apply w-full flex items-center justify-center shadow-xl shadow-primary-500/10 hover:shadow-primary-500/20 active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed;
+	:global(.landing-form__button) {
+		@apply w-full flex items-center justify-center text-lg h-14 shadow-xl shadow-primary-500/10 hover:shadow-primary-500/20 active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed !important;
 	}
 
 	.landing-form__footer {
@@ -277,7 +277,8 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 	}
 
 	.landing-form--contrast :global(.input__field:focus ~ .input__label),
-	.landing-form--contrast :global(.input__field:not(:placeholder-shown) ~ .input__label) {
+	.landing-form--contrast :global(.input__field:not(:placeholder-shown) ~ .input__label),
+	.landing-form--contrast :global(.input--phone .input__label) {
 		@apply bg-primary-500 text-white font-bold;
 	}
 
