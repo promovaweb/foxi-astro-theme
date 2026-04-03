@@ -1,0 +1,68 @@
+---
+// Evento: Foxi Conf 2024
+// ------------
+import Layout from '@layouts/landing/EventLanding.astro'
+import LandingHero from '@components/blocks/landing/LandingHero.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+
+const metadata = {
+	title: "Foxi Conf 2024",
+	description: "Participe do maior evento de tecnologia e produtividade do ano. Palestras, workshops e networking."
+}
+---
+
+<Layout {...metadata}>
+	<LandingHero 
+		tag="Evento Presencial"
+		title="O Encontro da <strong>Tecnologia</strong> & Produtividade"
+		text={metadata.description}
+		classes="bg-neutral-900 text-white"
+	>
+		<div slot="image" class="w-full h-full flex flex-col items-center justify-center gap-6">
+			<div class="bg-primary-500 p-8 rounded-3xl rotate-3 shadow-2xl">
+				<Icon name="user-group" class="w-24 h-24 text-white" />
+			</div>
+			<span class="text-2xl font-bold tracking-widest text-primary-400">#FOXI2024</span>
+		</div>
+	</LandingHero>
+
+	<Section>
+		<Row>
+			<Col span="12" lg="8">
+				<h2 class="text-3xl font-bold mb-8 text-neutral-900 dark:text-white">Por que participar?</h2>
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="p-6 rounded-2xl border border-neutral-100 dark:border-neutral-800">
+						<Icon name="bolt" class="w-8 h-8 text-primary-500 mb-4" />
+						<h3 class="font-bold mb-2">Palestras Inspiradoras</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Líderes das maiores empresas de tecnologia compartilhando segredos de produtividade.</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-neutral-100 dark:border-neutral-800">
+						<Icon name="squares-plus" class="w-8 h-8 text-primary-500 mb-4" />
+						<h3 class="font-bold mb-2">Workshops Práticos</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Mão na massa para aprender a configurar fluxos de trabalho avançados no Foxi.</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-neutral-100 dark:border-neutral-800">
+						<Icon name="user-group" class="w-8 h-8 text-primary-500 mb-4" />
+						<h3 class="font-bold mb-2">Networking de Elite</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Conecte-se com profissionais que estão transformando suas áreas de atuação.</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-neutral-100 dark:border-neutral-800">
+						<Icon name="trophy" class="w-8 h-8 text-primary-500 mb-4" />
+						<h3 class="font-bold mb-2">Certificado Foxi</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Receba um certificado oficial de participação e proficiência em ferramentas Foxi.</p>
+					</div>
+				</div>
+			</Col>
+			<Col span="12" lg="4">
+				<LandingForm title="Garante sua entrada" buttonText="Confirmar presença" classes="sticky top-24" />
+			</Col>
+		</Row>
+	</Section>
+
+	<LandingFooter />
+</Layout>

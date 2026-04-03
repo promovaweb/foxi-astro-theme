@@ -1,0 +1,25 @@
+---
+// Event Landing Page Layout
+// ------------
+import Header from '@components/blocks/head/Header.astro'
+import Scriprs from '@components/scripts/LocalScripts.astro'
+import '@styles/global.css'
+
+type Props = {
+	title: string
+	description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-animation mode-auto relative">
+	<Header title={title} description={description} />
+	<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 transition-colors duration-300">
+		<main>
+			<slot />
+		</main>
+		<Scriprs />
+	</body>
+</html>

@@ -1,0 +1,26 @@
+---
+// Landing Form Component
+// ------------
+import Input from '@components/ui/forms/form-elements/InputField.astro'
+import Button from '@components/ui/Button.astro'
+
+type Props = {
+	title: string
+	buttonText: string
+	classes?: string
+}
+
+const { title, buttonText, classes } = Astro.props
+---
+
+<div class:list={["bg-neutral-50 dark:bg-neutral-900 p-8 lg:p-12 rounded-3xl border border-neutral-100 dark:border-neutral-800 shadow-xl w-full", classes]}>
+	<h2 class="text-2xl font-bold mb-6 text-center text-neutral-900 dark:text-white">{title}</h2>
+	<form class="grid gap-4">
+		<Input label="Nome Completo" name="name" placeholder="Seu nome" />
+		<Input label="E-mail Corporativo" name="email" type="email" placeholder="seu@email.com" />
+		<Button style="primary" size="lg" classes="w-full mt-4">{buttonText}</Button>
+	</form>
+	<p class="text-xs text-neutral-500 mt-6 text-center">
+		Ao preencher o formulário, você concorda com nossa política de privacidade.
+	</p>
+</div>

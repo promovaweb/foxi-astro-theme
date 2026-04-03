@@ -22,7 +22,9 @@ import { Icon } from 'astro-icon/components'
 
 // Props
 type Props = {
-	id: string
+	id?: string
+	name?: string
+	placeholder?: string
 	type?: 'text' | 'email' | 'password' | 'tel'
 	label: string
 	iconName?: string
@@ -36,6 +38,8 @@ type Props = {
 const {
 	type = 'text',
 	id,
+	name,
+	placeholder,
 	label,
 	iconName,
 	iconPosition,
@@ -45,6 +49,10 @@ const {
 	value,
 	classes
 } = Astro.props
+
+const inputId = id || name || label.toLowerCase().replace(/\s+/g, '-')
+const inputName = name || inputId
+const inputPlaceholder = placeholder || label
 ---
 
 <div
@@ -56,17 +64,17 @@ const {
 	]}
 >
 	<input
-		id={id}
+		id={inputId}
 		type={type}
-		name={id}
-		placeholder={label}
+		name={inputName}
+		placeholder={inputPlaceholder}
 		required={required}
 		disabled={disabled}
 		value={value}
 		class="input__field peer"
 	/>
 	<label
-		for={id}
+		for={inputId}
 		class={`input__label ${iconPosition === 'lead' ? 'peer-placeholder-shown:left-10 peer-focus:left-2' : ''}`}
 	>
 		{label}

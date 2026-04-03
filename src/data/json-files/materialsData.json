@@ -1,0 +1,46 @@
+[
+	{
+		"id": "guia-produtividade",
+		"title": "Guia Definitivo de Produtividade",
+		"description": "Aprenda como dominar seu fluxo de trabalho e extrair o máximo de eficiência com nossas ferramentas.",
+		"type": "ebook",
+		"typeName": "Ebook",
+		"link": "/materiais/guia-produtividade",
+		"image": "/src/assets/hero-01.png",
+		"color": "bg-blue-500",
+		"featured": true
+	},
+	{
+		"id": "template-planejamento",
+		"title": "Template de Planejamento",
+		"description": "Organize seu próximo trimestre com foco total em resultados usando nosso template exclusivo.",
+		"type": "download",
+		"typeName": "Download",
+		"link": "/materiais/template-planejamento",
+		"image": "/src/assets/hero-01.png",
+		"color": "bg-emerald-500",
+		"featured": true
+	},
+	{
+		"id": "futuro-colaboracao",
+		"title": "Futuro da Colaboração Remota",
+		"description": "Assista a este webinar exclusivo sobre as tendências que estão moldando o mercado de trabalho.",
+		"type": "webinar",
+		"typeName": "Webinar",
+		"link": "/materiais/futuro-colaboracao",
+		"image": "/src/assets/hero-01.png",
+		"color": "bg-amber-500",
+		"featured": true
+	},
+	{
+		"id": "foxi-conf-2024",
+		"title": "Foxi Conf 2024",
+		"description": "Participe do maior evento de tecnologia e produtividade do ano com palestras e workshops.",
+		"type": "evento",
+		"typeName": "Evento",
+		"link": "/materiais/foxi-conf-2024",
+		"image": "/src/assets/hero-01.png",
+		"color": "bg-purple-500",
+		"featured": true
+	}
+]

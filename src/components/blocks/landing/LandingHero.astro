@@ -1,0 +1,39 @@
+---
+// Landing Hero Component
+// ------------
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import { Image } from 'astro:assets'
+
+type Props = {
+	title: string
+	text: string
+	image?: string
+	tag?: string
+	classes?: string
+}
+
+const { title, text, image, tag, classes } = Astro.props
+---
+
+<Section padding="top" classes={classes}>
+	<Row>
+		<Col span="12" lg="6" classes="flex flex-col justify-center">
+			{tag && <span class="text-primary-500 font-bold uppercase tracking-wider mb-4 block">{tag}</span>}
+			<h1 class="text-4xl lg:text-6xl font-black mb-6 text-neutral-900 dark:text-white" set:html={title} />
+			<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">{text}</p>
+			<slot name="after-text" />
+		</Col>
+		<Col span="12" lg="6" classes="flex items-center justify-center pt-12 lg:pt-0">
+			{image ? (
+				<div class="relative">
+					<div class="absolute -inset-4 bg-primary-500/10 rounded-full blur-3xl" />
+					<Image src={image} alt={title} width={600} height={800} class="relative rounded-2xl shadow-2xl" />
+				</div>
+			) : (
+				<slot name="image" />
+			)}
+		</Col>
+	</Row>
+</Section>

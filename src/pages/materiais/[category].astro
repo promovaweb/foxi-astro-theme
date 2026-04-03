@@ -1,0 +1,67 @@
+---
+// Materiais by Category Page
+// ------------
+import Layout from '@layouts/Layout.astro'
+import Hero from '@components/blocks/hero/PageHeader.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import MaterialCard from '@components/blocks/landing/MaterialCard.astro'
+import materialsData from '@data/json-files/materialsData.json'
+
+export async function getStaticPaths() {
+	const categories = [
+		{ name: 'ebooks', type: 'ebook', title: 'Ebooks Gratuitos' },
+		{ name: 'webinars', type: 'webinar', title: 'Webinars e Vídeos' },
+		{ name: 'downloads', type: 'download', title: 'Arquivos para Download' },
+		{ name: 'eventos', type: 'evento', title: 'Eventos e Workshops' }
+	]
+
+	return categories.map((cat) => {
+		const filteredMaterials = materialsData.filter((m) => m.type === cat.type)
+		return {
+			params: { category: cat.name },
+			props: { materials: filteredMaterials, title: cat.title, type: cat.type }
+		}
+	})
+}
+
+const { materials, title, type } = Astro.props
+const { category } = Astro.params
+
+const SEO = {
+	title: `${title} | Foxi Marketing`,
+	description: `Confira nossa lista completa de ${category} exclusivos para melhorar sua produtividade.`
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={title} text={`Todos os nossos materiais do tipo ${type} reunidos em um só lugar.`} />
+
+	<Section>
+		<Row classes="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{
+				materials.length > 0 ? (
+					materials.map((material) => (
+						<MaterialCard 
+							title={material.title}
+							description={material.description}
+							type={material.typeName}
+							link={material.link}
+							image={material.image}
+							color={material.color}
+						/>
+					))
+				) : (
+					<Col span="12" align="center">
+						<p class="text-lg text-neutral-500">Nenhum material encontrado nesta categoria.</p>
+						<Button link="/materiais" style="neutral" classes="mt-4">
+							Voltar para Central
+						</Button>
+					</Col>
+				)
+			}
+		</Row>
+	</Section>
+</Layout>

@@ -1,0 +1,33 @@
+---
+// Material Card Component
+// ------------
+import Button from '@components/ui/Button.astro'
+
+type Props = {
+	title: string
+	description: string
+	type: string
+	link: string
+	image: string
+	color?: string
+	classes?: string
+}
+
+const { title, description, type, link, image, color = "bg-primary-500", classes } = Astro.props
+---
+
+<div class:list={["bg-white dark:bg-neutral-900 p-6 rounded-3xl border border-neutral-100 dark:border-neutral-800 shadow-lg flex flex-col group", classes]}>
+	<div class="mb-6 overflow-hidden rounded-2xl aspect-video relative">
+		<img src={image} alt={title} class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+		<span class:list={["absolute top-4 left-4 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest", color]}>
+			{type}
+		</span>
+	</div>
+	<h3 class="text-xl font-bold mb-3 text-neutral-900 dark:text-white">{title}</h3>
+	<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-6 flex-1 line-clamp-3">
+		{description}
+	</p>
+	<Button link={link} style="primary" classes="w-full">
+		Ver Detalhes
+	</Button>
+</div>

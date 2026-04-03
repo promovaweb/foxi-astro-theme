@@ -1,0 +1,45 @@
+---
+// Download: Template de Planejamento
+// ------------
+import Layout from '@layouts/landing/DownloadLanding.astro'
+import LandingHero from '@components/blocks/landing/LandingHero.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+
+const metadata = {
+	title: "Template de Planejamento Estratégico",
+	description: "Baixe nosso template exclusivo em PDF para planejar o próximo trimestre da sua empresa com foco em resultados."
+}
+---
+
+<Layout {...metadata}>
+	<LandingHero 
+		tag="Ferramenta Gratuita"
+		title="Planeje seu sucesso com nosso <strong>Template</strong>"
+		text={metadata.description}
+	>
+		<div slot="image" class="w-full h-full flex items-center justify-center p-12">
+			<div class="bg-primary-500/10 p-20 rounded-full animate-pulse">
+				<Icon name="document-text" class="w-40 h-40 text-primary-500" />
+			</div>
+		</div>
+	</LandingHero>
+
+	<Section classes="bg-neutral-900 text-white py-24">
+		<Row justify="center">
+			<Col span="12" lg="8" align="center">
+				<h2 class="text-3xl lg:text-5xl font-black mb-8">Pronto para começar?</h2>
+				<p class="text-xl text-neutral-400 mb-12">Insira seu e-mail abaixo e receba o link direto para download em sua caixa de entrada.</p>
+				<div class="max-w-lg mx-auto text-left">
+					<LandingForm title="Quero baixar o template" buttonText="Enviar link por e-mail" />
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<LandingFooter />
+</Layout>

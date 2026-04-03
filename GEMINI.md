@@ -38,7 +38,8 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 8. **Primitivos de layout** — Usar `<Section>` → `<Row>` → `<Col>` para todos os layouts de página. Não criar wrappers customizados de seção/linha/grid.
 9. **Dados em config** — Conteúdo repetido (itens de nav, links do rodapé, listas de funcionalidades, dados de preços) deve ficar em `src/config/` ou `src/data/json-files/`. Nunca hardcodar nos componentes.
 10. **Changelog em Markdown** — O histórico de alterações (changelog) é gerenciado via arquivos Markdown na coleção de conteúdo em `src/content/changelog/`. Novas versões devem ser adicionadas como arquivos `.md` nesta pasta. O tamanho da paginação pode ser configurado em `src/config/config.ts` através da propriedade `changelogPageSize`.
-11. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
+11. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados em `src/content/materials/`. Cada item deve ter um `type` definido para aplicar o layout de landing page correspondente.
+12. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 11. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
 12. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
 13. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
