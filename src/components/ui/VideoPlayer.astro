@@ -1,0 +1,28 @@
+---
+// VideoPlayer Component
+// Descrição: Embed de vídeo do YouTube responsivo 16:9.
+// Propriedades: videoId (ID do vídeo do YouTube)
+
+type Props = {
+	videoId: string
+	title?: string
+}
+
+const { videoId, title = "Webinar Video" } = Astro.props
+---
+
+<div class="video-player relative w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl bg-black border border-neutral-100 dark:border-neutral-800">
+	<iframe
+		src={`https://www.youtube.com/embed/${videoId}?rel=0&showinfo=0&autoplay=1`}
+		title={title}
+		class="absolute inset-0 w-full h-full"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+	></iframe>
+</div>
+
+<style>
+	.video-player {
+		@apply transition-transform duration-500 hover:scale-[1.01];
+	}
+</style>

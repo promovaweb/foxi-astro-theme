@@ -334,6 +334,15 @@ Bloco de espaço vertical.
 
 Seção de texto de call-to-action (título + slot de corpo).
 
+#### `<VideoPlayer>` — `src/components/ui/VideoPlayer.astro`
+
+Embed responsivo de vídeo do YouTube (16:9).
+
+| Prop | Tipo | Descrição |
+|---|---|---|
+| `videoId` | `string` | ID do vídeo no YouTube (ex: `dQw4w9WgXcQ`) |
+| `title` | `string` | Título para acessibilidade do iframe |
+
 #### `<DownloadDetails>` — `src/components/blocks/landing/DownloadDetails.astro`
 
 Exibe detalhes técnicos de um arquivo para download.

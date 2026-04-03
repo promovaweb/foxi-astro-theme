@@ -1,16 +1,99 @@
 ---
 // Página de Agradecimento: Template de Planejamento
 // ------------
-import Layout from '@layouts/landing/ThankYouLayout.astro'
+import Layout from '@layouts/landing/DownloadLanding.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import MaterialCard from '@components/blocks/landing/MaterialCard.astro'
+import { Icon } from 'astro-icon/components'
+import materials from '@data/json-files/materialsData.json'
 
 const metadata = {
-	title: "Obrigado | Template de Planejamento",
-	description: "Obrigado por baixar nosso template. Clique no botão para iniciar o download direto."
+	title: "Download Pronto | Template de Planejamento",
+	description: "Seu template está pronto. O download começará automaticamente."
 }
+
+const downloadUrl = "/public/favicon.svg" // Placeholder para o arquivo real
+const relatedMaterials = materials.filter(m => m.id !== "template-planejamento").slice(0, 2)
 ---
 
-<Layout 
-	{...metadata} 
-	message="O seu Template de Planejamento Estratégico está pronto!" 
-	downloadUrl="/public/favicon.svg" 
-/>
+<Layout {...metadata}>
+	<!-- Hero de Sucesso -->
+	<Section padding="top" classes="bg-neutral-50 dark:bg-neutral-900/50 pt-32 lg:pt-48 pb-24">
+		<Row justify="center">
+			<Col span="12" lg="8" align="center">
+				<div class="mb-8 inline-flex items-center justify-center w-24 h-24 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-500 rounded-full animate-bounce">
+					<Icon name="check-circle" class="w-12 h-12" />
+				</div>
+				<h1 class="text-4xl lg:text-6xl font-black mb-6 text-neutral-900 dark:text-white leading-tight">
+					Tudo pronto para seu <strong>sucesso</strong>!
+				</h1>
+				<p class="text-xl text-neutral-600 dark:text-neutral-400 mb-12 max-w-2xl mx-auto">
+					O download do <strong>Template de Planejamento Estratégico</strong> deve começar em instantes. Se não iniciar, use o botão abaixo.
+				</p>
+				
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+					<Button link={downloadUrl} style="primary" size="lg" id="download-btn">
+						<Icon name="document-text" class="w-5 h-5 mr-2" />
+						Baixar Arquivo Agora
+					</Button>
+					<Button link="/materiais" style="neutral" variation="outline" size="lg">
+						Explorar outros materiais
+					</Button>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Seção de Próximos Passos -->
+	<Section classes="py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0 flex flex-col justify-center">
+				<h2 class="text-3xl font-bold mb-6 text-neutral-900 dark:text-white">Como aproveitar ao máximo este template:</h2>
+				<div class="space-y-6">
+					<div class="flex gap-4">
+						<div class="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center shrink-0 font-bold">1</div>
+						<p class="text-neutral-600 dark:text-neutral-400">Reúna sua equipe de liderança para uma sessão de brainstorming de 2 horas.</p>
+					</div>
+					<div class="flex gap-4">
+						<div class="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center shrink-0 font-bold">2</div>
+						<p class="text-neutral-600 dark:text-neutral-400">Preencha primeiro os OKRs anuais antes de descer para o nível trimestral.</p>
+					</div>
+					<div class="flex gap-4">
+						<div class="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center shrink-0 font-bold">3</div>
+						<p class="text-neutral-600 dark:text-neutral-400">Compartilhe o documento final com toda a empresa para garantir alinhamento.</p>
+					</div>
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16">
+				<div class="bg-primary-500/10 p-8 lg:p-12 rounded-[2.5rem] border border-primary-500/20">
+					<h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400 italic">"O planejamento é a ponte entre o seu estado atual e o seu objetivo desejado."</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 mb-0">Use este material como uma ferramenta viva de gestão, não apenas um arquivo estático.</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Sugestões de Conteúdo -->
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24">
+		<Row>
+			<Col span="12" classes="mb-12 text-center">
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white">Você também pode gostar:</h2>
+			</Col>
+			{relatedMaterials.map(material => (
+				<Col span="12" lg="6">
+					<MaterialCard {...material} type={material.typeName} />
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	<script define:vars={{ downloadUrl }}>
+		// Gatilho de download automático
+		setTimeout(() => {
+			window.location.href = downloadUrl;
+		}, 2000);
+	</script>
+</Layout>

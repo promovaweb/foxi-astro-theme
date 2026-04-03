@@ -1,12 +1,73 @@
 ---
 // Página de Agradecimento: Futuro da Colaboração
 // ------------
-import Layout from '@layouts/landing/ThankYouLayout.astro'
+import Layout from '@layouts/Layout.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
 
 const metadata = {
 	title: "Inscrição Confirmada | Webinar Futuro da Colaboração",
-	description: "Sua vaga no webinar está garantida. Enviamos os detalhes de acesso para seu e-mail."
+	description: "Sua vaga está garantida. Assista agora ao conteúdo exclusivo."
 }
+
+const webinarLink = "/materiais/webinar-view"
 ---
 
-<Layout {...metadata} message="Sua inscrição para o Webinar: O Futuro da Colaboração Remota foi confirmada com sucesso!" />
+<Layout {...metadata}>
+	<Section padding="both" classes="min-h-[80vh] flex items-center bg-neutral-900 text-white relative overflow-hidden">
+		<!-- Background decoration -->
+		<div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+			<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-500 rounded-full blur-[150px]" />
+		</div>
+
+		<Row justify="center" classes="relative z-10">
+			<Col span="12" lg="8" align="center">
+				<div class="mb-10 inline-flex items-center justify-center w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
+					<Icon name="check-circle" class="w-10 h-10" />
+				</div>
+				<h1 class="text-4xl lg:text-7xl font-black mb-8 leading-[1.1]">
+					Sua vaga está <span class="text-primary-500">confirmada</span>!
+				</h1>
+				<p class="text-xl lg:text-2xl text-neutral-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+					Obrigado por se inscrever no Webinar: <strong>O Futuro da Colaboração Remota</strong>. O conteúdo já está liberado para você.
+				</p>
+				
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+					<Button link={webinarLink} style="primary" size="lg">
+						<Icon name="bolt" class="w-5 h-5 mr-2" />
+						Assistir ao Webinar Agora
+					</Button>
+					<a href="#" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
+						<Icon name="bell" class="w-5 h-5" />
+						Adicionar ao Calendário
+					</a>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Seção de Info Adicional -->
+	<Section classes="py-24 bg-white dark:bg-neutral-950">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0 flex items-center">
+				<div class="relative">
+					<div class="absolute -inset-4 bg-primary-500/10 rounded-full blur-2xl" />
+					<Image src="/blog/post-01.png" alt="Palestrante" width={400} height={400} class="relative rounded-3xl shadow-2xl border border-neutral-100 dark:border-neutral-800" />
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16 flex flex-col justify-center">
+				<h2 class="text-3xl font-bold mb-6 text-neutral-900 dark:text-white">Prepare-se para o conteúdo</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+					Recomendamos que você reserve 60 minutos sem interrupções e tenha papel e caneta em mãos. Ricardo Fonseca preparou insights práticos que você poderá aplicar imediatamente no seu time.
+				</p>
+				<div class="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-100 dark:border-neutral-800">
+					<p class="text-sm text-neutral-500 mb-0 italic">"Este webinar mudou minha percepção sobre gestão de performance à distância." — Feedback de aluno</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

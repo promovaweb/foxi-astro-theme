@@ -1,12 +1,73 @@
 ---
 // Página de Agradecimento: Foxi Conf 2024
 // ------------
-import Layout from '@layouts/landing/ThankYouLayout.astro'
+import Layout from '@layouts/landing/EventLanding.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
 
 const metadata = {
-	title: "Presença Confirmada | Foxi Conf 2024",
-	description: "Sua presença no Foxi Conf 2024 foi confirmada. Verifique seu e-mail para o seu ingresso digital."
+	title: "Ingresso Confirmado | Foxi Conf 2024",
+	description: "Sua vaga no maior evento de produtividade do ano está garantida."
 }
 ---
 
-<Layout {...metadata} message="Parabéns! Sua vaga no Foxi Conf 2024 está garantida. Mal podemos esperar para te ver por lá!" />
+<Layout {...metadata}>
+	<Section padding="both" classes="bg-primary-500 text-white min-h-[70vh] flex items-center">
+		<Row justify="center">
+			<Col span="12" lg="10" align="center">
+				<div class="mb-10 inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-md rounded-full border border-white/30">
+					<Icon name="trophy" class="w-12 h-12 text-white" />
+				</div>
+				<h1 class="text-5xl lg:text-8xl font-black mb-8 leading-none italic uppercase tracking-tighter">
+					Você está <span class="text-neutral-900">dentro</span>!
+				</h1>
+				<p class="text-2xl lg:text-3xl font-medium mb-12 max-w-3xl mx-auto text-primary-100">
+					Sua inscrição para a <strong>Foxi Conf 2024</strong> foi recebida. Prepare-se para uma experiência transformadora.
+				</p>
+				
+				<div class="bg-neutral-900 p-8 rounded-[2rem] inline-block border border-neutral-800 shadow-2xl">
+					<div class="flex flex-col md:flex-row items-center gap-8">
+						<div class="text-left">
+							<span class="block text-xs uppercase tracking-widest text-neutral-500 font-bold mb-1">Status do Ingresso</span>
+							<span class="text-emerald-400 font-bold flex items-center gap-2">
+								<Icon name="check-circle" class="w-4 h-4" /> Confirmado
+							</span>
+						</div>
+						<div class="w-px h-12 bg-neutral-800 hidden md:block"></div>
+						<div class="text-left">
+							<span class="block text-xs uppercase tracking-widest text-neutral-500 font-bold mb-1">Data do Evento</span>
+							<span class="text-white font-bold tracking-tight">15 de Outubro, 2024</span>
+						</div>
+						<div class="w-px h-12 bg-neutral-800 hidden md:block"></div>
+						<Button link="#" style="primary" size="lg">
+							Ver Cronograma
+						</Button>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Seção de Compartilhamento -->
+	<Section classes="py-24 bg-white dark:bg-neutral-950">
+		<Row justify="center">
+			<Col span="12" lg="8" align="center">
+				<h2 class="text-3xl font-bold mb-6 text-neutral-900 dark:text-white">Não venha sozinho!</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-10">Convide seus colegas de equipe e ganhe acesso exclusivo aos workshops práticos após o evento principal.</p>
+				<div class="flex flex-wrap justify-center gap-4">
+					<Button link="#" style="neutral" variation="outline">
+						<Icon name="twitter-icon" class="w-5 h-5 mr-2" />
+						Compartilhar no X
+					</Button>
+					<Button link="#" style="neutral" variation="outline">
+						<Icon name="fb-icon" class="w-5 h-5 mr-2" />
+						Postar no LinkedIn
+					</Button>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
