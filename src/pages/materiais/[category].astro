@@ -12,8 +12,9 @@ import materialsData from '@data/json-files/materialsData.json'
 
 export async function getStaticPaths() {
 	const categories = [
-		{ name: 'ebooks', type: 'ebook', title: 'Ebooks Gratuitos' },
 		{ name: 'webinars', type: 'webinar', title: 'Webinars e Vídeos' },
+		{ name: 'hangouts', type: 'hangout', title: 'Hangouts e Ao Vivo' },
+		{ name: 'ebooks', type: 'ebook', title: 'Ebooks Gratuitos' },
 		{ name: 'downloads', type: 'download', title: 'Arquivos para Download' },
 		{ name: 'eventos', type: 'evento', title: 'Eventos e Workshops' }
 	]

@@ -1,0 +1,118 @@
+[
+	{
+		"id": "masterclass-lideranca",
+		"isLive": true,
+		"title": "Masterclass de <strong>Liderança</strong> 2024",
+		"description": "Garanta sua vaga na Masterclass ao vivo sobre estratégias de liderança para o próximo ano.",
+		"tag": "Hangout Ao Vivo & Gratuito",
+		"heroImage": "/src/assets/test.jpg",
+		"videoId": "dQw4w9WgXcQ",
+		"thankYouPage": "/materiais/hangouts/masterclass-lideranca/obrigado",
+		"liveDetails": {
+			"day": "30",
+			"month": "11",
+			"time": "19:00",
+			"timezone": "BRT",
+			"features": ["Inscrições Gratuitas", "Certificado Incluso"]
+		},
+		"details": {
+			"format": "Transmissão Ao Vivo",
+			"size": "90 Minutos",
+			"version": "Português",
+			"lastUpdated": "30 Novembro 2024"
+		},
+		"thankYou": {
+			"metadata": {
+				"title": "Inscrição Confirmada | Masterclass de Liderança 2024",
+				"description": "Sua vaga está garantida para a transmissão ao vivo."
+			},
+			"title": "Inscrição <span class=\"text-primary-500\">confirmada</span>!",
+			"text": "Você está oficialmente inscrito na <strong>Masterclass de Liderança 2024</strong>. O link de acesso será enviado para o seu e-mail no dia do evento.",
+			"infoTitle": "Fique Atento",
+			"infoText": "A transmissão será <strong>ao vivo e não ficará gravada</strong>. Anote na sua agenda:",
+			"eventDate": "30 de Novembro",
+			"eventTime": "19h00 (Horário de Brasília)"
+		},
+		"discussionPoints": [
+			"Construindo times de alta performance do zero",
+			"Liderança empática e saúde mental no trabalho",
+			"Gestão de crises e tomada de decisão rápida",
+			"Feedback construtivo e avaliação 360º",
+			"Desenvolvimento de novas lideranças internas",
+			"O papel do líder na retenção de talentos"
+		],
+		"sections": [
+			{
+				"title": "O que separa um bom gestor de um <strong>grande líder</strong>?",
+				"text": "Em tempos de mudanças aceleradas, as antigas cartilhas de gestão já não funcionam. As equipes exigem empatia, propósito e clareza, enquanto o mercado cobra resultados imediatos. Como equilibrar essa balança?",
+				"quote": "Junte-se a nós nesta aula magna gratuita e ao vivo, onde vamos desconstruir os mitos da liderança moderna e oferecer ferramentas práticas para o seu dia a dia."
+			},
+			{
+				"title": "Para quem é este <strong>evento</strong>?",
+				"text": "Este conteúdo foi desenhado para fundadores, executivos C-level, diretores e novos gestores que assumiram suas primeiras equipes recentemente. Se você precisa inspirar pessoas e atingir metas audaciosas, este é o seu lugar."
+			},
+			{
+				"title": "Metodologia <strong>Prática</strong>",
+				"text": "A Masterclass é interativa. Além do conteúdo estruturado, teremos uma sessão de Q&A de 30 minutos ao final para você trazer os desafios específicos da sua operação e ser aconselhado ao vivo pelos nossos especialistas."
+			}
+		],
+		"organizers": {
+			"host": {
+				"name": "Camila Costa",
+				"role": "CEO & Fundadora da Innovate",
+				"image": "/blog/post-01.png",
+				"bio": "Camila é referência em gestão de inovação, tendo liderado a transformação cultural em mais de 50 empresas da Fortune 500.",
+				"socials": [
+					{ "platform": "website", "link": "#" },
+					{ "platform": "linkedin", "link": "#" },
+					{ "platform": "instagram", "link": "#" }
+				]
+			},
+			"speakers": [
+				{
+					"name": "Roberto Silva",
+					"role": "Especialista em Gestão Ágil",
+					"image": "/blog/post-02.png",
+					"bio": "Autor de 3 best-sellers sobre metodologias ágeis e mentor de executivos C-level.",
+					"socials": [
+						{ "platform": "linkedin", "link": "#" },
+						{ "platform": "twitter", "link": "#" }
+					]
+				},
+				{
+					"name": "Fernanda Alves",
+					"role": "Diretora de Cultura",
+					"image": "/blog/post-03.png",
+					"bio": "Transforma a teoria organizacional em práticas diárias que aumentam o engajamento.",
+					"socials": [
+						{ "platform": "linkedin", "link": "#" },
+						{ "platform": "instagram", "link": "#" }
+					]
+				}
+			],
+			"team": [
+				{
+					"name": "Juliana Lima",
+					"role": "Moderação",
+					"image": "/blog/post-04.png",
+					"bio": "Especialista em engajamento de comunidades digitais.",
+					"socials": [{ "platform": "instagram", "link": "#" }]
+				},
+				{
+					"name": "Paulo Mendes",
+					"role": "Suporte Técnico",
+					"image": "/blog/post-05.png",
+					"bio": "Garante a melhor experiência de áudio e vídeo.",
+					"socials": [{ "platform": "whatsapp", "link": "#" }, { "platform": "youtube", "link": "#" }]
+				},
+				{
+					"name": "Carla Souza",
+					"role": "Curadoria",
+					"image": "/blog/post-06.png",
+					"bio": "Responsável pela seleção dos temas e palestrantes.",
+					"socials": [{ "platform": "linkedin", "link": "#" }, { "platform": "facebook", "link": "#" }]
+				}
+			]
+		}
+	}
+]

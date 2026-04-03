@@ -1,0 +1,211 @@
+---
+// Hangout Landing Page (Template Dinâmico)
+// ------------
+import Layout from '@layouts/landing/WebinarLanding.astro'
+import SplitLiveHero from '@components/blocks/landing/SplitLiveHero.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import DownloadDetails from '@components/blocks/landing/DownloadDetails.astro'
+import ContentList from '@components/blocks/landing/ContentList.astro'
+import SocialIcon from '@components/ui/SocialIcon.astro'
+import VideoPlayer from '@components/ui/VideoPlayer.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+
+// Import de dados
+import hangouts from '@data/json-files/hangouts.json'
+
+export async function getStaticPaths() {
+	return hangouts.map((hangout) => ({
+		params: { id: hangout.id },
+		props: { hangout }
+	}))
+}
+
+const { hangout } = Astro.props
+
+const metadata = {
+	title: hangout.title.replace(/<\/?[^>]+(>|$)/g, ""),
+	description: hangout.description
+}
+
+const organizers = hangout.organizers
+---
+
+<Layout {...metadata}>
+	<SplitLiveHero>
+		<!-- Lado Esquerdo (50%) -->
+		<div slot="left-content" class="p-8 lg:p-20 xl:p-32">
+			<span class="text-primary-500 font-bold uppercase tracking-[0.2em] text-xs mb-8 block">{hangout.tag}</span>
+			<h1 class="text-3xl lg:text-5xl xl:text-6xl font-black mb-8 text-neutral-900 dark:text-white leading-[1.1]" set:html={hangout.title} />
+			<p class="text-lg lg:text-2xl text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed max-w-xl">{hangout.description}</p>
+			
+			<!-- Card de Data e Hora Premium -->
+			<div class="mb-12 w-full bg-white dark:bg-neutral-800 p-8 lg:p-10 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-700 shadow-xl relative overflow-hidden group">
+				<div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+				
+				<div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-8 lg:gap-16">
+					<div class="flex flex-col items-center">
+						<span class="text-[10px] uppercase tracking-widest font-black text-primary-500 mb-3">Data do Evento</span>
+						<div class="flex items-baseline gap-1">
+							<span class="text-4xl lg:text-6xl font-black text-neutral-900 dark:text-white italic">{hangout.liveDetails.day}</span>
+							<span class="text-3xl lg:text-5xl font-black text-neutral-300 dark:text-neutral-600 italic">/</span>
+							<span class="text-4xl lg:text-6xl font-black text-neutral-900 dark:text-white italic">{hangout.liveDetails.month}</span>
+						</div>
+					</div>
+					
+					<div class="w-24 h-px sm:w-px sm:h-16 bg-neutral-100 dark:bg-neutral-700"></div>
+					
+					<div class="flex flex-col items-center">
+						<span class="text-[10px] uppercase tracking-widest font-black text-primary-500 mb-3">Início da Transmissão</span>
+						<div class="flex items-baseline gap-2">
+							<span class="text-4xl lg:text-6xl font-black text-neutral-900 dark:text-white italic">{hangout.liveDetails.time}</span>
+							<span class="text-xs font-bold text-neutral-400 uppercase tracking-widest">({hangout.liveDetails.timezone})</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-wrap gap-4 justify-center">
+				{hangout.liveDetails.features.map(feature => (
+					<div class="flex items-center gap-2 px-4 py-2 bg-primary-500/10 text-primary-600 rounded-xl border border-primary-500/20 shadow-sm">
+						<Icon name="check-circle" class="w-5 h-5" />
+						<span class="text-xs font-black uppercase tracking-widest">{feature}</span>
+					</div>
+				))}
+			</div>
+
+		</div>
+
+		<!-- Lado Direito (50%) -->
+		<div slot="right-content" class="w-full h-full flex flex-col bg-white dark:bg-neutral-900 p-8 lg:p-20 xl:p-32 justify-center">
+			<LandingForm 
+				title="Finalize sua inscrição gratuita" 
+				buttonText="Garantir minha vaga agora" 
+				thankYouPage={hangout.thankYouPage}
+				contrast={false} 
+			/>
+			<p class="mt-10 text-[10px] text-neutral-400 text-center uppercase tracking-[0.2em] font-black">
+				O link de acesso será enviado 15 minutos antes por e-mail
+			</p>
+		</div>
+	</SplitLiveHero>
+
+	<!-- Segunda Seção: Vídeo de Preview + Texto -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0">
+				<div class="max-w-full">
+					<VideoPlayer videoId={hangout.videoId} title={`Preview: ${metadata.title}`} />
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16 flex flex-col justify-center">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-8 leading-tight" set:html={hangout.sections[0].title} />
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+					{hangout.sections[0].text}
+				</p>
+				{hangout.sections[0].quote && (
+					<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-0 leading-relaxed italic border-l-4 border-primary-500 pl-6">
+						{hangout.sections[0].quote}
+					</p>
+				)}
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Terceira Seção -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0 lg:pr-12">
+				<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-6" set:html={hangout.sections[1].title} />
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					{hangout.sections[1].text}
+				</p>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-12 lg:border-l border-neutral-100 dark:border-neutral-800">
+				<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-6" set:html={hangout.sections[2].title} />
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					{hangout.sections[2].text}
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Detalhes -->
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24 lg:py-32 border-y border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex flex-col justify-center">
+				<div class="mb-10 text-center lg:text-left">
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Detalhes da Transmissão</h3>
+					<p class="text-neutral-600 dark:text-neutral-400">Tudo o que você precisa saber para participar e não perder nada.</p>
+				</div>
+				<DownloadDetails 
+					format={hangout.details.format}
+					size={hangout.details.size}
+					version={hangout.details.version}
+					lastUpdated={hangout.details.lastUpdated}
+				/>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16">
+				<ContentList 
+					title="O que você vai <strong>aprender</strong>:" 
+					items={hangout.discussionPoints} 
+				/>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Especialistas -->
+	<Section classes="bg-white dark:bg-neutral-950 pt-24 lg:pt-40 pb-24 lg:pb-40">
+		<Row>
+			<Col span="12" align="center" classes="mb-24">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Time de <strong>Especialistas</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Conheça os líderes que guiarão este encontro e compartilharão sua visão estratégica.</p>
+			</Col>
+			
+			<Col span="12" lg="8" align="center" classes="lg:col-start-3 mb-24">
+				<div class="mb-8 w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500/20 mx-auto shadow-lg">
+					<img src={organizers.host.image} alt={organizers.host.name} class="w-full h-full object-cover" />
+				</div>
+				<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">{organizers.host.name}</h3>
+				<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{organizers.host.role}</p>
+				<div class="flex justify-center gap-4 mb-6">
+					{organizers.host.socials.map(social => (
+						<SocialIcon platform={social.platform} link={social.link} size={20} />
+					))}
+				</div>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+					{organizers.host.bio}
+				</p>
+			</Col>
+
+			{organizers.speakers.map(speaker => (
+				<Col span="12" lg="6" align="center" classes="mb-12 lg:mb-0">
+					<div class="mb-8 w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500/20 mx-auto shadow-lg">
+						<img src={speaker.image} alt={speaker.name} class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">{speaker.name}</h3>
+					<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{speaker.role}</p>
+					<div class="flex justify-center gap-4 mb-6">
+						{speaker.socials.map(social => (
+							<SocialIcon platform={social.platform} link={social.link} size={20} />
+						))}
+					</div>
+					<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-sm mx-auto leading-relaxed">
+						{speaker.bio}
+					</p>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	<LandingFooter />
+</Layout>
+
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>

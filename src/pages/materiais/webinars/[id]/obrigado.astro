@@ -1,0 +1,85 @@
+---
+// Página de Agradecimento: Webinar (Template Dinâmico)
+// ------------
+import Layout from '@layouts/Layout.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+// Import de dados
+import webinars from '@data/json-files/webinars.json'
+
+export async function getStaticPaths() {
+	return webinars.map((webinar) => ({
+		params: { id: webinar.id },
+		props: { webinar }
+	}))
+}
+
+const { webinar } = Astro.props
+const thankYou = webinar.thankYou
+---
+
+<Layout {...thankYou.metadata}>
+	<Section padding="both" classes="min-h-[80vh] bg-neutral-900 text-white relative overflow-hidden flex items-center pt-32 lg:pt-48">
+		<!-- Background decoration -->
+		<div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+			<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-500 rounded-full blur-[150px]" />
+		</div>
+
+		<Row flex={true} classes="relative z-10 w-full">
+			<Col span="12" lg="10" align="center">
+				<div class="mb-10 inline-flex items-center justify-center w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
+					<Icon name="check-circle" class="w-10 h-10" />
+				</div>
+				<h1 class="text-4xl lg:text-7xl font-black mb-8 leading-[1.1]" set:html={thankYou.title} />
+				<p class="text-xl lg:text-2xl text-neutral-400 mb-12 max-w-3xl mx-auto leading-relaxed" set:html={thankYou.text} />
+				
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+					<Button link={webinar.viewPage} style="primary" size="lg" classes="w-full sm:w-auto">
+						<Icon name="bolt" class="w-5 h-5 mr-2" />
+						{thankYou.buttonText}
+					</Button>
+					<a href="#" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
+						<Icon name="bell" class="w-5 h-5" />
+						Adicionar ao Calendário
+					</a>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Seção de Info Adicional -->
+	<Section classes="py-24 lg:py-32 bg-white dark:bg-neutral-950">
+		<Row>
+			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex items-center justify-center">
+				<div class="relative max-w-md w-full">
+					<div class="absolute -inset-4 bg-primary-500/10 rounded-full blur-2xl" />
+					<div class="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-100 dark:border-neutral-800 aspect-square">
+						<img 
+							src={thankYou.speakerImage} 
+							alt="Palestrante" 
+							class="w-full h-full object-cover"
+						/>
+					</div>
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16 flex flex-col justify-center">
+				<h2 class="text-3xl lg:text-4xl font-bold mb-8 text-neutral-900 dark:text-white leading-tight">{thankYou.preparationTitle}</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
+					{thankYou.preparationText}
+				</p>
+				<div class="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-[2rem] border border-neutral-100 dark:border-neutral-800 shadow-sm relative overflow-hidden group">
+					<div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+					<Icon name="quotes" class="w-10 h-10 text-primary-500/20 mb-4" />
+					<p class="text-lg text-neutral-700 dark:text-neutral-300 mb-0 italic relative z-10 font-medium">
+						{thankYou.testimonial}
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
