@@ -1,9 +1,9 @@
 ---
-// Blog Posts grid Section
+// Seção de grade de Postagens do Blog
 // ------------
-// Description: A grid of blog posts sorted by date in a 3 column layout.
-// Properties:
-// - data: An array of blog posts
+// Descrição: Uma grade de postagens de blog ordenadas por data em um layout de 3 colunas.
+// Propriedades:
+// - data: Um array de postagens de blog
 
 // Components
 // - Layout
@@ -37,7 +37,7 @@ const sortedPosts = allPosts.sort((a: any, b: any) => {
 					<Post
 						link={`/blog/${post.id}`}
 						title={post.data.title}
-						subtitle={`By ${post.data.author} on ${new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`}
+						subtitle={`Por ${post.data.author} em ${new Date(post.data.pubDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}`}
 						image={post.data.image}
 						tags={post.data.tags}
 					>

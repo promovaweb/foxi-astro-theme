@@ -1,9 +1,9 @@
 ---
-// Basic Cards grid Section
+// Seção de grade de Cards Básicos
 // ------------
-// Description: A grid of cards with basic contact information in a 4 column layout.
-// Properties:
-// - classes: Additional classes to be added to the Section
+// Descrição: Uma grade de cards com informações básicas de contato em um layout de 4 colunas.
+// Propriedades:
+// - classes: Classes adicionais a serem adicionadas à Seção
 
 // Components
 // - Layout
@@ -23,19 +23,19 @@ const { classes } = Astro.props
 <Section id="requests" classes={classes}>
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-balance">Have a Special Request? We’re Here to <strong>Help!</strong></h2>
+			<h2 class="text-balance">Tem um Pedido Especial? Estamos Aqui para <strong>Ajudar!</strong></h2>
 			<p class="pb-0 text-lg">
-				Choose from one of the options below to get the specific help you need. Whether it's
-				customer support, sales inquiries, feature requests, or general feedback, we're here to
-				provide you with the best assistance possible.
+				Escolha uma das opções abaixo para obter a ajuda específica que você precisa. Seja
+				suporte ao cliente, consultas de vendas, solicitações de recursos ou feedback geral, estamos aqui para
+				fornecer a melhor assistência possível.
 			</p>
 		</Col>
 	</Row>
 	<Row>
 		<Col span="3">
 			<Card
-				title="Customer Support"
-				subtitle="Need help with Foxi? Our support team is available 24/7 to assist you with any issues or questions you might have."
+				title="Suporte ao Cliente"
+				subtitle="Precisa de ajuda com o Foxi? Nossa equipe de suporte está disponível 24 horas por dia, 7 dias por semana, para ajudá-lo com quaisquer problemas ou perguntas que você possa ter."
 				icon="rocket"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contact"
@@ -43,8 +43,8 @@ const { classes } = Astro.props
 		</Col>
 		<Col span="3">
 			<Card
-				title="Sales Inquiries "
-				subtitle="Interested in our plans or want a custom solution? Get in touch with our sales team to find the perfect fit. "
+				title="Consultas de Vendas"
+				subtitle="Interessado em nossos planos ou quer uma solução personalizada? Entre em contato com nossa equipe de vendas para encontrar a opção perfeita."
 				icon="document-text"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contact"
@@ -52,8 +52,8 @@ const { classes } = Astro.props
 		</Col>
 		<Col span="3">
 			<Card
-				title="Feature Requests"
-				subtitle="Have an idea to make Foxi even better? We’d love to hear from you! Share your feature requests and help us improve "
+				title="Solicitações de Recursos"
+				subtitle="Tem uma ideia para tornar o Foxi ainda melhor? Gostaríamos muito de ouvir você! Compartilhe suas solicitações de recursos e ajude-nos a melhorar."
 				icon="bolt"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contact"
@@ -61,8 +61,8 @@ const { classes } = Astro.props
 		</Col>
 		<Col span="3" classes="flex flex-col gap-6">
 			<Card
-				title="General Feedback"
-				subtitle="Your feedback is invaluable to us. Let us know how we’re doing and how we can improve. "
+				title="Feedback Geral"
+				subtitle="Seu feedback é inestimável para nós. Deixe-nos saber como estamos indo e como podemos melhorar."
 				icon="chat-bubble-left-ellipsis"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="/contact"

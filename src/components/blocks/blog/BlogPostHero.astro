@@ -1,12 +1,12 @@
 ---
-// Hero Section for Blog Posts
+// Seção Hero para Postagens do Blog
 // ------------
-// Description: A hero section (page header) for the post pages.
-// Properties:
-// - tags: An array of tags for the post
-// - title: The title of the section (usually the title of the post)
-// - author: The author of the post
-// - publishDate: The publish date of the post
+// Descrição: Uma seção hero (cabeçalho da página) para as páginas de postagem.
+// Propriedades:
+// - tags: Um array de tags para a postagem
+// - title: O título da seção (geralmente o título da postagem)
+// - author: O autor da postagem
+// - publishDate: A data de publicação da postagem
 
 // Components
 // - Layout
@@ -38,10 +38,10 @@ const { tags, title, author, publishDate } = Astro.props
 				{
 					author ? (
 						<p class="page-header__text">
-							Written by, {author} {publishDate && 'on ' + publishDate}
+							Escrito por, {author} {publishDate && 'em ' + publishDate}
 						</p>
 					) : (
-						publishDate && <p class="page-header__text">Published on, {publishDate}</p>
+						publishDate && <p class="page-header__text">Publicado em, {publishDate}</p>
 					)
 				}
 			</header>
