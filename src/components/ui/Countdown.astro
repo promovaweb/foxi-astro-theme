@@ -1,0 +1,72 @@
+---
+// Countdown Component
+// Descrição: Temporizador regressivo simples para eventos ao vivo.
+// Propriedades: targetDate (string ISO format)
+
+type Props = {
+	targetDate: string
+	classes?: string
+}
+
+const { targetDate, classes } = Astro.props
+---
+
+<div class:list={["countdown flex gap-4 lg:gap-8 justify-center", classes]} data-target={targetDate} id="countdown">
+	<div class="countdown__item flex flex-col items-center">
+		<span class="countdown__value text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white" id="days">00</span>
+		<span class="countdown__label text-[10px] uppercase font-bold text-neutral-400 tracking-widest mt-1">Dias</span>
+	</div>
+	<div class="w-px h-12 bg-neutral-200 dark:bg-neutral-800 self-center"></div>
+	<div class="countdown__item flex flex-col items-center">
+		<span class="countdown__value text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white" id="hours">00</span>
+		<span class="countdown__label text-[10px] uppercase font-bold text-neutral-400 tracking-widest mt-1">Horas</span>
+	</div>
+	<div class="w-px h-12 bg-neutral-200 dark:bg-neutral-800 self-center"></div>
+	<div class="countdown__item flex flex-col items-center">
+		<span class="countdown__value text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white" id="minutes">00</span>
+		<span class="countdown__label text-[10px] uppercase font-bold text-neutral-400 tracking-widest mt-1">Minutos</span>
+	</div>
+	<div class="w-px h-12 bg-neutral-200 dark:bg-neutral-800 self-center"></div>
+	<div class="countdown__item flex flex-col items-center">
+		<span class="countdown__value text-3xl lg:text-5xl font-black text-primary-500" id="seconds">00</span>
+		<span class="countdown__label text-[10px] uppercase font-bold text-neutral-400 tracking-widest mt-1">Segundos</span>
+	</div>
+</div>
+
+<script>
+	function initCountdown() {
+		const countdownEl = document.getElementById('countdown');
+		if (!countdownEl) return;
+
+		const targetDate = new Date(countdownEl.dataset.target || '').getTime();
+		const daysEl = document.getElementById('days');
+		const hoursEl = document.getElementById('hours');
+		const minutesEl = document.getElementById('minutes');
+		const secondsEl = document.getElementById('seconds');
+
+		const update = () => {
+			const now = new Date().getTime();
+			const distance = targetDate - now;
+
+			if (distance < 0) {
+				if (countdownEl) countdownEl.innerHTML = "<p class='font-bold text-red-500'>O EVENTO JÁ COMEÇOU!</p>";
+				return;
+			}
+
+			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+			if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+			if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+			if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+		};
+
+		setInterval(update, 1000);
+		update();
+	}
+
+	document.addEventListener('astro:page-load', initCountdown);
+</script>

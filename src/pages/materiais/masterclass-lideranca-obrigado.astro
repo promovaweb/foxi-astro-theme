@@ -1,0 +1,64 @@
+---
+// Página de Agradecimento: Masterclass de Liderança
+// ------------
+import Layout from '@layouts/Layout.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+const metadata = {
+	title: "Inscrição Confirmada | Masterclass de Liderança 2024",
+	description: "Sua vaga está garantida para a transmissão ao vivo."
+}
+---
+
+<Layout {...metadata}>
+	<Section padding="both" classes="min-h-[80vh] flex items-center bg-neutral-900 text-white relative overflow-hidden">
+		<!-- Background decoration -->
+		<div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+			<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-500 rounded-full blur-[150px]" />
+		</div>
+
+		<Row justify="center" classes="relative z-10">
+			<Col span="12" lg="8" align="center">
+				<div class="mb-10 inline-flex items-center justify-center w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
+					<Icon name="check-circle" class="w-10 h-10" />
+				</div>
+				<h1 class="text-4xl lg:text-7xl font-black mb-8 leading-[1.1]">
+					Inscrição <span class="text-primary-500">confirmada</span>!
+				</h1>
+				<p class="text-xl lg:text-2xl text-neutral-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+					Você está oficialmente inscrito na <strong>Masterclass de Liderança 2024</strong>. O link de acesso será enviado para o seu e-mail no dia do evento.
+				</p>
+				
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+					<Button link="#" style="primary" size="lg">
+						<Icon name="bell" class="w-5 h-5 mr-2" />
+						Adicionar ao Calendário
+					</Button>
+					<a href="/materiais" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
+						Explorar outros materiais
+					</a>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Seção de Info Adicional -->
+	<Section classes="py-24 bg-white dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-800">
+		<Row justify="center">
+			<Col span="12" lg="8" align="center">
+				<h2 class="text-3xl font-bold mb-6 text-neutral-900 dark:text-white">Fique Atento</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+					A transmissão será <strong>ao vivo e não ficará gravada</strong>. Anote na sua agenda:
+				</p>
+				<div class="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-100 dark:border-neutral-800 text-center max-w-sm mx-auto">
+					<h3 class="text-2xl font-black text-primary-500 mb-2">30 de Novembro</h3>
+					<p class="text-lg font-bold text-neutral-900 dark:text-white">19h00 (Horário de Brasília)</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

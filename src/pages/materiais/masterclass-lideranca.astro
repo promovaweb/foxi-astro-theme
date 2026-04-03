@@ -1,0 +1,297 @@
+---
+// Webinar: Masterclass de Liderança (Ao Vivo)
+// ------------
+import Layout from '@layouts/landing/WebinarLanding.astro'
+import LandingHero from '@components/blocks/landing/LandingHero.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import DownloadDetails from '@components/blocks/landing/DownloadDetails.astro'
+import ContentList from '@components/blocks/landing/ContentList.astro'
+import SocialIcon from '@components/ui/SocialIcon.astro'
+import VideoPlayer from '@components/ui/VideoPlayer.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+// Import de imagem real para o webinar
+import webinarCover from '@/assets/test.jpg'
+
+const metadata = {
+	title: "Masterclass de Liderança 2024",
+	description: "Garanta sua vaga na Masterclass ao vivo sobre estratégias de liderança para o próximo ano."
+}
+
+const webinarDetails = {
+	format: "Transmissão Ao Vivo",
+	size: "90 Minutos",
+	version: "Português",
+	lastUpdated: "30 Novembro 2024"
+}
+
+const discussionPoints = [
+	"Construindo times de alta performance do zero",
+	"Liderança empática e saúde mental no trabalho",
+	"Gestão de crises e tomada de decisão rápida",
+	"Feedback construtivo e avaliação 360º",
+	"Desenvolvimento de novas lideranças internas",
+	"O papel do líder na retenção de talentos"
+]
+
+const organizers = {
+	host: {
+		name: "Camila Costa",
+		role: "CEO & Fundadora da Innovate",
+		image: "/blog/post-01.png",
+		bio: "Camila é referência em gestão de inovação, tendo liderado a transformação cultural em mais de 50 empresas da Fortune 500.",
+		socials: [
+			{ platform: 'website', link: '#' },
+			{ platform: 'linkedin', link: '#' },
+			{ platform: 'instagram', link: '#' }
+		]
+	},
+	speakers: [
+		{
+			name: "Roberto Silva",
+			role: "Especialista em Gestão Ágil",
+			image: "/blog/post-02.png",
+			bio: "Autor de 3 best-sellers sobre metodologias ágeis e mentor de executivos C-level.",
+			socials: [
+				{ platform: 'linkedin', link: '#' },
+				{ platform: 'twitter', link: '#' }
+			]
+		},
+		{
+			name: "Fernanda Alves",
+			role: "Diretora de Cultura",
+			image: "/blog/post-03.png",
+			bio: "Transforma a teoria organizacional em práticas diárias que aumentam o engajamento.",
+			socials: [
+				{ platform: 'linkedin', link: '#' },
+				{ platform: 'instagram', link: '#' }
+			]
+		}
+	],
+	team: [
+		{ 
+			name: "Juliana Lima", 
+			role: "Moderação", 
+			image: "/blog/post-04.png", 
+			bio: "Especialista em engajamento de comunidades digitais.", 
+			socials: [ { platform: 'instagram', link: '#' } ] 
+		},
+		{ 
+			name: "Paulo Mendes", 
+			role: "Suporte Técnico", 
+			image: "/blog/post-05.png", 
+			bio: "Garante a melhor experiência de áudio e vídeo.", 
+			socials: [ { platform: 'whatsapp', link: '#' }, { platform: 'youtube', link: '#' } ] 
+		},
+		{ 
+			name: "Carla Souza", 
+			role: "Curadoria", 
+			image: "/blog/post-06.png", 
+			bio: "Responsável pela seleção dos temas e palestrantes.", 
+			socials: [ { platform: 'linkedin', link: '#' }, { platform: 'facebook', link: '#' } ] 
+		}
+	]
+}
+---
+
+<Layout {...metadata}>
+	<LandingHero 
+		tag="Webinar Ao Vivo & Gratuito"
+		title="Masterclass de <strong>Liderança</strong> 2024"
+		text={metadata.description}
+	>
+		<div slot="image" class="w-full max-w-2xl mx-auto lg:ml-auto">
+			<!-- Banner de Data/Hora (Refinado e Muito Claro) -->
+			<div class="bg-primary-500 text-white p-8 rounded-t-3xl text-center shadow-lg border-b border-white/10">
+				<div class="flex items-center justify-center gap-2 mb-2 text-white/80">
+					<Icon name="bell-alert" class="w-4 h-4" />
+					<span class="text-[10px] uppercase tracking-[0.2em] font-bold">Reserva de Vaga</span>
+				</div>
+				<h2 class="text-3xl lg:text-4xl font-black italic tracking-tighter mb-1 uppercase">
+					30 NOVEMBRO | 19h00
+				</h2>
+				<p class="text-[10px] uppercase tracking-widest font-bold opacity-80">Horário de Brasília • Transmissão Ao Vivo</p>
+			</div>
+			
+			<div class="bg-white dark:bg-neutral-900 p-8 lg:p-10 rounded-b-3xl border-x border-b border-neutral-100 dark:border-neutral-800 shadow-2xl">
+				<LandingForm 
+					title="Garanta seu acesso gratuito" 
+					buttonText="Quero participar da Masterclass" 
+					thankYouPage="/materiais/masterclass-lideranca-obrigado"
+					contrast={false} 
+				/>
+				
+				<!-- Lembrete de Envio do Link -->
+				<div class="mt-8 flex items-center justify-center gap-3 py-4 px-6 bg-primary-50 dark:bg-primary-900/20 rounded-2xl border border-primary-100 dark:border-primary-800/50">
+					<Icon name="bell-alert" class="w-5 h-5 text-primary-500 animate-swing" />
+					<p class="text-xs text-primary-700 dark:text-primary-300 font-bold uppercase tracking-wider mb-0 leading-tight">
+						O link de acesso será enviado 15 minutos antes do início
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div slot="after-text">
+			<div class="flex items-center gap-4 text-sm text-neutral-500 font-medium">
+				<Icon name="check-circle" class="w-5 h-5 text-primary-500" />
+				Vagas limitadas. Link enviado por e-mail.
+			</div>
+		</div>
+	</LandingHero>
+
+	<!-- Segunda Seção: Vídeo de Preview + Texto -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0">
+				<div class="max-w-full">
+					<VideoPlayer videoId="dQw4w9WgXcQ" title="Trailer da Masterclass" />
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16 flex flex-col justify-center">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-8 leading-tight">O que separa um bom gestor de um <strong>grande líder</strong>?</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+					Em tempos de mudanças aceleradas, as antigas cartilhas de gestão já não funcionam. As equipes exigem empatia, propósito e clareza, enquanto o mercado cobra resultados imediatos. Como equilibrar essa balança?
+				</p>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-0 leading-relaxed italic border-l-4 border-primary-500 pl-6">
+					Junte-se a nós nesta aula magna gratuita e ao vivo, onde vamos desconstruir os mitos da liderança moderna e oferecer ferramentas práticas para o seu dia a dia.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Terceira Seção: Texto em Duas Colunas -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0 lg:pr-12">
+				<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-6">Para quem é este <strong>evento</strong>?</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					Este conteúdo foi desenhado para fundadores, executivos C-level, diretores e novos gestores que assumiram suas primeiras equipes recentemente. Se você precisa inspirar pessoas e atingir metas audaciosas, este é o seu lugar.
+				</p>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-12 lg:border-l border-neutral-100 dark:border-neutral-800">
+				<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-6">Metodologia <strong>Prática</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					A Masterclass é interativa. Além do conteúdo estruturado, teremos uma sessão de Q&A de 30 minutos ao final para você trazer os desafios específicos da sua operação e ser aconselhado ao vivo pelos nossos especialistas.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Quarta Seção: Detalhes do Webinar -->
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24 lg:py-32 border-y border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex flex-col justify-center">
+				<div class="mb-10 text-center lg:text-left">
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Detalhes da Transmissão</h3>
+					<p class="text-neutral-600 dark:text-neutral-400">Tudo o que você precisa saber para participar e não perder nada.</p>
+				</div>
+				<DownloadDetails 
+					format={webinarDetails.format}
+					size={webinarDetails.size}
+					version={webinarDetails.version}
+					lastUpdated={webinarDetails.lastUpdated}
+				/>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16">
+				<ContentList 
+					title="O que você vai <strong>aprender</strong>:" 
+					items={discussionPoints} 
+				/>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- SEÇÃO 1: 1 Organizador -->
+	<Section classes="bg-white dark:bg-neutral-950 pt-24 lg:pt-40">
+		<Row>
+			<Col span="12" align="center" classes="mb-12">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Apresentadora <strong>Principal</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Conheça a especialista que guiará este encontro e compartilhará sua visão estratégica.</p>
+			</Col>
+			<Col span="12" lg="8" align="center" classes="lg:col-start-3">
+				<div class="mb-8 w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500/20 mx-auto shadow-lg">
+					<Image src={organizers.host.image} alt={organizers.host.name} width={200} height={200} class="w-full h-full object-cover" />
+				</div>
+				<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">{organizers.host.name}</h3>
+				<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{organizers.host.role}</p>
+				<div class="flex justify-center gap-4 mb-6">
+					{organizers.host.socials.map(social => (
+						<SocialIcon platform={social.platform as any} link={social.link} size={20} />
+					))}
+				</div>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+					{organizers.host.bio}
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- SEÇÃO 2: 2 Organizadores -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24">
+		<Row>
+			<Col span="12" align="center" classes="mb-12">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Especialistas <strong>Convidados</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Líderes de mercado trazendo experiências práticas e estudos de caso reais.</p>
+			</Col>
+			{organizers.speakers.map(speaker => (
+				<Col span="12" lg="6" align="center" classes="mb-12 lg:mb-0">
+					<div class="mb-8 w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500/20 mx-auto shadow-lg">
+						<Image src={speaker.image} alt={speaker.name} width={200} height={200} class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">{speaker.name}</h3>
+					<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{speaker.role}</p>
+					<div class="flex justify-center gap-4 mb-6">
+						{speaker.socials.map(social => (
+							<SocialIcon platform={social.platform as any} link={social.link} size={20} />
+						))}
+					</div>
+					<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-sm mx-auto leading-relaxed">
+						{speaker.bio}
+					</p>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	<!-- SEÇÃO 3: 3 Organizadores -->
+	<Section classes="bg-white dark:bg-neutral-950 pb-24 lg:pb-40">
+		<Row>
+			<Col span="12" align="center" classes="mb-12">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Time de <strong>Produção</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">A equipe dedicada à curadoria de temas e ao suporte técnico impecável.</p>
+			</Col>
+			{organizers.team.map(member => (
+				<Col span="12" lg="4" align="center" classes="mb-12 lg:mb-0">
+					<div class="mb-8 w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500/20 mx-auto shadow-lg">
+						<Image src={member.image} alt={member.name} width={200} height={200} class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">{member.name}</h3>
+					<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{member.role}</p>
+					
+					<div class="flex justify-center gap-4 mb-6">
+						{member.socials.map(social => (
+							<SocialIcon platform={social.platform as any} link={social.link} size={20} />
+						))}
+					</div>
+
+					<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-sm mx-auto leading-relaxed">
+						{member.bio}
+					</p>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	<LandingFooter />
+</Layout>
+
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>

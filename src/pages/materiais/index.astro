@@ -62,7 +62,7 @@ const SEO = {
 				</div>
 			</a>
 
-			<!-- Item 3: Webinar - Médio -->
+			<!-- Item 3: Webinar Gravado (Acesso Imediato) -->
 			<a href={materials[2].link} class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-3xl bg-white dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700 shadow-lg hover:shadow-2xl transition-all duration-500">
 				<div class="p-8 h-full flex flex-col">
 					<span class={`${materials[2].color} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-6`}>
@@ -71,41 +71,66 @@ const SEO = {
 					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-3 group-hover:text-primary-500 transition-colors">{materials[2].title}</h3>
 					<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-6 flex-1">{materials[2].description}</p>
 					<div class="flex items-center gap-2 text-primary-500 font-bold text-sm">
-						Assistir Agora <Icon name="long-arrow-right" class="w-4 h-4" />
+						Assistir Imediatamente <Icon name="long-arrow-right" class="w-4 h-4" />
 					</div>
 				</div>
 			</a>
 
-			<!-- Item 4: Evento - Largo -->
-			<a href={materials[3].link} class="md:col-span-12 group relative overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-100 dark:border-neutral-800 shadow-lg hover:shadow-2xl transition-all duration-500">
-				<div class="grid md:grid-cols-2">
-					<div class="p-8 lg:p-12 flex flex-col justify-center">
-						<span class={`${materials[3].color} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-6`}>
-							{materials[3].typeName}
+			<!-- Item 4: Webinar Futuro (Ao Vivo) - Novo -->
+			<a href={materials[4].link} class="md:col-span-6 group relative overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-100 dark:border-neutral-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+				<div class="absolute inset-0 bg-red-600 opacity-10 group-hover:opacity-20 transition-opacity" />
+				<div class="relative p-8 lg:p-10 flex flex-col h-full">
+					<div class="flex justify-between items-center mb-6">
+						<span class={`${materials[4].color} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest w-fit`}>
+							{materials[4].typeName}
 						</span>
-						<h3 class="text-3xl font-black text-white mb-4">{materials[3].title}</h3>
-						<p class="text-neutral-400 text-lg group-hover:text-neutral-200 transition-colors">{materials[3].description}</p>
+						<div class="flex items-center gap-2 text-red-500 font-black text-[10px] uppercase tracking-tighter animate-pulse">
+							<span class="w-2 h-2 rounded-full bg-red-500"></span>
+							Inscrições Abertas
+						</div>
 					</div>
-					<div class="relative h-48 md:h-auto overflow-hidden">
-						<img src={materials[3].image} alt={materials[3].title} class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
-						<div class="absolute inset-0 bg-gradient-to-r from-neutral-900 to-transparent md:block hidden" />
+					<h3 class="text-3xl font-black text-white mb-4">{materials[4].title}</h3>
+					<p class="text-neutral-400 text-sm group-hover:text-neutral-200 transition-colors mb-6 flex-1">{materials[4].description}</p>
+					<div class="flex items-center gap-2 text-white font-bold text-sm">
+						Garantir minha vaga <Icon name="long-arrow-right" class="w-4 h-4 text-primary-500" />
 					</div>
+				</div>
+			</a>
+
+			<!-- Item 5: Evento - Antes md:col-span-12, agora md:col-span-6 para balancear -->
+			<a href={materials[3].link} class="md:col-span-6 group relative overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-100 dark:border-neutral-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+				<img src={materials[3].image} alt={materials[3].title} class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" />
+				<div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/20 to-transparent md:block hidden" />
+				<div class="relative p-8 lg:p-10 flex flex-col h-full justify-end">
+					<span class={`${materials[3].color} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-6`}>
+						{materials[3].typeName}
+					</span>
+					<h3 class="text-3xl font-black text-white mb-2">{materials[3].title}</h3>
+					<p class="text-neutral-400 text-sm group-hover:text-neutral-200 transition-colors">{materials[3].description}</p>
 				</div>
 			</a>
 
 		</div>
 	</Section>
 
-	<Section>
+	<Section padding="bottom">
 		<Row>
 			<Col span="12" align="center">
-				<h2 class="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Navegue por Categoria</h2>
-				<p class="text-neutral-600 dark:text-neutral-400 mb-12">Escolha o tipo de material que você está procurando</p>
-				<div class="flex flex-wrap justify-center gap-4">
-					<Button link="/materiais/ebooks" style="primary" variation="outline">Ebooks</Button>
-					<Button link="/materiais/webinars" style="primary" variation="outline">Webinars</Button>
-					<Button link="/materiais/downloads" style="primary" variation="outline">Downloads</Button>
-					<Button link="/materiais/eventos" style="primary" variation="outline">Eventos</Button>
+				<div class="bg-neutral-900 rounded-[3rem] p-12 lg:p-24 relative overflow-hidden text-center">
+					<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+						<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-500 rounded-full blur-[120px]" />
+						<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500 rounded-full blur-[120px]" />
+					</div>
+					
+					<h2 class="text-3xl lg:text-5xl font-black mb-8 text-white relative z-10">Navegue por <strong>Categoria</strong></h2>
+					<p class="text-neutral-400 text-lg mb-12 max-w-2xl mx-auto relative z-10">Escolha o formato que melhor se adapta ao seu momento de aprendizado.</p>
+					
+					<div class="flex flex-wrap justify-center gap-4 relative z-10">
+						<Button link="/materiais/ebooks" style="primary" size="lg">Ebooks</Button>
+						<Button link="/materiais/webinars" style="primary" variation="outline" size="lg">Webinars</Button>
+						<Button link="/materiais/downloads" style="primary" variation="outline" size="lg">Downloads</Button>
+						<Button link="/materiais/eventos" style="primary" variation="outline" size="lg">Eventos</Button>
+					</div>
 				</div>
 			</Col>
 		</Row>
