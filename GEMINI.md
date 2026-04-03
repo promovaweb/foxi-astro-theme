@@ -42,6 +42,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 12. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
 13. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
 14. **Aliases de path obrigatórios** — Todo `import` deve usar os aliases definidos no `tsconfig.json`. Nunca usar caminhos relativos com `../` ou `../../`. Use `@components/`, `@layouts/`, `@styles/`, `@config/`, `@data/` ou `@/` (aponta para `src/`).
+15. **Git e Versionamento** — Nunca realizar `git add`, `git commit` ou `git push` automaticamente. Estas ações devem ser executadas APENAS quando solicitadas explicitamente pelo usuário.
 
 ---
 
