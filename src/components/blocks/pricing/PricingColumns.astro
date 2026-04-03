@@ -1,9 +1,9 @@
 ---
-// Pricing plabs Section
+// Seção de Planos de Preços
 // ------------
-// Description: A section with a list of 3 pricing plans with toggle to switch between monthly and annual pricing.
+// Descrição: Uma seção com uma lista de 3 planos de preços com alternância para alternar entre preços mensais e anuais.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -12,7 +12,7 @@ import Col from '@components/ui/Col.astro'
 import PricingTable from '@components/ui/pricing-tables/PricingTable.astro'
 import Toggle from '@components/ui/forms/form-elements/Toggle.astro'
 
-// Content
+// Conteúdo
 import pricingTablesData from '@data/json-files/pricingTablesdata.json'
 
 // Script
@@ -48,12 +48,12 @@ const pricingData: PricingTableData[] = pricingTablesData as PricingTableData[]
 	<Row>
 		<Col span="12" align="center" classes="flex items-center justify-center gap-4 mb-12">
 			<span id="monthlyLabel" class="font-semibold text-neutral-400 transition-colors"
-				>Bill monthly</span
+				>Cobrança mensal</span
 			>
 			<Toggle id="pricingType" label="pricing" showLabel={false} checked={true} />
 			<span
 				class="font-semibold text-neutral-400 text-primary-500 transition-colors"
-				id="annualLabel">Bill annually</span
+				id="annualLabel">Cobrança anual</span
 			>
 		</Col>
 		{

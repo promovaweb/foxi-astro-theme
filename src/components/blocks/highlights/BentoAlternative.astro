@@ -1,9 +1,9 @@
 ---
-// Bento Grid Alternative
+// Bento Grid Alternativo
 // ------------
-// Description: An asymmetrical bento grid with 6 columns and large feature images.
+// Descrição: Uma grade bento assimétrica com 6 colunas e grandes imagens de funcionalidades.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const {
-	badge = 'Deploy mais rápido',
+	badge = 'Implantação mais rápida',
 	title = 'Tudo o que você precisa para fazer o deploy do seu app'
 } = Astro.props
 ---
@@ -24,17 +24,17 @@ const {
 		<p class="mt-2 max-w-lg text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl dark:text-white" set:html={title} />
 		
 		<div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
-			<!-- Releases -->
+			<!-- Lançamentos -->
 			<div class="flex p-px lg:col-span-4">
 				<div class="w-full overflow-hidden rounded-lg bg-white dark:bg-neutral-950 shadow-sm ring-1 ring-black/5 dark:ring-white/10 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]">
 					<img
-						alt="Releases preview"
+						alt="Prévia de lançamentos"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-releases.png"
 						class="h-80 w-full object-cover object-left"
 					/>
 					<div class="p-10">
-						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Releases</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Push to deploy</p>
+						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Lançamentos</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Push para deploy</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida justo et nulla efficitur, maximus egestas sem pellentesque.
 						</p>
@@ -42,17 +42,17 @@ const {
 				</div>
 			</div>
 
-			<!-- Integrations -->
+			<!-- Integrações -->
 			<div class="flex p-px lg:col-span-2">
 				<div class="w-full overflow-hidden rounded-lg bg-white dark:bg-neutral-950 shadow-sm ring-1 ring-black/5 dark:ring-white/10 lg:rounded-tr-[2rem]">
 					<img
-						alt="Integrations preview"
+						alt="Prévia de integrações"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-integrations.png"
 						class="h-80 w-full object-cover"
 					/>
 					<div class="p-10">
-						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Integrations</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Connect your favorite tools</p>
+						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Integrações</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Conecte suas ferramentas favoritas</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Curabitur auctor, ex quis auctor venenatis, eros arcu rhoncus massa.
 						</p>
@@ -60,17 +60,17 @@ const {
 				</div>
 			</div>
 
-			<!-- Security -->
+			<!-- Segurança -->
 			<div class="flex p-px lg:col-span-2">
 				<div class="w-full overflow-hidden rounded-lg bg-white dark:bg-neutral-950 shadow-sm ring-1 ring-black/5 dark:ring-white/10 lg:rounded-bl-[2rem]">
 					<img
-						alt="Security preview"
+						alt="Prévia de segurança"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-security.png"
 						class="h-80 w-full object-cover"
 					/>
 					<div class="p-10">
-						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Security</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Advanced access control</p>
+						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Segurança</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Controle de acesso avançado</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
 						</p>
@@ -78,17 +78,17 @@ const {
 				</div>
 			</div>
 
-			<!-- Performance -->
+			<!-- Desempenho -->
 			<div class="flex p-px lg:col-span-4">
 				<div class="w-full overflow-hidden rounded-lg bg-white dark:bg-neutral-950 shadow-sm ring-1 ring-black/5 dark:ring-white/10 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]">
 					<img
-						alt="Performance preview"
+						alt="Prévia de desempenho"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-performance.png"
 						class="h-80 w-full object-cover object-left"
 					/>
 					<div class="p-10">
-						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Performance</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Lightning-fast builds</p>
+						<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">Desempenho</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Builds ultra rápidos</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Sed congue eros non finibus molestie. Vestibulum euismod augue vel commodo vulputate. Maecenas at augue sed elit dictum vulputate.
 						</p>

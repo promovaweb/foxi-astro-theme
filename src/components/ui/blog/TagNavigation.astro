@@ -1,11 +1,11 @@
 ---
-// Tags for the Blog and post pages
+// Tags para as páginas do Blog e de postagens
 
-// Components
+// Componentes
 // - UI
 import Badge from '@components/ui/Badge.astro'
 
-//Data
+// Dados
 import { getCollection } from 'astro:content'
 const posts = await getCollection('blog')
 const tags = [...new Set(posts.map((post) => post.data.tags).flat())]
@@ -15,7 +15,7 @@ const currentTag = pathSegments[pathSegments.length - 1] || ''
 ---
 
 <div class="tags">
-	<Badge link={`/blog/`} name={`All`} type={`${currentTag === 'blog' ? 'primary' : 'neutral'}`} />
+	<Badge link={`/blog/`} name={`Todos`} type={`${currentTag === 'blog' ? 'primary' : 'neutral'}`} />
 	{
 		tags.map((tag) => (
 			<>

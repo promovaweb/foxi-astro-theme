@@ -1,9 +1,9 @@
 ---
-// Bento Grid Mixed
+// Bento Grid Misto
 // ------------
-// Description: A mixed bento grid combining icons, images, and text-only blocks.
+// Descrição: Uma grade bento mista combinando ícones, imagens e blocos apenas de texto.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 import { Icon } from 'astro-icon/components'
@@ -22,7 +22,7 @@ const {
 		<h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl dark:text-white mb-12" set:html={title} />
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			<!-- Block 1 -->
+			<!-- Bloco 1 -->
 			<div class="md:col-span-2 bg-primary-500 p-10 rounded-3xl text-white flex flex-col justify-between min-h-[320px]">
 				<Icon name="rocket" class="size-12 mb-8" />
 				<div>
@@ -31,16 +31,16 @@ const {
 				</div>
 			</div>
 
-			<!-- Block 2 -->
+			<!-- Bloco 2 -->
 			<div class="bg-neutral-100 dark:bg-neutral-900 p-1 p-px rounded-3xl overflow-hidden">
 				<img 
 					src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-					alt="Team collaboration" 
+					alt="Colaboração em equipe" 
 					class="size-full object-cover rounded-[1.4rem]"
 				/>
 			</div>
 
-			<!-- Block 3 -->
+			<!-- Bloco 3 -->
 			<div class="bg-neutral-900 p-10 rounded-3xl text-white">
 				<h3 class="text-xl font-bold mb-4">Cloud Nativo</h3>
 				<p class="text-neutral-400 text-sm">Arquitetura moderna baseada em microserviços e containers.</p>
@@ -50,7 +50,7 @@ const {
 				</div>
 			</div>
 
-			<!-- Block 4 -->
+			<!-- Bloco 4 -->
 			<div class="md:col-span-2 bg-white dark:bg-neutral-950 p-10 rounded-3xl shadow-sm ring-1 ring-black/5 dark:ring-white/10 flex flex-col md:flex-row gap-8 items-center">
 				<div class="flex-1">
 					<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Integração Global</h3>

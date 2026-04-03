@@ -1,12 +1,12 @@
 ---
-// Bento Grid Section
+// Seção Bento Grid
 // ------------
-// Description: A section with a bento-style grid of features or highlights.
-// Properties:
-// - title: The title of the section
-// - text: The description of the section
+// Descrição: Uma seção com uma grade estilo bento de funcionalidades ou destaques.
+// Propriedades:
+// - title: O título da seção
+// - text: A descrição da seção
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -14,7 +14,7 @@ import Col from '@components/ui/Col.astro'
 // - UI
 import Card from '@components/ui/cards/BasicCard.astro'
 
-// Content
+// Conteúdo
 import feature01 from '@/assets/cards/feature-01.svg'
 
 type Props = {
@@ -38,7 +38,7 @@ const {
 		</Col>
 	</Row>
 	<Row classes="lg:grid-rows-2">
-		<!-- Bento item 1 (Main feature) -->
+		<!-- Item bento 1 (Funcionalidade principal) -->
 		<Col span="6" classes="lg:row-span-2">
 			<Card
 				title="Visibilidade Total do Projeto"
@@ -47,7 +47,7 @@ const {
 				classes="h-full"
 			/>
 		</Col>
-		<!-- Bento item 2 -->
+		<!-- Item bento 2 -->
 		<Col span="6">
 			<Card
 				title="Automação Avançada"
@@ -56,7 +56,7 @@ const {
 				classes="h-full"
 			/>
 		</Col>
-		<!-- Bento item 3 -->
+		<!-- Item bento 3 -->
 		<Col span="3">
 			<Card
 				title="Segurança"
@@ -65,7 +65,7 @@ const {
 				classes="h-full"
 			/>
 		</Col>
-		<!-- Bento item 4 -->
+		<!-- Item bento 4 -->
 		<Col span="3">
 			<Card
 				title="Analytics"

@@ -1,9 +1,9 @@
 ---
-// Bento Grid Three Columns
+// Bento Grid de Três Colunas
 // ------------
-// Description: A complex bento grid with 3 columns and 2 rows, featuring a mobile-friendly preview and a code snippet.
+// Descrição: Uma grade bento complexa com 3 colunas e 2 linhas, apresentando uma prévia amigável para dispositivos móveis e um trecho de código.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const {
-	badge = 'Deploy mais rápido',
+	badge = 'Implantação mais rápida',
 	title = 'Tudo o que você precisa para fazer o deploy do seu app'
 } = Astro.props
 ---
@@ -24,13 +24,13 @@ const {
 		<p class="mx-auto mt-2 max-w-lg text-center text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl dark:text-white" set:html={title} />
 		
 		<div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-			<!-- Mobile Friendly -->
+			<!-- Amigável para dispositivos móveis -->
 			<div class="relative lg:row-span-2">
 				<div class="absolute inset-px rounded-lg bg-white dark:bg-neutral-950 lg:rounded-l-[2rem]" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] lg:rounded-l-[calc(2rem+1px)]">
 					<div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
 						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white max-lg:text-center">
-							Mobile friendly
+							Amigável para dispositivos móveis
 						</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400 max-lg:text-center">
 							Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
@@ -39,7 +39,7 @@ const {
 					<div class="relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
 						<div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-neutral-700 bg-neutral-900 shadow-2xl">
 							<img
-								alt="Mobile app preview"
+								alt="Prévia do aplicativo móvel"
 								src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-mobile-friendly.png"
 								class="h-full w-full object-cover object-top"
 							/>
@@ -49,19 +49,19 @@ const {
 				<div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 lg:rounded-l-[2rem] dark:ring-white/10" />
 			</div>
 
-			<!-- Performance -->
+			<!-- Desempenho -->
 			<div class="relative max-lg:row-start-1">
 				<div class="absolute inset-px rounded-lg bg-white dark:bg-neutral-950 max-lg:rounded-t-[2rem]" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
 					<div class="px-8 pt-8 sm:px-10 sm:pt-10">
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white max-lg:text-center">Performance</p>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white max-lg:text-center">Desempenho</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400 max-lg:text-center">
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit maiores impedit.
 						</p>
 					</div>
 					<div class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
 						<img
-							alt="Performance analytics"
+							alt="Análise de desempenho"
 							src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
 							class="w-full max-lg:max-w-xs"
 						/>
@@ -70,19 +70,19 @@ const {
 				<div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-[2rem] dark:ring-white/10" />
 			</div>
 
-			<!-- Security -->
+			<!-- Segurança -->
 			<div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
 				<div class="absolute inset-px rounded-lg bg-white dark:bg-neutral-950" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)]">
 					<div class="px-8 pt-8 sm:px-10 sm:pt-10">
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white max-lg:text-center">Security</p>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white max-lg:text-center">Segurança</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400 max-lg:text-center">
 							Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi.
 						</p>
 					</div>
 					<div class="flex flex-1 items-center max-lg:py-6 lg:pb-2">
 						<img
-							alt="Security shield"
+							alt="Escudo de segurança"
 							src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-security.png"
 							class="h-32 object-cover"
 						/>
@@ -97,7 +97,7 @@ const {
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
 					<div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
 						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white max-lg:text-center">
-							Powerful APIs
+							APIs poderosas
 						</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400 max-lg:text-center">
 							Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget sem sodales gravida.

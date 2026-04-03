@@ -1,14 +1,14 @@
 ---
 // Modal
 // ------------
-// Description: the modal component is a ui element that displays a dialog box that appears on top of the current page.
-// Properties:
-// - Id: the id of the modal (use this id in the "modal" prop of the button)
-// - Title: the title of the modal
-// - classes: additional classes
-// Reference: https://wind-ui.com/components/modals/
+// Descrição: o componente modal é um elemento de interface que exibe uma caixa de diálogo que aparece sobre a página atual.
+// Propriedades:
+// - Id: o id do modal (use este id na prop "modal" do botão)
+// - Title: o título do modal
+// - classes: classes adicionais
+// Referência: https://wind-ui.com/components/modals/
 
-// Components
+// Componentes
 // - UI
 import Button from '@components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
@@ -28,7 +28,7 @@ const { id, title, classes } = Astro.props
 			{title && <h2 class="modal__title">{title}</h2>}
 			<Button size="sm" style="neutral" classes="modal__close" variation="link">
 				<Icon name="x-mark" class="dark:text-neutral-50" />
-				<span class="sr-only">Close</span>
+				<span class="sr-only">Fechar</span>
 			</Button>
 		</div>
 		<div class="modal__body">

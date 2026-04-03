@@ -1,9 +1,9 @@
 ---
-// Bento Grid Balanced
+// Bento Grid Equilibrado
 // ------------
-// Description: A balanced bento grid with 2 large top items and 3 smaller bottom items.
+// Descrição: Uma grade bento equilibrada com 2 grandes itens superiores e 3 itens menores inferiores.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const {
-	badge = 'Deploy mais rápido',
+	badge = 'Implantação mais rápida',
 	title = 'Tudo o que você precisa para fazer o deploy do seu app'
 } = Astro.props
 ---
@@ -24,18 +24,18 @@ const {
 		<p class="mt-2 max-w-lg text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl dark:text-white" set:html={title} />
 		
 		<div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
-			<!-- Performance -->
+			<!-- Desempenho -->
 			<div class="relative lg:col-span-3">
 				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
 					<img
-						alt="Performance preview"
+						alt="Prévia de desempenho"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-performance.png"
 						class="h-80 w-full object-cover object-left"
 					/>
 					<div class="p-10 pt-4">
-						<h3 class="text-sm font-semibold text-primary-500">Performance</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Lightning-fast builds</p>
+						<h3 class="text-sm font-semibold text-primary-500">Desempenho</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Builds ultra rápidos</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida justo et nulla efficitur, maximus egestas sem pellentesque.
 						</p>
@@ -44,18 +44,18 @@ const {
 				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
 			</div>
 
-			<!-- Releases -->
+			<!-- Lançamentos -->
 			<div class="relative lg:col-span-3">
 				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 lg:rounded-tr-[2rem]" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] lg:rounded-tr-[calc(2rem+1px)]">
 					<img
-						alt="Releases preview"
+						alt="Prévia de lançamentos"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-releases.png"
 						class="h-80 w-full object-cover object-left lg:object-right"
 					/>
 					<div class="p-10 pt-4">
-						<h3 class="text-sm font-semibold text-primary-500">Releases</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Push to deploy</p>
+						<h3 class="text-sm font-semibold text-primary-500">Lançamentos</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Push para deploy</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Curabitur auctor, ex quis auctor venenatis, eros arcu rhoncus massa, laoreet dapibus ex elit vitae odio.
 						</p>
@@ -64,18 +64,18 @@ const {
 				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 lg:rounded-tr-[2rem]" />
 			</div>
 
-			<!-- Speed -->
+			<!-- Velocidade -->
 			<div class="relative lg:col-span-2">
 				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 lg:rounded-bl-[2rem]" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] lg:rounded-bl-[calc(2rem+1px)]">
 					<img
-						alt="Speed preview"
+						alt="Prévia de velocidade"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-speed.png"
 						class="h-80 w-full object-cover object-left"
 					/>
 					<div class="p-10 pt-4">
-						<h3 class="text-sm font-semibold text-primary-500">Speed</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Built for power users</p>
+						<h3 class="text-sm font-semibold text-primary-500">Velocidade</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Criado para usuários avançados</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Sed congue eros non finibus molestie. Vestibulum euismod augue.
 						</p>
@@ -84,18 +84,18 @@ const {
 				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 lg:rounded-bl-[2rem]" />
 			</div>
 
-			<!-- Integrations -->
+			<!-- Integrações -->
 			<div class="relative lg:col-span-2">
 				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)]">
 					<img
-						alt="Integrations preview"
+						alt="Prévia de integrações"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-integrations.png"
 						class="h-80 w-full object-cover"
 					/>
 					<div class="p-10 pt-4">
-						<h3 class="text-sm font-semibold text-primary-500">Integrations</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Connect your favorite tools</p>
+						<h3 class="text-sm font-semibold text-primary-500">Integrações</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Conecte suas ferramentas favoritas</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Maecenas at augue sed elit dictum vulputate, in nisi aliquam maximus arcu.
 						</p>
@@ -104,18 +104,18 @@ const {
 				<div class="pointer-events-none absolute inset-0 rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10" />
 			</div>
 
-			<!-- Network -->
+			<!-- Rede -->
 			<div class="relative lg:col-span-2">
 				<div class="absolute inset-0 rounded-lg bg-white dark:bg-neutral-900 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
 					<img
-						alt="Network preview"
+						alt="Prévia de rede"
 						src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-network.png"
 						class="h-80 w-full object-cover"
 					/>
 					<div class="p-10 pt-4">
-						<h3 class="text-sm font-semibold text-primary-500">Network</h3>
-						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">Globally distributed CDN</p>
+						<h3 class="text-sm font-semibold text-primary-500">Rede</h3>
+						<p class="mt-2 text-lg font-bold tracking-tight text-neutral-900 dark:text-white">CDN distribuída globalmente</p>
 						<p class="mt-2 max-w-lg text-sm leading-6 text-neutral-600 dark:text-neutral-400">
 							Aenean vulputate justo commodo auctor vehicula in malesuada semper.
 						</p>

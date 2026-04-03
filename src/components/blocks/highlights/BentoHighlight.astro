@@ -1,9 +1,9 @@
 ---
-// Bento Grid Highlight
+// Destaque Bento Grid
 // ------------
-// Description: A bento grid with a large center highlight and four surrounding smaller items.
+// Descrição: Uma grade bento com um grande destaque central e quatro itens menores ao redor.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 import { Icon } from 'astro-icon/components'
@@ -27,12 +27,12 @@ const {
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 h-full">
-			<!-- Side 1 -->
+			<!-- Lado 1 -->
 			<div class="md:col-span-1 space-y-4">
 				<div class="bg-white dark:bg-neutral-950 p-8 rounded-2xl shadow-sm ring-1 ring-black/5 dark:ring-white/10 h-1/2 flex flex-col justify-center">
 					<Icon name="bolt" class="size-8 text-primary-500 mb-4" />
 					<h3 class="font-bold text-neutral-900 dark:text-white">Velocidade</h3>
-					<p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Otimizado para performance máxima em qualquer dispositivo.</p>
+					<p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Otimizado para desempenho máximo em qualquer dispositivo.</p>
 				</div>
 				<div class="bg-white dark:bg-neutral-950 p-8 rounded-2xl shadow-sm ring-1 ring-black/5 dark:ring-white/10 h-1/2 flex flex-col justify-center">
 					<Icon name="shield-check" class="size-8 text-primary-500 mb-4" />
@@ -41,11 +41,11 @@ const {
 				</div>
 			</div>
 
-			<!-- Center Highlight -->
+			<!-- Destaque Central -->
 			<div class="md:col-span-2 relative group overflow-hidden rounded-2xl bg-neutral-900 shadow-2xl">
 				<img 
 					src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2426&q=80" 
-					alt="Dashboard highlight" 
+					alt="Destaque do painel" 
 					class="absolute inset-0 size-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-500"
 				/>
 				<div class="relative h-full p-10 flex flex-col justify-end bg-gradient-to-t from-neutral-950 to-transparent">
@@ -54,7 +54,7 @@ const {
 				</div>
 			</div>
 
-			<!-- Side 2 -->
+			<!-- Lado 2 -->
 			<div class="md:col-span-1 space-y-4">
 				<div class="bg-white dark:bg-neutral-950 p-8 rounded-2xl shadow-sm ring-1 ring-black/5 dark:ring-white/10 h-1/2 flex flex-col justify-center">
 					<Icon name="chat-bubbles" class="size-8 text-primary-500 mb-4" />

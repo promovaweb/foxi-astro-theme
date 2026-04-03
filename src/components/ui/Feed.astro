@@ -1,10 +1,10 @@
 ---
 // Feed
 // ------------
-// Description: the feed component is a ui element that displays a stream of content (static or dynamic), such as comments, activity updates, posts, in a chronological order.
-// Properties:
-// - Data: the data of the feed (consists of title, date, text, and image)
-// - classes: additional classes
+// Descrição: o componente feed é um elemento de interface que exibe um fluxo de conteúdo (estático ou dinâmico), como comentários, atualizações de atividade, postagens, em ordem cronológica.
+// Propriedades:
+// - Data: os dados do feed (consiste em título, data, texto e imagem)
+// - classes: classes adicionais
 
 // Props
 type Props = {
@@ -19,7 +19,7 @@ type Props = {
 const { data, classes } = Astro.props
 ---
 
-<ul aria-label="Changelog feed" role="feed" class:list={['feed', { [`${classes}`]: classes }]}>
+<ul aria-label="Feed de histórico de alterações" role="feed" class:list={['feed', { [`${classes}`]: classes }]}>
 	{
 		data.map((item) => (
 			<li role="article" class="feed__item">

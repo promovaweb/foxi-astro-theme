@@ -1,18 +1,18 @@
 ---
-// Rating
+// Avaliação (Rating)
 // ------------
-// Description: the rating component is a ui element that allows users to rate a product or service.
-// Properties:
-// - Title: the title of the rating
-// - Text: the text of the rating
-// - HelperText: the helper text of the rating
-// - Rating: the rating of the rating (0 to 5)
-// - Size: the size of the rating (base, sm)
-// - Elevated: whether the rating is elevated or not
-// - classes: additional classes
-// Reference: https://wind-ui.com/components/ratings/
+// Descrição: o componente de avaliação é um elemento de interface que permite aos usuários avaliar um produto ou serviço.
+// Propriedades:
+// - Title: o título da avaliação
+// - Text: o texto da avaliação
+// - HelperText: o texto de ajuda da avaliação
+// - Rating: a nota da avaliação (0 a 5)
+// - Size: o tamanho da avaliação (base, sm)
+// - Elevated: se a avaliação é elevada ou não
+// - classes: classes adicionais
+// Referência: https://wind-ui.com/components/ratings/
 
-// Components
+// Componentes
 // - UI
 import { Icon } from 'astro-icon/components'
 
@@ -39,7 +39,7 @@ const { rating = 0, size = 'base', elevated, title, text, helperText, classes } 
 >
 	{title && <h4 class="rating__title">{title}</h4>}
 	<span class="rating__body">
-		<span class="rating__stars" role="img" aria-label={`Rating: ${rating} out of 5 stars`}>
+		<span class="rating__stars" role="img" aria-label={`Avaliação: ${rating} de 5 estrelas`}>
 			{
 				Array.from({ length: 5 }, (_, index) => (
 					<span aria-hidden="true">

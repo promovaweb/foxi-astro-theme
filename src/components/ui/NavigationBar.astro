@@ -1,33 +1,33 @@
 ---
-// Header - Navigation bar
+// Cabeçalho - Barra de navegação
 // ------------
-// Description: navigation bars offer a persistent and convenient way to switch between primary destinations in an app.
-// Structure:
-// - Logo: the logo of the website
-// - Menu toggle: the mobile menu toggle of the navigation bar
-// - Navigation Links: the navigation links of the menu
-// - Actions: action buttons for the navigation bar
-// - Theme Switcher: the mode (light/dark) switcher of the website
+// Descrição: as barras de navegação oferecem uma maneira persistente e conveniente de alternar entre os destinos principais em um aplicativo.
+// Estrutura:
+// - Logo: o logotipo do site
+// - Menu toggle: a alternância do menu mobile da barra de navegação
+// - Navigation Links: os links de navegação do menu
+// - Actions: botões de ação para a barra de navegação
+// - Theme Switcher: o alternador de modo (claro/escuro) do site
 
-// Reference: https://wind-ui.com/components/navbars/
+// Referência: https://wind-ui.com/components/navbars/
 
-// Components
+// Componentes
 // - UI
 import { Icon } from 'astro-icon/components'
 import Button from '@components/ui/Button.astro'
 import Switcher from '@components/ui/ModeSwitcher.astro'
 
-// Data
+// Dados
 import { navigationBarData } from '@config/navigationBar'
 const { logo, navItems, navActions } = navigationBarData
 
-// Determine current path
+// Determinar o caminho atual
 const path = new URL(Astro.request.url).pathname
 function isActivePath(currentPath: string): boolean {
 	return path === currentPath || path === `${currentPath}/`
 }
 
-// Type assertion for navActions to ensure type safety
+// Asserção de tipo para navActions para garantir a segurança de tipos
 const savedNavActions = navActions.map((action) => ({
 	...action,
 	size: action.size as 'base' | 'lg' | 'sm',
@@ -37,19 +37,19 @@ const savedNavActions = navActions.map((action) => ({
 
 <header class="header">
 	<div class="header__container">
-		<nav aria-label="main navigation" role="navigation" class="header__nav">
+		<nav aria-label="navegação principal" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
 				<img src={logo.src} alt={logo.alt} width="48" height="48" />
 				<span>{logo.text}</span>
 			</a>
 
-			<!-- Menu toggle -->
+			<!-- Alternador de menu -->
 			<button
 				id="header-toggle"
 				class="header__toggle"
 				aria-expanded="false"
-				aria-label="Toggle navigation"
+				aria-label="Alternar navegação"
 			>
 				<div class="header__toggle-inner">
 					<span aria-hidden="true"></span>
@@ -58,8 +58,8 @@ const savedNavActions = navActions.map((action) => ({
 				</div>
 			</button>
 
-			<!-- Navigation links -->
-			<ul role="menubar" aria-label="Select page" class="header__menu">
+			<!-- Links de navegação -->
+			<ul role="menubar" aria-label="Selecionar página" class="header__menu">
 				{
 					navItems.map((item) => (
 						<li role="none" class="header__menu-item">

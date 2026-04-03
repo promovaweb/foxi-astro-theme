@@ -1,9 +1,9 @@
 ---
-// Signup Modal
+// Modal de Cadastro
 // ------------
-// Description: A modal with a form to sign up.
+// Descrição: Um modal com um formulário para se cadastrar.
 
-// Components
+// Componentes
 // - UI
 import Modal from '@components/ui/Modal.astro'
 import Form from '@components/ui/forms/Form.astro'
@@ -19,14 +19,14 @@ type Props = {
 const { classes } = Astro.props
 ---
 
-<Modal id="signup" classes={classes} title="Sign up">
-	<p class="mb-0">Enter your email bellow to get started with Foxi.</p>
+<Modal id="signup" classes={classes} title="Cadastre-se">
+	<p class="mb-0">Insira seu e-mail abaixo para começar com o Foxi.</p>
 	<Form>
 		<FormField>
-			<InputField type="email" id="email" label="Your Email" />
+			<InputField type="email" id="email" label="Seu E-mail" />
 		</FormField>
-		<Button style="primary" type="submit" classes="w-full" size="lg">Sign up</Button>
-		<div class="my-2 text-center">or</div>
+		<Button style="primary" type="submit" classes="w-full" size="lg">Cadastre-se</Button>
+		<div class="my-2 text-center">ou</div>
 		<Button
 			style="primary"
 			type="submit"
@@ -35,7 +35,7 @@ const { classes } = Astro.props
 			classes="!bg-white w-full !text-neutral-500 border border-neutral-100"
 		>
 			<Icon name="google-logo" class="h-6 w-6" />
-			Signup with Google
+			Cadastre-se com o Google
 		</Button>
 	</Form>
 </Modal>

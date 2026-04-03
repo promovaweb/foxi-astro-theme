@@ -1,15 +1,15 @@
 ---
-// Newsletter With Image
+// Newsletter com Imagem
 // ---------------------
-// Description: A newsletter subscription section with an image on one side and the form on the other.
-// Properties:
-// - title: The title of the newsletter section
-// - text: The description text of the newsletter section
-// - button: The text for the subscription button
-// - placeholder: The placeholder text for the email input
-// - image: The path to the image
+// Descrição: Uma seção de inscrição em newsletter com uma imagem de um lado e o formulário do outro.
+// Propriedades:
+// - title: O título da seção de newsletter
+// - text: O texto de descrição da seção de newsletter
+// - button: O texto para o botão de inscrição
+// - placeholder: O texto de placeholder para o campo de e-mail
+// - image: O caminho para a imagem
 
-// Components
+// Componentes
 // - UI
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -34,9 +34,9 @@ const {
 	image = '/src/assets/hero-01.png'
 } = Astro.props
 
-// Import image dynamically
+// Importa imagem dinamicamente
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,webp,svg}')
-if (!images[image]) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,webp,svg}"`)
+if (!images[image]) throw new Error(`"${image}" não existe no glob: "src/assets/*.{jpeg,jpg,png,gif,webp,svg}"`)
 ---
 
 <Section id="newsletter-image" classes="newsletter-image bg-white dark:bg-neutral-950">
@@ -83,7 +83,7 @@ if (!images[image]) throw new Error(`"${image}" does not exist in glob: "src/ass
 	.newsletter-image__text {
 		@apply text-pretty;
 	}
-	/* Override Input Styles for this specific variant */
+	/* Sobrescreve estilos de Input para esta variante específica */
 	:global(.newsletter-image .input__field) {
 		@apply bg-white border-primary-300 text-neutral-900 placeholder:text-neutral-500 focus:border-primary-500;
 	}
