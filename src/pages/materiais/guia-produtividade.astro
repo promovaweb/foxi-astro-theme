@@ -5,9 +5,11 @@ import Layout from '@layouts/landing/EbookLanding.astro'
 import LandingHero from '@components/blocks/landing/LandingHero.astro'
 import LandingForm from '@components/blocks/landing/LandingForm.astro'
 import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import SocialProof from '@components/blocks/socialproof/Basic.astro'
+import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
-import Section from '@components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
 import materials from '@data/json-files/materialsData.json'
 
 const material = materials.find(m => m.id === "guia-produtividade")!
@@ -19,50 +21,70 @@ const metadata = {
 ---
 
 <Layout {...metadata}>
+	<!-- Hero Section: Text + High Contrast Form -->
 	<LandingHero 
-		tag="Ebook Gratuito"
-		title="Extraia o máximo da sua <strong>equipe</strong>"
-		text={metadata.description}
-		image={material.image}
+		tag="Material Exclusivo"
+		title="Domine seu tempo e <strong>multiplique</strong> seus resultados"
+		text="Descubra as estratégias usadas pelas equipes de alta performance para manter o foco e entregar projetos complexos sem estresse."
 	>
-		<div slot="after-text" class="mt-8 lg:hidden">
-			<LandingForm title="Receba o ebook" buttonText="Baixar agora" />
+		<div slot="image" class="w-full max-w-lg mx-auto lg:ml-auto">
+			<LandingForm 
+				title="Receba o Guia Gratuitamente" 
+				buttonText="Quero baixar meu ebook" 
+				contrast={true} 
+			/>
 		</div>
 	</LandingHero>
 
+	<!-- Content Section: Cover + Details & Lists -->
 	<Section classes="bg-neutral-50 dark:bg-neutral-900/50">
 		<Row>
-			<Col span="12" lg="7">
-				<h2 class="text-3xl font-bold mb-8">O que você vai encontrar neste guia:</h2>
-				<ul class="grid gap-6">
-					<li class="flex gap-4">
-						<div class="w-6 h-6 bg-primary-500 rounded-full flex-shrink-0" />
-						<div>
-							<strong class="block text-lg">Metodologias Ágeis</strong>
-							<p class="text-neutral-600 dark:text-neutral-400">Como aplicar Scrum e Kanban no seu dia a dia.</p>
-						</div>
-					</li>
-					<li class="flex gap-4">
-						<div class="w-6 h-6 bg-primary-500 rounded-full flex-shrink-0" />
-						<div>
-							<strong class="block text-lg">Gestão de Tempo</strong>
-							<p class="text-neutral-600 dark:text-neutral-400">Técnicas de Pomodoro e blocos de tempo para foco total.</p>
-						</div>
-					</li>
-					<li class="flex gap-4">
-						<div class="w-6 h-6 bg-primary-500 rounded-full flex-shrink-0" />
-						<div>
-							<strong class="block text-lg">Automação de Processos</strong>
-							<p class="text-neutral-600 dark:text-neutral-400">Como eliminar tarefas repetitivas usando IA.</p>
-						</div>
-					</li>
-				</ul>
+			<Col span="12" lg="5">
+				<div class="relative group">
+					<div class="absolute -inset-4 bg-primary-500/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-700" />
+					<img 
+						src={material.image} 
+						alt="Capa do Ebook Guia de Produtividade" 
+						class="relative w-full h-auto rounded-3xl shadow-2xl border border-neutral-200 dark:border-neutral-800"
+					/>
+				</div>
 			</Col>
-			<Col span="12" lg="5" classes="hidden lg:block">
-				<LandingForm title="Receba por e-mail" buttonText="Baixar Ebook Agora" classes="-mt-32 relative z-10" />
+			<Col span="12" lg="7" classes="flex flex-col justify-center pt-12 lg:pt-0 lg:pl-16">
+				<h2 class="text-3xl lg:text-4xl font-bold mb-6 text-neutral-900 dark:text-white">
+					Tudo o que você precisa para se tornar um <span class="text-primary-500">mestre da eficiência</span>
+				</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+					Neste ebook de 50 páginas, condensamos anos de experiência em gestão de projetos e produtividade pessoal em um guia prático e direto ao ponto.
+				</p>
+				
+				<div class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+					{[
+						"Priorização inteligente de tarefas",
+						"Eliminação de distrações digitais",
+						"Fluxos de trabalho otimizados",
+						"Gestão de energia vs tempo",
+						"Ferramentas de IA para produtividade",
+						"Comunicação assíncrona eficaz"
+					].map(benefit => (
+						<div class="flex items-center gap-3">
+							<Icon name="check-circle" class="w-5 h-5 text-primary-500 shrink-0" />
+							<span class="text-neutral-700 dark:text-neutral-300 font-medium">{benefit}</span>
+						</div>
+					))}
+				</div>
+
+				<div class="mt-12 p-6 rounded-2xl bg-primary-500/10 border border-primary-500/20">
+					<p class="text-primary-700 dark:text-primary-400 font-semibold italic">
+						"Este material mudou completamente a forma como nossa startup gerencia o backlog. Recomendo a todos!"
+					</p>
+					<span class="block mt-2 text-sm font-bold text-neutral-900 dark:text-white">— Diretor de Operações na TechFlow</span>
+				</div>
 			</Col>
 		</Row>
 	</Section>
+
+	<!-- Social Proof Section -->
+	<SocialProof />
 
 	<LandingFooter />
 </Layout>

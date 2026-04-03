@@ -1,26 +1,196 @@
 ---
-// Landing Form Component
+// Landing Form Component Refined
 // ------------
+// Descrição: Formulário de conversão premium para landing pages.
+// Propriedades:
+// - title: Título do formulário
+// - buttonText: Texto do botão de ação
+// - contrast: Se verdadeiro, aplica o estilo de alto contraste da marca
+// - classes: Classes CSS adicionais
+
 import Input from '@components/ui/forms/form-elements/InputField.astro'
 import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
 
 type Props = {
 	title: string
 	buttonText: string
+	contrast?: boolean
 	classes?: string
 }
 
-const { title, buttonText, classes } = Astro.props
+const { title, buttonText, contrast = false, classes } = Astro.props
 ---
 
-<div class:list={["bg-neutral-50 dark:bg-neutral-900 p-8 lg:p-12 rounded-3xl border border-neutral-100 dark:border-neutral-800 shadow-xl w-full", classes]}>
-	<h2 class="text-2xl font-bold mb-6 text-center text-neutral-900 dark:text-white">{title}</h2>
-	<form class="grid gap-4">
-		<Input label="Nome Completo" name="name" placeholder="Seu nome" />
-		<Input label="E-mail Corporativo" name="email" type="email" placeholder="seu@email.com" />
-		<Button style="primary" size="lg" classes="w-full mt-4">{buttonText}</Button>
-	</form>
-	<p class="text-xs text-neutral-500 mt-6 text-center">
-		Ao preencher o formulário, você concorda com nossa política de privacidade.
-	</p>
+<div
+	class:list={[
+		'landing-form',
+		{ 'landing-form--contrast': contrast },
+		{ [`${classes}`]: classes }
+	]}
+>
+	<div class="landing-form__container">
+		<header class="landing-form__header">
+			<h2 class="landing-form__title">
+				{title}
+			</h2>
+			<p class="landing-form__subtitle">
+				Preencha os dados abaixo e acesse agora.
+			</p>
+		</header>
+
+		<form class="landing-form__form">
+			<div class="landing-form__fields">
+				<Input
+					label="Nome Completo"
+					name="name"
+					placeholder="Ex: João Silva"
+					required
+					classes="landing-form__input"
+				/>
+				<Input
+					label="E-mail Corporativo"
+					name="email"
+					type="email"
+					placeholder="joao@empresa.com"
+					required
+					classes="landing-form__input"
+				/>
+			</div>
+			
+			<div class="landing-form__action">
+				<Button
+					style={contrast ? 'neutral' : 'primary'}
+					size="lg"
+					classes="landing-form__button group"
+				>
+					<span>{buttonText}</span>
+					<Icon name="long-arrow-right" class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+				</Button>
+			</div>
+		</form>
+
+		<footer class="landing-form__footer">
+			<div class="landing-form__trust">
+				<Icon name="shield-check" class="w-4 h-4 text-emerald-500" />
+				<span>Seus dados estão 100% seguros</span>
+			</div>
+			<p class="landing-form__policy">
+				Privacidade garantida. Não enviamos spam.
+			</p>
+		</footer>
+	</div>
+	
+	<!-- Elemento Decorativo de Brilho -->
+	<div class="landing-form__glow"></div>
 </div>
+
+<style>
+	.landing-form {
+		@apply relative w-full rounded-[3rem] p-[2px] transition-all duration-500 bg-neutral-200/50 dark:bg-neutral-800/50;
+	}
+
+	.landing-form__container {
+		@apply relative flex h-full w-full flex-col rounded-[2.9rem] bg-white p-8 lg:p-14 dark:bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.1)];
+	}
+
+	.landing-form__header {
+		@apply mb-10 text-center;
+	}
+
+	.landing-form__title {
+		@apply mb-3 font-headings text-3xl font-black tracking-tight text-neutral-900 lg:text-4xl dark:text-white leading-tight;
+	}
+
+	.landing-form__subtitle {
+		@apply text-sm text-neutral-500 dark:text-neutral-400 font-medium;
+	}
+
+	.landing-form__form {
+		@apply flex w-full flex-col gap-8;
+	}
+
+	.landing-form__fields {
+		@apply flex flex-col gap-5;
+	}
+
+	.landing-form__action {
+		@apply mt-2;
+	}
+
+	.landing-form__button {
+		@apply w-full flex items-center justify-center shadow-xl shadow-primary-500/10 hover:shadow-primary-500/20 active:scale-[0.98] transition-all;
+	}
+
+	.landing-form__footer {
+		@apply mt-10 flex flex-col items-center gap-3 border-t border-neutral-100 pt-8 dark:border-neutral-900;
+	}
+
+	.landing-form__trust {
+		@apply flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-neutral-700 dark:text-neutral-300;
+	}
+
+	.landing-form__policy {
+		@apply text-center text-[11px] leading-relaxed text-neutral-400 dark:text-neutral-500;
+	}
+
+	/* Estilo de Alto Contraste (Branding) */
+	.landing-form--contrast {
+		@apply bg-gradient-to-br from-primary-400 via-primary-500 to-primary-700 shadow-2xl shadow-primary-500/30;
+	}
+
+	.landing-form--contrast .landing-form__container {
+		@apply bg-primary-500 text-white shadow-none dark:bg-primary-500;
+	}
+
+	.landing-form--contrast .landing-form__title,
+	.landing-form--contrast .landing-form__subtitle,
+	.landing-form--contrast .landing-form__trust,
+	.landing-form--contrast .landing-form__policy {
+		@apply text-white;
+	}
+
+	.landing-form--contrast .landing-form__subtitle,
+	.landing-form--contrast .landing-form__policy {
+		@apply opacity-80;
+	}
+
+	.landing-form--contrast .landing-form__footer {
+		@apply border-white/10;
+	}
+
+	.landing-form--contrast .landing-form__trust {
+		@apply opacity-90;
+	}
+
+	.landing-form--contrast .landing-form__trust :global(svg) {
+		@apply text-white;
+	}
+
+	/* Overrides para os inputs no modo contraste */
+	.landing-form--contrast :global(.input__field) {
+		@apply border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white focus:bg-white/20;
+	}
+
+	.landing-form--contrast :global(.input__label) {
+		@apply text-white/70 before:!bg-primary-500;
+	}
+
+	.landing-form--contrast :global(.input__field:focus + .input__label) {
+		@apply text-white;
+	}
+
+	.landing-form--contrast :global(.landing-form__button) {
+		@apply bg-white text-primary-600 shadow-2xl shadow-black/20 hover:bg-neutral-50 hover:-translate-y-1;
+	}
+
+	/* Glow decorativo para o modo contraste */
+	.landing-form--contrast .landing-form__glow {
+		@apply absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-[80px] pointer-events-none;
+	}
+
+	/* Efeito de hover no card padrão */
+	.landing-form:not(.landing-form--contrast):hover {
+		@apply bg-primary-200 dark:bg-primary-900/50 shadow-2xl;
+	}
+</style>
