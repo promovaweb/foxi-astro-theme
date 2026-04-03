@@ -1,0 +1,130 @@
+---
+// Exit Intent Popup
+// ------------
+// Descrição: Um modal que aparece quando o usuário tenta sair da página.
+// Persistência: Usa localStorage para evitar exibições repetidas.
+// Configuração: Pode ser habilitado/desabilitado em src/config/config.ts.
+
+import { configData } from '@config/config'
+import { Icon } from 'astro-icon/components'
+import Button from '@components/ui/Button.astro'
+
+const { exitIntentPopup } = configData
+---
+
+{
+	exitIntentPopup && (
+		<div id="exit-intent-popup" class="exit-intent" aria-hidden="true" role="dialog">
+			<div class="exit-intent__backdrop" />
+			<div class="exit-intent__container">
+				<div class="exit-intent__content">
+					<button id="close-exit-popup" class="exit-intent__close" aria-label="Fechar popup">
+						<Icon name="x-mark" />
+					</button>
+					<div class="exit-intent__body">
+						<div class="exit-intent__icon">
+							<Icon name="bell-alert" />
+						</div>
+						<h2 class="exit-intent__title">Espere! Não vá embora ainda...</h2>
+						<p class="exit-intent__text">
+							Temos uma oferta especial exclusiva para você antes de partir. Não perca a oportunidade de otimizar sua produtividade com o Foxi.
+						</p>
+						<div class="exit-intent__actions">
+							<Button size="lg" link="/pricing" style="primary">
+								Ver Oferta Especial
+							</Button>
+							<button id="cancel-exit-popup" class="exit-intent__cancel">
+								Talvez mais tarde
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+<script>
+	const popup = document.getElementById('exit-intent-popup')
+	const closeBtn = document.getElementById('close-exit-popup')
+	const cancelBtn = document.getElementById('cancel-exit-popup')
+	const STORAGE_KEY = 'foxi_exit_popup_shown'
+
+	if (popup) {
+		const showPopup = () => {
+			const wasShown = localStorage.getItem(STORAGE_KEY)
+			if (!wasShown) {
+				popup.classList.add('is-visible')
+				popup.setAttribute('aria-hidden', 'false')
+				localStorage.setItem(STORAGE_KEY, 'true')
+			}
+		}
+
+		const hidePopup = () => {
+			popup.classList.remove('is-visible')
+			popup.setAttribute('aria-hidden', 'true')
+		}
+
+		// Detecta intenção de saída (mouse saindo pelo topo da janela)
+		document.addEventListener('mouseleave', (e) => {
+			if (e.clientY <= 0) {
+				showPopup()
+			}
+		})
+
+		closeBtn?.addEventListener('click', hidePopup)
+		cancelBtn?.addEventListener('click', hidePopup)
+
+		// Fecha ao clicar no backdrop
+		popup.addEventListener('click', (e) => {
+			if (e.target === popup) {
+				hidePopup()
+			}
+		})
+	}
+</script>
+
+<style>
+	.exit-intent {
+		@apply fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300;
+	}
+	.exit-intent.is-visible {
+		@apply opacity-100 pointer-events-auto;
+	}
+	.exit-intent__backdrop {
+		@apply absolute inset-0 bg-neutral-950/80 backdrop-blur-sm;
+	}
+	.exit-intent__container {
+		@apply relative z-10 w-[90%] h-[70%] max-w-4xl max-h-[600px] lg:w-[70%] lg:h-[70%];
+	}
+	.exit-intent__content {
+		@apply h-full w-full bg-white dark:bg-neutral-900 rounded-3xl shadow-2xl overflow-hidden relative flex flex-col items-center justify-center p-8 lg:p-16 text-center;
+	}
+	.exit-intent__close {
+		@apply absolute top-6 right-6 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors;
+	}
+	.exit-intent__close svg {
+		@apply w-8 h-8;
+	}
+	.exit-intent__body {
+		@apply max-w-2xl;
+	}
+	.exit-intent__icon {
+		@apply mb-6 inline-flex items-center justify-center w-20 h-20 bg-primary-100 dark:bg-primary-900/30 text-primary-500 rounded-full mx-auto;
+	}
+	.exit-intent__icon svg {
+		@apply w-10 h-10;
+	}
+	.exit-intent__title {
+		@apply text-3xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6 font-headings;
+	}
+	.exit-intent__text {
+		@apply text-lg text-neutral-600 dark:text-neutral-400 mb-10;
+	}
+	.exit-intent__actions {
+		@apply flex flex-col sm:flex-row items-center justify-center gap-4;
+	}
+	.exit-intent__cancel {
+		@apply text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors underline underline-offset-4;
+	}
+</style>

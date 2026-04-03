@@ -7,6 +7,7 @@ import Footer from '@components/ui/Footer.astro'
 import Modal from '@components/blocks/modal/SignUp.astro'
 import Header from '@components/blocks/head/Header.astro'
 import Toast from '@components/ui/Toast.astro'
+import ExitIntentPopup from '@components/ui/ExitIntentPopup.astro'
 // Scripts
 import Scriprs from '@components/scripts/LocalScripts.astro'
 import GoogleTagManagerBody from '@components/scripts/googleTagManagerBody.astro'
@@ -48,6 +49,7 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 		<Footer />
 		<Modal />
 		<Toast />
+		<ExitIntentPopup />
 		<Scriprs />
 	</body>
 </html>

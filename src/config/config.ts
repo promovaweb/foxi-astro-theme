@@ -19,6 +19,7 @@ export interface Config {
 	mode: Mode
 	scrollAnimations: boolean
 	changelogPageSize: number
+	exitIntentPopup: boolean
 }
 
 export const configData: Config = {
@@ -34,5 +35,6 @@ export const configData: Config = {
 	noindex: false,
 	mode: 'auto',
 	scrollAnimations: true,
-	changelogPageSize: 5
+	changelogPageSize: 5,
+	exitIntentPopup: true
 }
