@@ -2,7 +2,7 @@
 // Webinar: Masterclass de Liderança (Ao Vivo)
 // ------------
 import Layout from '@layouts/landing/WebinarLanding.astro'
-import LandingHero from '@components/blocks/landing/LandingHero.astro'
+import SplitLiveHero from '@components/blocks/landing/SplitLiveHero.astro'
 import LandingForm from '@components/blocks/landing/LandingForm.astro'
 import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
 import DownloadDetails from '@components/blocks/landing/DownloadDetails.astro'
@@ -100,52 +100,68 @@ const organizers = {
 ---
 
 <Layout {...metadata}>
-	<LandingHero 
-		tag="Webinar Ao Vivo & Gratuito"
-		title="Masterclass de <strong>Liderança</strong> 2024"
-		text={metadata.description}
-	>
-		<div slot="image" class="w-full max-w-2xl mx-auto lg:ml-auto">
-			<!-- Banner de Data/Hora (Refinado e Muito Claro) -->
-			<div class="bg-primary-500 text-white p-8 rounded-t-3xl text-center shadow-lg border-b border-white/10">
-				<div class="flex items-center justify-center gap-2 mb-2 text-white/80">
-					<Icon name="bell-alert" class="w-4 h-4" />
-					<span class="text-[10px] uppercase tracking-[0.2em] font-bold">Reserva de Vaga</span>
-				</div>
-				<h2 class="text-3xl lg:text-4xl font-black italic tracking-tighter mb-1 uppercase">
-					30 NOVEMBRO | 19h00
-				</h2>
-				<p class="text-[10px] uppercase tracking-widest font-bold opacity-80">Horário de Brasília • Transmissão Ao Vivo</p>
-			</div>
+	<SplitLiveHero>
+		<!-- Lado Esquerdo (50%) -->
+		<div slot="left-content" class="p-8 lg:p-20 xl:p-32">
+			<span class="text-primary-500 font-bold uppercase tracking-[0.2em] text-xs mb-8 block">Webinar Ao Vivo & Gratuito</span>
+			<h1 class="text-3xl lg:text-5xl xl:text-6xl font-black mb-8 text-neutral-900 dark:text-white leading-[1.1]">Masterclass de <strong>Liderança</strong> 2024</h1>
+			<p class="text-lg lg:text-2xl text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed max-w-xl">{metadata.description}</p>
 			
-			<div class="bg-white dark:bg-neutral-900 p-8 lg:p-10 rounded-b-3xl border-x border-b border-neutral-100 dark:border-neutral-800 shadow-2xl">
-				<LandingForm 
-					title="Garanta seu acesso gratuito" 
-					buttonText="Quero participar da Masterclass" 
-					thankYouPage="/materiais/masterclass-lideranca-obrigado"
-					contrast={false} 
-				/>
+			<!-- Card de Data e Hora Premium (Full Width) -->
+			<div class="mb-12 w-full bg-white dark:bg-neutral-800 p-8 lg:p-10 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-700 shadow-xl relative overflow-hidden group">
+				<div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
 				
-				<!-- Lembrete de Envio do Link -->
-				<div class="mt-8 flex items-center justify-center gap-3 py-4 px-6 bg-primary-50 dark:bg-primary-900/20 rounded-2xl border border-primary-100 dark:border-primary-800/50">
-					<Icon name="bell-alert" class="w-5 h-5 text-primary-500 animate-swing" />
-					<p class="text-xs text-primary-700 dark:text-primary-300 font-bold uppercase tracking-wider mb-0 leading-tight">
-						O link de acesso será enviado 15 minutos antes do início
-					</p>
+				<div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-8 lg:gap-16">
+					<div class="flex flex-col items-center">
+						<span class="text-[10px] uppercase tracking-widest font-black text-primary-500 mb-3">Data do Evento</span>
+						<div class="flex items-baseline gap-1">
+							<span class="text-4xl lg:text-6xl font-black text-neutral-900 dark:text-white italic">30</span>
+							<span class="text-3xl lg:text-5xl font-black text-neutral-300 dark:text-neutral-600 italic">/</span>
+							<span class="text-4xl lg:text-6xl font-black text-neutral-900 dark:text-white italic">11</span>
+						</div>
+					</div>
+					
+					<div class="w-24 h-px sm:w-px sm:h-16 bg-neutral-100 dark:bg-neutral-700"></div>
+					
+					<div class="flex flex-col items-center">
+						<span class="text-[10px] uppercase tracking-widest font-black text-primary-500 mb-3">Início da Transmissão</span>
+						<div class="flex items-baseline gap-2">
+							<span class="text-4xl lg:text-6xl font-black text-neutral-900 dark:text-white italic">19:00</span>
+							<span class="text-xs font-bold text-neutral-400 uppercase tracking-widest">(BRT)</span>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<div class="flex flex-wrap gap-4 justify-center">
+				<div class="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-600 rounded-xl border border-emerald-500/20 shadow-sm">
+					<Icon name="check-circle" class="w-5 h-5" />
+					<span class="text-xs font-black uppercase tracking-widest">Inscrições Gratuitas</span>
+				</div>
+				<div class="flex items-center gap-2 px-4 py-2 bg-primary-500/10 text-primary-600 rounded-xl border border-primary-500/20 shadow-sm">
+					<Icon name="check-circle" class="w-5 h-5" />
+					<span class="text-xs font-black uppercase tracking-widest">Certificado Incluso</span>
+				</div>
+			</div>
+
 		</div>
 
-		<div slot="after-text">
-			<div class="flex items-center gap-4 text-sm text-neutral-500 font-medium">
-				<Icon name="check-circle" class="w-5 h-5 text-primary-500" />
-				Vagas limitadas. Link enviado por e-mail.
-			</div>
+		<!-- Lado Direito (50%) -->
+		<div slot="right-content" class="w-full h-full flex flex-col bg-white dark:bg-neutral-900 p-8 lg:p-20 xl:p-32 justify-center">
+			<LandingForm 
+				title="Finalize sua inscrição gratuita" 
+				buttonText="Garantir minha vaga agora" 
+				thankYouPage="/materiais/masterclass-lideranca-obrigado"
+				contrast={false} 
+			/>
+			<p class="mt-10 text-[10px] text-neutral-400 text-center uppercase tracking-[0.2em] font-black">
+				O link de acesso será enviado 15 minutos antes por e-mail
+			</p>
 		</div>
-	</LandingHero>
+	</SplitLiveHero>
 
 	<!-- Segunda Seção: Vídeo de Preview + Texto -->
-	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32">
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
 		<Row>
 			<Col span="12" lg="6" classes="mb-12 lg:mb-0">
 				<div class="max-w-full">

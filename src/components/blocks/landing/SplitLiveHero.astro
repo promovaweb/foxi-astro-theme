@@ -1,0 +1,23 @@
+---
+// SplitLiveHero Component
+// Descrição: Hero 50/50 absoluto, sem containers ou paddings laterais.
+// Propriedades: classes
+
+type Props = {
+	classes?: string
+}
+
+const { classes } = Astro.props
+---
+
+<section class:list={["split-hero min-h-screen flex flex-col lg:flex-row overflow-hidden w-full", classes]}>
+	<!-- Lado Esquerdo: 50% -->
+	<div class="lg:w-1/2 w-full relative flex flex-col justify-center bg-neutral-50 dark:bg-neutral-900 border-r border-neutral-100 dark:border-neutral-800">
+		<slot name="left-content" />
+	</div>
+
+	<!-- Lado Direito: 50% -->
+	<div class="lg:w-1/2 w-full relative flex flex-col bg-white dark:bg-neutral-950">
+		<slot name="right-content" />
+	</div>
+</section>
