@@ -38,8 +38,40 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 8. **Primitivos de layout** — Usar `<Section>` → `<Row>` → `<Col>` para todos os layouts de página. Não criar wrappers customizados de seção/linha/grid.
 9. **Dados em config** — Conteúdo repetido (itens de nav, links do rodapé, listas de funcionalidades, dados de preços) deve ficar em `src/config/` ou `src/data/json-files/`. Nunca hardcodar nos componentes.
 10. **Changelog em Markdown** — O histórico de alterações (changelog) é gerenciado via arquivos Markdown na coleção de conteúdo em `src/content/changelog/`. Novas versões devem ser adicionadas como arquivos `.md` nesta pasta. O tamanho da paginação pode ser configurado em `src/config/config.ts` através da propriedade `changelogPageSize`.
-11. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados em `src/content/materials/`. Cada item deve ter um `type` definido para aplicar o layout de landing page correspondente.
+11. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados como páginas Astro individuais em `src/pages/materiais/`. Cada página deve utilizar um dos layouts especializados de `src/layouts/landing/` e os componentes modulares de `src/components/blocks/landing/`.
 12. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
+
+---
+
+## Criação de Landing Pages de Materiais
+
+Para criar um novo material de marketing (ex: `/materiais/novo-ebook`):
+
+1. **Escolha o Layout:** Use um layout de `src/layouts/landing/` (ex: `EbookLanding.astro`).
+2. **Componentes Modulares:** Utilize os blocos de `src/components/blocks/landing/`:
+   - `<LandingHero>`: Para a seção principal com título, descrição e imagem/capa.
+   - `<LandingForm>`: Para o formulário de captura de leads.
+   - `<LandingFooter>`: Para o rodapé minimalista da landing page.
+3. **Suporte a Dark Mode:** Todos os componentes de landing page suportam Dark Mode automaticamente.
+4. **SEO:** Passe as props `title` e `description` para o Layout para configurar as metatags via `astro-seo`.
+5. **Atualização da Listagem:** Adicione o novo material ao arquivo `src/data/json-files/materialsData.json` para que ele apareça automaticamente na central de materiais.
+
+### Exemplo de Estrutura:
+```astro
+---
+import Layout from '@layouts/landing/EbookLanding.astro'
+import LandingHero from '@components/blocks/landing/LandingHero.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+---
+<Layout title="Título SEO" description="Descrição SEO">
+  <LandingHero tag="Ebook" title="Título Chamativo" text="Descrição..." image="/path/to/cover.png">
+    <div slot="after-text"><LandingForm title="Baixe Agora" buttonText="Enviar" /></div>
+  </LandingHero>
+  <LandingFooter />
+</Layout>
+```
+
 11. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
 12. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
 13. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
