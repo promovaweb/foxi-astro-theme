@@ -1,0 +1,153 @@
+---
+// ImageSlider Component
+// Descrição: Slider de imagens 1920x1080 limpas com legendas externas.
+// Propriedades: slides (array de objetos com imagem e legenda)
+
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import defaultPlaceholder from '@/assets/hero-01.png'
+
+type Slide = {
+	image?: any
+	caption: string
+}
+
+type Props = {
+	slides: Slide[]
+	title?: string
+}
+
+const { slides, title } = Astro.props
+---
+
+<section class="image-slider py-24 lg:py-40 bg-neutral-50 dark:bg-neutral-950 overflow-hidden">
+	<div class="container mx-auto px-4 mb-16">
+		{title && <h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white text-center" set:html={title} />}
+	</div>
+
+	<div class="image-slider__viewport relative group">
+		<div class="image-slider__container flex transition-transform duration-700 ease-in-out cursor-grab active:cursor-grabbing" id="slider-container">
+			{slides.map((slide, index) => (
+				<div class="image-slider__slide flex-shrink-0 w-full px-4 lg:px-20">
+					<div class="relative overflow-hidden rounded-[2rem] lg:rounded-[3rem] shadow-xl aspect-video bg-white dark:bg-neutral-900">
+						<!-- Imagem Limpa 1920x1080 -->
+						<Image 
+							src={slide.image || defaultPlaceholder} 
+							alt={slide.caption} 
+							width={1920} 
+							height={1080} 
+							class="w-full h-full object-cover" 
+						/>
+					</div>
+					<!-- Legenda Externa -->
+					<div class="mt-8 lg:mt-12 text-center max-w-4xl mx-auto px-4">
+						<p class="text-neutral-900 dark:text-white text-xl lg:text-3xl font-bold leading-tight opacity-0 translate-y-4 transition-all duration-700 delay-300 slide-caption">
+							{slide.caption}
+						</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- Navigation Arrows - Estilo Clean -->
+		<button class="image-slider__nav image-slider__nav--prev absolute left-8 top-[40%] -translate-y-1/2 w-12 h-12 lg:w-16 lg:h-16 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white rounded-full flex items-center justify-center shadow-xl transition-all opacity-0 group-hover:opacity-100 z-10 border border-neutral-100 dark:border-neutral-700" id="prev-btn">
+			<Icon name="chevron-left" class="w-6 h-6 lg:w-8 lg:h-8" />
+		</button>
+		<button class="image-slider__nav image-slider__nav--next absolute right-8 top-[40%] -translate-y-1/2 w-12 h-12 lg:w-16 lg:h-16 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white rounded-full flex items-center justify-center shadow-xl transition-all opacity-0 group-hover:opacity-100 z-10 border border-neutral-100 dark:border-neutral-700" id="next-btn">
+			<Icon name="long-arrow-right" class="w-6 h-6 lg:w-8 lg:h-8" />
+		</button>
+
+		<!-- Dots -->
+		<div class="flex justify-center gap-3 mt-8 lg:mt-12">
+			{slides.map((_, index) => (
+				<button class="image-slider__dot w-3 h-3 rounded-full bg-neutral-200 dark:bg-neutral-800 transition-all duration-300" data-index={index}></button>
+			))}
+		</div>
+	</div>
+</section>
+
+<script>
+	function initSlider() {
+		const container = document.getElementById('slider-container');
+		const slides = container?.querySelectorAll('.image-slider__slide');
+		const prevBtn = document.getElementById('prev-btn');
+		const nextBtn = document.getElementById('next-btn');
+		const dots = document.querySelectorAll('.image-slider__dot');
+		const captions = document.querySelectorAll('.slide-caption');
+		
+		if (!container || !slides?.length) return;
+
+		let currentIndex = 0;
+
+		function updateSlider() {
+			const offset = currentIndex * -100;
+			container.style.transform = `translateX(${offset}%)`;
+			
+			dots.forEach((dot, i) => {
+				if (i === currentIndex) {
+					dot.classList.add('bg-primary-500', 'w-8');
+					dot.classList.remove('bg-neutral-200', 'dark:bg-neutral-800');
+				} else {
+					dot.classList.remove('bg-primary-500', 'w-8');
+					dot.classList.add('bg-neutral-200', 'dark:bg-neutral-800');
+				}
+			});
+
+			captions.forEach((caption, i) => {
+				if (i === currentIndex) {
+					caption.classList.add('opacity-100', 'translate-y-0');
+					caption.classList.remove('opacity-0', 'translate-y-4');
+				} else {
+					caption.classList.remove('opacity-100', 'translate-y-0');
+					caption.classList.add('opacity-0', 'translate-y-4');
+				}
+			});
+		}
+
+		nextBtn?.addEventListener('click', () => {
+			currentIndex = (currentIndex + 1) % slides.length;
+			updateSlider();
+		});
+
+		prevBtn?.addEventListener('click', () => {
+			currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+			updateSlider();
+		});
+
+		dots.forEach((dot, i) => {
+			dot.addEventListener('click', () => {
+				currentIndex = i;
+				updateSlider();
+			});
+		});
+
+		let interval = setInterval(() => {
+			currentIndex = (currentIndex + 1) % slides.length;
+			updateSlider();
+		}, 5000);
+
+		container.addEventListener('mouseenter', () => clearInterval(interval));
+		container.addEventListener('mouseleave', () => {
+			interval = setInterval(() => {
+				currentIndex = (currentIndex + 1) % slides.length;
+				updateSlider();
+			}, 5000);
+		});
+
+		updateSlider();
+	}
+
+	document.addEventListener('astro:page-load', initSlider);
+</script>
+
+<style>
+	.image-slider__slide {
+		@apply w-full flex-shrink-0;
+	}
+	.image-slider__nav {
+		@apply cursor-pointer;
+	}
+	.image-slider__dot {
+		@apply cursor-pointer;
+	}
+</style>

@@ -1,0 +1,34 @@
+---
+// ContentList Component
+// Descrição: Exibe uma lista de itens (benefícios, módulos, funcionalidades) com ícones em uma landing page.
+// Propriedades: title, items (array de strings ou objetos)
+
+import { Icon } from 'astro-icon/components'
+
+type Props = {
+	title: string
+	items: string[]
+}
+
+const { title, items } = Astro.props
+---
+
+<div class="content-list bg-neutral-50 dark:bg-neutral-900/50 p-8 lg:p-12 rounded-3xl border border-neutral-100 dark:border-neutral-800">
+	<h2 class="text-2xl lg:text-3xl font-bold mb-8 text-neutral-900 dark:text-white" set:html={title} />
+	<div class="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+		{items.map(item => (
+			<div class="content-list__item flex items-start gap-3 group">
+				<div class="content-list__icon-wrapper mt-1 w-6 h-6 bg-primary-500/10 text-primary-500 rounded-full flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
+					<Icon name="check-circle" class="w-4 h-4" />
+				</div>
+				<span class="text-neutral-700 dark:text-neutral-300 font-medium leading-tight group-hover:text-neutral-950 dark:group-hover:text-white transition-colors duration-300">{item}</span>
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	.content-list {
+		@apply transition-shadow duration-300 hover:shadow-xl;
+	}
+</style>

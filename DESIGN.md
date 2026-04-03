@@ -334,6 +334,26 @@ Bloco de espaço vertical.
 
 Seção de texto de call-to-action (título + slot de corpo).
 
+#### `<DownloadDetails>` — `src/components/blocks/landing/DownloadDetails.astro`
+
+Exibe detalhes técnicos de um arquivo para download.
+
+| Prop | Tipo | Descrição |
+|---|---|---|
+| `format` | `string` | Extensão do arquivo (ex: PDF, ZIP) |
+| `size` | `string` | Tamanho legível (ex: 2.4 MB) |
+| `version` | `string` | Versão do material |
+| `lastUpdated` | `string` | Data da última atualização |
+
+#### `<ContentList>` — `src/components/blocks/landing/ContentList.astro`
+
+Lista de itens com ícones de check para landing pages.
+
+| Prop | Tipo | Descrição |
+|---|---|---|
+| `title` | `string` | Título da seção (suporta HTML) |
+| `items` | `string[]` | Array de strings com os benefícios/recursos |
+
 ---
 
 ### Cards
@@ -422,6 +442,45 @@ Botão alternador de modo claro/escuro/automático.
 
 ---
 
+### Slides
+
+Componentes de apresentação e sliders em `src/components/ui/slides/`.
+
+#### `<SlidesBasic>` — `src/components/ui/slides/SlidesBasic.astro`
+
+Slider básico de imagens com legendas sobrepostas.
+
+| Prop | Tipo | Padrão |
+|---|---|---|
+| `slides` | `Array<{image, caption}>` | obrigatório |
+| `id` | `string` | `'basic-slides'` |
+| `autoplay` | `boolean` | `true` |
+| `classes` | `string` | — |
+
+#### `<SlidesSplit>` — `src/components/ui/slides/SlidesSplit.astro`
+
+Slider com layout dividido (Texto à esquerda, Imagem à direita).
+
+| Prop | Tipo | Padrão |
+|---|---|---|
+| `slides` | `Array<{title, text, image}>` | obrigatório |
+| `id` | `string` | `'split-slides'` |
+| `autoplay` | `boolean` | `true` |
+| `classes` | `string` | — |
+
+#### `<SlidesFull>` — `src/components/ui/slides/SlidesFull.astro`
+
+Slider em tela cheia com conteúdo centralizado e transições de opacidade.
+
+| Prop | Tipo | Padrão |
+|---|---|---|
+| `slides` | `Array<{title, text, image, buttonLink, buttonText}>` | obrigatório |
+| `id` | `string` | `'full-slides'` |
+| `autoplay` | `boolean` | `true` |
+| `classes` | `string` | — |
+
+---
+
 ### Componentes de bloco
 
 Blocos compostos de nível de página estão em `src/components/blocks/`.
@@ -484,6 +543,15 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/modal/SignUp.astro` | Modal de cadastro |
 | `blocks/basic/TextImage.astro` | Bloco de duas colunas: texto + imagem |
 | `blocks/basic/StickySidebar.astro` | Conteúdo com barra lateral sticky |
+| `blocks/landing/LandingHero.astro` | Hero especializado para landing pages de materiais |
+| `blocks/landing/LandingForm.astro` | Formulário de conversão de alta performance |
+| `blocks/landing/LandingFooter.astro` | Rodapé minimalista para landing pages |
+| `blocks/landing/MaterialCard.astro` | Card de material para listagem na central |
+| `blocks/landing/DownloadDetails.astro` | Detalhes técnicos do arquivo para download |
+| `blocks/landing/ContentList.astro` | Lista de benefícios/conteúdo com ícones |
+| `ui/slides/SlidesBasic.astro` | Slider básico de imagens com legendas |
+| `ui/slides/SlidesSplit.astro` | Slider com layout dividido (Texto | Imagem) |
+| `ui/slides/SlidesFull.astro` | Slider em tela cheia com conteúdo centralizado |
 
 ---
 

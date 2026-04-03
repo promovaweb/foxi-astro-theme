@@ -1,0 +1,111 @@
+---
+// Slides Display Document
+// ------------
+import Layout from '@layouts/Layout.astro'
+import Hero from '@components/blocks/hero/PageHeader.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+
+// Componentes de Slide
+import SlidesBasic from '@components/ui/slides/SlidesBasic.astro'
+import SlidesSplit from '@components/ui/slides/SlidesSplit.astro'
+import SlidesFull from '@components/ui/slides/SlidesFull.astro'
+
+// Imagens reais (usando caminhos da pasta public/blog para fotos de alta qualidade)
+const slide1 = "/blog/post-01-cover.png"
+const slide2 = "/blog/post-02-cover.png"
+const slide3 = "/blog/post-03-cover.png"
+const slide4 = "/blog/post-04-cover.png"
+const slide5 = "/blog/post-05-cover.png"
+const slide6 = "/blog/post-06-cover.png"
+
+const basicSlides = [
+	{ image: slide1, caption: "Colaboração em tempo real para equipes modernas." },
+	{ image: slide2, caption: "Análise de dados avançada e insights estratégicos." },
+	{ image: slide3, caption: "Ambientes de trabalho focados em alta produtividade." }
+]
+
+const splitSlides = [
+	{ 
+		title: "Gestão de <strong>Projetos</strong>", 
+		text: "Mantenha o controle total sobre seus prazos e entregas com uma visão clara de todo o fluxo de trabalho.",
+		image: slide4 
+	},
+	{ 
+		title: "Foco na <strong>Execução</strong>", 
+		text: "Elimine ruídos e distrações para que sua equipe possa focar no que realmente gera valor para o negócio.",
+		image: slide5 
+	}
+]
+
+const fullSlides = [
+	{ 
+		title: "O Futuro da <strong>Tecnologia</strong>", 
+		text: "Descubra como a inteligência artificial está transformando a forma como construímos produtos digitais.",
+		image: slide6,
+		buttonLink: "/features",
+		buttonText: "Ver Funcionalidades"
+	},
+	{ 
+		title: "Conectividade <strong>Global</strong>", 
+		text: "Sua empresa sem fronteiras. Trabalhe de qualquer lugar com a mesma eficiência de um escritório local.",
+		image: slide1,
+		buttonLink: "/pricing",
+		buttonText: "Conheça os Planos"
+	}
+]
+
+const metadata = {
+	title: "Componentes de Slides | Foxi Astro Theme",
+	description: "Conheça as variações de sliders e apresentações disponíveis no nosso design system."
+}
+---
+
+<Layout {...metadata}>
+	<Hero 
+		title="Exibição de <strong>Slides</strong>" 
+		text="Explore os diferentes padrões de apresentação e sliders construídos para alta conversão e impacto visual."
+	/>
+
+	<!-- Variação 1: SlidesBasic -->
+	<Section>
+		<Row>
+			<Col span="12" classes="mb-12">
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">1. Slides Básico</h2>
+				<p class="text-neutral-600 dark:text-neutral-400 max-w-2xl">Fotos reais com legendas sobrepostas para galerias e destaques rápidos.</p>
+			</Col>
+			<Col span="12">
+				<SlidesBasic slides={basicSlides} id="demo-basic" />
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Variação 2: SlidesSplit -->
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50">
+		<Row>
+			<Col span="12" classes="mb-12">
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">2. Slides Dividido (Split)</h2>
+				<p class="text-neutral-600 dark:text-neutral-400 max-w-2xl">Equilíbrio perfeito entre fotografia e conteúdo descritivo.</p>
+			</Col>
+			<Col span="12">
+				<SlidesSplit slides={splitSlides} id="demo-split" />
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Variação 3: SlidesFull -->
+	<Section padding="top">
+		<Row>
+			<Col span="12" classes="mb-12">
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">3. Slides Full-Screen</h2>
+				<p class="text-neutral-600 dark:text-neutral-400 max-w-2xl">Destaque imersivo com fotos em tela cheia e transições de conteúdo.</p>
+			</Col>
+		</Row>
+	</Section>
+	
+	<div class="mb-24">
+		<SlidesFull slides={fullSlides} id="demo-full" />
+	</div>
+
+</Layout>

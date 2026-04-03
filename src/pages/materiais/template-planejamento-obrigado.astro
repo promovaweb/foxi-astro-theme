@@ -5,8 +5,12 @@ import Layout from '@layouts/landing/ThankYouLayout.astro'
 
 const metadata = {
 	title: "Obrigado | Template de Planejamento",
-	description: "Obrigado por baixar nosso template. Verifique seu e-mail para o link de download."
+	description: "Obrigado por baixar nosso template. Clique no botão para iniciar o download direto."
 }
 ---
 
-<Layout {...metadata} message="O seu Template de Planejamento Estratégico está pronto para ser baixado no seu e-mail!" />
+<Layout 
+	{...metadata} 
+	message="O seu Template de Planejamento Estratégico está pronto!" 
+	downloadUrl="/public/favicon.svg" 
+/>

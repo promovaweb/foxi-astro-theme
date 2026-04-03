@@ -1,0 +1,68 @@
+---
+// DownloadDetails Component
+// Descrição: Exibe detalhes técnicos do arquivo (formato, tamanho, versão) em uma landing page de download.
+// Propriedades: format, size, version, lastUpdated
+
+import { Icon } from 'astro-icon/components'
+
+type Props = {
+	format: string
+	size: string
+	version: string
+	lastUpdated: string
+}
+
+const { format, size, version, lastUpdated } = Astro.props
+---
+
+<div class="download-details bg-white dark:bg-neutral-900 p-8 rounded-3xl border border-neutral-100 dark:border-neutral-800 shadow-sm flex flex-wrap gap-8 lg:gap-12 justify-center lg:justify-start">
+	<div class="download-details__item flex items-center gap-4">
+		<div class="download-details__icon-wrapper w-12 h-12 bg-primary-50 dark:bg-primary-900/20 text-primary-500 rounded-xl flex items-center justify-center">
+			<Icon name="document-text" class="w-6 h-6" />
+		</div>
+		<div class="download-details__content">
+			<span class="download-details__label block text-xs text-neutral-500 uppercase font-bold tracking-wider mb-1">Formato</span>
+			<span class="download-details__value block font-bold text-neutral-900 dark:text-white">{format}</span>
+		</div>
+	</div>
+
+	<div class="download-details__item flex items-center gap-4">
+		<div class="download-details__icon-wrapper w-12 h-12 bg-primary-50 dark:bg-primary-900/20 text-primary-500 rounded-xl flex items-center justify-center">
+			<Icon name="circle-stack" class="w-6 h-6" />
+		</div>
+		<div class="download-details__content">
+			<span class="download-details__label block text-xs text-neutral-500 uppercase font-bold tracking-wider mb-1">Tamanho</span>
+			<span class="download-details__value block font-bold text-neutral-900 dark:text-white">{size}</span>
+		</div>
+	</div>
+
+	<div class="download-details__item flex items-center gap-4">
+		<div class="download-details__icon-wrapper w-12 h-12 bg-primary-50 dark:bg-primary-900/20 text-primary-500 rounded-xl flex items-center justify-center">
+			<Icon name="arrow-path-rounded-square" class="w-6 h-6" />
+		</div>
+		<div class="download-details__content">
+			<span class="download-details__label block text-xs text-neutral-500 uppercase font-bold tracking-wider mb-1">Versão</span>
+			<span class="download-details__value block font-bold text-neutral-900 dark:text-white">{version}</span>
+		</div>
+	</div>
+
+	<div class="download-details__item flex items-center gap-4">
+		<div class="download-details__icon-wrapper w-12 h-12 bg-primary-50 dark:bg-primary-900/20 text-primary-500 rounded-xl flex items-center justify-center">
+			<Icon name="check-circle" class="w-6 h-6" />
+		</div>
+		<div class="download-details__content">
+			<span class="download-details__label block text-xs text-neutral-500 uppercase font-bold tracking-wider mb-1">Atualizado</span>
+			<span class="download-details__value block font-bold text-neutral-900 dark:text-white">{lastUpdated}</span>
+		</div>
+	</div>
+</div>
+
+<style>
+	.download-details {
+		@apply transition-all duration-300;
+	}
+	
+	.download-details__item {
+		@apply shrink-0;
+	}
+</style>

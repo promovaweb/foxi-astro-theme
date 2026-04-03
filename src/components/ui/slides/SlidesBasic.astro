@@ -1,0 +1,145 @@
+---
+// SlidesBasic Component
+// Descrição: Slider básico de imagens 1920x1080 sem overlays.
+// Propriedades: slides (array de objetos com imagem e legenda)
+
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import defaultPlaceholder from '@/assets/hero-01.png'
+
+type Slide = {
+	image?: any
+	caption: string
+}
+
+type Props = {
+	slides: Slide[]
+	id?: string
+	autoplay?: boolean
+	classes?: string
+}
+
+const { slides, id = "basic-slides", autoplay = true, classes } = Astro.props
+---
+
+<div class:list={["slides-basic relative group overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-900", classes]} id={id}>
+	<div class="slides-basic__container flex transition-transform duration-700 ease-in-out" id={`${id}-container`}>
+		{slides.map((slide, index) => (
+			<div class="slides-basic__slide flex-shrink-0 w-full relative">
+				<!-- Imagem Limpa 1920x1080 -->
+				<div class="aspect-video overflow-hidden">
+					<Image 
+						src={slide.image || defaultPlaceholder} 
+						alt={slide.caption} 
+						width={1920} 
+						height={1080} 
+						class="w-full h-full object-cover" 
+					/>
+				</div>
+				<!-- Legenda abaixo da imagem ou em área limpa -->
+				<div class="p-6 lg:p-10 bg-white dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-800">
+					<p class="text-neutral-900 dark:text-white text-lg lg:text-2xl font-bold leading-tight opacity-0 translate-y-4 transition-all duration-700 delay-300 slide-caption">
+						{slide.caption}
+					</p>
+				</div>
+			</div>
+		))}
+	</div>
+
+	<!-- Controls - Estilo mais visível sem overlay -->
+	<button class="absolute left-4 top-[40%] -translate-y-1/2 w-12 h-12 bg-white dark:bg-neutral-800 shadow-xl text-neutral-900 dark:text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 border border-neutral-100 dark:border-neutral-700" id={`${id}-prev`}>
+		<Icon name="chevron-left" class="w-6 h-6" />
+	</button>
+	<button class="absolute right-4 top-[40%] -translate-y-1/2 w-12 h-12 bg-white dark:bg-neutral-800 shadow-xl text-neutral-900 dark:text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 border border-neutral-100 dark:border-neutral-700" id={`${id}-next`}>
+		<Icon name="long-arrow-right" class="w-6 h-6" />
+	</button>
+
+	<!-- Indicators -->
+	<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+		{slides.map((_, index) => (
+			<button class="slides-basic__dot w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700 transition-all duration-300" data-index={index}></button>
+		))}
+	</div>
+</div>
+
+<script define:vars={{ id, autoplay, slidesCount: slides.length }}>
+	function initSlidesBasic() {
+		const container = document.getElementById(`${id}-container`);
+		const prevBtn = document.getElementById(`${id}-prev`);
+		const nextBtn = document.getElementById(`${id}-next`);
+		const dots = document.querySelectorAll(`#${id} .slides-basic__dot`);
+		const captions = document.querySelectorAll(`#${id} .slide-caption`);
+		
+		if (!container || !slidesCount) return;
+
+		let currentIndex = 0;
+
+		function updateSlider() {
+			container.style.transform = `translateX(-${currentIndex * 100}%)`;
+			
+			dots.forEach((dot, i) => {
+				dot.classList.toggle('bg-primary-500', i === currentIndex);
+				dot.classList.toggle('w-6', i === currentIndex);
+				dot.classList.toggle('bg-neutral-300', i !== currentIndex);
+				dot.classList.toggle('dark:bg-neutral-700', i !== currentIndex);
+			});
+
+			captions.forEach((caption, i) => {
+				if (i === currentIndex) {
+					caption.classList.add('opacity-100', 'translate-y-0');
+					caption.classList.remove('opacity-0', 'translate-y-4');
+				} else {
+					caption.classList.remove('opacity-100', 'translate-y-0');
+					caption.classList.add('opacity-0', 'translate-y-4');
+				}
+			});
+		}
+
+		nextBtn?.addEventListener('click', () => {
+			currentIndex = (currentIndex + 1) % slidesCount;
+			updateSlider();
+		});
+
+		prevBtn?.addEventListener('click', () => {
+			currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
+			updateSlider();
+		});
+
+		dots.forEach((dot, i) => {
+			dot.addEventListener('click', () => {
+				currentIndex = i;
+				updateSlider();
+			});
+		});
+
+		if (autoplay) {
+			let interval = setInterval(() => {
+				currentIndex = (currentIndex + 1) % slidesCount;
+				updateSlider();
+			}, 5000);
+
+			const el = document.getElementById(id);
+			el?.addEventListener('mouseenter', () => clearInterval(interval));
+			el?.addEventListener('mouseleave', () => {
+				interval = setInterval(() => {
+					currentIndex = (currentIndex + 1) % slidesCount;
+					updateSlider();
+				}, 5000);
+			});
+		}
+
+		updateSlider();
+	}
+
+	initSlidesBasic();
+	document.addEventListener('astro:page-load', initSlidesBasic);
+</script>
+
+<style>
+	.slides-basic__slide {
+		@apply w-full flex-shrink-0;
+	}
+	.slides-basic__dot {
+		@apply cursor-pointer;
+	}
+</style>

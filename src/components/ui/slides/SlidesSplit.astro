@@ -1,0 +1,124 @@
+---
+// SlidesSplit Component
+// Descrição: Slider com layout dividido (Texto | Imagem) 1920x1080 sem overlays.
+// Propriedades: slides (array de objetos com título, texto e imagem)
+
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import defaultPlaceholder from '@/assets/test.jpg'
+
+type Slide = {
+	title: string
+	text: string
+	image?: any
+}
+
+type Props = {
+	slides: Slide[]
+	id?: string
+	autoplay?: boolean
+	classes?: string
+}
+
+const { slides, id = "split-slides", autoplay = true, classes } = Astro.props
+---
+
+<div class:list={["slides-split relative overflow-hidden bg-white dark:bg-neutral-950 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-800 shadow-xl", classes]} id={id}>
+	<div class="slides-split__container flex transition-transform duration-1000 ease-[cubic-bezier(0.7,0,0.3,1)]" id={`${id}-container`}>
+		{slides.map((slide, index) => (
+			<div class="slides-split__slide flex-shrink-0 w-full grid lg:grid-cols-2">
+				<!-- Text Content -->
+				<div class="p-8 lg:p-20 flex flex-col justify-center order-2 lg:order-1 bg-neutral-50 dark:bg-neutral-900/50">
+					<h3 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-6 leading-tight slide-title opacity-0 translate-x-8 transition-all duration-700 delay-300">
+						{slide.title}
+					</h3>
+					<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 slide-text opacity-0 translate-x-8 transition-all duration-700 delay-500">
+						{slide.text}
+					</p>
+				</div>
+				<!-- Image Content - Limpa e 1920x1080 -->
+				<div class="relative aspect-video lg:aspect-auto order-1 lg:order-2 overflow-hidden bg-neutral-100">
+					<Image 
+						src={slide.image || defaultPlaceholder} 
+						alt={slide.title} 
+						width={1920} 
+						height={1080} 
+						class="w-full h-full object-cover" 
+					/>
+				</div>
+			</div>
+		))}
+	</div>
+
+	<!-- Controls -->
+	<div class="absolute bottom-8 left-8 lg:left-20 flex gap-4 z-10">
+		<button class="w-12 h-12 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform border border-neutral-100 dark:border-neutral-700" id={`${id}-prev`}>
+			<Icon name="chevron-left" class="w-6 h-6" />
+		</button>
+		<button class="w-12 h-12 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform border border-neutral-100 dark:border-neutral-700" id={`${id}-next`}>
+			<Icon name="long-arrow-right" class="w-6 h-6" />
+		</button>
+	</div>
+</div>
+
+<script define:vars={{ id, autoplay, slidesCount: slides.length }}>
+	function initSlidesSplit() {
+		const container = document.getElementById(`${id}-container`);
+		const prevBtn = document.getElementById(`${id}-prev`);
+		const nextBtn = document.getElementById(`${id}-next`);
+		
+		if (!container || !slidesCount) return;
+
+		let currentIndex = 0;
+
+		function updateSlider() {
+			container.style.transform = `translateX(-${currentIndex * 100}%)`;
+			
+			const slides = container.querySelectorAll('.slides-split__slide');
+			slides.forEach((slide, i) => {
+				const title = slide.querySelector('.slide-title');
+				const text = slide.querySelector('.slide-text');
+
+				if (i === currentIndex) {
+					title.classList.add('opacity-100', 'translate-x-0');
+					title.classList.remove('opacity-0', 'translate-x-8');
+					text.classList.add('opacity-100', 'translate-x-0');
+					text.classList.remove('opacity-0', 'translate-x-8');
+				} else {
+					title.classList.remove('opacity-100', 'translate-x-0');
+					title.classList.add('opacity-0', 'translate-x-8');
+					text.classList.remove('opacity-100', 'translate-x-0');
+					text.classList.add('opacity-0', 'translate-x-8');
+				}
+			});
+		}
+
+		nextBtn?.addEventListener('click', () => {
+			currentIndex = (currentIndex + 1) % slidesCount;
+			updateSlider();
+		});
+
+		prevBtn?.addEventListener('click', () => {
+			currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
+			updateSlider();
+		});
+
+		if (autoplay) {
+			setInterval(() => {
+				currentIndex = (currentIndex + 1) % slidesCount;
+				updateSlider();
+			}, 7000);
+		}
+
+		updateSlider();
+	}
+
+	initSlidesSplit();
+	document.addEventListener('astro:page-load', initSlidesSplit);
+</script>
+
+<style>
+	.slides-split__slide {
+		@apply w-full flex-shrink-0;
+	}
+</style>
