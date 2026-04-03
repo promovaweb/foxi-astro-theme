@@ -153,7 +153,31 @@ const organizers = {
 		</Row>
 	</Section>
 
-	<!-- Terceira Seção: Detalhes do Webinar -->
+	<!-- Terceira Seção: Texto em Duas Colunas -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0 lg:pr-12">
+				<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-6">Por que a colaboração remota é o <strong>futuro</strong>?</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					O mercado global passou por uma mudança sem volta. Hoje, as empresas que dominam as ferramentas e a cultura do trabalho distribuído não apenas economizam custos operacionais, mas têm acesso aos melhores talentos do mundo, independentemente da localização geográfica.
+				</p>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					Nossa missão neste webinar é desmistificar os medos comuns sobre a perda de controle e mostrar como a transparência radical pode elevar a performance do seu time.
+				</p>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-12 lg:border-l border-neutral-100 dark:border-neutral-800">
+				<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-6">Metodologias validadas pelo <strong>mercado</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					Não falaremos apenas de teoria. Apresentaremos frameworks de comunicação assíncrona que foram testados em cenários de alta pressão e crescimento acelerado. Você entenderá como transformar reuniões improdutivas em fluxos de trabalho documentados.
+				</p>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					Este conteúdo foi estruturado para ser um guia prático, permitindo que você saia da sessão com um plano de ação claro para implementar na sua empresa já na próxima segunda-feira.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Quarta Seção: Detalhes do Webinar (Agora abaixo do texto) -->
 	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24 lg:py-32 border-y border-neutral-100 dark:border-neutral-800">
 		<Row>
 			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex flex-col justify-center">
@@ -181,7 +205,8 @@ const organizers = {
 	<Section classes="bg-white dark:bg-neutral-950 pt-24 lg:pt-40">
 		<Row>
 			<Col span="12" align="center" classes="mb-12">
-				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white">Apresentador <strong>Principal</strong></h2>
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Apresentador <strong>Principal</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Conheça o especialista que guiará este encontro e compartilhará sua visão estratégica.</p>
 			</Col>
 			<Col span="12" lg="8" align="center" classes="lg:col-start-3">
 				<div class="mb-8 w-24 h-24 rounded-full overflow-hidden border-4 border-primary-500/20 mx-auto shadow-lg">
@@ -207,7 +232,8 @@ const organizers = {
 	<Section classes="bg-white dark:bg-neutral-950 py-24">
 		<Row>
 			<Col span="12" align="center" classes="mb-12">
-				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white">Palestrantes <strong>Convidados</strong></h2>
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Palestrantes <strong>Convidados</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Líderes de mercado trazendo experiências práticas e estudos de caso reais.</p>
 			</Col>
 			{organizers.speakers.map(speaker => (
 				<Col span="12" lg="6" align="center" classes="mb-12 lg:mb-0">
@@ -235,7 +261,8 @@ const organizers = {
 	<Section classes="bg-white dark:bg-neutral-950 pb-24 lg:pb-40">
 		<Row>
 			<Col span="12" align="center" classes="mb-12">
-				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white">Time de <strong>Produção</strong></h2>
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Time de <strong>Produção</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">A equipe dedicada à curadoria de temas e ao suporte técnico impecável.</p>
 			</Col>
 			{organizers.team.map(member => (
 				<Col span="12" lg="4" align="center" classes="mb-12 lg:mb-0">
