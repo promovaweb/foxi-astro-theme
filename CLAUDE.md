@@ -40,6 +40,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 10. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 11. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
 12. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
+13. **Aliases de path obrigatórios** — Todo `import` deve usar os aliases definidos no `tsconfig.json`. Nunca usar caminhos relativos com `../` ou `../../`. Use `@components/`, `@layouts/`, `@styles/`, `@config/`, `@data/` ou `@/` (aponta para `src/`).
 
 ---
 
@@ -57,6 +58,33 @@ Ao criar um novo componente:
 - [ ] Verificar se o nome do ícone existe em `src/icons/` antes de referenciá-lo
 - [ ] Comentários e textos de interface em pt-BR
 - [ ] Documentar o novo componente no `DESIGN.md` (tabela de componentes de bloco ou UI)
+- [ ] Usar aliases de path nos imports (`@components/`, `@layouts/`, `@config/`, `@data/`, etc.). Nunca usar `../` ou `../../`
+
+---
+
+## Aliases de Path
+
+O projeto usa aliases TypeScript/Vite configurados no `tsconfig.json`. **Todo import deve usar aliases — nunca caminhos relativos.**
+
+| Alias | Aponta para | Exemplo de uso |
+|---|---|---|
+| `@/*` | `src/*` | `import Layout from '@/layouts/Layout.astro'` |
+| `@components/*` | `src/components/*` | `import Button from '@components/ui/Button.astro'` |
+| `@layouts/*` | `src/layouts/*` | `import Layout from '@layouts/Layout.astro'` |
+| `@styles/*` | `src/styles/*` | `import '@styles/global.css'` |
+| `@config/*` | `src/config/*` | `import { navigationBarData } from '@config/navigationBar'` |
+| `@data/*` | `src/data/*` | `import features from '@data/json-files/featuresData.json'` |
+
+**Nunca usar:**
+```ts
+// ❌ Errado — caminho relativo
+import Button from '../../components/ui/Button.astro'
+import { socialLinks } from '../config/socialLinks'
+
+// ✅ Correto — alias de path
+import Button from '@components/ui/Button.astro'
+import { socialLinks } from '@config/socialLinks'
+```
 
 ---
 
