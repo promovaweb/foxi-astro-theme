@@ -1,14 +1,14 @@
 ---
 // Components
 // - Layout
-import Layout from '../layouts/Layout.astro'
+import Layout from '@layouts/Layout.astro'
 // - UI
-import Feature from '../components/blocks/features/FeatureSticky.astro'
-import Hero from '../components/blocks/hero/PageHeader.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import Feature from '@components/blocks/features/FeatureSticky.astro'
+import Hero from '@components/blocks/hero/PageHeader.astro'
+import CTA from '@components/blocks/CTA/BasicDark.astro'
 
 // Data
-import featuresData from '../data/json-files/featuresData.json'
+import featuresData from '@data/json-files/featuresData.json'
 // - Feature Categories
 const featuresAnalytics = featuresData.filter((feature) => feature.category === 'Analytics')
 const featuresProductivity = featuresData.filter((feature) => feature.category === 'Productivity')

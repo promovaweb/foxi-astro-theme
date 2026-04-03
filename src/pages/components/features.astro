@@ -1,18 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import PageHeader from '../../components/blocks/hero/PageHeader.astro'
-import FeatureSticky from '../../components/blocks/features/FeatureSticky.astro'
-import FeatureCards from '../../components/blocks/features/FeatureCards.astro'
-import FeatureList from '../../components/blocks/features/FeatureList.astro'
-import SplitFeature from '../../components/blocks/features/SplitFeature.astro'
-import ScreenshotFeature from '../../components/blocks/features/ScreenshotFeature.astro'
-import FeatureWithTestimonial from '../../components/blocks/features/FeatureWithTestimonial.astro'
-import Section from '../../components/ui/Section.astro'
-import Row from '../../components/ui/Row.astro'
-import Col from '../../components/ui/Col.astro'
+import Layout from '@layouts/Layout.astro'
+import PageHeader from '@components/blocks/hero/PageHeader.astro'
+import FeatureSticky from '@components/blocks/features/FeatureSticky.astro'
+import FeatureCards from '@components/blocks/features/FeatureCards.astro'
+import FeatureList from '@components/blocks/features/FeatureList.astro'
+import SplitFeature from '@components/blocks/features/SplitFeature.astro'
+import ScreenshotFeature from '@components/blocks/features/ScreenshotFeature.astro'
+import FeatureWithTestimonial from '@components/blocks/features/FeatureWithTestimonial.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 
 // Content
-import featuresData from '../../data/json-files/featuresData.json'
+import featuresData from '@data/json-files/featuresData.json'
 const featuresList = featuresData.filter((feature) => feature.category === 'Analytics')
 
 const SEO = {

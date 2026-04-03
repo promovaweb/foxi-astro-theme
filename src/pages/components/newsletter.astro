@@ -5,20 +5,20 @@
 
 // Components
 // - Layout
-import Layout from '../../layouts/Layout.astro'
+import Layout from '@layouts/Layout.astro'
 // - UI
-import Section from '../../components/ui/Section.astro'
-import Row from '../../components/ui/Row.astro'
-import Col from '../../components/ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 // - Blocks
-import NewsletterCentered from '../../components/blocks/newsletter/NewsletterCentered.astro'
-import NewsletterSplit from '../../components/blocks/newsletter/NewsletterSplit.astro'
-import NewsletterWithImage from '../../components/blocks/newsletter/NewsletterWithImage.astro'
-import NewsletterFeatures from '../../components/blocks/newsletter/NewsletterFeatures.astro'
-import NewsletterGrid from '../../components/blocks/newsletter/NewsletterGrid.astro'
+import NewsletterCentered from '@components/blocks/newsletter/NewsletterCentered.astro'
+import NewsletterSplit from '@components/blocks/newsletter/NewsletterSplit.astro'
+import NewsletterWithImage from '@components/blocks/newsletter/NewsletterWithImage.astro'
+import NewsletterFeatures from '@components/blocks/newsletter/NewsletterFeatures.astro'
+import NewsletterGrid from '@components/blocks/newsletter/NewsletterGrid.astro'
 
 // Data
-import newsletterData from '../../data/json-files/newsletterData.json'
+import newsletterData from '@data/json-files/newsletterData.json'
 
 const { newsletterCentered, newsletterSplit, newsletterWithImage, newsletterFeatures, newsletterGrid } = newsletterData
 ---

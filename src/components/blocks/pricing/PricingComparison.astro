@@ -3,11 +3,11 @@
 // ------------
 // Description: Three tiers with a detailed feature comparison table.
 
-import Section from '../../ui/Section.astro'
-import Row from '../../ui/Row.astro'
-import Col from '../../ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 import { Icon } from 'astro-icon/components'
-import pricingDataRaw from '../../../data/json-files/pricingComparison.json'
+import pricingDataRaw from '@data/json-files/pricingComparison.json'
 const pricingData = pricingDataRaw as any;
 
 interface Props {

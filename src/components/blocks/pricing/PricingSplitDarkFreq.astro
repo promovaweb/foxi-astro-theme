@@ -3,12 +3,12 @@
 // ------------
 // Description: Dark header with toggle and detailed comparison table.
 
-import Section from '../../ui/Section.astro'
-import Row from '../../ui/Row.astro'
-import Col from '../../ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 import { Icon } from 'astro-icon/components'
-import Toggle from '../../ui/forms/form-elements/Toggle.astro'
-import pricingDataRaw from '../../../data/json-files/pricingSplitDarkFreq.json'
+import Toggle from '@components/ui/forms/form-elements/Toggle.astro'
+import pricingDataRaw from '@data/json-files/pricingSplitDarkFreq.json'
 const pricingData = pricingDataRaw as any
 
 interface Props {
