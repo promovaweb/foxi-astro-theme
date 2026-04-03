@@ -1,25 +1,28 @@
 ---
 // Landing Form Component Refined
 // ------------
-// Descrição: Formulário de conversão premium para landing pages.
+// Descrição: Formulário de conversão premium para landing pages com validação inline e celular internacional.
 // Propriedades:
 // - title: Título do formulário
 // - buttonText: Texto do botão de ação
+// - thankYouPage: URL da página de agradecimento
 // - contrast: Se verdadeiro, aplica o estilo de alto contraste da marca
 // - classes: Classes CSS adicionais
 
 import Input from '@components/ui/forms/form-elements/InputField.astro'
+import PhoneInput from '@components/ui/forms/form-elements/PhoneInput.astro'
 import Button from '@components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 
 type Props = {
 	title: string
 	buttonText: string
+	thankYouPage: string
 	contrast?: boolean
 	classes?: string
 }
 
-const { title, buttonText, contrast = false, classes } = Astro.props
+const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.props
 ---
 
 <div
@@ -28,6 +31,7 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 		{ 'landing-form--contrast': contrast },
 		{ [`${classes}`]: classes }
 	]}
+	data-thank-you={thankYouPage}
 >
 	<div class="landing-form__container">
 		<header class="landing-form__header">
@@ -39,7 +43,7 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 			</p>
 		</header>
 
-		<form class="landing-form__form">
+		<form class="landing-form__form" novalidate>
 			<div class="landing-form__fields">
 				<Input
 					label="Nome Completo"
@@ -56,10 +60,17 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 					required
 					classes="landing-form__input"
 				/>
+				<PhoneInput
+					label="Celular"
+					name="phone"
+					required
+					classes="landing-form__input"
+				/>
 			</div>
 			
 			<div class="landing-form__action">
 				<Button
+					type="submit"
 					style={contrast ? 'neutral' : 'primary'}
 					size="lg"
 					classes="landing-form__button group"
@@ -81,9 +92,98 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 		</footer>
 	</div>
 	
-	<!-- Elemento Decorativo de Brilho -->
 	<div class="landing-form__glow"></div>
 </div>
+
+<script>
+	const initLandingForms = () => {
+		const forms = document.querySelectorAll('.landing-form__form');
+		
+		forms.forEach(form => {
+			if (form instanceof HTMLFormElement && !form.dataset.formInit) {
+				const container = form.closest('.landing-form') as HTMLElement;
+				const thankYouUrl = container?.dataset.thankYou;
+				const inputs = form.querySelectorAll('input');
+
+				const validateInput = (input: HTMLInputElement) => {
+					const errorContainer = input.parentElement?.querySelector('.input__error-message') || 
+										 input.closest('.input--phone')?.querySelector('.input__error-message');
+					let isValid = true;
+					let message = "";
+
+					// Validação específica para celular usando intl-tel-input
+					if (input.type === 'tel' && (input as any)._iti) {
+						const iti = (input as any)._iti;
+						if (input.required && !input.value.trim()) {
+							isValid = false;
+							message = "O celular é obrigatório";
+						} else if (input.value.trim() && !iti.isValidNumber()) {
+							isValid = false;
+							message = "Número de celular inválido";
+						}
+					} 
+					else if (input.required && !input.value.trim()) {
+						isValid = false;
+						message = "Este campo é obrigatório";
+					} else if (input.type === 'email' && input.value.trim()) {
+						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+						if (!emailRegex.test(input.value)) {
+							isValid = false;
+							message = "E-mail inválido";
+						}
+					}
+
+					if (!isValid) {
+						input.classList.add('is-invalid');
+						if (errorContainer) errorContainer.textContent = message;
+					} else {
+						input.classList.remove('is-invalid');
+						if (errorContainer) errorContainer.textContent = "";
+					}
+
+					return isValid;
+				};
+
+				inputs.forEach(input => {
+					input.addEventListener('blur', () => validateInput(input));
+					input.addEventListener('input', () => {
+						if (input.classList.contains('is-invalid')) {
+							validateInput(input);
+						}
+					});
+				});
+
+				form.addEventListener('submit', (e) => {
+					e.preventDefault();
+					let isFormValid = true;
+
+					inputs.forEach(input => {
+						if (!validateInput(input)) {
+							isFormValid = false;
+						}
+					});
+
+					if (isFormValid && thankYouUrl) {
+						const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+						if (submitBtn) {
+							submitBtn.disabled = true;
+							const btnText = submitBtn.querySelector('span');
+							if (btnText) btnText.textContent = "Enviando...";
+						}
+						
+						setTimeout(() => {
+							window.location.href = thankYouUrl;
+						}, 1000);
+					}
+				});
+
+				form.dataset.formInit = "true";
+			}
+		});
+	};
+
+	document.addEventListener('astro:page-load', initLandingForms);
+</script>
 
 <style>
 	.landing-form {
@@ -111,7 +211,7 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 	}
 
 	.landing-form__fields {
-		@apply flex flex-col gap-6;
+		@apply flex flex-col gap-2;
 	}
 
 	.landing-form__action {
@@ -119,7 +219,7 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 	}
 
 	.landing-form__button {
-		@apply w-full flex items-center justify-center shadow-xl shadow-primary-500/10 hover:shadow-primary-500/20 active:scale-[0.98] transition-all;
+		@apply w-full flex items-center justify-center shadow-xl shadow-primary-500/10 hover:shadow-primary-500/20 active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed;
 	}
 
 	.landing-form__footer {
@@ -185,13 +285,8 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 		@apply bg-white text-primary-600 shadow-2xl shadow-black/20 hover:bg-neutral-50 hover:-translate-y-1;
 	}
 
-	/* Melhoria de contraste para o modo padrão (não contraste) */
-	.landing-form:not(.landing-form--contrast) :global(.input__field) {
-		@apply text-neutral-900 dark:text-white bg-neutral-50/50 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700;
-	}
-
-	.landing-form:not(.landing-form--contrast) :global(.input__label) {
-		@apply text-neutral-700 dark:text-neutral-300;
+	.landing-form--contrast :global(.input__error-message) {
+		@apply text-white;
 	}
 
 	/* Glow decorativo para o modo contraste */

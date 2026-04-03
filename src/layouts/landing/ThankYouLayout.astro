@@ -1,0 +1,67 @@
+---
+// Thank You Page Layout
+// ------------
+import Header from '@components/blocks/head/Header.astro'
+import Scriprs from '@components/scripts/LocalScripts.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+import '@styles/global.css'
+
+type Props = {
+	title: string
+	description: string
+	message?: string
+}
+
+const { title, description, message = "Seu material está a caminho!" } = Astro.props
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-animation mode-auto relative">
+	<Header title={title} description={description} />
+	<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 transition-colors duration-300 min-h-screen flex flex-col">
+		<main class="flex-1 flex items-center">
+			<Section padding="both">
+				<Row justify="center">
+					<Col span="12" lg="8" align="center">
+						<div class="mb-8 inline-flex items-center justify-center w-24 h-24 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-500 rounded-full">
+							<Icon name="check-circle" class="w-12 h-12" />
+						</div>
+						<h1 class="text-4xl lg:text-6xl font-black mb-6 text-neutral-900 dark:text-white leading-tight">
+							Obrigado pelo seu <strong>interesse</strong>!
+						</h1>
+						<p class="text-xl lg:text-2xl text-neutral-600 dark:text-neutral-400 mb-12 max-w-2xl mx-auto">
+							{message} Verifique sua caixa de entrada (e a pasta de spam, por garantia) em instantes.
+						</p>
+						
+						<div class="bg-neutral-50 dark:bg-neutral-900 p-8 lg:p-12 rounded-3xl border border-neutral-100 dark:border-neutral-800 mb-12 text-left max-w-3xl mx-auto">
+							<h2 class="text-2xl font-bold mb-6">Enquanto você espera:</h2>
+							<div class="grid sm:grid-cols-2 gap-8">
+								<div class="flex flex-col gap-3">
+									<h3 class="font-bold text-primary-500">Leia nosso Blog</h3>
+									<p class="text-sm text-neutral-500">Confira os artigos mais recentes sobre produtividade e tecnologia.</p>
+									<a href="/blog" class="text-sm font-bold flex items-center gap-2 hover:text-primary-600">Ver blog <Icon name="long-arrow-right" class="w-4 h-4" /></a>
+								</div>
+								<div class="flex flex-col gap-3">
+									<h3 class="font-bold text-primary-500">Siga-nos</h3>
+									<p class="text-sm text-neutral-500">Fique por dentro das novidades em tempo real em nossas redes.</p>
+									<a href="/" class="text-sm font-bold flex items-center gap-2 hover:text-primary-600">Nossas redes <Icon name="long-arrow-right" class="w-4 h-4" /></a>
+								</div>
+							</div>
+						</div>
+
+						<Button link="/" style="neutral" variation="outline">
+							Voltar para a Página Inicial
+						</Button>
+					</Col>
+				</Row>
+			</Section>
+		</main>
+		<LandingFooter />
+		<Scriprs />
+	</body>
+</html>

@@ -41,7 +41,6 @@ const {
 	type = 'text',
 	id,
 	name,
-	placeholder,
 	label,
 	iconName,
 	iconPosition,
@@ -54,7 +53,6 @@ const {
 
 const inputId = id || name || label.toLowerCase().replace(/\s+/g, '-')
 const inputName = name || inputId
-const inputPlaceholder = placeholder || label
 ---
 
 <div
@@ -82,6 +80,7 @@ const inputPlaceholder = placeholder || label
 		{label}
 	</label>
 	{iconName && <Icon name={iconName} class="input__icon" />}
+	<div class="input__error-message" id={`${inputId}-error`}></div>
 	{
 		helperText && (
 			<small class="input__helper-text">
@@ -93,10 +92,14 @@ const inputPlaceholder = placeholder || label
 
 <style>
 	.input {
-		@apply relative w-full;
+		@apply relative w-full mb-2;
 	}
 	.input__field {
-		@apply relative h-14 w-full rounded-xl border border-neutral-300 px-4 text-neutral-950 outline-none transition-all autofill:bg-white invalid:border-red-500 invalid:text-red-500 focus:border-primary-500 focus:outline-none invalid:focus:border-red-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600;
+		@apply relative h-14 w-full rounded-xl border border-neutral-300 px-4 text-neutral-950 outline-none transition-all autofill:bg-white focus:border-primary-500 focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600;
+	}
+
+	.input__field.is-invalid {
+		@apply border-red-500 text-red-600 dark:border-red-500 dark:text-red-400;
 	}
 	
 	/* Label base state (inside input) */
@@ -104,12 +107,28 @@ const inputPlaceholder = placeholder || label
 		@apply absolute left-4 top-4 z-[1] cursor-text text-base font-normal text-neutral-500 transition-all pointer-events-none px-1;
 	}
 
-	/* Label floating state (when focused or not empty) */
-	/* We use :not(:placeholder-shown) to detect if input is not empty */
+	.is-invalid ~ .input__label {
+		@apply text-red-500 dark:text-red-400;
+	}
+
+	/* Label floating state */
 	.input__field:focus ~ .input__label,
 	.input__field:not(:placeholder-shown) ~ .input__label,
 	.input__field:-webkit-autofill ~ .input__label {
 		@apply -top-3 left-3 text-xs font-bold text-primary-500 bg-white dark:bg-neutral-950;
+	}
+
+	.input__field.is-invalid:focus ~ .input__label,
+	.input__field.is-invalid:not(:placeholder-shown) ~ .input__label {
+		@apply text-red-500;
+	}
+
+	.input__error-message {
+		@apply text-[10px] font-bold text-red-500 mt-1 min-h-[14px] px-2 transition-all opacity-0;
+	}
+
+	.input__field.is-invalid ~ .input__error-message {
+		@apply opacity-100;
 	}
 
 	.input__field:not(:focus):not(:placeholder-shown) ~ .input__label {

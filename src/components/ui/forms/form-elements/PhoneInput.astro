@@ -1,0 +1,148 @@
+---
+// Campo de celular internacional (Phone Input) - Design Consistente
+// ------------
+// Descrição: Componente para campo de celular integrado ao design system com seleção de país.
+
+import 'intl-tel-input/build/css/intlTelInput.css';
+
+type Props = {
+	id?: string
+	name?: string
+	label: string
+	required?: boolean
+	classes?: string
+}
+
+const {
+	id,
+	name,
+	label,
+	required,
+	classes
+} = Astro.props
+
+const inputId = id || name || label.toLowerCase().replace(/\s+/g, '-')
+const inputName = name || inputId
+---
+
+<div class:list={['input input--phone', { [`${classes}`]: classes }]}>
+	<input
+		id={inputId}
+		type="tel"
+		name={inputName}
+		placeholder=" "
+		required={required}
+		class="input__field input__field--phone peer"
+	/>
+	<label for={inputId} class="input__label">
+		{label}
+	</label>
+	<div class="input__error-message" id={`${inputId}-error`}></div>
+</div>
+
+<script>
+	import intlTelInput from 'intl-tel-input';
+	import utilsScript from 'intl-tel-input/build/js/utils.js?url';
+
+	const initPhoneInput = () => {
+		const phoneInputs = document.querySelectorAll('.input__field--phone');
+		
+		phoneInputs.forEach((input) => {
+			if (input instanceof HTMLInputElement && !input.dataset.intlInit) {
+				const iti = intlTelInput(input, {
+					initialCountry: "br",
+					separateDialCode: true,
+					utilsScript: utilsScript,
+					preferredCountries: ["br", "us", "pt"],
+					autoPlaceholder: "aggressive",
+					nationalMode: true,
+				} as any);
+				
+				(input as any)._iti = iti;
+				input.dataset.intlInit = "true";
+
+				// Formatação ao perder foco
+				input.addEventListener('blur', () => {
+					if (input.value.trim() && iti.isValidNumber()) {
+						input.value = iti.getNumber(1); // NATIONAL format
+					}
+				});
+
+				// Evento de mudança de país
+				input.addEventListener('countrychange', () => {
+					input.value = '';
+				});
+			}
+		});
+	};
+
+	document.addEventListener('astro:page-load', initPhoneInput);
+</script>
+
+<style is:global>
+	/* Overrides de integração intl-tel-input */
+	.iti {
+		@apply w-full h-14;
+	}
+	.iti__selected-flag {
+		@apply !bg-neutral-50 dark:!bg-neutral-900 border-r border-neutral-300 dark:border-neutral-700 rounded-l-xl px-4 transition-colors hover:!bg-neutral-100 dark:hover:!bg-neutral-800;
+	}
+	.iti__selected-dial-code {
+		@apply text-neutral-950 dark:text-white font-medium ml-2;
+	}
+	.iti__country-list {
+		@apply bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 rounded-xl shadow-2xl z-50 py-2;
+	}
+	.iti__country {
+		@apply text-neutral-700 dark:text-neutral-300 px-4 py-2 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors;
+	}
+</style>
+
+<style>
+	.input {
+		@apply relative w-full mb-2;
+	}
+	.input__field {
+		@apply relative h-14 w-full rounded-xl border border-neutral-300 px-4 text-neutral-950 outline-none transition-all autofill:bg-white focus:border-primary-500 focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600;
+	}
+
+	.input__field.is-invalid {
+		@apply border-red-500 text-red-600 dark:border-red-500 dark:text-red-400;
+	}
+	
+	/* Estilo de label idêntico ao InputField.astro */
+	.input__label {
+		@apply absolute left-4 top-4 z-[1] cursor-text text-base font-normal text-neutral-500 transition-all pointer-events-none px-1;
+	}
+
+	.is-invalid ~ .input__label {
+		@apply text-red-500 dark:text-red-400;
+	}
+
+	/* Estados de flutuação ajustados para o campo de telefone */
+	.input__field:focus ~ .input__label,
+	.input__field:not(:placeholder-shown) ~ .input__label,
+	.input__field:-webkit-autofill ~ .input__label {
+		@apply -top-3 left-3 text-xs font-bold text-primary-500 bg-white dark:bg-neutral-950 z-[10];
+	}
+
+	/* No modo telefone, como o código do país ocupa espaço, movemos o label para cima logo no focus ou preenchimento */
+	/* O layout do ITI coloca o input dentro do wrapper, precisamos garantir que o label flutue corretamente */
+	
+	.input__field.is-invalid:focus ~ .input__label,
+	.input__field.is-invalid:not(:placeholder-shown) ~ .input__label {
+		@apply text-red-500;
+	}
+
+	.input__field:not(:focus):not(:placeholder-shown) ~ .input__label {
+		@apply text-neutral-600 dark:text-neutral-400;
+	}
+
+	.input__error-message {
+		@apply text-[10px] font-bold text-red-500 mt-1 min-h-[14px] px-2 transition-all opacity-0;
+	}
+
+	.input__field.is-invalid ~ .input__error-message {
+		@apply opacity-100;
+	}
+</style>

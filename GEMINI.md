@@ -55,6 +55,7 @@ Para criar um novo material de marketing (ex: `/materiais/novo-ebook`):
 3. **Suporte a Dark Mode:** Todos os componentes de landing page suportam Dark Mode automaticamente.
 4. **SEO:** Passe as props `title` e `description` para o Layout para configurar as metatags via `astro-seo`.
 5. **Atualização da Listagem:** Adicione o novo material ao arquivo `src/data/json-files/materialsData.json` para que ele apareça automaticamente na central de materiais.
+6. **Página de Agradecimento:** Toda landing page deve obrigatoriamente ter uma página de agradecimento correspondente com uma URL separada (ex: `src/pages/materiais/nome-do-material-obrigado.astro`). Não use subpáginas.
 
 ### Exemplo de Estrutura:
 ```astro
