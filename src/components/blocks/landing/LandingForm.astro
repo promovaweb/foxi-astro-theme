@@ -169,19 +169,29 @@ const { title, buttonText, contrast = false, classes } = Astro.props
 
 	/* Overrides para os inputs no modo contraste */
 	.landing-form--contrast :global(.input__field) {
-		@apply border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-white focus:bg-white/20;
+		@apply border-white/50 bg-white/10 text-white placeholder:text-white/60 focus:border-white focus:bg-white/20;
 	}
 
 	.landing-form--contrast :global(.input__label) {
-		@apply text-white/70 before:!bg-primary-500;
+		@apply text-white peer-placeholder-shown:text-white/70;
 	}
 
-	.landing-form--contrast :global(.input__field:focus + .input__label) {
-		@apply text-white;
+	.landing-form--contrast :global(.input__field:focus ~ .input__label),
+	.landing-form--contrast :global(.input__field:not(:placeholder-shown) ~ .input__label) {
+		@apply bg-primary-500 text-white font-bold;
 	}
 
 	.landing-form--contrast :global(.landing-form__button) {
 		@apply bg-white text-primary-600 shadow-2xl shadow-black/20 hover:bg-neutral-50 hover:-translate-y-1;
+	}
+
+	/* Melhoria de contraste para o modo padrão (não contraste) */
+	.landing-form:not(.landing-form--contrast) :global(.input__field) {
+		@apply text-neutral-900 dark:text-white bg-neutral-50/50 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700;
+	}
+
+	.landing-form:not(.landing-form--contrast) :global(.input__label) {
+		@apply text-neutral-700 dark:text-neutral-300;
 	}
 
 	/* Glow decorativo para o modo contraste */

@@ -4,6 +4,8 @@
 // Descrição: O componente para o campo de entrada básico de formulário
 // Propriedades:
 // - id: O id do campo de entrada
+// - name: O nome do campo de entrada
+// - placeholder: O placeholder do campo de entrada
 // - type: O tipo do campo de entrada (text, email, password, tel)
 // - label: O rótulo (label) do campo de entrada
 // - iconName: O nome do ícone a ser exibido (opcional)
@@ -67,7 +69,7 @@ const inputPlaceholder = placeholder || label
 		id={inputId}
 		type={type}
 		name={inputName}
-		placeholder={inputPlaceholder}
+		placeholder=" "
 		required={required}
 		disabled={disabled}
 		value={value}
@@ -75,7 +77,7 @@ const inputPlaceholder = placeholder || label
 	/>
 	<label
 		for={inputId}
-		class={`input__label ${iconPosition === 'lead' ? 'peer-placeholder-shown:left-10 peer-focus:left-2' : ''}`}
+		class="input__label"
 	>
 		{label}
 	</label>
@@ -94,13 +96,28 @@ const inputPlaceholder = placeholder || label
 		@apply relative w-full;
 	}
 	.input__field {
-		@apply relative h-12 w-full rounded border border-neutral-300 px-4 text-neutral-700 placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-red-500 invalid:text-red-500 focus:border-primary-500 focus:outline-none invalid:focus:border-red-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600;
+		@apply relative h-14 w-full rounded-xl border border-neutral-300 px-4 text-neutral-950 outline-none transition-all autofill:bg-white invalid:border-red-500 invalid:text-red-500 focus:border-primary-500 focus:outline-none invalid:focus:border-red-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-neutral-50 disabled:text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:autofill:bg-neutral-900 dark:disabled:bg-neutral-600;
 	}
+	
+	/* Label base state (inside input) */
 	.input__label {
-		@apply absolute -top-2 left-2 z-[1] cursor-text px-2 text-xs text-neutral-600 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-autofill:-top-2 peer-required:after:text-red-500 peer-required:after:content-['\00a0*'] peer-invalid:text-red-500 peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-primary-500 peer-invalid:peer-focus:text-red-500 peer-disabled:cursor-not-allowed peer-disabled:text-neutral-400 peer-disabled:before:bg-transparent dark:text-neutral-400 dark:before:bg-neutral-900;
+		@apply absolute left-4 top-4 z-[1] cursor-text text-base font-normal text-neutral-500 transition-all pointer-events-none px-1;
 	}
+
+	/* Label floating state (when focused or not empty) */
+	/* We use :not(:placeholder-shown) to detect if input is not empty */
+	.input__field:focus ~ .input__label,
+	.input__field:not(:placeholder-shown) ~ .input__label,
+	.input__field:-webkit-autofill ~ .input__label {
+		@apply -top-3 left-3 text-xs font-bold text-primary-500 bg-white dark:bg-neutral-950;
+	}
+
+	.input__field:not(:focus):not(:placeholder-shown) ~ .input__label {
+		@apply text-neutral-600 dark:text-neutral-400;
+	}
+
 	.input__icon {
-		@apply absolute left-4 top-3 h-6 w-6 stroke-neutral-400 peer-disabled:cursor-not-allowed;
+		@apply absolute left-4 top-4 h-6 w-6 stroke-neutral-400 peer-disabled:cursor-not-allowed;
 	}
 	.input__helper-text {
 		@apply absolute flex w-full justify-between px-4 py-1 text-xs text-neutral-400 transition peer-invalid:text-red-500;
