@@ -13,23 +13,16 @@ import Feed from '@components/ui/Feed.astro'
 
 // Props
 type Props = {
-	data: Array<{
-		title: string
-		date?: string
-		body?: string
-		listItems?: Array<{ listItem: string }>
-	}>
+	data: any[]
 	classes?: string
 }
 const { data, classes } = Astro.props
 ---
 
 <Section id="changelog">
-	<Row>
-		<Col span="2" />
-		<Col span="8">
+	<Row justify="center">
+		<Col span="12" lg="8">
 			<Feed data={data} classes={classes} />
 		</Col>
-		<Col span="2" />
 	</Row>
 </Section>

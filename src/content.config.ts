@@ -15,6 +15,17 @@ const blog = defineCollection({
 		})
 })
 
+const changelog = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/changelog' }),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			date: z.string(),
+			image: z.string().optional()
+		})
+})
+
 export const collections = {
-	blog
+	blog,
+	changelog
 }

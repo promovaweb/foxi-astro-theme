@@ -1,0 +1,74 @@
+---
+// Pagination
+// ------------
+// Descrição: Um componente de paginação genérico para navegar entre páginas.
+// Propriedades:
+// - page: O objeto de página do Astro (contém data, url, total, etc.)
+
+// Componentes
+import { Icon } from 'astro-icon/components'
+
+// Props
+type Props = {
+	page: any
+}
+
+const { page } = Astro.props
+---
+
+<nav class="pagination" aria-label="Navegação de páginas">
+	<div class="pagination__container">
+		{
+			page.url.prev ? (
+				<a href={page.url.prev} class="pagination__button">
+					<Icon name="chevron-left" />
+					Anterior
+				</a>
+			) : (
+				<span class="pagination__button disabled">
+					<Icon name="chevron-left" />
+					Anterior
+				</span>
+			)
+		}
+
+		<div class="pagination__info">
+			Página <strong>{page.currentPage}</strong> de <strong>{page.lastPage}</strong>
+		</div>
+
+		{
+			page.url.next ? (
+				<a href={page.url.next} class="pagination__button">
+					Próximo
+					<Icon name="long-arrow-right" />
+				</a>
+			) : (
+				<span class="pagination__button disabled">
+					Próximo
+					<Icon name="long-arrow-right" />
+				</span>
+			)
+		}
+	</div>
+</nav>
+
+<style>
+	.pagination {
+		@apply mt-12 flex justify-center py-8;
+	}
+	.pagination__container {
+		@apply flex items-center gap-8;
+	}
+	.pagination__button {
+		@apply flex items-center gap-2 rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800;
+	}
+	.pagination__button.disabled {
+		@apply cursor-not-allowed opacity-50 hover:bg-white dark:hover:bg-neutral-900;
+	}
+	.pagination__info {
+		@apply text-sm text-neutral-600 dark:text-neutral-400;
+	}
+	.pagination__info strong {
+		@apply text-neutral-900 dark:text-neutral-50;
+	}
+</style>

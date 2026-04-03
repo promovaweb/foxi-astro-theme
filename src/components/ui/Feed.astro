@@ -6,38 +6,70 @@
 // - Data: os dados do feed (consiste em título, data, texto e imagem)
 // - classes: classes adicionais
 
+// Componentes
+import { render } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+
 // Props
 type Props = {
-	data: Array<{
-		title: string
-		date?: string
-		text?: string
-		image?: string
-	}>
+	data: any[]
 	classes?: string
 }
 const { data, classes } = Astro.props
+
+// Helper para renderizar o conteúdo se for uma entrada de conteúdo
+const renderContent = async (item: any) => {
+	if (item.render) {
+		const { Content } = await render(item)
+		return Content
+	}
+	return null
+}
 ---
 
 <ul aria-label="Feed de histórico de alterações" role="feed" class:list={['feed', { [`${classes}`]: classes }]}>
 	{
-		data.map((item) => (
-			<li role="article" class="feed__item">
-				<span class="feed__item-date"> {item.date}</span>
-				<div class="feed__item-container">
-					<h4 class="feed__item-header">
-						{item.title}
-						<span> - {item.date}</span>
-					</h4>
-					{item.image && (
-						<div class="feed__item-image">
-							<img src={item.image} alt={item.title} width="1000" height="500" />
+		data.map(async (item) => {
+			const Content = await renderContent(item)
+			const isEntry = !!item.data
+			const title = isEntry ? item.data.title : item.title
+			const date = isEntry ? item.data.date : item.date
+			const image = isEntry ? item.data.image : item.image
+			const text = isEntry ? null : item.text
+			const id = isEntry ? item.id : null
+
+			return (
+				<li role="article" class="feed__item">
+					<span class="feed__item-date"> {date}</span>
+					<div class="feed__item-container">
+						<h4 class="feed__item-header">
+							{id ? (
+								<a href={`/changelog/${id}`} class="hover:text-primary-600 transition-colors">
+									{title}
+								</a>
+							) : (
+								title
+							)}
+							<span> - {date}</span>
+						</h4>
+						{image && (
+							<div class="feed__item-image">
+								<img src={image} alt={title} width="1000" height="500" />
+							</div>
+						)}
+						<div class="feed__item-text basic-text">
+							{Content ? <Content /> : <Fragment set:html={text} />}
 						</div>
-					)}
-					<div class="feed__item-text basic-text" set:html={item.text} />
-				</div>
-			</li>
-		))
+						{id && (
+							<a href={`/changelog/${id}`} class="feed__item-link mt-4 flex items-center gap-2 text-sm font-semibold text-primary-500 hover:text-primary-600 transition-colors">
+								Ver detalhes da atualização
+								<Icon name="long-arrow-right" class="w-4 h-4" />
+							</a>
+						)}
+					</div>
+				</li>
+			)
+		})
 	}
 </ul>
 

@@ -1,0 +1,75 @@
+---
+// Página de Detalhes do Changelog
+// ------------
+// Descrição: Página que exibe os detalhes de uma única entrada do changelog.
+
+// Componentes
+// - Layout
+import Layout from '@layouts/Layout.astro'
+// - UI
+import Hero from '@components/blocks/hero/PageHeader.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+// Data
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+	const changelogEntries = await getCollection('changelog')
+	return changelogEntries.map((entry) => ({
+		params: { id: entry.id },
+		props: { entry }
+	}))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+// Content
+// - SEO
+const SEO = {
+	title: `Foxi | ${entry.data.title}`,
+	description: `Detalhes da atualização ${entry.data.title} do Foxi lançada em ${entry.data.date}.`
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={entry.data.title} text={`Lançado em ${entry.data.date}`} />
+	<Section>
+		<Row justify="center">
+			<Col span="12" lg="8">
+				<div class="changelog-detail">
+					{
+						entry.data.image && (
+							<div class="changelog-detail__image mb-12 overflow-hidden rounded-3xl border border-neutral-100 shadow-xl dark:border-neutral-800">
+								<img
+									src={entry.data.image}
+									alt={entry.data.title}
+									class="h-full w-full object-cover"
+								/>
+							</div>
+						)
+					}
+					<div class="changelog-detail__content basic-text basic-text--lg">
+						<Content />
+					</div>
+					<div class="changelog-detail__footer mt-16 border-t border-neutral-100 pt-8 dark:border-neutral-800">
+						<Button link="/changelog" style="neutral" variation="outline">
+							<Icon name="chevron-left" class="mr-2" />
+							Voltar para o Changelog
+						</Button>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	.changelog-detail__content {
+		@apply text-neutral-700 dark:text-neutral-300;
+	}
+</style>

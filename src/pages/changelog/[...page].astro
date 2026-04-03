@@ -6,14 +6,34 @@ import Layout from '@layouts/Layout.astro'
 import Hero from '@components/blocks/hero/PageHeader.astro'
 import SimpleFeed from '@components/blocks/feeds/BasicFeed.astro'
 import CTA from '@components/blocks/CTA/BasicLight.astro'
+import Pagination from '@components/ui/Pagination.astro'
 
 // Data
-import feedData from '@data/json-files/changelogData.json'
+import { getCollection } from 'astro:content'
+import { configData } from '@config/config'
+import type { Page } from 'astro'
+
+export async function getStaticPaths({ paginate }: any) {
+	const changelogEntries = await getCollection('changelog')
+
+	// Sort entries by date descending
+	const sortedEntries = changelogEntries.sort(
+		(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+	)
+
+	return paginate(sortedEntries, { pageSize: configData.changelogPageSize })
+}
+
+type Props = {
+	page: Page<any>
+}
+
+const { page } = Astro.props
 
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Atualizações de Versão e Melhorias',
+	title: `Foxi | Atualizações de Versão e Melhorias - Página ${page.currentPage}`,
 	description:
 		'Explore os poderosos recursos do Foxi projetados para aumentar a produtividade, garantir segurança de alto nível e integrar-se perfeitamente com suas ferramentas favoritas. Junte-se a milhares de usuários satisfeitos e transforme seu fluxo de trabalho com o Foxi hoje!'
 }
@@ -26,6 +46,7 @@ const header = {
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
-	<SimpleFeed data={feedData} />
+	<SimpleFeed data={page.data} />
+	<Pagination page={page} />
 	<CTA />
 </Layout>
