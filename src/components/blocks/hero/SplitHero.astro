@@ -1,18 +1,18 @@
 ---
-// Split Hero
+// Herói Dividido
 // ------------
-// Description: An exact adaptation of the Tailwind UI Split Hero.
-// Properties:
-// - title: The title of the hero section
-// - text: The description text of the hero section
-// - primaryButton: Object with name and link for the primary action
-// - secondaryButton: Object with name and link for the secondary action
-// - badge: Optional text for the highlight badge
-// - badgeText: Optional secondary text for the highlight badge
-// - badgeLink: Optional link for the highlight badge
-// - image: Object with src, alt, width and height for the hero image
+// Descrição: Uma adaptação exata do Split Hero do Tailwind UI.
+// Propriedades:
+// - title: O título da seção de herói
+// - text: O texto de descrição da seção de herói
+// - primaryButton: Objeto com nome e link para a ação primária
+// - secondaryButton: Objeto com nome e link para a ação secundária
+// - badge: Texto opcional para o selo de destaque
+// - badgeText: Texto secundário opcional para o selo de destaque
+// - badgeLink: Link opcional para o selo de destaque
+// - image: Objeto com src, alt, largura e altura para a imagem de herói
 
-// Components
+// Componentes
 // - UI
 import Section from '@components/ui/Section.astro'
 import Button from '@components/ui/Button.astro'
@@ -41,7 +41,7 @@ type Props = {
 	image?: ImageProps
 }
 
-// Default Image
+// Imagem Padrão
 const defaultScreenshot = "https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
 
 const {
@@ -52,12 +52,12 @@ const {
 	badge = "O que há de novo",
 	badgeText = "Acabamos de lançar a v1.0",
 	badgeLink = "/",
-	image = { src: defaultScreenshot, alt: 'App screenshot', width: 2432, height: 1442 }
+	image = { src: defaultScreenshot, alt: 'Captura de tela do aplicativo', width: 2432, height: 1442 }
 } = Astro.props
 ---
 
 <Section id="split-hero" fullWidth={true} padding="none" classes="relative isolate overflow-hidden bg-white dark:bg-neutral-950">
-	<!-- Background SVG Pattern -->
+	<!-- Padrão SVG de Fundo -->
 	<svg
 		aria-hidden="true"
 		class="absolute inset-0 -z-10 h-full w-full stroke-neutral-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-neutral-800"
@@ -82,7 +82,7 @@ const {
 		<rect width="100%" height="100%" stroke-width="0" fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)"></rect>
 	</svg>
 
-	<!-- Decorative Blob -->
+	<!-- Forma Decorativa (Blob) -->
 	<div
 		aria-hidden="true"
 		class="absolute top-10 left-[calc(50%-4rem)] -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:top-[calc(50%-30rem)] lg:left-48 xl:left-[calc(50%-24rem)]"
@@ -99,9 +99,9 @@ const {
 
 	<div class="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
 		<div class="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:pt-8">
-			<!-- Logo/Brand Image -->
+			<!-- Logo/Imagem da Marca -->
 			<img
-				alt="Your Company"
+				alt="Sua Empresa"
 				src="/logo.svg"
 				class="h-11 w-auto dark:invert"
 			/>

@@ -1,9 +1,9 @@
 ---
-// Feature Cards grid Section
+// Seção de grade de Cartões de Funcionalidades
 // ------------
-// Description: A grid of cards with feature information in a 4 column layout.
+// Descrição: Uma grade de cartões com informações de funcionalidades em um layout de 4 colunas.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -11,8 +11,8 @@ import Col from '@components/ui/Col.astro'
 // - UI
 import Card from '@components/ui/cards/FeatureCard.astro'
 
-// Content
-// - Cards
+// Conteúdo
+// - Cartões
 import feature01 from '@/assets/cards/feature-01.svg'
 import feature02 from '@/assets/cards/feature-02.svg'
 import feature03 from '@/assets/cards/feature-03.svg'
@@ -23,47 +23,47 @@ import feature05 from '@/assets/cards/feature-05.svg'
 <Section id="features">
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-pretty">Innovative tools to <strong>transform</strong> your workflow</h2>
+			<h2 class="text-pretty">Ferramentas inovadoras para <strong>transformar</strong> seu fluxo de trabalho</h2>
 			<p class="pb-0 text-lg">
-				Explore the suite of tools designed to streamline your workflow, enhance productivity, and
-				drive growth. Each product is crafted with precision to meet your needs and exceed your
-				expectations.
+				Explore o conjunto de ferramentas projetadas para otimizar seu fluxo de trabalho, aumentar a produtividade e
+				impulsionar o crescimento. Cada produto é criado com precisão para atender às suas necessidades e superar suas
+				expectativas.
 			</p>
 		</Col>
 	</Row>
 	<Row>
 		<Col span="4">
 			<Card
-				title="All your data in one place"
-				subtitle="Stay on top of your tasks and deadlines with our intuitive project management tool. Visualize progress, assign tasks, and collaborate seamlessly."
+				title="Todos os seus dados em um só lugar"
+				subtitle="Mantenha-se em dia com suas tarefas e prazos com nossa ferramenta intuitiva de gerenciamento de projetos. Visualize o progresso, atribua tarefas e colabore perfeitamente."
 				image={feature01}
 				link="/features"
 			/>
 		</Col>
 		<Col span="4" classes="flex flex-col gap-6">
 			<Card
-				title="Organize & manage your projects "
-				subtitle="Stay on top of your tasks and deadlines with our intuitive project management tool. "
+				title="Organize e gerencie seus projetos"
+				subtitle="Mantenha-se em dia com suas tarefas e prazos com nossa ferramenta intuitiva de gerenciamento de projetos."
 				image={feature02}
 				link="/features"
 			/>
 			<Card
-				title="Keep your team connected"
-				subtitle="With our integrated chat platform share updates, files, and messages in a secure and user-friendly environment."
+				title="Mantenha sua equipe conectada"
+				subtitle="Com nossa plataforma de chat integrada, compartilhe atualizações, arquivos e mensagens em um ambiente seguro e amigável."
 				image={feature03}
 				link="/features"
 			/>
 		</Col>
 		<Col span="4" classes="flex flex-col gap-6">
 			<Card
-				title="Manage your customers"
-				subtitle="Build and nurture customer relationships with our powerful CRM system. "
+				title="Gerencie seus clientes"
+				subtitle="Construa e nutra relacionamentos com os clientes com nosso poderoso sistema CRM."
 				image={feature04}
 				link="/features"
 			/>
 			<Card
-				title="Simplify your financial operations"
-				subtitle="Streamline your billing process with our easy-to-use invoicing tool. Create, send, and track invoices effortlessly."
+				title="Simplifique suas operações financeiras"
+				subtitle="Otimize seu processo de faturamento com nossa ferramenta de faturamento fácil de usar. Crie, envie e rastreie faturas sem esforço."
 				image={feature05}
 				link="/features"
 			/>

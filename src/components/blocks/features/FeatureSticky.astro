@@ -1,9 +1,9 @@
 ---
-// Feature Section with sticky sidebar
+// Seção de Funcionalidade com barra lateral fixa
 // ------------
-// Description: A section with the header as a sticky sidebar and features with icons and descriptions in a 3 column layout.
+// Descrição: Uma seção com o cabeçalho como uma barra lateral fixa (sticky) e funcionalidades com ícones e descrições em um layout de 3 colunas.
 
-// Components
+// Componentes
 // - Layout
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
@@ -34,7 +34,7 @@ const { title, text, data, classes } = Astro.props
 
 	<Row>
 		{
-			// Map through the filtered features and render them
+			// Percorre as funcionalidades filtradas e as renderiza
 			data.map((feature: FeatureData) => (
 				<Col span="4">
 					<Feature title={feature.title} icon={feature.icon} align="left" classes="mb-12">

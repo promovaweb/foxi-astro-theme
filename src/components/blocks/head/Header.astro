@@ -1,12 +1,12 @@
 ---
-// Imports
+// Importações
 import { ClientRouter } from 'astro:transitions'
 import GoogleAnalytics from '@components/scripts/googleAnalytics.astro'
 import GoogleTagManagerHead from '@components/scripts/googleTagManagerHead.astro'
 import GoogleSearchConsole from '@components/scripts/googleSearchConsole.astro'
 // Partials
 import Seo from '@components/blocks/head/partials/Seo.astro'
-// Data
+// Dados
 import { configData } from '@config/config'
 
 import { googleAnalyticsMeasurementID } from '@config/analytics'
@@ -20,7 +20,7 @@ type Props = {
 	canonical?: boolean
 	noindex?: boolean
 }
-// Page Metadata
+// Metadados da Página
 const {
 	title = configData.siteTitle,
 	description = configData.siteDescription,

@@ -1,17 +1,17 @@
 ---
-// Feature with Testimonial
+// Funcionalidade com Depoimento
 // ------------
-// Description: A feature section with text, a CTA button, and a blockquote testimonial on one side, and a product screenshot on the other.
-// Properties:
-// - badge: Optional text for the top badge
-// - title: The main title of the section
-// - text: The description text of the section
-// - button: Object with name and link for the CTA action
-// - testimonial: Object with quote, author, role, and avatar for the testimonial
-// - image: Object with src, alt, width, and height for the screenshot
-// - imagePosition: Position of the image (left or right), default is right
+// Descrição: Uma seção de funcionalidade com texto, um botão de CTA e um depoimento em bloco de um lado, e uma captura de tela do produto do outro.
+// Propriedades:
+// - badge: Texto opcional para o selo superior
+// - title: O título principal da seção
+// - text: O texto de descrição da seção
+// - button: Objeto com nome e link para a ação de CTA
+// - testimonial: Objeto com citação, autor, cargo e avatar para o depoimento
+// - image: Objeto com src, alt, largura e altura para a captura de tela
+// - imagePosition: Posição da imagem (esquerda ou direita), o padrão é direita
 
-// Components
+// Componentes
 // - UI
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -49,19 +49,19 @@ type Props = {
 }
 
 const {
-	badge = 'Deploy mais rápido',
+	badge = 'Implantação mais rápida',
 	title = 'Um fluxo de trabalho <strong>melhor</strong>',
 	text = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
 	button = { name: 'Começar agora', link: '/' },
 	testimonial = {
 		quote: '“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”',
 		author: 'Maria Hill',
-		role: 'Marketing Manager',
+		role: 'Gerente de Marketing',
 		avatar: 'https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80'
 	},
 	image = {
 		src: 'https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png',
-		alt: 'Product screenshot',
+		alt: 'Captura de tela do produto',
 		width: 2432,
 		height: 1442
 	},
@@ -73,7 +73,7 @@ const isImageLeft = imagePosition === 'left'
 
 <Section id="feature-testimonial" classes="feature-testimonial overflow-hidden bg-white py-24 sm:py-32 dark:bg-neutral-950">
 	<Row classes="lg:items-start lg:justify-between">
-		<!-- Content Column -->
+		<!-- Coluna de Conteúdo -->
 		<Col span="6" classes={`${isImageLeft ? 'lg:order-last lg:pl-16' : 'lg:pr-8'}`}>
 			<div class="feature-testimonial__content lg:max-w-lg">
 				{badge && <h2 class="feature-testimonial__badge text-base font-semibold leading-7 text-primary-500">{badge}</h2>}
@@ -110,7 +110,7 @@ const isImageLeft = imagePosition === 'left'
 			</div>
 		</Col>
 
-		<!-- Image Column -->
+		<!-- Coluna de Imagem -->
 		<Col span="6" classes="mt-16 sm:mt-24 lg:mt-0">
 			<img
 				src={image.src}

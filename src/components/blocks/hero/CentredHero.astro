@@ -1,16 +1,16 @@
 ---
-// Centred Hero
+// Hero Centralizado
 // ------------
-// Description: A centred hero section with decorative background blobs, title, description and actions.
-// Properties:
-// - title: The title of the hero section
-// - text: The description text of the hero section
-// - primaryButton: Object with name and link for the primary action
-// - secondaryButton: Object with name and link for the secondary action
-// - notification: Optional text for the top notification chip
-// - notificationLink: Optional link for the notification chip
+// Descrição: Uma seção de herói centralizada com formas decorativas de fundo, título, descrição e ações.
+// Propriedades:
+// - title: O título da seção de herói
+// - text: O texto de descrição da seção de herói
+// - primaryButton: Objeto com nome e link para a ação primária
+// - secondaryButton: Objeto com nome e link para a ação secundária
+// - notification: Texto opcional para o chip de notificação superior
+// - notificationLink: Link opcional para o chip de notificação
 
-// Components
+// Componentes
 // - UI
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -42,7 +42,7 @@ const {
 ---
 
 <Section id="hero" classes="hero overflow-hidden relative isolate">
-	<!-- Background Blobs -->
+	<!-- Formas de Fundo (Blobs) -->
 	<div
 		aria-hidden="true"
 		class="hero__blob hero__blob--top absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"

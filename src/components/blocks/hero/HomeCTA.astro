@@ -1,9 +1,9 @@
 ---
-// Home page CTA Section
+// Seção de CTA da página inicial
 // ------------
-// Description: A centered call to action section that contains: a title, text, a user review snippet, a button and a image.
+// Descrição: Uma seção de chamada para ação centralizada que contém: um título, texto, um trecho de avaliação de usuário, um botão e uma imagem.
 
-// Components
+// Componentes
 // - Layout
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
@@ -14,17 +14,17 @@ import { Image } from 'astro:assets'
 import Button from '@components/ui/Button.astro'
 import AvatarGroup from '@components/ui/AvatarGroup.astro'
 
-// Content
-// - Hero Image
+// Conteúdo
+// - Imagem de Herói
 import heroImage from '@/assets/hero-01.png'
-// - Avatars
+// - Avatares
 import user1 from '@/assets/avatars/avatar-01.webp'
 import user2 from '@/assets/avatars/avatar-02.webp'
 import user3 from '@/assets/avatars/avatar-03.webp'
 const avatars = [
-	{ image: { src: user1.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user2.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user3.src, alt: 'user name' }, link: '/' }
+	{ image: { src: user1.src, alt: 'nome do usuário' }, link: '/' },
+	{ image: { src: user2.src, alt: 'nome do usuário' }, link: '/' },
+	{ image: { src: user3.src, alt: 'nome do usuário' }, link: '/' }
 ]
 ---
 
@@ -33,20 +33,20 @@ const avatars = [
 		<Col span="2" />
 		<Col span="8" align="center">
 			<ChipNotification radius="rounded-full" classes="mb-6">
-				<strong>30K+</strong> satisfied customers
+				Mais de <strong>30 mil</strong> clientes satisfeitos
 				<AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
 			</ChipNotification>
-			<h1>Enhance team <strong>performance</strong> with seamless integration</h1>
+			<h1>Aumente o desempenho da <strong>equipe</strong> com integração perfeita</h1>
 
-			<p class="pb-0 text-lg">Work smarter, not harder, with our innovative platform</p>
-			<Button size="lg" link="/">Get started for free</Button>
+			<p class="pb-0 text-lg">Trabalhe de forma mais inteligente, não mais difícil, com nossa plataforma inovadora</p>
+			<Button size="lg" link="/">Comece gratuitamente</Button>
 		</Col>
 		<Col span="2" />
 		<Col span="2" />
 		<Col span="8">
 			<Image
 				src={heroImage}
-				alt="Foxi. The tailwind astro theme"
+				alt="Foxi. O tema Astro com Tailwind"
 				class="translate-y-8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
 				format="webp"
 			/></Col
