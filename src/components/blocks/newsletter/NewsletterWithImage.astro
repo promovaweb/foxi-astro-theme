@@ -1,0 +1,93 @@
+---
+// Newsletter With Image
+// ---------------------
+// Description: A newsletter subscription section with an image on one side and the form on the other.
+// Properties:
+// - title: The title of the newsletter section
+// - text: The description text of the newsletter section
+// - button: The text for the subscription button
+// - placeholder: The placeholder text for the email input
+// - image: The path to the image
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import InputField from '../../ui/forms/form-elements/InputField.astro'
+import { Image } from 'astro:assets'
+
+type Props = {
+	title?: string
+	text?: string
+	button?: string
+	placeholder?: string
+	image?: string
+}
+
+const {
+	title = 'Junte-se à nossa comunidade',
+	text = 'Mais de 5.000 pessoas já recebem nosso conteúdo exclusivo.',
+	button = 'Quero participar',
+	placeholder = 'Seu e-mail',
+	image = '/src/assets/hero-01.png'
+} = Astro.props
+
+// Import image dynamically
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,webp,svg}')
+if (!images[image]) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,webp,svg}"`)
+---
+
+<Section id="newsletter-image" classes="newsletter-image bg-white dark:bg-neutral-950">
+	<div class="newsletter-image__container relative overflow-hidden bg-primary-500 rounded-3xl sm:px-16 lg:px-24">
+		<Row>
+			<Col span="12" lg="6" classes="py-16 lg:py-24">
+				<div class="newsletter-image__content relative z-10">
+					<h2 class="newsletter-image__title text-3xl font-bold tracking-tight text-white sm:text-4xl" set:html={title} />
+					<p class="newsletter-image__text mt-4 text-lg text-primary-50">
+						{text}
+					</p>
+					<form
+						aria-label="Formulário de inscrição na newsletter"
+						class="newsletter-image__form mt-8 flex flex-col items-center gap-4 sm:flex-row"
+					>
+						<div class="newsletter-image__input-wrapper w-full max-w-sm">
+							<InputField
+								id="newsletter-image-email"
+								type="email"
+								label={placeholder}
+								required
+								classes="!bg-white !border-primary-300 !text-neutral-900 placeholder:text-neutral-500"
+							/>
+						</div>
+						<Button type="submit" style="white" size="lg" classes="w-full sm:w-auto">
+							{button}
+						</Button>
+					</form>
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="hidden lg:block">
+				<div class="newsletter-image__image-wrapper absolute inset-y-0 right-0 w-1/2">
+					<Image src={images[image]()} alt="Newsletter" class="h-full w-full object-cover opacity-20 lg:opacity-100" />
+				</div>
+			</Col>
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.newsletter-image__title {
+		@apply text-balance;
+	}
+	.newsletter-image__text {
+		@apply text-pretty;
+	}
+	/* Override Input Styles for this specific variant */
+	:global(.newsletter-image .input__field) {
+		@apply bg-white border-primary-300 text-neutral-900 placeholder:text-neutral-500 focus:border-primary-500;
+	}
+	:global(.newsletter-image .input__label) {
+		@apply text-neutral-500 before:bg-white peer-focus:text-primary-500;
+	}
+</style>

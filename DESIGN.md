@@ -156,6 +156,7 @@ Linha do grid de 12 colunas. Os filhos diretos devem ser componentes `<Col>`.
 | Prop | Tipo | Padrão | Descrição |
 |---|---|---|---|
 | `flex` | `boolean` | `false` | Usa flexbox em vez de grid |
+| `justify` | `string` | — | Alinhamento horizontal (`start`, `center`, `end`, `between`, `around`, `evenly`) |
 | `mode` | `string` | — | Força sobrescrita de modo |
 | `classes` | `string` | — | Classes Tailwind extras |
 
@@ -166,6 +167,7 @@ Coluna dentro de um `<Row>`. Usa utilitários `col-span-*` do Tailwind.
 | Prop | Tipo | Padrão | Descrição |
 |---|---|---|---|
 | `span` | `string` | — | Span desktop (1–12) |
+| `lg` | `string` | — | Span desktop (1–12) - Alias para `span` |
 | `spanMobile` | `string` | `'12'` | Span mobile (1–12) |
 | `align` | `string` | — | Alinhamento de texto (`left`, `center`, `right`) |
 | `classes` | `string` | — | Classes Tailwind extras |
@@ -470,6 +472,11 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/CTA/CenteredTextCTA.astro` | Banner CTA centralizado apenas com texto e botões |
 | `blocks/CTA/BrandCTA.astro` | Banner CTA centralizado com fundo na cor da marca |
 | `blocks/CTA/SplitCTA.astro` | Banner CTA dividido com imagem lateral absoluta e conteúdo alinhado |
+| `blocks/newsletter/NewsletterCentered.astro` | Seção de newsletter centralizada com título e descrição |
+| `blocks/newsletter/NewsletterSplit.astro` | Seção de newsletter dividida com texto à esquerda e form à direita |
+| `blocks/newsletter/NewsletterWithImage.astro` | Seção de newsletter com imagem lateral e fundo de destaque |
+| `blocks/newsletter/NewsletterFeatures.astro` | Seção de newsletter com lista de benefícios e fundo decorativo |
+| `blocks/newsletter/NewsletterGrid.astro` | Seção de newsletter em grade com título e formulário laterais |
 | `blocks/contact/BasicForm.astro` | Seção com formulário de contato |
 | `blocks/contact/ContactCards.astro` | Cards de informações de contato |
 | `blocks/socialproof/Basic.astro` | Faixa de logos / prova social |

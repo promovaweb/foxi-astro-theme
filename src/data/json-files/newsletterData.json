@@ -1,0 +1,47 @@
+{
+	"newsletterCentered": {
+		"title": "Fique por dentro das novidades",
+		"text": "Inscreva-se em nossa newsletter para receber as últimas notícias, artigos e atualizações exclusivas diretamente em sua caixa de entrada.",
+		"button": "Inscrever-se",
+		"placeholder": "Seu e-mail"
+	},
+	"newsletterSplit": {
+		"title": "Assine nossa newsletter",
+		"text": "Receba atualizações semanais sobre tendências tecnológicas e dicas para o seu negócio.",
+		"button": "Cadastrar",
+		"placeholder": "Digite seu melhor e-mail"
+	},
+	"newsletterWithImage": {
+		"title": "Junte-se à nossa comunidade",
+		"text": "Mais de 5.000 pessoas já recebem nosso conteúdo exclusivo. Não fique de fora!",
+		"button": "Quero participar",
+		"placeholder": "e-mail@exemplo.com",
+		"image": "/src/assets/hero-01.png"
+	},
+	"newsletterFeatures": {
+		"title": "Assine nossa newsletter",
+		"text": "Receba atualizações semanais sobre tendências tecnológicas e dicas exclusivas para o seu negócio.",
+		"button": "Inscrever-se",
+		"placeholder": "Digite seu melhor e-mail",
+		"features": [
+			{
+				"title": "Artigos semanais",
+				"text": "Conteúdo de alta qualidade sobre desenvolvimento, design e negócios enviado toda semana.",
+				"icon": "document-text"
+			},
+			{
+				"title": "Sem spam",
+				"text": "Nós odiamos spam tanto quanto você. Receba apenas o conteúdo que você realmente quer.",
+				"icon": "shield-check"
+			}
+		]
+	},
+	"newsletterGrid": {
+		"title": "Quer notícias e atualizações sobre produtos? Assine nossa newsletter.",
+		"button": "Inscrever-se",
+		"placeholder": "Digite seu e-mail",
+		"policy": "Nós nos preocupamos com seus dados. Leia nossa",
+		"policyLink": "política de privacidade",
+		"link": "/terms"
+	}
+}

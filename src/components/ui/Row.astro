@@ -12,12 +12,19 @@ type Props = {
 	flex?: boolean
 	classes?: string
 	mode?: string
+	justify?: string
 }
-const { flex, mode, classes } = Astro.props
+const { flex, mode, classes, justify } = Astro.props
 ---
 
 <div
-	class:list={['row', { 'row--flex': flex }, { [`${classes}`]: classes }, { [`${mode}`]: mode }]}
+	class:list={[
+		'row',
+		{ 'row--flex': flex },
+		{ [`justify-${justify}`]: justify },
+		{ [`${classes}`]: classes },
+		{ [`${mode}`]: mode }
+	]}
 >
 	<slot />
 </div>

@@ -1,0 +1,108 @@
+---
+// Newsletter Components Page
+// -------------------------
+// Description: A page showing all the newsletter component variants.
+
+// Components
+// - Layout
+import Layout from '../../layouts/Layout.astro'
+// - UI
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+// - Blocks
+import NewsletterCentered from '../../components/blocks/newsletter/NewsletterCentered.astro'
+import NewsletterSplit from '../../components/blocks/newsletter/NewsletterSplit.astro'
+import NewsletterWithImage from '../../components/blocks/newsletter/NewsletterWithImage.astro'
+import NewsletterFeatures from '../../components/blocks/newsletter/NewsletterFeatures.astro'
+import NewsletterGrid from '../../components/blocks/newsletter/NewsletterGrid.astro'
+
+// Data
+import newsletterData from '../../data/json-files/newsletterData.json'
+
+const { newsletterCentered, newsletterSplit, newsletterWithImage, newsletterFeatures, newsletterGrid } = newsletterData
+---
+
+<Layout title="Newsletter Components | Foxi">
+	<Section classes="bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800">
+		<Row>
+			<Col span="12" classes="text-center">
+				<h1 class="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl">
+					Componentes de <span class="text-primary-500">Newsletter</span>
+				</h1>
+				<p class="mt-6 text-lg leading-8 text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+					Variantes de seções para captura de e-mails e assinaturas de newsletter, totalmente responsivas e com suporte a modo escuro.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Centered Newsletter -->
+	<div class="py-12 bg-white dark:bg-neutral-950">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+			<h2 class="text-2xl font-bold text-neutral-900 dark:text-white">Centralizado</h2>
+		</div>
+		<NewsletterCentered
+			title={newsletterCentered.title}
+			text={newsletterCentered.text}
+			button={newsletterCentered.button}
+			placeholder={newsletterCentered.placeholder}
+		/>
+	</div>
+
+	<!-- Split Newsletter -->
+	<div class="py-12 bg-neutral-50 dark:bg-neutral-900">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+			<h2 class="text-2xl font-bold text-neutral-900 dark:text-white">Dividido (Split)</h2>
+		</div>
+		<NewsletterSplit
+			title={newsletterSplit.title}
+			text={newsletterSplit.text}
+			button={newsletterSplit.button}
+			placeholder={newsletterSplit.placeholder}
+		/>
+	</div>
+
+	<!-- With Image Newsletter -->
+	<div class="py-12 bg-white dark:bg-neutral-950">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+			<h2 class="text-2xl font-bold text-neutral-900 dark:text-white">Com Imagem e Fundo Colorido</h2>
+		</div>
+		<NewsletterWithImage
+			title={newsletterWithImage.title}
+			text={newsletterWithImage.text}
+			button={newsletterWithImage.button}
+			placeholder={newsletterWithImage.placeholder}
+			image={newsletterWithImage.image}
+		/>
+	</div>
+
+	<!-- Features Newsletter -->
+	<div class="py-12 bg-neutral-50 dark:bg-neutral-900">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+			<h2 class="text-2xl font-bold text-neutral-900 dark:text-white">Com Funcionalidades e Fundo Decorativo</h2>
+		</div>
+		<NewsletterFeatures
+			title={newsletterFeatures.title}
+			text={newsletterFeatures.text}
+			button={newsletterFeatures.button}
+			placeholder={newsletterFeatures.placeholder}
+			features={newsletterFeatures.features}
+		/>
+	</div>
+
+	<!-- Grid Newsletter -->
+	<div class="py-12 bg-white dark:bg-neutral-950">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+			<h2 class="text-2xl font-bold text-neutral-900 dark:text-white">Grade de 12 Colunas (Lateral)</h2>
+		</div>
+		<NewsletterGrid
+			title={newsletterGrid.title}
+			button={newsletterGrid.button}
+			placeholder={newsletterGrid.placeholder}
+			policy={newsletterGrid.policy}
+			policyLink={newsletterGrid.policyLink}
+			link={newsletterGrid.link}
+		/>
+	</div>
+</Layout>

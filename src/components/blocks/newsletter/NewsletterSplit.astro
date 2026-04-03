@@ -1,0 +1,67 @@
+---
+// Newsletter Split
+// ----------------
+// Description: A split newsletter subscription section with text on the left and form on the right.
+// Properties:
+// - title: The title of the newsletter section
+// - text: The description text of the newsletter section
+// - button: The text for the subscription button
+// - placeholder: The placeholder text for the email input
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import InputField from '../../ui/forms/form-elements/InputField.astro'
+
+type Props = {
+	title?: string
+	text?: string
+	button?: string
+	placeholder?: string
+}
+
+const {
+	title = 'Assine nossa newsletter',
+	text = 'Receba atualizações semanais diretamente no seu e-mail.',
+	button = 'Cadastrar',
+	placeholder = 'Digite seu e-mail'
+} = Astro.props
+---
+
+<Section id="newsletter-split" classes="newsletter-split bg-neutral-50 dark:bg-neutral-900 border-y border-neutral-200 dark:border-neutral-800">
+	<Row>
+		<Col span="12" lg="6">
+			<div class="newsletter-split__content py-8">
+				<h2 class="newsletter-split__title text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl" set:html={title} />
+				<p class="newsletter-split__text mt-4 text-lg text-neutral-700 dark:text-neutral-300">
+					{text}
+				</p>
+			</div>
+		</Col>
+		<Col span="12" lg="6" classes="flex items-center">
+			<form
+				aria-label="Formulário de inscrição na newsletter"
+				class="newsletter-split__form w-full flex flex-col items-center gap-4 sm:flex-row lg:justify-end py-8"
+			>
+				<div class="newsletter-split__input-wrapper w-full max-w-sm">
+					<InputField id="newsletter-split-email" type="email" label={placeholder} required />
+				</div>
+				<Button type="submit" style="primary" size="lg" classes="w-full sm:w-auto">
+					{button}
+				</Button>
+			</form>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.newsletter-split__title {
+		@apply text-balance;
+	}
+	.newsletter-split__text {
+		@apply text-pretty;
+	}
+</style>

@@ -1,0 +1,68 @@
+---
+// Newsletter Centered
+// ------------------
+// Description: A centered newsletter subscription section with a heading, description, and form.
+// Properties:
+// - title: The title of the newsletter section
+// - text: The description text of the newsletter section
+// - button: The text for the subscription button
+// - placeholder: The placeholder text for the email input
+
+// Components
+// - UI
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import InputField from '../../ui/forms/form-elements/InputField.astro'
+
+type Props = {
+	title?: string
+	text?: string
+	button?: string
+	placeholder?: string
+}
+
+const {
+	title = 'Fique por dentro das novidades',
+	text = 'Inscreva-se em nossa newsletter para receber as últimas notícias e atualizações.',
+	button = 'Inscrever-se',
+	placeholder = 'Seu melhor e-mail'
+} = Astro.props
+---
+
+<Section id="newsletter-centered" classes="newsletter-centered bg-white dark:bg-neutral-950">
+	<Row justify="center">
+		<Col span="12" lg="8" classes="text-center">
+			<div class="newsletter-centered__content">
+				<h2 class="newsletter-centered__title text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-5xl" set:html={title} />
+				<p class="newsletter-centered__text mt-6 text-lg leading-8 text-neutral-700 dark:text-neutral-300">
+					{text}
+				</p>
+				<form
+					aria-label="Formulário de inscrição na newsletter"
+					class="newsletter-centered__form mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+				>
+					<div class="newsletter-centered__input-wrapper w-full max-w-md">
+						<InputField id="newsletter-email" type="email" label={placeholder} required />
+					</div>
+					<Button type="submit" style="primary" size="lg" classes="w-full sm:w-auto">
+						{button}
+					</Button>
+				</form>
+				<p class="newsletter-centered__footer mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+					Nós respeitamos sua privacidade. Cancele a assinatura a qualquer momento.
+				</p>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.newsletter-centered__title {
+		@apply text-balance;
+	}
+	.newsletter-centered__text {
+		@apply text-pretty;
+	}
+</style>
