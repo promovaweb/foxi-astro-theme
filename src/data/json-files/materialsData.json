@@ -5,7 +5,7 @@
 		"description": "Aprenda como dominar seu fluxo de trabalho e extrair o máximo de eficiência com nossas ferramentas.",
 		"type": "ebook",
 		"typeName": "Ebook",
-		"link": "/materiais/guia-produtividade",
+		"link": "/materiais/ebooks/guia-produtividade",
 		"image": "/src/assets/hero-01.png",
 		"color": "bg-blue-500",
 		"featured": true
@@ -16,7 +16,7 @@
 		"description": "Organize seu próximo trimestre com foco total em resultados usando nosso template exclusivo.",
 		"type": "download",
 		"typeName": "Download",
-		"link": "/materiais/template-planejamento",
+		"link": "/materiais/downloads/template-planejamento",
 		"image": "/src/assets/hero-01.png",
 		"color": "bg-emerald-500",
 		"featured": true
@@ -27,7 +27,7 @@
 		"description": "Assista a este webinar exclusivo sobre as tendências que estão moldando o mercado de trabalho.",
 		"type": "webinar",
 		"typeName": "Webinar",
-		"link": "/materiais/futuro-colaboracao",
+		"link": "/materiais/webinars/futuro-colaboracao",
 		"image": "/src/assets/hero-01.png",
 		"color": "bg-amber-500",
 		"featured": true
@@ -38,7 +38,7 @@
 		"description": "Participe do maior evento de tecnologia e produtividade do ano com palestras e workshops.",
 		"type": "evento",
 		"typeName": "Evento",
-		"link": "/materiais/foxi-conf-2024",
+		"link": "/materiais/eventos/foxi-conf-2024",
 		"image": "/src/assets/hero-01.png",
 		"color": "bg-purple-500",
 		"featured": true
@@ -49,7 +49,7 @@
 		"description": "Garanta sua vaga na Masterclass ao vivo sobre estratégias de liderança para o próximo ano.",
 		"type": "webinar",
 		"typeName": "Ao Vivo",
-		"link": "/materiais/masterclass-lideranca",
+		"link": "/materiais/webinars/masterclass-lideranca",
 		"image": "/src/assets/test.jpg",
 		"color": "bg-red-500",
 		"featured": true
