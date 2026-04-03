@@ -17,13 +17,15 @@ type Props = {
 const { title, text, image, tag, classes } = Astro.props
 ---
 
-<Section padding="top" classes={classes}>
+<Section padding="top" classes={`py-16 lg:py-32 ${classes}`}>
 	<Row>
 		<Col span="12" lg="6" classes="flex flex-col justify-center">
-			{tag && <span class="text-primary-500 font-bold uppercase tracking-wider mb-4 block">{tag}</span>}
-			<h1 class="text-4xl lg:text-6xl font-black mb-6 text-neutral-900 dark:text-white" set:html={title} />
-			<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">{text}</p>
-			<slot name="after-text" />
+			{tag && <span class="text-primary-500 font-bold uppercase tracking-widest text-sm mb-6 block">{tag}</span>}
+			<h1 class="text-4xl lg:text-7xl font-black mb-8 text-neutral-900 dark:text-white leading-[1.1]" set:html={title} />
+			<p class="text-xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">{text}</p>
+			<div class="flex flex-col gap-6">
+				<slot name="after-text" />
+			</div>
 		</Col>
 		<Col span="12" lg="6" classes="flex items-center justify-center pt-12 lg:pt-0">
 			{image ? (
