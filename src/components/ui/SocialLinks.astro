@@ -1,0 +1,46 @@
+---
+// Ícones Sociais Reutilizáveis
+// Descrição: Componente para exibir ícones sociais com cores de marca
+// Propriedades:
+// - className: Classes CSS extras para o container
+// - iconSize: Tamanho do ícone (Tailwind size class, ex: 'size-4')
+
+import { Icon } from 'astro-icon/components'
+import { configData } from '@config/config'
+
+type Props = {
+  className?: string
+  iconSize?: string
+}
+
+const { className = "flex gap-3", iconSize = "size-4" } = Astro.props
+
+const socialConfig = {
+  twitter: { color: 'bg-[#000000]', icon: 'twitter-icon', label: 'X' },
+  linkedin: { color: 'bg-[#0077B5]', icon: 'linkedin-icon', label: 'LinkedIn' },
+  instagram: { color: 'bg-[#E4405F]', icon: 'instagram-icon', label: 'Instagram' },
+  youtube: { color: 'bg-[#FF0000]', icon: 'youtube-icon', label: 'YouTube' },
+  github: { color: 'bg-[#181717]', icon: 'icon', label: 'GitHub' },
+  facebook: { color: 'bg-[#1877F2]', icon: 'fb-icon', label: 'Facebook' }
+}
+---
+
+<div class={className}>
+  {Object.entries(configData.social).map(([platform, url]) => {
+    if (!url) return null;
+    const config = socialConfig[platform as keyof typeof socialConfig];
+    if (!config) return null;
+    
+    return (
+      <a 
+        href={url} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class={`${config.color} text-white p-2.5 rounded-xl transition-all hover:scale-110 shadow-lg shadow-black/5 active:scale-95`}
+        aria-label={config.label}
+      >
+        <Icon name={config.icon} class={iconSize} />
+      </a>
+    );
+  })}
+</div>

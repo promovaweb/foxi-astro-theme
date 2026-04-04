@@ -51,7 +51,7 @@ export const configData: Config = {
 	podcastPageSize: 6,
 	exitIntentPopup: true,
 	newsletterUrl: 'https://seu-servico-de-email.com/subscribe',
-	podcastName: 'Their Side',
+	podcastName: 'FoxyCast',
 	podcastDescription: 'Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo.',
 	social: {
 		twitter: 'https://twitter.com/luizeof',
