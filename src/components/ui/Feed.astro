@@ -5,6 +5,7 @@
 // Propriedades:
 // - Data: os dados do feed (consiste em título, data, texto e imagem)
 // - classes: classes adicionais
+// - showVideos: booleano para mostrar ou ocultar vídeos (padrão true)
 
 // Componentes
 import { render } from 'astro:content'
@@ -15,8 +16,9 @@ import Badge from '@components/ui/Badge.astro'
 type Props = {
 	data: any[]
 	classes?: string
+	showVideos?: boolean
 }
-const { data, classes } = Astro.props
+const { data, classes, showVideos = true } = Astro.props
 
 // Helper para formatar data em formato ISO (YYYY-MM-DD)
 const formatDate = (dateString: string) => {
@@ -96,7 +98,7 @@ const sortedDates = Object.keys(groupedData).sort((a, b) => new Date(b).getTime(
 											</p>
 										)}
 
-										{youtube && (
+										{showVideos && youtube && (
 											<div class="feed__item-video mb-8 overflow-hidden rounded-2xl shadow-2xl shadow-neutral-500/10 dark:shadow-neutral-950/50 border border-neutral-100 dark:border-neutral-800">
 												<div class="aspect-video w-full">
 													<iframe

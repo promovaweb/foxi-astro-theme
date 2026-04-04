@@ -20,17 +20,24 @@ import { Icon } from 'astro-icon/components'
 
 // Data
 import { getCollection, render } from 'astro:content'
+import Feed from '@components/ui/Feed.astro'
 
 export async function getStaticPaths() {
 	const changelogEntries = await getCollection('changelog')
 	return changelogEntries.map((entry) => ({
 		params: { id: entry.id },
-		props: { entry }
+		props: { entry, allEntries: changelogEntries }
 	}))
 }
 
-const { entry } = Astro.props
+const { entry, allEntries } = Astro.props
 const { Content } = await render(entry)
+
+// Filtrar entradas relacionadas (mesma categoria, excluindo a atual)
+const relatedEntries = allEntries
+	.filter((e: any) => e.data.category === entry.data.category && e.id !== entry.id)
+	.sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+	.slice(0, 5)
 
 // Helper para formatar data em pt-BR
 const formatDate = (dateString: string) => {
@@ -127,6 +134,28 @@ const SEO = {
 			</article>
 		</div>
 	</StickySidebar>
+
+	{
+		relatedEntries.length > 0 && (
+			<Section classes="bg-neutral-50 dark:bg-neutral-900/50 border-t border-neutral-100 dark:border-neutral-800">
+				<Row>
+					<Col span="12">
+						<div class="mb-12">
+							<h3 class="text-2xl lg:text-3xl font-black text-neutral-900 dark:text-white mb-4">
+								Outras atualizações em <strong>{entry.data.category}</strong>
+							</h3>
+							<p class="text-neutral-600 dark:text-neutral-400">
+								Confira outras melhorias e novidades que lançamos recentemente nesta categoria.
+							</p>
+						</div>
+						<div class="max-w-4xl">
+							<Feed data={relatedEntries} showVideos={false} />
+						</div>
+					</Col>
+				</Row>
+			</Section>
+		)
+	}
 </Layout>
 
 <style>
