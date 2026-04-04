@@ -98,31 +98,33 @@ const SEO = {
 			<slot />
 
 			<!-- Newsletter Widget -->
-			<div class="mt-16 p-8 lg:p-12 rounded-3xl bg-neutral-900 dark:bg-primary-500 text-white shadow-2xl shadow-neutral-950/20 transition-all duration-500 overflow-hidden relative" id="newsletter-container">
-				<div class="flex flex-col md:flex-row md:items-center gap-8 md:gap-12" id="newsletter-form-content">
+			<div class="mt-16 p-8 lg:p-16 rounded-[2rem] bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xl transition-all duration-500 overflow-hidden relative border border-neutral-200 dark:border-neutral-800" id="newsletter-container">
+				<div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16" id="newsletter-form-content">
 					<div class="flex-1">
-						<h3 class="text-2xl lg:text-3xl font-bold font-headings mb-3">Gostou do conteúdo?</h3>
-						<p class="text-lg opacity-80">Receba atualizações e conteúdos exclusivos diretamente no seu e-mail.</p>
+						<h3 class="text-3xl lg:text-4xl font-bold font-headings mb-4 tracking-tight text-neutral-900 dark:text-white">Gostou do conteúdo?</h3>
+						<p class="text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">Receba atualizações e conteúdos exclusivos diretamente no seu e-mail.</p>
 					</div>
 					<div class="flex-1 w-full max-w-md">
-						<form class="space-y-3" id="post-newsletter-form">
-							<input 
-								type="email" 
-								required
-								placeholder="Seu melhor e-mail" 
-								class:list={['w-full px-6 py-4 rounded-xl bg-white/10 border border-white/10 text-white text-lg focus:outline-none focus:ring-2 focus:ring-white/30 transition-all placeholder:text-white/40']}
-							/>
-							<button type="submit" class:list={['w-full py-4 px-6 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white font-bold rounded-xl hover:scale-[1.02] transition-transform text-lg']}>
+						<form class="flex flex-col gap-4" id="post-newsletter-form">
+							<div class="relative">
+								<input 
+									type="email" 
+									required
+									placeholder="Seu melhor e-mail" 
+									class:list={['w-full px-6 py-5 rounded-2xl bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-white text-lg focus:ring-4 focus:ring-primary-500/30 transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-600']}
+								/>
+							</div>
+							<button type="submit" class:list={['w-full py-5 px-8 bg-primary-500 hover:bg-primary-600 text-white font-black rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] text-lg shadow-xl shadow-primary-500/25']}>
 								Inscrever-se na Newsletter
 							</button>
 						</form>
 					</div>
 				</div>
 
-				<!-- Mensagem de Sucesso (Escondida por padrão) -->
-				<div class="hidden flex-col items-center text-center py-8 animate-fadeUp" id="newsletter-success-content">
-					<h3 class="text-2xl lg:text-3xl font-bold font-headings mb-2">Obrigado por se inscrever!</h3>
-					<p class="text-lg opacity-80">Você agora faz parte da nossa comunidade. Fique atento à sua caixa de entrada!</p>
+				<!-- Mensagem de Sucesso -->
+				<div class="hidden flex-col items-center text-center py-10 animate-fadeUp" id="newsletter-success-content">
+					<h3 class="text-3xl lg:text-4xl font-bold font-headings mb-4 text-neutral-900 dark:text-white">Obrigado por se inscrever!</h3>
+					<p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Você agora faz parte da nossa comunidade. Fique atento à sua caixa de entrada para novidades exclusivas!</p>
 				</div>
 			</div>
 		</div>
