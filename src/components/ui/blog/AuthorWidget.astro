@@ -1,0 +1,74 @@
+---
+// Author Sidebar Widget
+// ------------
+// Descrição: Um widget imponente onde a foto do autor é exibida em 1:1 sem cortes ou efeitos.
+
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import authorsData from '@data/json-files/authors.json'
+
+type Props = {
+  authorSlug: string
+}
+
+const { authorSlug } = Astro.props
+const author = authorsData.find((a) => a.slug === authorSlug)
+
+if (!author) return null
+
+// Mapeamento de ícones sociais
+const socialIcons = {
+  twitter: 'twitter-icon',
+  linkedin: 'linkedin-icon',
+  github: 'icon', 
+  facebook: 'fb-icon',
+  instagram: 'instagram-icon'
+}
+---
+
+<div class="flex flex-col items-center text-center rounded-[2rem] overflow-hidden bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 shadow-xl shadow-neutral-950/5">
+  <!-- Imagem 1:1 sem cortes e sem efeitos -->
+  <div class="w-full aspect-square bg-neutral-50 dark:bg-neutral-800 flex items-center justify-center">
+    <Image
+      src={author.avatar}
+      alt={author.name}
+      width={600}
+      height={600}
+      class="w-full h-full object-contain"
+      loading="eager"
+    />
+  </div>
+
+  <!-- Conteúdo textual -->
+  <div class="px-8 pt-8 pb-10 flex flex-col items-center">
+    <!-- Nome e Role -->
+    <div class="mb-6">
+      <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-50 font-headings mb-2">
+        {author.name}
+      </h3>
+      <p class="text-xs font-black text-primary-500 dark:text-primary-400 uppercase tracking-[0.2em]">
+        {author.role}
+      </p>
+    </div>
+    
+    <!-- Bio -->
+    <p class="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8">
+      {author.bio}
+    </p>
+
+    <!-- Redes Sociais -->
+    <div class="flex flex-wrap justify-center gap-3">
+      {Object.entries(author.social).map(([platform, link]) => (
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="size-11 flex items-center justify-center rounded-2xl bg-neutral-50 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 dark:hover:text-white transition-all shadow-sm border border-neutral-100 dark:border-neutral-700"
+          aria-label={platform}
+        >
+          <Icon name={socialIcons[platform as keyof typeof socialIcons] || 'globe-icon'} class="size-5" />
+        </a>
+      ))}
+    </div>
+  </div>
+</div>

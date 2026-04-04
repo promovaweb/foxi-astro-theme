@@ -9,7 +9,8 @@
 // - publishDate: A data de publicação da postagem
 
 // Components
-// - Layout
+// Components
+import { Image } from 'astro:assets'
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
@@ -23,33 +24,34 @@ type Props = {
 	title: string
 	author?: string
 	publishDate?: string
+	image?: any
 }
-const { tags, title, author, publishDate } = Astro.props
+const { tags, title, author, publishDate, image } = Astro.props
 ---
 
-<Section id="post-intro" classes="bg-neutral-50 dark:bg-neutral-900">
-	<Row>
+<Section id="post-intro" classes="bg-neutral-50 dark:bg-neutral-900" padding="none">
+	<Row classes="pt-16 pb-8 lg:pt-32 lg:pb-16">
 		<Col span="12" align="center">
 			<header class="post-header">
-				<Breadcrumbs classes="mb-6" />
-				<h1 class="post-header__title">
+				<Breadcrumbs classes="mb-8" />
+				<h1 class:list={['post-header__title']}>
 					{title}
 				</h1>
 				{
 					author ? (
-						<p class="page-header__text">
-							Escrito por, {author} {publishDate && 'em ' + publishDate}
+						<p class:list={['page-header__text']}>
+							Por <span class:list={['font-bold text-neutral-900 dark:text-neutral-50']}>{author}</span> {publishDate && <span class:list={['text-neutral-400 mx-2']}>|</span>} {publishDate}
 						</p>
 					) : (
-						publishDate && <p class="page-header__text">Publicado em, {publishDate}</p>
+						publishDate && <p class:list={['page-header__text']}>{publishDate}</p>
 					)
 				}
 			</header>
 			{
 				tags && (
-					<div class="post-header__tags">
+					<div class:list={['post-header__tags']}>
 						{tags.map((tag: string) => (
-							<Badge name={tag} link={`/blog/tags/` + tag} classes="capitalize" />
+							<Badge name={tag} link={`/blog/tags/` + tag} classes="capitalize px-4 py-2" />
 						))}
 					</div>
 				)
@@ -59,13 +61,16 @@ const { tags, title, author, publishDate } = Astro.props
 </Section>
 
 <style>
-	.page-header {
+	.post-header {
 		@apply mx-auto max-w-4xl;
 	}
+	.post-header__title {
+		@apply mb-6 text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 lg:text-6xl font-headings;
+	}
 	.page-header__text {
-		@apply text-lg leading-relaxed;
+		@apply text-lg leading-relaxed text-neutral-500 dark:text-neutral-400;
 	}
 	.post-header__tags {
-		@apply mt-6 flex flex-row items-center justify-center gap-2 pb-2;
+		@apply mt-10 flex flex-row items-center justify-center gap-3;
 	}
 </style>
