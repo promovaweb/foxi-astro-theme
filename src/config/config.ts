@@ -36,7 +36,7 @@ export const configData: Config = {
 	noindex: false,
 	mode: 'auto',
 	scrollAnimations: true,
-	changelogPageSize: 5,
-	podcastPageSize: 2,
+	changelogPageSize: 6,
+	podcastPageSize: 6,
 	exitIntentPopup: true
 }
