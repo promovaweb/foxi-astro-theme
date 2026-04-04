@@ -7,12 +7,11 @@
 // - ogImage: Imagem Open Graph
 
 import { Image } from 'astro:assets'
-import { Icon } from 'astro-icon/components'
 import Header from '@components/blocks/head/Header.astro'
 import Scripts from '@components/scripts/LocalScripts.astro'
 import GoogleTagManagerBody from '@components/scripts/googleTagManagerBody.astro'
 import AboutSection from '@components/ui/podcast/AboutSection.astro'
-import TinyWaveFormIcon from '@components/ui/podcast/TinyWaveFormIcon.astro'
+import SocialLinks from '@components/ui/SocialLinks.astro'
 import posterImage from '@/assets/podcast-poster.png'
 import { configData } from '@config/config'
 import '@styles/global.css'
@@ -30,15 +29,6 @@ const {
   description = configData.siteDescription, 
   ogImage = configData.ogImage 
 } = Astro.props
-
-const socialConfig = {
-  twitter: { color: 'bg-[#000000]', icon: 'twitter-icon', label: 'X' },
-  linkedin: { color: 'bg-[#0077B5]', icon: 'linkedin-icon', label: 'LinkedIn' },
-  instagram: { color: 'bg-[#E4405F]', icon: 'instagram-icon', label: 'Instagram' },
-  youtube: { color: 'bg-[#FF0000]', icon: 'youtube-icon', label: 'YouTube' },
-  github: { color: 'bg-[#181717]', icon: 'icon', label: 'GitHub' },
-  facebook: { color: 'bg-[#1877F2]', icon: 'fb-icon', label: 'Facebook' }
-}
 ---
 
 <!doctype html>
@@ -127,19 +117,6 @@ const socialConfig = {
     <Scripts />
   </body>
 </html>
-
-<style is:global>
-  .podcast-sidebar {
-    /* Custom scrollbar para a sidebar se necessário */
-    scrollbar-width: thin;
-    scrollbar-color: theme('colors.neutral.300') transparent;
-  }
-  
-  .dark .podcast-sidebar {
-    scrollbar-color: theme('colors.neutral.700') transparent;
-  }
-</style>
-html>
 
 <style is:global>
   .podcast-sidebar {
