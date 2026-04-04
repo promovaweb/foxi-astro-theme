@@ -12,6 +12,7 @@ import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
 import Button from '@components/ui/Button.astro'
+import Badge from '@components/ui/Badge.astro'
 import { Icon } from 'astro-icon/components'
 
 // Data
@@ -43,14 +44,42 @@ const SEO = {
 			<Col span="12" lg="8">
 				<div class="changelog-detail">
 					{
-						entry.data.image && (
-							<div class="changelog-detail__image mb-12 overflow-hidden rounded-3xl border border-neutral-100 shadow-xl dark:border-neutral-800">
-								<img
-									src={entry.data.image}
-									alt={entry.data.title}
-									class="h-full w-full object-cover"
+						entry.data.category && (
+							<div class="mb-6 flex">
+								<a href={`/changelog/category/${entry.data.category}`}>
+									<Badge
+										name={entry.data.category}
+										type="primary"
+										classes="hover:bg-primary-600 transition-colors"
+									/>
+								</a>
+							</div>
+						)
+					}
+					{
+						entry.data.youtube ? (
+							<div class="changelog-detail__video mb-12 overflow-hidden rounded-3xl border border-neutral-100 shadow-xl dark:border-neutral-800">
+								<iframe
+									width="100%"
+									height="500"
+									src={`https://www.youtube.com/embed/${entry.data.youtube}`}
+									title="YouTube video player"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowfullscreen
+									class="aspect-video w-full h-auto"
 								/>
 							</div>
+						) : (
+							entry.data.image && (
+								<div class="changelog-detail__image mb-12 overflow-hidden rounded-3xl border border-neutral-100 shadow-xl dark:border-neutral-800">
+									<img
+										src={entry.data.image}
+										alt={entry.data.title}
+										class="h-full w-full object-cover"
+									/>
+								</div>
+							)
 						)
 					}
 					<div class="changelog-detail__content basic-text basic-text--lg">

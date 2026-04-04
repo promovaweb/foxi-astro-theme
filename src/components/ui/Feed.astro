@@ -9,6 +9,7 @@
 // Componentes
 import { render } from 'astro:content'
 import { Icon } from 'astro-icon/components'
+import Badge from '@components/ui/Badge.astro'
 
 // Props
 type Props = {
@@ -16,6 +17,29 @@ type Props = {
 	classes?: string
 }
 const { data, classes } = Astro.props
+
+// Helper para formatar data em pt-BR
+const formatDate = (dateString: string) => {
+	const date = new Date(dateString)
+	return date.toLocaleDateString('pt-BR', {
+		day: '2-digit',
+		month: 'short',
+		year: 'numeric'
+	})
+}
+
+// Agrupando dados por data
+const groupedData = data.reduce((acc, item) => {
+	const date = item.data ? item.data.date : item.date
+	if (!acc[date]) {
+		acc[date] = []
+	}
+	acc[date].push(item)
+	return acc
+}, {})
+
+// Ordenando as datas (descendente)
+const sortedDates = Object.keys(groupedData).sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
 
 // Helper para renderizar o conteúdo se for uma entrada de conteúdo
 const renderContent = async (item: any) => {
@@ -29,43 +53,86 @@ const renderContent = async (item: any) => {
 
 <ul aria-label="Feed de histórico de alterações" role="feed" class:list={['feed', { [`${classes}`]: classes }]}>
 	{
-		data.map(async (item) => {
-			const Content = await renderContent(item)
-			const isEntry = !!item.data
-			const title = isEntry ? item.data.title : item.title
-			const date = isEntry ? item.data.date : item.date
-			const image = isEntry ? item.data.image : item.image
-			const text = isEntry ? null : item.text
-			const id = isEntry ? item.id : null
+		sortedDates.map((date) => {
+			const items = groupedData[date]
+			const formattedDate = formatDate(date)
 
 			return (
-				<li role="article" class="feed__item">
-					<span class="feed__item-date"> {date}</span>
-					<div class="feed__item-container">
-						<h4 class="feed__item-header">
-							{id ? (
-								<a href={`/changelog/${id}`} class="hover:text-primary-600 transition-colors">
-									{title}
-								</a>
-							) : (
-								title
-							)}
-							<span> - {date}</span>
-						</h4>
-						{image && (
-							<div class="feed__item-image">
-								<img src={image} alt={title} width="1000" height="500" />
-							</div>
-						)}
-						<div class="feed__item-text basic-text">
-							{Content ? <Content /> : <Fragment set:html={text} />}
+				<li class="feed__group mb-16 lg:mb-24 last:mb-0">
+					<div class="feed__item group">
+						<div class="feed__item-side">
+							<span class="feed__item-date">{formattedDate}</span>
 						</div>
-						{id && (
-							<a href={`/changelog/${id}`} class="feed__item-link mt-4 flex items-center gap-2 text-sm font-semibold text-primary-500 hover:text-primary-600 transition-colors">
-								Ver detalhes da atualização
-								<Icon name="long-arrow-right" class="w-4 h-4" />
-							</a>
-						)}
+						
+						<div class="feed__item-container">
+							{items.map(async (item, index) => {
+								const Content = await renderContent(item)
+								const isEntry = !!item.data
+								const title = isEntry ? item.data.title : item.title
+								const image = isEntry ? item.data.image : item.image
+								const youtube = isEntry ? item.data.youtube : null
+								const category = isEntry ? item.data.category : null
+								const text = isEntry ? null : item.text
+								const id = isEntry ? item.id : null
+
+								return (
+									<div class:list={["feed__item-content", { "mt-16 pt-16 border-t border-neutral-100 dark:border-neutral-800 border-dashed": index > 0 }]}>
+										<div class="flex flex-wrap items-center gap-3 mb-3">
+											{category && (
+												<a href={`/changelog/category/${category}`}>
+													<Badge 
+														name={category} 
+														type="primary" 
+														classes="!text-[10px] !py-0.5 !px-2.5 uppercase tracking-wider hover:bg-primary-600 transition-colors" 
+													/>
+												</a>
+											)}
+											<span class="text-neutral-400 dark:text-neutral-500 text-sm font-medium lg:hidden">
+												• {formattedDate}
+											</span>
+										</div>
+
+										<h4 class="feed__item-header">
+											{id ? (
+												<a href={`/changelog/${id}`} class="group-hover:text-primary-500 transition-colors duration-300">
+													{title}
+												</a>
+											) : (
+												title
+											)}
+										</h4>
+
+										{youtube ? (
+											<div class="feed__item-video mb-8 overflow-hidden rounded-2xl shadow-2xl shadow-neutral-500/10 dark:shadow-neutral-950/50 border border-neutral-100 dark:border-neutral-800">
+												<div class="aspect-video w-full">
+													<iframe
+														width="100%"
+														height="100%"
+														src={`https://www.youtube.com/embed/${youtube}`}
+														title="YouTube video player"
+														frameborder="0"
+														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+														allowfullscreen
+														class="w-full h-full"
+													/>
+												</div>
+											</div>
+										) : (
+											<>
+												{image && (
+													<div class="feed__item-image hover:scale-[1.01] transition-transform duration-500">
+														<img src={image} alt={title} width="1000" height="500" class="w-full h-auto" />
+													</div>
+												)}
+												<div class="feed__item-text basic-text">
+													{Content ? <Content /> : <Fragment set:html={text} />}
+												</div>
+											</>
+										)}
+									</div>
+								)
+							})}
+						</div>
 					</div>
 				</li>
 			)
@@ -75,24 +142,30 @@ const renderContent = async (item: any) => {
 
 <style>
 	.feed {
-		@apply relative flex flex-col gap-24 py-12 pl-6 before:absolute before:left-6 before:top-0 before:h-full before:-translate-x-1/2 before:border before:border-dashed before:border-neutral-100 after:absolute after:bottom-6 after:left-6 after:top-6 after:-translate-x-1/2 after:border after:border-neutral-100 lg:before:left-44 lg:after:left-44 dark:before:border-neutral-800 dark:after:border-neutral-800;
+		@apply relative flex flex-col py-12 pl-6 lg:pl-0 before:absolute lg:before:left-44 before:left-6 before:top-0 before:h-full before:-translate-x-1/2 before:border-l-2 before:border-dashed before:border-neutral-100 dark:before:border-neutral-800;
 	}
 	.feed__item {
-		@apply flex gap-6;
+		@apply flex flex-col lg:flex-row gap-2 lg:gap-12 relative;
 	}
-	.feed__item-container {
-		@apply relative flex flex-1 flex-col pl-6 before:absolute before:left-0 before:top-2 before:z-10 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-primary-500 before:ring-2 before:ring-neutral-100 lg:pl-12 dark:before:ring-neutral-800 [&_p]:m-0;
+	.feed__item-side {
+		@apply hidden lg:flex lg:w-44 lg:justify-end lg:pt-2;
 	}
 	.feed__item-date {
-		@apply hidden text-lg font-medium text-primary-500 lg:block lg:w-32;
+		@apply text-sm font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 sticky top-24;
+	}
+	.feed__item-container {
+		@apply relative flex-1 pl-8 lg:pl-0 before:absolute before:-left-[25px] lg:before:-left-[51px] before:top-3 before:z-10 before:h-4 before:w-4 before:-translate-x-1/2 before:rounded-full before:bg-white dark:before:bg-neutral-950 before:border-4 before:border-primary-500 before:shadow-[0_0_0_8px_rgba(var(--color-primary-500),0.1)] transition-all duration-300;
 	}
 	.feed__item-header {
-		@apply text-lg font-medium text-primary-500 lg:[&_span]:hidden;
+		@apply text-2xl lg:text-3xl font-black text-neutral-900 dark:text-white mb-6 leading-tight;
 	}
 	.feed__item-text {
-		@apply max-w-5xl;
+		@apply max-w-4xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400;
 	}
 	.feed__item-image {
-		@apply mb-6 overflow-hidden rounded border border-neutral-100 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900;
+		@apply mb-8 overflow-hidden rounded-2xl border border-neutral-100 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 shadow-lg;
+	}
+	.feed__item-content {
+		@apply pb-4;
 	}
 </style>

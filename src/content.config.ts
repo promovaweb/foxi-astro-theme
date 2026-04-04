@@ -21,7 +21,10 @@ const changelog = defineCollection({
 		z.object({
 			title: z.string(),
 			date: z.string(),
-			image: z.string().optional()
+			image: z.string().optional(),
+			youtube: z.string().optional(),
+			category: z.string().optional(),
+			tags: z.array(z.string()).optional()
 		})
 })
 
