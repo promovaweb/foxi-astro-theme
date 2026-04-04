@@ -19,6 +19,7 @@ export interface Config {
 	mode: Mode
 	scrollAnimations: boolean
 	changelogPageSize: number
+	podcastPageSize: number
 	exitIntentPopup: boolean
 }
 
@@ -36,5 +37,6 @@ export const configData: Config = {
 	mode: 'auto',
 	scrollAnimations: true,
 	changelogPageSize: 5,
+	podcastPageSize: 2,
 	exitIntentPopup: true
 }

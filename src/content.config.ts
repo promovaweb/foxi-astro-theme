@@ -25,7 +25,19 @@ const changelog = defineCollection({
 		})
 })
 
+const podcast = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/podcast' }),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			pubDate: z.coerce.date(),
+			youtubeId: z.string(),
+		})
+})
+
 export const collections = {
 	blog,
-	changelog
+	changelog,
+	podcast
 }

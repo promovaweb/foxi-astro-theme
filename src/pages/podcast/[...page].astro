@@ -1,0 +1,46 @@
+---
+// Página Inicial do Podcast com Paginação
+// Descrição: Lista de episódios do podcast usando coleções de conteúdo com suporte a paginação
+
+import Layout from '@layouts/PodcastLayout.astro'
+import EpisodeEntry from '@components/ui/podcast/EpisodeEntry.astro'
+import Pagination from '@components/ui/Pagination.astro'
+import { getCollection } from 'astro:content'
+import { configData } from '@config/config'
+import type { Page } from 'astro'
+
+export async function getStaticPaths({ paginate }: any) {
+  const episodes = await getCollection('podcast')
+  // Ordenar por data de publicação (mais recente primeiro)
+  const sortedEpisodes = episodes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  
+  return paginate(sortedEpisodes, { pageSize: configData.podcastPageSize })
+}
+
+type Props = {
+  page: Page<any>
+}
+
+const { page } = Astro.props
+
+const title = `Their Side - Podcast (Página ${page.currentPage})`
+const description = "Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo."
+---
+
+<Layout title={title} description={description}>
+  <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
+        Episódios
+      </h1>
+    </div>
+    <div class="mt-4 lg:mt-8">
+      {page.data.map((episode: any) => (
+        <EpisodeEntry episode={episode} />
+      ))}
+    </div>
+    <div class="px-4 sm:px-6 lg:px-8 mt-12 pb-12">
+      <Pagination page={page} />
+    </div>
+  </div>
+</Layout>
