@@ -95,6 +95,17 @@ main a {
 	@apply [&_code]:rounded [&_code]:bg-neutral-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-primary-600 dark:[&_code]:bg-neutral-800 dark:[&_code]:text-primary-400;
 	@apply [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit;
 }
+
+/* Code Copy Button */
+.code-wrapper {
+	@apply relative group;
+}
+.copy-button {
+	@apply absolute right-4 top-4 z-10 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-bold text-white opacity-0 transition-all hover:bg-white/20 group-hover:opacity-100;
+}
+.copy-button.copied {
+	@apply bg-emerald-500 text-white opacity-100;
+}
 .basic-text--lg {
 	@apply text-lg lg:text-xl [&_p]:leading-[1.85];
 }

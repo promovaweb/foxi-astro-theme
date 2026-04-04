@@ -7,7 +7,6 @@ import Layout from '@layouts/Layout.astro'
 
 // Section Components
 import { Image } from 'astro:assets'
-import { Icon } from 'astro-icon/components'
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
@@ -157,6 +156,7 @@ const SEO = {
 </Layout>
 
 <script>
+	// --- Newsletter Form Logic ---
 	const form = document.getElementById('post-newsletter-form');
 	const formContent = document.getElementById('newsletter-form-content');
 	const successContent = document.getElementById('newsletter-success-content');
@@ -164,13 +164,48 @@ const SEO = {
 	if (form && formContent && successContent) {
 		form.addEventListener('submit', (e) => {
 			e.preventDefault();
-			
-			// Simulação de envio com sucesso:
 			formContent.classList.add('hidden');
 			successContent.classList.remove('hidden');
 			successContent.classList.add('flex');
 		});
 	}
+
+	// --- Code Block Copy Button Logic ---
+	const codeBlocks = document.querySelectorAll('.basic-text pre');
+	
+	codeBlocks.forEach((codeBlock) => {
+		// 1. Wrap the pre element
+		const wrapper = document.createElement('div');
+		wrapper.className = 'code-wrapper';
+		codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+		wrapper.appendChild(codeBlock);
+
+		// 2. Create the copy button
+		const copyButton = document.createElement('button');
+		copyButton.className = 'copy-button';
+		copyButton.type = 'button';
+		copyButton.innerText = 'Copiar';
+
+		// 3. Add click event
+		copyButton.addEventListener('click', async () => {
+			const text = (codeBlock as HTMLElement).innerText;
+			try {
+				await navigator.clipboard.writeText(text);
+				copyButton.innerText = 'Copiado!';
+				copyButton.classList.add('copied');
+
+				setTimeout(() => {
+					copyButton.innerText = 'Copiar';
+					copyButton.classList.remove('copied');
+				}, 2000);
+			} catch (err) {
+				console.error('Erro ao copiar:', err);
+				copyButton.innerText = 'Erro';
+			}
+		});
+
+		wrapper.appendChild(copyButton);
+	});
 </script>
 
 <style>

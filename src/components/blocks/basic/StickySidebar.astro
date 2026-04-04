@@ -18,11 +18,12 @@ type Props = {
 	id?: string
 	type?: 'left' | 'right'
 	classes?: string
+	padding?: 'both' | 'top' | 'bottom' | 'none'
 }
-const { id, type = 'left', classes } = Astro.props
+const { id, type = 'left', classes, padding } = Astro.props
 ---
 
-<Section {...id ? { id } : {}} classes={classes} stickyCol>
+<Section {...id ? { id } : {}} classes={classes} padding={padding} stickyCol>
 	<Row>
 		<Col span="3" classes={type === 'right' ? 'lg:order-2' : ''}>
 			<div class="sticky-sidebar">
