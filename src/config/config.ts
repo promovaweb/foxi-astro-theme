@@ -22,6 +22,8 @@ export interface Config {
 	podcastPageSize: number
 	exitIntentPopup: boolean
 	newsletterUrl: string
+	podcastName: string
+	podcastDescription: string
 }
 
 export const configData: Config = {
@@ -40,5 +42,7 @@ export const configData: Config = {
 	changelogPageSize: 6,
 	podcastPageSize: 6,
 	exitIntentPopup: true,
-	newsletterUrl: 'https://seu-servico-de-email.com/subscribe'
+	newsletterUrl: 'https://seu-servico-de-email.com/subscribe',
+	podcastName: 'Their Side',
+	podcastDescription: 'Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo.'
 }

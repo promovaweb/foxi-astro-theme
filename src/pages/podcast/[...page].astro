@@ -23,8 +23,8 @@ type Props = {
 
 const { page } = Astro.props
 
-const title = `Their Side - Podcast (Página ${page.currentPage})`
-const description = "Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo."
+const title = `${configData.siteTitle} - Podcast (Página ${page.currentPage})`
+const description = configData.podcastDescription
 ---
 
 <Layout title={title} description={description}>

@@ -6,6 +6,7 @@ import Layout from '@layouts/PodcastLayout.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import { getCollection, render } from 'astro:content'
+import { configData } from '@config/config'
 import TinyWaveFormIcon from '@components/ui/podcast/TinyWaveFormIcon.astro'
 import NewsletterWidget from '@components/ui/podcast/NewsletterWidget.astro'
 import RelatedEpisodes from '@components/ui/podcast/RelatedEpisodes.astro'
@@ -30,7 +31,7 @@ const randomEpisodes = (allEpisodes || [])
   .sort(() => Math.random() - 0.5)
   .slice(0, 4)
 
-const seoTitle = `${title} - Their Side`
+const seoTitle = `${title} | ${configData.siteTitle}`
 const formattedDate = pubDate.toLocaleDateString('pt-BR', {
   year: 'numeric',
   month: 'long',
