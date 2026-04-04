@@ -8,11 +8,13 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
-			pubDate: z.date(),
+			pubDate: z.coerce.date(),
 			image: z.string(),
 			author: z.string(),
-			tags: z.array(z.string())
+			tags: z.array(z.string()).optional()
 		})
+})
+
 const changelog = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/changelog' }),
 	schema: () =>
@@ -21,9 +23,7 @@ const changelog = defineCollection({
 			description: z.string(),
 			date: z.string(),
 			youtube: z.string().optional(),
-			category: z.string()
-		})
-})
+			category: z.string(),
 			tags: z.array(z.string()).optional()
 		})
 })

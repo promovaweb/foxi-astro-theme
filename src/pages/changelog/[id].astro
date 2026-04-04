@@ -53,7 +53,7 @@ const SEO = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={entry.data.title} text={`Lançado oficialmente em ${formattedDate}`}>
+	<Hero title={entry.data.title} text={entry.data.description}>
 		<Breadcrumbs 
 			slot="breadcrumbs" 
 			classes="mb-8" 
