@@ -1,0 +1,63 @@
+---
+// Sobre o Podcast
+// Descrição: Seção sobre o podcast com funcionalidade de expansão
+// Propriedades:
+// - title: Título da seção (padrão: "Sobre")
+// - text: Texto de descrição do podcast
+// - className: Classes CSS adicionais
+
+import TinyWaveFormIcon from './TinyWaveFormIcon.astro'
+
+type Props = {
+  title?: string
+  text?: string
+  className?: string
+}
+
+const { 
+  title = "Sobre", 
+  text = "Neste programa, mergulhamos fundo para descobrir os fatos com convidados que foram rotulados como vilões por uma sociedade rápida em julgar, sem realmente conhecer a história completa. Sintonize toda quinta-feira para descobrir a verdade com outro pária incompreendido enquanto eles compartilham o contexto ausente em seu conto trágico.",
+  className = "" 
+} = Astro.props
+---
+
+<section class:list={["about-section", className]}>
+  <h2 class="about-section__title flex items-center font-mono text-sm font-medium text-neutral-900 dark:text-neutral-50 uppercase tracking-wider">
+    <TinyWaveFormIcon
+      colors={['fill-primary-300', 'fill-primary-500']}
+      className="h-2.5 w-2.5"
+    />
+    <span class="ml-2.5">{title}</span>
+  </h2>
+  <div class="about-section__content mt-2">
+    <p
+      class="about-section__text text-base leading-relaxed text-neutral-700 dark:text-neutral-300 lg:line-clamp-4"
+      id="about-text"
+    >
+      {text}
+    </p>
+    <button
+      type="button"
+      id="about-show-more"
+      class="about-section__button mt-2 hidden text-sm font-bold text-primary-500 hover:text-primary-600 active:text-primary-700 lg:inline-block"
+    >
+      Mostrar mais
+    </button>
+  </div>
+</section>
+
+<script>
+  function setupAboutExpansion() {
+    const textElement = document.getElementById('about-text');
+    const buttonElement = document.getElementById('about-show-more');
+
+    if (textElement && buttonElement) {
+      buttonElement.addEventListener('click', () => {
+        textElement.classList.remove('lg:line-clamp-4');
+        buttonElement.classList.add('hidden');
+      });
+    }
+  }
+
+  document.addEventListener('astro:page-load', setupAboutExpansion);
+</script>

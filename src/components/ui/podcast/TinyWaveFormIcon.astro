@@ -1,0 +1,14 @@
+---
+type Props = {
+  colors?: string[]
+  className?: string
+}
+
+const { colors = ['fill-violet-300', 'fill-pink-300'], className = "h-2.5 w-2.5" } = Astro.props
+---
+
+<svg aria-hidden="true" viewBox="0 0 10 10" class={className}>
+  <rect width="2" height="10" x="0" class={colors[0]} />
+  <rect width="2" height="6" x="4" y="2" class={colors[1]} />
+  <rect width="2" height="8" x="8" y="1" class={colors[0]} />
+</svg>

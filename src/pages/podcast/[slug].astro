@@ -1,0 +1,92 @@
+---
+// Página do Episódio do Podcast
+// Descrição: Exibe o conteúdo completo do episódio com vídeo em destaque
+
+import Layout from '@layouts/PodcastLayout.astro'
+import episodes from '@data/json-files/podcastEpisodes.json'
+
+export async function getStaticPaths() {
+  return episodes.map((episode) => ({
+    params: { slug: episode.slug },
+    props: { episode },
+  }))
+}
+
+const { episode } = Astro.props
+
+const title = `${episode.title} - Their Side`
+const description = episode.description
+const date = new Date(episode.published)
+const formattedDate = date.toLocaleDateString('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})
+---
+
+<Layout title={title} description={description}>
+  <article class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+      <header class="flex flex-col">
+        <time
+          datetime={episode.published}
+          class="order-first font-mono text-sm leading-7 text-neutral-500 dark:text-neutral-400"
+        >
+          {formattedDate}
+        </time>
+        <h1 class="mt-2 text-4xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
+          {episode.title}
+        </h1>
+      </header>
+
+      <!-- YouTube Video em Destaque -->
+      <div class="mt-8 aspect-video overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 shadow-lg">
+        <iframe
+          class="h-full w-full"
+          src={`https://www.youtube.com/embed/${episode.youtubeId}`}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+
+
+      <div class="mt-10 prose prose-neutral dark:prose-invert max-w-none">
+        <p class="text-lg leading-8 text-neutral-700 dark:text-neutral-300">
+          {episode.description}
+        </p>
+        
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-50 mt-12 mb-6">Notas do Episódio</h2>
+        <p>
+          Neste episódio, mergulhamos nos detalhes técnicos e emocionais que moldaram a jornada do nosso convidado. 
+          Abaixo você encontrará os principais pontos discutidos e referências citadas durante a conversa.
+        </p>
+        
+        <ul>
+          <li>A infância e as primeiras influências.</li>
+          <li>O momento da grande mudança e as consequências imediatas.</li>
+          <li>Como lidar com a percepção pública distorcida.</li>
+          <li>Planos para o futuro e a mensagem para os ouvintes.</li>
+        </ul>
+
+        <p class="mt-8">
+          Siga-nos nas redes sociais para mais atualizações e participe da conversa usando a hashtag #TheirSidePodcast.
+        </p>
+      </div>
+
+      <div class="mt-12 pt-12 border-t border-neutral-200 dark:border-neutral-800">
+        <a 
+          href="/podcast" 
+          class="text-sm font-bold text-neutral-900 dark:text-neutral-50 hover:text-primary-500 flex items-center gap-2 transition"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Voltar para a lista de episódios
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

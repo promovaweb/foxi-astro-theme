@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "slug": "o-heroi-rejeitado",
+    "title": "1: O Herói Rejeitado",
+    "published": "2024-03-20T10:00:00Z",
+    "description": "Neste episódio, conversamos com o homem que foi expulso de sua cidade após tentar salvá-la de uma inundação. Ele compartilha o que realmente aconteceu naquela noite e por que as pessoas o veem como o culpado.",
+    "youtubeId": "aqz-KE-bpKQ"
+  },
+  {
+    "id": 2,
+    "slug": "a-sombra-da-verdade",
+    "title": "2: A Sombra da Verdade",
+    "published": "2024-03-13T10:00:00Z",
+    "description": "Uma discussão profunda sobre como as notícias podem distorcer a realidade. Nossa convidada explica como uma simples foto a transformou no inimigo público número um.",
+    "youtubeId": "aqz-KE-bpKQ"
+  },
+  {
+    "id": 3,
+    "slug": "caminhos-tortuosos",
+    "title": "3: Caminhos Tortuosos",
+    "published": "2024-03-06T10:00:00Z",
+    "description": "Explorando a história de um empresário que perdeu tudo após uma denúncia anônima, apenas para descobrir que seu maior rival estava por trás de tudo.",
+    "youtubeId": "aqz-KE-bpKQ"
+  }
+]

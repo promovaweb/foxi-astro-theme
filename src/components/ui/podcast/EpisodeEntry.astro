@@ -1,0 +1,57 @@
+---
+// Entrada de Episódio
+// Descrição: Componente para exibir um episódio na lista
+
+type Episode = {
+  id: number
+  slug: string
+  title: string
+  published: string
+  description: string
+}
+
+type Props = {
+  episode: Episode
+}
+
+const { episode } = Astro.props
+const date = new Date(episode.published)
+const formattedDate = date.toLocaleDateString('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})
+---
+
+<article
+  aria-labelledby={`episode-${episode.id}-title`}
+  class="episode-entry py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+>
+  <div class="flex flex-col items-start max-w-2xl">
+    <time
+      datetime={episode.published}
+      class="order-first font-mono text-sm leading-7 text-neutral-500 dark:text-neutral-400"
+    >
+      {formattedDate}
+    </time>
+    <h2
+      id={`episode-${episode.id}-title`}
+      class="mt-2 text-lg font-bold text-neutral-900 dark:text-neutral-50 font-headings"
+    >
+      <a href={`/podcast/${episode.slug}`} class="hover:text-primary-500 transition-colors">
+        {episode.title}
+      </a>
+    </h2>
+    <p class="mt-1 text-base leading-7 text-neutral-700 dark:text-neutral-300">
+      {episode.description}
+    </p>
+    <div class="mt-4 flex items-center gap-4">
+      <a
+        href={`/podcast/${episode.slug}`}
+        class="flex items-center text-sm font-bold text-primary-500 hover:text-primary-600 active:text-primary-700"
+      >
+        Acessar Episódio
+      </a>
+    </div>
+  </div>
+</article>

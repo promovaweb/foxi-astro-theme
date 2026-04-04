@@ -1,0 +1,26 @@
+---
+// Página Inicial do Podcast
+// Descrição: Lista de episódios do podcast usando o novo layout
+
+import Layout from '@layouts/PodcastLayout.astro'
+import EpisodeEntry from '@components/ui/podcast/EpisodeEntry.astro'
+import episodes from '@data/json-files/podcastEpisodes.json'
+
+const title = "Their Side - Podcast"
+const description = "Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo."
+---
+
+<Layout title={title} description={description}>
+  <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
+        Episódios
+      </h1>
+    </div>
+    <div class="mt-4 lg:mt-8">
+      {episodes.map((episode) => (
+        <EpisodeEntry episode={episode} />
+      ))}
+    </div>
+  </div>
+</Layout>

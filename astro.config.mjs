@@ -7,6 +7,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://foxi.netlify.app",
   integrations: [icon(), sitemap()],
+  redirects: {
+    "/podcasts": "/podcast",
+  },
   vite: {
     server: {
       allowedHosts: true,
