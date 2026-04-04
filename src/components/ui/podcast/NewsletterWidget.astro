@@ -8,45 +8,43 @@ import { Icon } from 'astro-icon/components'
 const { newsletterUrl } = configData
 ---
 
-<section class="mt-12 p-8 rounded-3xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 relative overflow-hidden group">
+<section class="mt-12 p-10 lg:p-14 rounded-[2.5rem] bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 relative overflow-hidden group">
   <!-- Efeito de fundo -->
-  <div class="absolute -right-10 -top-10 size-40 bg-primary-500/5 rounded-full blur-3xl group-hover:bg-primary-500/10 transition-colors duration-500"></div>
+  <div class="absolute -right-10 -top-10 size-64 bg-primary-500/5 rounded-full blur-3xl group-hover:bg-primary-500/10 transition-colors duration-500"></div>
   
-  <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-    <div class="flex-1 text-center md:text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 text-primary-600 dark:text-primary-400 text-[10px] font-bold uppercase tracking-wider mb-4">
-        <Icon name="bell-alert" class="size-3" />
-        Fique por dentro
-      </div>
-      <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
-        Não perca nenhum episódio
-      </h3>
-      <p class="mt-2 text-neutral-600 dark:text-neutral-400 max-w-sm">
-        Assine nossa newsletter e receba as conversas mais impactantes direto no seu e-mail.
-      </p>
+  <div class="relative z-10 flex flex-col items-center text-center">
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-[0.1em] mb-5">
+      <Icon name="bell-alert" class="size-3.5" />
+      Fique por dentro
     </div>
+    <h3 class="text-3xl lg:text-4xl font-extrabold text-neutral-900 dark:text-neutral-50 font-headings leading-tight max-w-2xl">
+      Não perca nenhum episódio
+    </h3>
+    <p class="mt-4 text-base lg:text-lg text-neutral-600 dark:text-neutral-400 max-w-lg leading-relaxed mb-10">
+      Assine nossa newsletter e receba as conversas mais impactantes do seu tempo direto no seu e-mail pessoal.
+    </p>
 
     <form 
       action={newsletterUrl} 
       method="POST" 
-      class="w-full md:w-auto flex-none flex flex-col sm:flex-row gap-2"
+      class="w-full max-w-3xl flex flex-col sm:flex-row gap-3"
     >
-      <div class="relative group/input flex-1 min-w-[280px]">
-        <Icon name="user" class="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-neutral-400 group-focus-within/input:text-primary-500 transition-colors" />
+      <div class="relative group/input flex-1 sm:min-w-[400px]">
+        <Icon name="user" class="absolute left-5 top-1/2 -translate-y-1/2 size-5 text-neutral-400 group-focus-within/input:text-primary-500 transition-colors" />
         <input 
           type="email" 
           name="email" 
           placeholder="Seu melhor e-mail" 
           required
-          class="w-full pl-11 pr-4 py-3 rounded-2xl bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-neutral-900 dark:text-neutral-50"
+          class="w-full pl-12 pr-6 py-4 rounded-2xl bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all text-lg text-neutral-900 dark:text-neutral-50"
         />
       </div>
       <button 
         type="submit" 
-        class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-2xl bg-primary-500 text-white font-bold hover:bg-primary-600 active:scale-[0.98] transition-all shadow-lg shadow-primary-500/25"
+        class="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-2xl bg-primary-500 text-white text-lg font-bold hover:bg-primary-600 active:scale-[0.98] transition-all shadow-xl shadow-primary-500/25 whitespace-nowrap"
       >
-        Assinar
-        <Icon name="long-arrow-right" class="size-4" />
+        Assinar Agora
+        <Icon name="long-arrow-right" class="size-5" />
       </button>
     </form>
   </div>
