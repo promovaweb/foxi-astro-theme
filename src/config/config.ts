@@ -18,6 +18,7 @@ export interface Config {
 	noindex: boolean
 	mode: Mode
 	scrollAnimations: boolean
+	blogPageSize: number
 	changelogPageSize: number
 	podcastPageSize: number
 	exitIntentPopup: boolean
@@ -47,6 +48,7 @@ export const configData: Config = {
 	noindex: false,
 	mode: 'auto',
 	scrollAnimations: true,
+	blogPageSize: 6,
 	changelogPageSize: 6,
 	podcastPageSize: 6,
 	exitIntentPopup: true,

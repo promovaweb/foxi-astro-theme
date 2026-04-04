@@ -13,17 +13,24 @@ import Col from '@components/ui/Col.astro'
 // - UI
 import Post from '@components/ui/cards/BlogCard.astro'
 import TagNavigation from '@components/ui/blog/TagNavigation.astro'
+import Pagination from '@components/ui/Pagination.astro'
 
 // Props
 type Props = {
-	data: any
+	data?: any
+	page?: any
 }
-const { data: allPosts } = Astro.props
+const { data: allPosts, page } = Astro.props
 
-// Function to sort posts by date
-const sortedPosts = allPosts.sort((a: any, b: any) => {
-	return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-})
+// Use page.data if page is provided, otherwise use allPosts
+const postsToDisplay = page ? page.data : allPosts
+
+// Function to sort posts by date (only if not already paginated)
+const sortedPosts = page 
+	? postsToDisplay 
+	: postsToDisplay.sort((a: any, b: any) => {
+		return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+	})
 ---
 
 <Section>
@@ -45,6 +52,13 @@ const sortedPosts = allPosts.sort((a: any, b: any) => {
 					</Post>
 				</Col>
 			))
+		}
+		{
+			page && (
+				<Col span="12">
+					<Pagination page={page} />
+				</Col>
+			)
 		}
 	</Row>
 </Section>

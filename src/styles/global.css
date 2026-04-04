@@ -76,10 +76,27 @@ main a {
 }
 /* Global basic styling */
 .basic-text {
-	@apply [&_blockquote]:relative [&_blockquote]:mb-6 [&_blockquote]:rounded [&_blockquote]:border [&_blockquote]:border-neutral-100 [&_blockquote]:bg-neutral-50 [&_blockquote]:p-6 [&_blockquote]:text-lg [&_blockquote]:leading-relaxed [&_blockquote]:text-neutral-700 [&_blockquote]:before:absolute [&_blockquote]:before:left-0 [&_blockquote]:before:top-0 [&_blockquote]:before:z-[0] [&_blockquote]:before:block [&_blockquote]:before:text-9xl [&_blockquote]:before:italic [&_blockquote]:before:text-neutral-200 [&_blockquote]:before:opacity-50 [&_blockquote]:before:content-['"'] lg:[&_blockquote]:-mx-12 dark:[&_blockquote]:border-neutral-600 dark:[&_blockquote]:bg-neutral-700 dark:[&_blockquote]:text-neutral-50 dark:[&_blockquote]:before:text-neutral-600 [&_blockquote_p]:relative [&_blockquote_p]:z-[1] [&_blockquote_p]:px-6 [&_h1:not(:first-child)]:mt-24 [&_h2:not(:first-child)]:mt-24 [&_h3:not(:first-child)]:mt-24 [&_h4:not(:first-child)]:mt-12 [&_img]:rounded [&_img]:border [&_img]:border-neutral-100 dark:[&_img]:border-neutral-600 [&_li]:mb-2 [&_li]:ml-4 [&_li]:list-disc [&_li]:marker:text-primary-500 lg:[&_p:has(img)]:-mx-12;
+	@apply [&_p]:mb-8 [&_p]:leading-[1.8] [&_p]:text-neutral-600 dark:[&_p]:text-neutral-400;
+	@apply [&_blockquote]:my-12 [&_blockquote]:border-l-4 [&_blockquote]:border-primary-500 [&_blockquote]:pl-10 [&_blockquote]:py-2 [&_blockquote]:text-xl [&_blockquote]:italic [&_blockquote]:font-medium [&_blockquote]:text-neutral-900 dark:[&_blockquote]:text-neutral-100;
+	@apply [&_h2]:mb-8 [&_h2]:mt-20 [&_h2]:border-l-4 [&_h2]:border-primary-500 [&_h2]:pl-6 [&_h2]:text-4xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-neutral-900 lg:[&_h2]:text-5xl dark:[&_h2]:text-neutral-50;
+	@apply [&_h3]:mb-6 [&_h3]:mt-16 [&_h3]:text-3xl [&_h3]:font-bold [&_h3]:tracking-tight [&_h3]:text-neutral-900 lg:[&_h3]:text-4xl dark:[&_h3]:text-neutral-50;
+	@apply [&_h4]:mb-4 [&_h4]:mt-12 [&_h4]:text-2xl [&_h4]:font-bold [&_h4]:tracking-tight [&_h4]:text-neutral-900 lg:[&_h4]:text-3xl dark:[&_h4]:text-neutral-50;
+	@apply [&_img]:my-12 [&_img]:rounded-3xl [&_img]:shadow-lg;
+	@apply [&_ul]:mb-8 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:marker:text-primary-500;
+	@apply [&_ol]:mb-8 [&_ol]:ml-6 [&_ol]:list-decimal [&_ol]:space-y-3 [&_ol]:marker:font-bold [&_ol]:marker:text-primary-500;
+	@apply [&_li]:pl-2;
+	@apply [&_a]:font-semibold [&_a]:text-primary-500 [&_a]:underline [&_a]:decoration-primary-500/30 [&_a]:underline-offset-4 hover:[&_a]:decoration-primary-500;
+	@apply [&_table]:my-12 [&_table]:w-full [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-2xl [&_table]:border [&_table]:border-neutral-200 dark:[&_table]:border-neutral-800;
+	@apply [&_thead]:bg-neutral-50 dark:[&_thead]:bg-neutral-900;
+	@apply [&_th]:border-b [&_th]:border-neutral-200 [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:text-sm [&_th]:font-bold [&_th]:uppercase [&_th]:tracking-wider [&_th]:text-neutral-900 dark:[&_th]:border-neutral-800 dark:[&_th]:text-neutral-50;
+	@apply [&_td]:border-b [&_td]:border-neutral-100 [&_td]:px-6 [&_td]:py-4 [&_td]:text-sm [&_td]:text-neutral-600 dark:[&_td]:border-neutral-800 dark:[&_td]:text-neutral-400;
+	@apply [&_tr:nth-child(even)]:bg-neutral-50/50 dark:[&_tr:nth-child(even)]:bg-neutral-800/30;
+	@apply [&_pre]:my-8 [&_pre]:overflow-x-auto [&_pre]:rounded-2xl [&_pre]:bg-neutral-900 [&_pre]:p-6 [&_pre]:text-sm [&_pre]:leading-relaxed [&_pre]:text-neutral-100;
+	@apply [&_code]:rounded [&_code]:bg-neutral-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-primary-600 dark:[&_code]:bg-neutral-800 dark:[&_code]:text-primary-400;
+	@apply [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit;
 }
 .basic-text--lg {
-	@apply text-lg leading-relaxed [&_blockquote]:text-xl [&_blockquote]:leading-loose;
+	@apply text-lg lg:text-xl [&_p]:leading-[1.85];
 }
 
 /* Scroll animations */
