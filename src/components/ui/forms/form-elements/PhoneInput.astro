@@ -63,7 +63,15 @@ const inputName = name || inputId
 
 				// Máscara brasileira em tempo real
 				const maskBR = (value: string) => {
-					const numbers = value.replace(/\D/g, "").slice(0, 11);
+					let numbers = value.replace(/\D/g, "");
+					
+					// Se o usuário digitou/colou com 55 no início e o número é longo, remove o 55
+					if (numbers.startsWith("55") && numbers.length > 11) {
+						numbers = numbers.slice(2);
+					}
+					
+					numbers = numbers.slice(0, 11);
+					
 					if (numbers.length === 0) return "";
 					if (numbers.length <= 2) return `(${numbers}`;
 					if (numbers.length <= 6) return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;

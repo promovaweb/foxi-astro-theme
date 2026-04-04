@@ -41,9 +41,10 @@ const organizers = webinar.organizers
 	>
 		<div slot="image" class="w-full max-w-lg mx-auto lg:ml-auto">
 			<LandingForm 
-				title="Acesse o Webinar Gratuitamente" 
-				buttonText="Assistir ao conteúdo agora" 
+				title={webinar.layout.hero.formTitle} 
+				buttonText={webinar.layout.hero.formButtonText} 
 				thankYouPage={webinar.thankYouPage}
+				formUrl={webinar.formUrl}
 				contrast={true} 
 			/>
 		</div>
@@ -51,7 +52,7 @@ const organizers = webinar.organizers
 		<div slot="after-text">
 			<div class="flex items-center gap-4 text-sm text-neutral-500 font-medium">
 				<Icon name="check-circle" class="w-5 h-5 text-primary-500" />
-				Acesso imediato após a inscrição.
+				{webinar.layout.hero.accessNote}
 			</div>
 		</div>
 	</LandingHero>
@@ -116,8 +117,8 @@ const organizers = webinar.organizers
 		<Row>
 			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex flex-col justify-center">
 				<div class="mb-10">
-					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Informações do Webinar</h3>
-					<p class="text-neutral-600 dark:text-neutral-400">Dados técnicos sobre o conteúdo que você está prestes a assistir.</p>
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-4">{webinar.layout.infoSection.title}</h3>
+					<p class="text-neutral-600 dark:text-neutral-400">{webinar.layout.infoSection.subtitle}</p>
 				</div>
 				<DownloadDetails 
 					format={webinar.details.format}
@@ -128,7 +129,7 @@ const organizers = webinar.organizers
 			</Col>
 			<Col span="12" lg="6" classes="lg:pl-16">
 				<ContentList 
-					title="O que vamos <strong>discutir</strong>:" 
+					title={webinar.layout.infoSection.discussionTitle} 
 					items={webinar.discussionPoints} 
 				/>
 			</Col>
@@ -139,8 +140,8 @@ const organizers = webinar.organizers
 	<Section classes="bg-white dark:bg-neutral-950 pt-24 lg:pt-40 pb-24 lg:pb-40">
 		<Row>
 			<Col span="12" align="center" classes="mb-24">
-				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4">Conheça os <strong>Especialistas</strong></h2>
-				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">Líderes de mercado trazendo experiências práticas e estudos de caso reais.</p>
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-4" set:html={webinar.layout.expertsSection.title} />
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">{webinar.layout.expertsSection.subtitle}</p>
 			</Col>
 			
 			<!-- Host -->

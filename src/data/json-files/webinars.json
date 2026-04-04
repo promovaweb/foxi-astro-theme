@@ -7,6 +7,7 @@
 		"tag": "Webinar Online & Gratuito",
 		"heroImage": "/src/assets/bg-01.png",
 		"videoId": "dQw4w9WgXcQ",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
 		"thankYouPage": "/materiais/webinars/futuro-colaboracao/obrigado",
 		"viewPage": "/materiais/webinars/futuro-colaboracao/view",
 		"details": {
@@ -14,6 +15,34 @@
 			"size": "60 Minutos",
 			"version": "Português",
 			"lastUpdated": "Maio 2024"
+		},
+		"layout": {
+			"hero": {
+				"formTitle": "Acesse o Webinar Gratuitamente",
+				"formButtonText": "Assistir ao conteúdo agora",
+				"accessNote": "Acesso imediato após a inscrição."
+			},
+			"infoSection": {
+				"title": "Informações do Webinar",
+				"subtitle": "Dados técnicos sobre o conteúdo que você está prestes a assistir.",
+				"discussionTitle": "O que vamos <strong>discutir</strong>:"
+			},
+			"expertsSection": {
+				"title": "Conheça os <strong>Especialistas</strong>",
+				"subtitle": "Líderes de mercado trazendo experiências práticas e estudos de caso reais."
+			},
+			"viewPage": {
+				"label": "Webinar Exclusivo",
+				"aboutTitle": "Sobre este Webinar",
+				"topicsTitle": "Tópicos principais:",
+				"resourcesTitle": "Material de Apoio",
+				"ctaText": "Ficou com alguma dúvida sobre o conteúdo?",
+				"ctaButtonText": "Falar com um Consultor",
+				"ctaLink": "/contact"
+			},
+			"thankYouPage": {
+				"calendarText": "Adicionar ao Calendário"
+			}
 		},
 		"thankYou": {
 			"metadata": {

@@ -6,6 +6,7 @@
 // - title: Título do formulário
 // - buttonText: Texto do botão de ação
 // - thankYouPage: URL da página de agradecimento
+// - postUrl: URL para envio dos dados via POST (webhook)
 // - contrast: Se verdadeiro, aplica o estilo de alto contraste da marca
 // - classes: Classes CSS adicionais
 
@@ -18,11 +19,12 @@ type Props = {
 	title: string
 	buttonText: string
 	thankYouPage: string
+	formUrl?: string
 	contrast?: boolean
 	classes?: string
 }
 
-const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.props
+const { title, buttonText, thankYouPage, formUrl, contrast = false, classes } = Astro.props
 ---
 
 <div
@@ -32,6 +34,7 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 		{ [`${classes}`]: classes }
 	]}
 	data-thank-you={thankYouPage}
+	data-form-url={formUrl}
 >
 	<div class="landing-form__container">
 		<header class="landing-form__header">
@@ -102,7 +105,6 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 		forms.forEach(form => {
 			if (form instanceof HTMLFormElement && !form.dataset.formInit) {
 				const container = form.closest('.landing-form') as HTMLElement;
-				const thankYouUrl = container?.dataset.thankYou;
 				const inputs = form.querySelectorAll('input');
 
 				const validateInput = (input: HTMLInputElement) => {
@@ -112,14 +114,20 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 					let message = "";
 
 					// Validação específica para celular usando intl-tel-input
-					if (input.type === 'tel' && (input as any)._iti) {
+					if (input.type === 'tel') {
 						const iti = (input as any)._iti;
+						const rawValue = input.value.replace(/\D/g, "");
+						
 						if (input.required && !input.value.trim()) {
 							isValid = false;
 							message = "O celular é obrigatório";
-						} else if (input.value.trim() && !iti.isValidNumber()) {
-							isValid = false;
-							message = "Número de celular inválido";
+						} else if (iti && input.value.trim()) {
+							// Se a validação rigorosa falhar, fazemos uma checagem básica de sanidade
+							// (números brasileiros têm entre 10 e 11 dígitos fora o DDI)
+							if (!iti.isValidNumber() && rawValue.length < 10) {
+								isValid = false;
+								message = "Número de celular incompleto";
+							}
 						}
 					} 
 					else if (input.required && !input.value.trim()) {
@@ -134,11 +142,18 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 					}
 
 					if (!isValid) {
+						console.error(`Campo ${input.name} inválido: ${message}`);
 						input.classList.add('is-invalid');
-						if (errorContainer) errorContainer.textContent = message;
+						if (errorContainer) {
+							errorContainer.textContent = message;
+							(errorContainer as HTMLElement).style.opacity = "1";
+						}
 					} else {
 						input.classList.remove('is-invalid');
-						if (errorContainer) errorContainer.textContent = "";
+						if (errorContainer) {
+							errorContainer.textContent = "";
+							(errorContainer as HTMLElement).style.opacity = "0";
+						}
 					}
 
 					return isValid;
@@ -153,10 +168,14 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 					});
 				});
 
-				form.addEventListener('submit', (e) => {
+				form.addEventListener('submit', async (e) => {
 					e.preventDefault();
+					console.log("Iniciando submissão do formulário...");
+					
+					const thankYouUrl = container.getAttribute('data-thank-you');
+					const formUrl = container.getAttribute('data-form-url');
+					
 					let isFormValid = true;
-
 					inputs.forEach(input => {
 						if (!validateInput(input)) {
 							isFormValid = false;
@@ -164,16 +183,49 @@ const { title, buttonText, thankYouPage, contrast = false, classes } = Astro.pro
 					});
 
 					if (isFormValid && thankYouUrl) {
+						console.log("Formulário válido. URL de agradecimento:", thankYouUrl);
 						const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+						
 						if (submitBtn) {
 							submitBtn.disabled = true;
 							const btnText = submitBtn.querySelector('span');
 							if (btnText) btnText.textContent = "Enviando...";
 						}
+
+						// Se houver uma URL de post, envia os dados
+						if (formUrl) {
+							console.log("Enviando dados para:", formUrl);
+							try {
+								const formData = new FormData(form);
+								const data = new URLSearchParams();
+								
+								for (const [key, value] of formData.entries()) {
+									data.append(key, value.toString());
+								}
+
+								// Capturar o número de telefone completo (com DDI) se for o campo PhoneInput
+								const phoneInput = form.querySelector('input[type="tel"]') as any;
+								if (phoneInput && phoneInput._iti) {
+									data.set(phoneInput.name, phoneInput._iti.getNumber());
+								}
+
+								await fetch(formUrl, {
+									method: 'POST',
+									headers: {
+										'Content-Type': 'application/x-www-form-urlencoded',
+									},
+									body: data.toString(),
+								});
+								console.log("POST realizado com sucesso.");
+							} catch (error) {
+								console.error("Erro ao enviar formulário via POST:", error);
+							}
+						}
 						
-						setTimeout(() => {
-							window.location.href = thankYouUrl;
-						}, 1000);
+						console.log("Redirecionando para página de agradecimento...");
+						window.location.href = thankYouUrl;
+					} else {
+						console.warn("Validação falhou ou URL de agradecimento ausente. URL:", thankYouUrl);
 					}
 				});
 

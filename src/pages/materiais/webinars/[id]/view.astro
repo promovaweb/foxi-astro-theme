@@ -33,7 +33,7 @@ const metadata = {
 	<Section padding="top" classes="bg-neutral-50 dark:bg-neutral-900/50 pt-32 lg:pt-48 pb-12">
 		<Row justify="center">
 			<Col span="12" lg="10" align="center">
-				<span class="text-primary-500 font-bold uppercase tracking-widest text-sm mb-6 block">Webinar Exclusivo</span>
+				<span class="text-primary-500 font-bold uppercase tracking-widest text-sm mb-6 block">{webinar.layout.viewPage.label}</span>
 				<h1 class="text-4xl lg:text-7xl font-black mb-12 text-neutral-900 dark:text-white leading-tight" set:html={webinar.title} />
 				
 				<!-- Player em Destaque -->
@@ -48,11 +48,11 @@ const metadata = {
 	<Section classes="py-24 lg:py-32">
 		<Row>
 			<Col span="12" lg="7" classes="mb-16 lg:mb-0 lg:pr-16">
-				<h2 class="text-3xl font-bold mb-8 text-neutral-900 dark:text-white border-b border-neutral-100 dark:border-neutral-800 pb-4">Sobre este Webinar</h2>
+				<h2 class="text-3xl font-bold mb-8 text-neutral-900 dark:text-white border-b border-neutral-100 dark:border-neutral-800 pb-4">{webinar.layout.viewPage.aboutTitle}</h2>
 				<div class="prose prose-lg dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-400">
 					<p>{webinar.sections[0].text}</p>
 					
-					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mt-12 mb-6">Tópicos principais:</h3>
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mt-12 mb-6">{webinar.layout.viewPage.topicsTitle}</h3>
 					<ul class="space-y-4">
 						{webinar.discussionPoints.slice(0, 3).map(point => (
 							<li class="flex gap-3">
@@ -85,7 +85,7 @@ const metadata = {
 						<div class="bg-primary-500 text-white p-8 rounded-3xl shadow-xl shadow-primary-500/20">
 							<h3 class="text-xl font-bold mb-6 flex items-center gap-3">
 								<Icon name="document-text" class="w-6 h-6" />
-								Material de Apoio
+								{webinar.layout.viewPage.resourcesTitle}
 							</h3>
 							<ul class="space-y-4">
 								{webinar.resources.map(resource => (
@@ -102,9 +102,9 @@ const metadata = {
 
 					<!-- CTA Contato -->
 					<div class="p-8 rounded-3xl border border-dashed border-neutral-200 dark:border-neutral-700 text-center">
-						<p class="text-sm text-neutral-500 mb-4 italic">Ficou com alguma dúvida sobre o conteúdo?</p>
-						<Button link="/contact" style="neutral" variation="outline" classes="w-full">
-							Falar com um Consultor
+						<p class="text-sm text-neutral-500 mb-4 italic">{webinar.layout.viewPage.ctaText}</p>
+						<Button link={webinar.layout.viewPage.ctaLink} style="neutral" variation="outline" classes="w-full">
+							{webinar.layout.viewPage.ctaButtonText}
 						</Button>
 					</div>
 				</div>
