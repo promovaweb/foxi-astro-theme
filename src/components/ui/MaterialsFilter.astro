@@ -1,0 +1,52 @@
+---
+// MaterialsFilter
+// ------------
+// Descrição: Componente de filtro de categorias para materiais.
+
+type Props = {
+	currentCategory?: string
+}
+
+const { currentCategory } = Astro.props
+
+const categories = [
+	{ name: 'Ebooks', type: 'ebook', link: '/materiais/ebooks' },
+	{ name: 'Webinars', type: 'webinar', link: '/materiais/webinars' },
+	{ name: 'Hangouts', type: 'hangout', link: '/materiais/hangouts' },
+	{ name: 'Downloads', type: 'download', link: '/materiais/downloads' },
+	{ name: 'Eventos', type: 'evento', link: '/materiais/eventos' }
+]
+---
+
+<div class="bg-white dark:bg-neutral-950">
+	<div class="container mx-auto px-6">
+		<div class="category-filter flex flex-wrap justify-center gap-3 lg:gap-4 py-6 lg:py-8 border-b border-neutral-100 dark:border-neutral-800">
+			<a
+				href="/materiais"
+				class:list={[
+					'px-5 lg:px-6 py-2 rounded-full text-xs lg:text-sm font-bold transition-all border',
+					!currentCategory 
+						? 'bg-primary-500 border-primary-500 text-white shadow-lg shadow-primary-500/25' 
+						: 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-primary-500 hover:text-primary-500'
+				]}
+			>
+				Todos
+			</a>
+			{
+				categories.map((cat) => (
+					<a
+						href={cat.link}
+						class:list={[
+							'px-5 lg:px-6 py-2 rounded-full text-xs lg:text-sm font-bold transition-all border',
+							currentCategory === cat.type
+								? 'bg-primary-500 border-primary-500 text-white shadow-lg shadow-primary-500/25'
+								: 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-primary-500 hover:text-primary-500'
+						]}
+					>
+						{cat.name}
+					</a>
+				))
+			}
+		</div>
+	</div>
+</div>

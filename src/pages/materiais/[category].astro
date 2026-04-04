@@ -8,6 +8,7 @@ import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
 import Button from '@components/ui/Button.astro'
 import MaterialCard from '@components/blocks/landing/MaterialCard.astro'
+import MaterialsFilter from '@components/ui/MaterialsFilter.astro'
 import materialsData from '@data/json-files/materialsData.json'
 
 export async function getStaticPaths() {
@@ -39,6 +40,8 @@ const SEO = {
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={title} text={`Todos os nossos materiais do tipo ${type} reunidos em um só lugar.`} />
+
+	<MaterialsFilter currentCategory={type} />
 
 	<Section>
 		<Row>
