@@ -41,18 +41,21 @@ const SEO = {
 	<Hero title={title} text={`Todos os nossos materiais do tipo ${type} reunidos em um só lugar.`} />
 
 	<Section>
-		<Row classes="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<Row>
 			{
 				materials.length > 0 ? (
 					materials.map((material) => (
-						<MaterialCard 
-							title={material.title}
-							description={material.description}
-							type={material.typeName}
-							link={material.link}
-							image={material.image}
-							color={material.color}
-						/>
+						<Col span="4" classes="flex">
+							<MaterialCard 
+								title={material.title}
+								description={material.description}
+								type={material.typeName}
+								link={material.link}
+								image={material.image}
+								color={material.color}
+								classes="h-full w-full"
+							/>
+						</Col>
 					))
 				) : (
 					<Col span="12" align="center">

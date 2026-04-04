@@ -6,7 +6,7 @@
 		"type": "ebook",
 		"typeName": "Ebook",
 		"link": "/materiais/ebooks/guia-produtividade",
-		"image": "/src/assets/hero-01.png",
+		"image": "/assets/materials/hero-01.png",
 		"color": "bg-blue-500",
 		"featured": true
 	},
@@ -17,7 +17,7 @@
 		"type": "download",
 		"typeName": "Download",
 		"link": "/materiais/downloads/template-planejamento",
-		"image": "/src/assets/hero-01.png",
+		"image": "/assets/materials/hero-01.png",
 		"color": "bg-emerald-500",
 		"featured": true
 	},
@@ -28,7 +28,7 @@
 		"type": "webinar",
 		"typeName": "Webinar",
 		"link": "/materiais/webinars/futuro-colaboracao",
-		"image": "/src/assets/hero-01.png",
+		"image": "/assets/materials/hero-01.png",
 		"color": "bg-amber-500",
 		"featured": true
 	},
@@ -39,7 +39,7 @@
 		"type": "evento",
 		"typeName": "Evento",
 		"link": "/materiais/eventos/foxi-conf-2024",
-		"image": "/src/assets/hero-01.png",
+		"image": "/assets/materials/hero-01.png",
 		"color": "bg-purple-500",
 		"featured": true
 	},
@@ -50,7 +50,7 @@
 		"type": "hangout",
 		"typeName": "Ao Vivo",
 		"link": "/materiais/hangouts/masterclass-lideranca",
-		"image": "/src/assets/test.jpg",
+		"image": "/assets/materials/test.jpg",
 		"color": "bg-red-500",
 		"featured": true
 	}
