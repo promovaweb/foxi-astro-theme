@@ -40,13 +40,14 @@ const sortedPosts = page
 		</Col>
 		{
 			sortedPosts.map((post: any) => (
-				<Col span="4">
+				<Col span="4" classes="flex">
 					<Post
 						link={`/blog/${post.id}`}
 						title={post.data.title}
 						subtitle={`Por ${post.data.author} em ${new Date(post.data.pubDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}`}
 						image={post.data.image}
 						tags={post.data.tags}
+						classes="h-full"
 					>
 						{post.data.description}
 					</Post>

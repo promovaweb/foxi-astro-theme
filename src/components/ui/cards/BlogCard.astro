@@ -33,36 +33,40 @@ const {
 	subtitle,
 	image,
 	link,
-	classes = '!shadow-none border border-neutral-100 dark:border-neutral-800 relative group',
+	classes,
 	tags
 } = Astro.props
+
+const cardClasses = `!shadow-none border border-neutral-100 dark:border-neutral-800 relative group h-full ${classes || ''}`
 ---
 
-<Card classes={classes}>
+<Card classes={cardClasses}>
 	{
 		image && (
-			<div class="overflow-hidden">
+			<div class="overflow-hidden aspect-[16/10]">
 				<Image
 					src={image}
 					alt={title}
 					width={600}
 					height={400}
-					class="transition-transform duration-500 group-hover:scale-105"
+					class="transition-transform duration-500 group-hover:scale-105 h-full w-full object-cover"
 				/>
 			</div>
 		)
 	}
-	<CardBody>
+	<CardBody classes="flex-1">
 		<h3 class="post-title">
 			<a href={link} class="after:absolute after:inset-0">{title}</a>
 		</h3>
 		<h4 class="post-subtitle">{subtitle}</h4>
-		<slot />
+		<div class="line-clamp-3 text-neutral-600 dark:text-neutral-400">
+			<slot />
+		</div>
 	</CardBody>
 
 	{
 		tags && (
-			<div class="post-tags relative z-20">
+			<div class="post-tags relative z-20 mt-auto">
 				{tags.map((tag: string) => (
 					<Badge name={tag} link={`/blog/tags/` + tag} classes="capitalize" />
 				))}
