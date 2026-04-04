@@ -24,6 +24,14 @@ export interface Config {
 	newsletterUrl: string
 	podcastName: string
 	podcastDescription: string
+	social: {
+		twitter?: string | null
+		linkedin?: string | null
+		instagram?: string | null
+		youtube?: string | null
+		facebook?: string | null
+		github?: string | null
+	}
 }
 
 export const configData: Config = {
@@ -44,5 +52,13 @@ export const configData: Config = {
 	exitIntentPopup: true,
 	newsletterUrl: 'https://seu-servico-de-email.com/subscribe',
 	podcastName: 'Their Side',
-	podcastDescription: 'Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo.'
+	podcastDescription: 'Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo.',
+	social: {
+		twitter: 'https://twitter.com/luizeof',
+		linkedin: 'https://linkedin.com/in/luizeof',
+		instagram: 'https://instagram.com/luizeof',
+		youtube: 'https://youtube.com/@luizeof',
+		github: 'https://github.com/luizeof',
+		facebook: null
+	}
 }

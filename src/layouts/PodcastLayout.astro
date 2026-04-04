@@ -67,6 +67,40 @@ const {
             <div class="absolute inset-0 rounded-lg ring-1 ring-black/10 ring-inset sm:rounded-xl lg:rounded-2xl" />
           </a>
 
+          <!-- Social Links -->
+          <div class="mt-6 flex justify-center lg:justify-start gap-4">
+            {configData.social.twitter && (
+              <a href={configData.social.twitter} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="Twitter">
+                <Icon name="twitter-icon" class="size-5" />
+              </a>
+            )}
+            {configData.social.linkedin && (
+              <a href={configData.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="LinkedIn">
+                <Icon name="linkedin-icon" class="size-5" />
+              </a>
+            )}
+            {configData.social.instagram && (
+              <a href={configData.social.instagram} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="Instagram">
+                <Icon name="instagram-icon" class="size-5" />
+              </a>
+            )}
+            {configData.social.youtube && (
+              <a href={configData.social.youtube} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="YouTube">
+                <Icon name="youtube-icon" class="size-5" />
+              </a>
+            )}
+            {configData.social.github && (
+              <a href={configData.social.github} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="GitHub">
+                <Icon name="icon" class="size-5" />
+              </a>
+            )}
+            {configData.social.facebook && (
+              <a href={configData.social.facebook} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="Facebook">
+                <Icon name="fb-icon" class="size-5" />
+              </a>
+            )}
+          </div>
+
           <div class="mt-10 text-center lg:mt-12 lg:text-left">
             <p class="text-xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
               <a href="/podcast">{configData.podcastName}</a>
