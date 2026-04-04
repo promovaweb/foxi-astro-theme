@@ -3,6 +3,7 @@
 // Descrição: Exibe o conteúdo completo do episódio a partir da coleção de Markdown
 
 import Layout from '@layouts/PodcastLayout.astro'
+import { Icon } from 'astro-icon/components'
 import { getCollection, render } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -26,18 +27,37 @@ const formattedDate = pubDate.toLocaleDateString('pt-BR', {
 ---
 
 <Layout title={seoTitle} description={description}>
-  <article class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-2xl mx-auto">
-      <header class="flex flex-col">
-        <time
-          datetime={pubDate.toISOString()}
-          class="order-first font-mono text-sm leading-7 text-neutral-500 dark:text-neutral-400"
-        >
-          {formattedDate}
-        </time>
-        <h1 class="mt-2 text-4xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
-          {title}
-        </h1>
+  <article class="py-16 px-4 sm:px-6 lg:px-12 xl:px-16">
+    <div class="w-full">
+      <header class="md:flex md:items-center md:justify-between mb-10">
+        <div class="min-w-0 flex-1">
+          <time
+            datetime={pubDate.toISOString()}
+            class="block font-mono text-sm leading-7 text-neutral-500 dark:text-neutral-400"
+          >
+            {formattedDate}
+          </time>
+          <h1 class="mt-2 text-2xl font-bold text-neutral-900 dark:text-neutral-50 sm:truncate sm:text-3xl sm:tracking-tight font-headings">
+            {title}
+          </h1>
+        </div>
+        <div class="mt-4 flex md:mt-0 md:ml-4">
+          <button
+            type="button"
+            class="inline-flex items-center rounded-md bg-neutral-200 dark:bg-white/10 px-3 py-2 text-sm font-semibold text-neutral-900 dark:text-white hover:bg-neutral-300 dark:hover:bg-white/20 transition shadow-sm"
+          >
+            Compartilhar
+          </button>
+          <a
+            href={`https://www.youtube.com/watch?v=${youtubeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ml-3 inline-flex items-center gap-2 rounded-md bg-primary-500 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-600 transition shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+          >
+            <Icon name="youtube-icon" class="size-5" />
+            Ver no Youtube
+          </a>
+        </div>
       </header>
 
       <!-- YouTube Video em Destaque -->
@@ -52,7 +72,7 @@ const formattedDate = pubDate.toLocaleDateString('pt-BR', {
         ></iframe>
       </div>
 
-      <div class="mt-10 prose prose-neutral dark:prose-invert max-w-none">
+      <div class="mt-10 prose prose-neutral dark:prose-invert max-w-none w-full">
         <Content />
       </div>
 
