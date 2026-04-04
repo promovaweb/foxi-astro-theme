@@ -30,6 +30,15 @@ const {
   description = configData.siteDescription, 
   ogImage = configData.ogImage 
 } = Astro.props
+
+const socialConfig = {
+  twitter: { color: 'bg-[#000000]', icon: 'twitter-icon', label: 'X' },
+  linkedin: { color: 'bg-[#0077B5]', icon: 'linkedin-icon', label: 'LinkedIn' },
+  instagram: { color: 'bg-[#E4405F]', icon: 'instagram-icon', label: 'Instagram' },
+  youtube: { color: 'bg-[#FF0000]', icon: 'youtube-icon', label: 'YouTube' },
+  github: { color: 'bg-[#181717]', icon: 'icon', label: 'GitHub' },
+  facebook: { color: 'bg-[#1877F2]', icon: 'fb-icon', label: 'Facebook' }
+}
 ---
 
 <!doctype html>
@@ -68,37 +77,24 @@ const {
           </a>
 
           <!-- Social Links -->
-          <div class="mt-6 flex justify-center lg:justify-start gap-4">
-            {configData.social.twitter && (
-              <a href={configData.social.twitter} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="Twitter">
-                <Icon name="twitter-icon" class="size-5" />
-              </a>
-            )}
-            {configData.social.linkedin && (
-              <a href={configData.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="LinkedIn">
-                <Icon name="linkedin-icon" class="size-5" />
-              </a>
-            )}
-            {configData.social.instagram && (
-              <a href={configData.social.instagram} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="Instagram">
-                <Icon name="instagram-icon" class="size-5" />
-              </a>
-            )}
-            {configData.social.youtube && (
-              <a href={configData.social.youtube} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="YouTube">
-                <Icon name="youtube-icon" class="size-5" />
-              </a>
-            )}
-            {configData.social.github && (
-              <a href={configData.social.github} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="GitHub">
-                <Icon name="icon" class="size-5" />
-              </a>
-            )}
-            {configData.social.facebook && (
-              <a href={configData.social.facebook} target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-primary-500 transition-colors" aria-label="Facebook">
-                <Icon name="fb-icon" class="size-5" />
-              </a>
-            )}
+          <div class="mt-6 flex justify-center lg:justify-start gap-3">
+            {Object.entries(configData.social).map(([platform, url]) => {
+              if (!url) return null;
+              const config = socialConfig[platform as keyof typeof socialConfig];
+              if (!config) return null;
+              
+              return (
+                <a 
+                  href={url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class={`${config.color} text-white p-2.5 rounded-xl transition-all hover:scale-110 shadow-lg shadow-black/5 active:scale-95`}
+                  aria-label={config.label}
+                >
+                  <Icon name={config.icon} class="size-4" />
+                </a>
+              );
+            })}
           </div>
 
           <div class="mt-10 text-center lg:mt-12 lg:text-left">
