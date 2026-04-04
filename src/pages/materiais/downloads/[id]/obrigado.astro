@@ -1,0 +1,83 @@
+---
+// Página de Agradecimento: Download (Template Dinâmico)
+// ------------
+import Layout from '@layouts/landing/DownloadLanding.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+// Import de dados
+import downloads from '@data/json-files/downloads.json'
+
+export async function getStaticPaths() {
+	return downloads.map((download) => ({
+		params: { id: download.id },
+		props: { download }
+	}))
+}
+
+const { download } = Astro.props
+const { thankYou } = download
+
+const metadata = {
+	title: `Download Iniciado | ${download.title}`,
+	description: thankYou.text
+}
+
+const downloadUrl = thankYou.downloadUrl
+---
+
+<Layout {...metadata}>
+	<Section padding="both" classes="min-h-[70vh] flex items-center bg-white dark:bg-neutral-950 pt-32 lg:pt-48">
+		<Row>
+			<Col span="12" lg="7" classes="flex flex-col justify-center">
+				<div class="mb-8 inline-flex items-center justify-center w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-500 rounded-2xl">
+					<Icon name="check-circle" class="w-8 h-8" />
+				</div>
+				<h1 class="text-4xl lg:text-7xl font-black mb-6 text-neutral-900 dark:text-white leading-tight" set:html={thankYou.title} />
+				<p class="text-xl text-neutral-600 dark:text-neutral-400 mb-10 max-w-2xl">
+					{thankYou.text}
+				</p>
+				
+				<div class="flex flex-wrap gap-4">
+					<Button link={downloadUrl} style="primary" size="lg" classes="w-full sm:w-auto">
+						<Icon name="bolt" class="w-5 h-5 mr-2" />
+						{thankYou.buttonText}
+					</Button>
+					<Button link="/materiais" style="neutral" variation="outline" size="lg" classes="w-full sm:w-auto">
+						Explorar mais Materiais
+					</Button>
+				</div>
+			</Col>
+			<Col span="12" lg="5" classes="mt-16 lg:mt-0">
+				<div class="bg-neutral-50 dark:bg-neutral-900 p-8 lg:p-12 rounded-[3rem] border border-neutral-100 dark:border-neutral-800 shadow-sm relative overflow-hidden">
+					<h3 class="text-2xl font-bold mb-8 text-neutral-900 dark:text-white">{thankYou.nextStepsTitle}</h3>
+					<div class="space-y-8">
+						{thankYou.nextSteps.map((step: any) => (
+							<div class="flex gap-4">
+								<div class="w-12 h-12 bg-white dark:bg-neutral-800 rounded-xl shadow-sm flex items-center justify-center shrink-0 border border-neutral-100 dark:border-neutral-700">
+									<Icon name="check-circle" class="w-6 h-6 text-primary-500" />
+								</div>
+								<div>
+									<h4 class="font-bold text-neutral-900 dark:text-white mb-1">{step.title}</h4>
+									<p class="text-neutral-500 text-sm">{step.text}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<script define:vars={{ downloadUrl }}>
+		// Gatilho de download automático se for um arquivo direto
+		if (downloadUrl && !downloadUrl.startsWith('http')) {
+			setTimeout(() => {
+				window.location.href = downloadUrl;
+			}, 2000);
+		}
+	</script>
+</Layout>

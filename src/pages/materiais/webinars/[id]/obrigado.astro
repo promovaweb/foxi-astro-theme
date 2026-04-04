@@ -45,7 +45,7 @@ const thankYou = webinar.thankYou
 					</Button>
 					<a href="#" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
 						<Icon name="bell" class="w-5 h-5" />
-						{webinar.layout.thankYouPage.calendarText}
+						{webinar.layout?.thankYouPage?.calendarText || "Adicionar ao Calendário"}
 					</a>
 				</div>
 			</Col>

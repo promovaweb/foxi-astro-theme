@@ -1,0 +1,251 @@
+[
+	{
+		"id": "template-planejamento",
+		"title": "Template de Planejamento Estratégico",
+		"description": "Baixe nosso template exclusivo em PDF para planejar o próximo trimestre da sua empresa com foco em resultados.",
+		"tag": "Ferramenta Gratuita",
+		"heroTitle": "Planeje seu sucesso com nosso <strong>Template Estratégico</strong>",
+		"heroImage": "/assets/materials/hero-01.png",
+		"formTitle": "Baixe o Template Gratuitamente",
+		"formButtonText": "Quero baixar agora",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"infoNote": "Sua privacidade é nossa prioridade. Download 100% seguro.",
+		"section1": {
+			"title": "Visão 360º do seu <strong>negócio</strong>",
+			"text": "Nosso template oferece uma interface visual intuitiva para você mapear cada aspecto do seu planejamento trimestral. Elimine a confusão de planilhas complexas e foque no que realmente importa: a execução estratégica.",
+			"subtext": "Com este recurso, você poderá visualizar gargalos antes que eles aconteçam e manter toda a sua equipe na mesma página, utilizando frameworks validados pelo mercado."
+		},
+		"section2": {
+			"title": "Por que usar este <strong>template</strong>?",
+			"text": "Diferente de modelos genéricos, este template foi construído com base em metodologias ágeis e OKRs, adaptando-se perfeitamente a startups e empresas consolidadas.",
+			"features": [
+				{ "icon": "rocket", "label": "Implementação Imediata" },
+				{ "icon": "chart-pie", "label": "Foco Total em Dados" }
+			]
+		},
+		"details": {
+			"format": "PDF Interativo",
+			"size": "2.4 MB",
+			"version": "2.0",
+			"lastUpdated": "Março 2024"
+		},
+		"contentTitle": "O que você vai <strong>encontrar</strong>:",
+		"contentItems": [
+			"Framework de definição de OKRs",
+			"Matriz de priorização de projetos",
+			"Cronograma macro trimestral",
+			"Planilha de alocação de recursos",
+			"Guia de métricas de sucesso",
+			"Checklist de revisão semanal"
+		],
+		"howToTitle": "Como utilizar o material?",
+		"howToSteps": [
+			"Após o download, abra o PDF no seu navegador ou leitor de preferência.",
+			"O arquivo é interativo: você pode preencher os campos diretamente na tela.",
+			"Salve sua versão preenchida e compartilhe com os stakeholders do projeto."
+		],
+		"howToTip": "Dica: Recomendamos o Adobe Acrobat Reader para melhor suporte às funções interativas.",
+		"sliderTitle": "Conheça cada detalhe do template",
+		"slides": [
+			{ "image": "/assets/materials/hero-01.png", "caption": "Interface intuitiva para visualização clara de objetivos e metas trimestrais." },
+			{ "image": "/assets/materials/test.jpg", "caption": "Controle total sobre o cronograma macro e alocação de recursos da equipe." }
+		],
+		"thankYou": {
+			"title": "Seu template está <strong>pronto</strong>!",
+			"text": "O download deve começar automaticamente. Caso contrário, use o botão abaixo.",
+			"buttonText": "Baixar Template (PDF)",
+			"downloadUrl": "/assets/materials/hero-01.png",
+			"nextStepsTitle": "O que fazer agora?",
+			"nextSteps": [
+				{ "title": "Leia o Guia", "text": "As primeiras páginas explicam a metodologia." },
+				{ "title": "Compartilhe", "text": "Envie para sua equipe no Slack ou Teams." }
+			]
+		}
+	},
+	{
+		"id": "checklist-seguranca",
+		"title": "Checklist de Segurança Digital",
+		"description": "Proteja sua empresa com os passos essenciais de segurança da informação para times remotos.",
+		"tag": "Segurança & Privacidade",
+		"heroTitle": "Sua empresa está <strong>protegida</strong> contra ataques?",
+		"heroImage": "/assets/materials/hero-01.png",
+		"formTitle": "Receba o Checklist Grátis",
+		"formButtonText": "Garantir minha proteção",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"infoNote": "Protocolos de segurança atualizados conforme LGPD.",
+		"section1": {
+			"title": "Segurança como <strong>prioridade</strong>",
+			"text": "Ataques cibernéticos podem destruir a reputação de uma empresa em minutos. Este checklist foi desenhado para ser o seu escudo contra as vulnerabilidades mais comuns.",
+			"subtext": "Passamos por infraestrutura, acessos de colaboradores e protocolos de recuperação de desastres."
+		},
+		"section2": {
+			"title": "Abordagem <strong>Prática</strong>",
+			"text": "Nada de teorias complexas. Cada item do checklist é uma ação clara que você pode executar hoje mesmo.",
+			"features": [
+				{ "icon": "shield-check", "label": "Compliance LGPD" },
+				{ "icon": "key", "label": "Gestão de Acessos" }
+			]
+		},
+		"details": {
+			"format": "Checklist XLSX/PDF",
+			"size": "1.1 MB",
+			"version": "1.5",
+			"lastUpdated": "Abril 2024"
+		},
+		"contentTitle": "Tópicos de <strong>Segurança</strong>:",
+		"contentItems": [
+			"Segurança de Endpoints (Notebooks)",
+			"Autenticação em dois fatores (MFA)",
+			"Política de senhas e acessos",
+			"Criptografia de dados sensíveis",
+			"Protocolo de Backup e Restore",
+			"Treinamento de Phishing para times"
+		],
+		"howToTitle": "Como implementar?",
+		"howToSteps": [
+			"Distribua o checklist para o responsável de TI.",
+			"Marque os itens já concluídos e identifique as brechas.",
+			"Estabeleça um cronograma para fechar os pontos abertos."
+		],
+		"howToTip": "Dica: Realize esta auditoria a cada 6 meses para manter a conformidade.",
+		"sliderTitle": "Visualize as categorias de proteção",
+		"slides": [
+			{ "image": "/assets/materials/hero-01.png", "caption": "Cobertura completa desde a infraestrutura até o comportamento humano." }
+		],
+		"thankYou": {
+			"title": "Checklist <strong>liberado</strong>!",
+			"text": "Comece sua auditoria de segurança agora mesmo para evitar riscos desnecessários.",
+			"buttonText": "Baixar Checklist Agora",
+			"downloadUrl": "/assets/materials/hero-01.png",
+			"nextStepsTitle": "Recomendações",
+			"nextSteps": [
+				{ "title": "Auditoria", "text": "Comece pelos itens de 'Prioridade Alta'." },
+				{ "title": "Suporte", "text": "Fale com nossos especialistas se precisar de ajuda." }
+			]
+		}
+	},
+	{
+		"id": "planilha-metricas",
+		"title": "Planilha de Métricas de Marketing",
+		"description": "Controle seu ROI, CAC e LTV em uma planilha profissional pronta para uso.",
+		"tag": "Planilha Profissional",
+		"heroTitle": "Tome decisões baseadas em <strong>dados reais</strong>",
+		"heroImage": "/assets/materials/hero-01.png",
+		"formTitle": "Acessar Planilha",
+		"formButtonText": "Quero controlar minhas métricas",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"infoNote": "Fórmulas automáticas e Dashboards integrados.",
+		"section1": {
+			"title": "O fim do <strong>achismo</strong>",
+			"text": "Se você não mede, você não gerencia. Nossa planilha automatiza o cálculo das métricas mais importantes do marketing digital moderno.",
+			"subtext": "Basta inserir os dados brutos de suas campanhas e os Dashboards serão gerados instantaneamente."
+		},
+		"section2": {
+			"title": "Visibilidade de <strong>ROI</strong>",
+			"text": "Saiba exatamente quanto cada real investido está trazendo de retorno para o seu negócio.",
+			"features": [
+				{ "icon": "chart-pie", "label": "Dashboard Visual" },
+				{ "icon": "bolt", "label": "Cálculos Automáticos" }
+			]
+		},
+		"details": {
+			"format": "Google Sheets / Excel",
+			"size": "N/A",
+			"version": "3.2",
+			"lastUpdated": "Janeiro 2024"
+		},
+		"contentTitle": "Métricas <strong>incluídas</strong>:",
+		"contentItems": [
+			"CAC (Custo de Aquisição de Cliente)",
+			"LTV (Lifetime Value)",
+			"ROI por Canal de Aquisição",
+			"Taxa de Conversão do Funil",
+			"Payback Period",
+			"Churn Rate Mensal"
+		],
+		"howToTitle": "Como usar a planilha?",
+		"howToSteps": [
+			"Clique no link para criar uma cópia no seu Google Drive.",
+			"Vá até a aba 'Configurações' e defina seus canais.",
+			"Insira seus dados mensais na aba 'Input'."
+		],
+		"howToTip": "Dica: Integre com o Google Analytics para importar dados automaticamente via add-ons.",
+		"sliderTitle": "Dashboards prontos para sua apresentação",
+		"slides": [
+			{ "image": "/assets/materials/hero-01.png", "caption": "Gráficos limpos e profissionais prontos para reuniões de diretoria." }
+		],
+		"thankYou": {
+			"title": "Sua planilha está <strong>disponível</strong>!",
+			"text": "Você recebeu uma cópia mestre. Lembre-se de salvar em sua conta pessoal ou da empresa.",
+			"buttonText": "Abrir Planilha no Google Sheets",
+			"downloadUrl": "https://docs.google.com/spreadsheets/d/1",
+			"nextStepsTitle": "Próximos Passos",
+			"nextSteps": [
+				{ "title": "Cópia", "text": "Vá em Arquivo > Fazer uma cópia." },
+				{ "title": "Suporte", "text": "Assista ao vídeo tutorial na aba 'Ajuda'." }
+			]
+		}
+	},
+	{
+		"id": "kit-onboarding",
+		"title": "Kit de Onboarding de Clientes",
+		"description": "Garanta o sucesso dos seus clientes desde o primeiro dia com nossos templates de boas-vindas.",
+		"tag": "Customer Success",
+		"heroTitle": "Encante seus clientes no <strong>primeiro contato</strong>",
+		"heroImage": "/assets/materials/hero-01.png",
+		"formTitle": "Baixar Kit de Onboarding",
+		"formButtonText": "Quero o Kit Completo",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"infoNote": "Templates editáveis no Canva e Word.",
+		"section1": {
+			"title": "O segredo da <strong>retenção</strong>",
+			"text": "A jornada de retenção começa no onboarding. Um cliente que vê valor rápido (Time to Value) é um cliente que permanece por anos.",
+			"subtext": "Este kit contém tudo o que você precisa para estruturar uma recepção memorável e eficiente."
+		},
+		"section2": {
+			"title": "Experiência do <strong>Cliente</strong>",
+			"text": "Reduza a fricção inicial e estabeleça expectativas claras com cronogramas de implementação bem definidos.",
+			"features": [
+				{ "icon": "user-group", "label": "Foco no Sucesso" },
+				{ "icon": "check-circle", "label": "Templates Prontos" }
+			]
+		},
+		"details": {
+			"format": "ZIP (DOCX, PDF, CANVA)",
+			"size": "15 MB",
+			"version": "1.0",
+			"lastUpdated": "Fevereiro 2024"
+		},
+		"contentTitle": "O que vem no <strong>Kit</strong>:",
+		"contentItems": [
+			"Template de E-mail de Boas-Vindas",
+			"Apresentação de Kick-off meeting",
+			"Checklist de implementação inicial",
+			"Guia 'Primeiros Passos' para o usuário",
+			"Formulário de coleta de dados (Discovery)",
+			"Roteiro para QBR (Quarterly Business Review)"
+		],
+		"howToTitle": "Como aproveitar o kit?",
+		"howToSteps": [
+			"Extraia o conteúdo do arquivo ZIP.",
+			"Personalize os templates com sua marca no Canva ou Word.",
+			"Integre os textos em sua ferramenta de automação de e-mail."
+		],
+		"howToTip": "Dica: Adapte o tom de voz dos e-mails para refletir a personalidade da sua marca.",
+		"sliderTitle": "Exemplos de templates incluídos",
+		"slides": [
+			{ "image": "/assets/materials/hero-01.png", "caption": "Design moderno e focado em clareza para o novo cliente." }
+		],
+		"thankYou": {
+			"title": "Seu Kit foi <strong>liberado</strong>!",
+			"text": "Comece a personalizar sua experiência de onboarding agora mesmo e reduza o churn.",
+			"buttonText": "Baixar Kit Completo (ZIP)",
+			"downloadUrl": "/assets/materials/hero-01.png",
+			"nextStepsTitle": "Melhores Práticas",
+			"nextSteps": [
+				{ "title": "Personalização", "text": "Adicione o logo da sua empresa nos arquivos." },
+				{ "title": "Feedback", "text": "Pergunte aos seus clientes o que acharam do novo fluxo." }
+			]
+		}
+	}
+]

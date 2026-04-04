@@ -1,5 +1,5 @@
 ---
-// Página de Agradecimento: Guia de Produtividade
+// Página de Agradecimento: Ebook (Template Dinâmico)
 // ------------
 import Layout from '@layouts/landing/EbookLanding.astro'
 import Section from '@components/ui/Section.astro'
@@ -9,35 +9,46 @@ import Button from '@components/ui/Button.astro'
 import EbookCover from '@components/ui/EbookCover.astro'
 import { Icon } from 'astro-icon/components'
 
+// Import de dados
+import ebooks from '@data/json-files/ebooks.json'
+
+export async function getStaticPaths() {
+	return ebooks.map((ebook) => ({
+		params: { id: ebook.id },
+		props: { ebook }
+	}))
+}
+
+const { ebook } = Astro.props
+const { thankYou } = ebook
+
 const metadata = {
-	title: "Obrigado | Guia de Produtividade",
-	description: "Obrigado por baixar nosso guia. O material foi enviado para seu e-mail."
+	title: `Obrigado | ${ebook.title.replace(/<\/?[^>]+(>|$)/g, "")}`,
+	description: thankYou.text
 }
 ---
 
 <Layout {...metadata}>
-	<Section padding="both" classes="bg-white dark:bg-neutral-950">
+	<Section padding="both" classes="bg-white dark:bg-neutral-950 pt-32 lg:pt-48">
 		<Row>
 			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex items-center justify-center">
-				<EbookCover title="Guia Definitivo de Produtividade" mainColor="bg-blue-500" classes="max-w-md" />
+				<EbookCover title={ebook.title} mainColor={ebook.color} classes="max-w-md" />
 			</Col>
 			<Col span="12" lg="6" classes="lg:pl-16 flex flex-col justify-center">
-				<div class="mb-8 inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-500 rounded-2xl">
+				<div class="mb-8 inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-500 rounded-2xl">
 					<Icon name="check-circle" class="w-8 h-8" />
 				</div>
-				<h1 class="text-4xl lg:text-6xl font-black mb-6 text-neutral-900 dark:text-white leading-tight">
-					O guia está a caminho do seu <strong>e-mail</strong>!
-				</h1>
+				<h1 class="text-4xl lg:text-6xl font-black mb-6 text-neutral-900 dark:text-white leading-tight" set:html={thankYou.title} />
 				<p class="text-xl text-neutral-600 dark:text-neutral-400 mb-8 max-w-xl">
-					Acabamos de enviar o link de acesso para o seu endereço de e-mail. Por favor, verifique sua caixa de entrada e também a pasta de spam.
+					{thankYou.text}
 				</p>
 				
 				<div class="space-y-6 mb-12">
 					<div class="flex items-start gap-4">
 						<Icon name="bell" class="w-6 h-6 text-primary-500 mt-1" />
 						<div>
-							<h4 class="font-bold text-neutral-900 dark:text-white">Dica de Leitura</h4>
-							<p class="text-neutral-500 text-sm">Abra o guia no seu tablet ou e-reader para uma melhor experiência visual.</p>
+							<h4 class="font-bold text-neutral-900 dark:text-white">{thankYou.tipTitle}</h4>
+							<p class="text-neutral-500 text-sm">{thankYou.tipText}</p>
 						</div>
 					</div>
 				</div>
@@ -58,10 +69,10 @@ const metadata = {
 	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24 border-t border-neutral-100 dark:border-neutral-800">
 		<Row justify="center">
 			<Col span="12" lg="8" align="center">
-				<h2 class="text-3xl font-bold mb-6 text-neutral-900 dark:text-white">Quer mais dicas de produtividade?</h2>
-				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-10">Junte-se a mais de 10.000 profissionais em nossa comunidade no Discord e troque experiências em tempo real.</p>
-				<Button link="#" style="neutral" size="lg">
-					<Icon name="discord-icon" class="w-6 h-6 mr-2" />
+				<h2 class="text-3xl font-bold mb-6 text-neutral-900 dark:text-white">{thankYou.communityTitle}</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-10">{thankYou.communityText}</p>
+				<Button link={thankYou.communityLink} style="neutral" size="lg">
+					<Icon name="user-group" class="w-6 h-6 mr-2" />
 					Entrar na Comunidade
 				</Button>
 			</Col>

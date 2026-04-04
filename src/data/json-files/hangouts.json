@@ -5,8 +5,9 @@
 		"title": "Masterclass de <strong>Liderança</strong> 2024",
 		"description": "Garanta sua vaga na Masterclass ao vivo sobre estratégias de liderança para o próximo ano.",
 		"tag": "Hangout Ao Vivo & Gratuito",
-		"heroImage": "/src/assets/test.jpg",
+		"heroImage": "/assets/materials/test.jpg",
 		"videoId": "dQw4w9WgXcQ",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
 		"thankYouPage": "/materiais/hangouts/masterclass-lideranca/obrigado",
 		"liveDetails": {
 			"day": "30",
@@ -14,6 +15,25 @@
 			"time": "19:00",
 			"timezone": "BRT",
 			"features": ["Inscrições Gratuitas", "Certificado Incluso"]
+		},
+		"layout": {
+			"hero": {
+				"formTitle": "Garanta sua Vaga no Hangout",
+				"formButtonText": "Realizar inscrição gratuita",
+				"accessNote": "O link será enviado por e-mail."
+			},
+			"infoSection": {
+				"title": "Detalhes do Hangout",
+				"subtitle": "Informações sobre a transmissão ao vivo.",
+				"discussionTitle": "O que vamos <strong>aprender</strong>:"
+			},
+			"expertsSection": {
+				"title": "Convidados <strong>Especiais</strong>",
+				"subtitle": "Lideranças que estão transformando o mercado de tecnologia."
+			},
+			"thankYouPage": {
+				"calendarText": "Salvar no Google Calendar"
+			}
 		},
 		"details": {
 			"format": "Transmissão Ao Vivo",
@@ -60,7 +80,7 @@
 			"host": {
 				"name": "Camila Costa",
 				"role": "CEO & Fundadora da Innovate",
-				"image": "/blog/post-01.png",
+				"image": "/assets/materials/avatars/avatar-01.webp",
 				"bio": "Camila é referência em gestão de inovação, tendo liderado a transformação cultural em mais de 50 empresas da Fortune 500.",
 				"socials": [
 					{ "platform": "website", "link": "#" },
@@ -72,8 +92,8 @@
 				{
 					"name": "Roberto Silva",
 					"role": "Especialista em Gestão Ágil",
-					"image": "/blog/post-02.png",
-					"bio": "Autor de 3 best-sellers sobre metodologias ágeis e mentor de executivos C-level.",
+					"image": "/assets/materials/avatars/avatar-02.webp",
+					"bio": "Roberto é autor de 3 best-sellers sobre metodologias ágeis e mentor de executivos C-level.",
 					"socials": [
 						{ "platform": "linkedin", "link": "#" },
 						{ "platform": "twitter", "link": "#" }
@@ -82,35 +102,12 @@
 				{
 					"name": "Fernanda Alves",
 					"role": "Diretora de Cultura",
-					"image": "/blog/post-03.png",
-					"bio": "Transforma a teoria organizacional em práticas diárias que aumentam o engajamento.",
+					"image": "/assets/materials/avatars/avatar-03.webp",
+					"bio": "Fernanda transforma a teoria organizacional em práticas diárias que aumentam o engajamento.",
 					"socials": [
 						{ "platform": "linkedin", "link": "#" },
 						{ "platform": "instagram", "link": "#" }
 					]
-				}
-			],
-			"team": [
-				{
-					"name": "Juliana Lima",
-					"role": "Moderação",
-					"image": "/blog/post-04.png",
-					"bio": "Especialista em engajamento de comunidades digitais.",
-					"socials": [{ "platform": "instagram", "link": "#" }]
-				},
-				{
-					"name": "Paulo Mendes",
-					"role": "Suporte Técnico",
-					"image": "/blog/post-05.png",
-					"bio": "Garante a melhor experiência de áudio e vídeo.",
-					"socials": [{ "platform": "whatsapp", "link": "#" }, { "platform": "youtube", "link": "#" }]
-				},
-				{
-					"name": "Carla Souza",
-					"role": "Curadoria",
-					"image": "/blog/post-06.png",
-					"bio": "Responsável pela seleção dos temas e palestrantes.",
-					"socials": [{ "platform": "linkedin", "link": "#" }, { "platform": "facebook", "link": "#" }]
 				}
 			]
 		}

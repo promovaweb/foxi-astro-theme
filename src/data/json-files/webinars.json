@@ -5,7 +5,7 @@
 		"title": "O Futuro da <strong>Colaboração</strong> Remota",
 		"description": "Assista a este webinar exclusivo com especialistas do mercado sobre as trendências de trabalho para os próximos anos.",
 		"tag": "Webinar Online & Gratuito",
-		"heroImage": "/src/assets/bg-01.png",
+		"heroImage": "/assets/materials/bg-01.png",
 		"videoId": "dQw4w9WgXcQ",
 		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
 		"thankYouPage": "/materiais/webinars/futuro-colaboracao/obrigado",

@@ -1,0 +1,187 @@
+[
+	{
+		"id": "foxi-conf-2024",
+		"title": "Foxi Conf 2024",
+		"description": "Participe do maior evento de tecnologia e produtividade do ano. Palestras, workshops e networking.",
+		"tag": "Evento Presencial",
+		"heroTitle": "O Encontro da <strong>Tecnologia</strong> & Produtividade",
+		"heroHashtag": "#FOXI2024",
+		"heroIcon": "user-group",
+		"formTitle": "Garanta sua entrada",
+		"formButtonText": "Confirmar presença",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"whyJoinTitle": "Por que participar?",
+		"benefits": [
+			{
+				"title": "Palestras Inspiradoras",
+				"text": "Líderes das maiores empresas de tecnologia compartilhando segredos de produtividade.",
+				"icon": "bolt"
+			},
+			{
+				"title": "Workshops Práticos",
+				"text": "Mão na massa para aprender a configurar fluxos de trabalho avançados no Foxi.",
+				"icon": "squares-plus"
+			},
+			{
+				"title": "Networking de Elite",
+				"text": "Conecte-se com profissionais que estão transformando suas áreas de atuação.",
+				"icon": "user-group"
+			},
+			{
+				"title": "Certificado Foxi",
+				"text": "Receba um certificado oficial de participação e proficiência em ferramentas Foxi.",
+				"icon": "trophy"
+			}
+		],
+		"thankYou": {
+			"title": "Inscrição <strong>Confirmada</strong>!",
+			"text": "Sua vaga na Foxi Conf 2024 está garantida. Enviamos os detalhes do credenciamento para o seu e-mail.",
+			"buttonText": "Ver Cronograma Completo",
+			"infoTitle": "Informações Importantes",
+			"infoItems": [
+				{ "title": "Local", "text": "Centro de Convenções Tech, São Paulo/SP." },
+				{ "title": "Data", "text": "15 e 16 de Outubro de 2024." }
+			]
+		}
+	},
+	{
+		"id": "foxi-summit-2025",
+		"title": "Foxi Summit 2025",
+		"description": "O maior encontro de fundadores e líderes de produto do Brasil. Dois dias de conteúdo intenso.",
+		"tag": "Evento Presencial",
+		"heroTitle": "O <strong>Summit</strong> que vai mudar sua visão de negócio",
+		"heroHashtag": "#FOXISUMMIT25",
+		"heroIcon": "bolt",
+		"formTitle": "Garanta seu ingresso",
+		"formButtonText": "Quero participar",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"whyJoinTitle": "O que esperar do Summit?",
+		"benefits": [
+			{
+				"title": "Keynotes de Impacto",
+				"text": "Fundadores de unicórnios brasileiros e referências globais em produto e tecnologia.",
+				"icon": "rocket"
+			},
+			{
+				"title": "8 Workshops Paralelos",
+				"text": "Escolha as trilhas que fazem mais sentido para sua área: produto, vendas, dados ou cultura.",
+				"icon": "squares-plus"
+			},
+			{
+				"title": "Área de Networking VIP",
+				"text": "Espaço dedicado para conexões estratégicas com outros fundadores e investidores presentes.",
+				"icon": "user-group"
+			},
+			{
+				"title": "Prêmio Foxi Inovação",
+				"text": "Apresente seu projeto e concorra ao prêmio mais disputado do ecossistema de startups.",
+				"icon": "trophy"
+			}
+		],
+		"stats": [
+			{ "value": "2.000+", "label": "Participantes esperados" },
+			{ "value": "40+", "label": "Palestrantes confirmados" },
+			{ "value": "2 dias", "label": "De conteúdo intenso" }
+		],
+		"thankYou": {
+			"title": "Presença <strong>Garantida</strong>!",
+			"text": "Você faz parte do Foxi Summit 2025. Prepare-se para dois dias que vão transformar seu negócio.",
+			"buttonText": "Baixar Ingresso Digital",
+			"infoTitle": "Prepare seu Check-in",
+			"infoItems": [
+				{ "title": "Check-in", "text": "Início às 08:00 no dia 10 de Março." },
+				{ "title": "Hospedagem", "text": "Confira hotéis parceiros em nosso site oficial." }
+			]
+		}
+	},
+	{
+		"id": "hackathon-inovacao",
+		"title": "Hackathon Foxi Inovação",
+		"description": "48 horas de código, pizza e inovação. Crie soluções incríveis usando a API do Foxi e concorra a prêmios.",
+		"tag": "Competição de Código",
+		"heroTitle": "Codifique o <strong>Futuro</strong> em 48 Horas",
+		"heroHashtag": "#HACKFOXI",
+		"heroIcon": "rocket",
+		"formTitle": "Inscreva sua equipe",
+		"formButtonText": "Participar do Hackathon",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"whyJoinTitle": "Desafios & Prêmios",
+		"benefits": [
+			{
+				"title": "R$ 50k em Prêmios",
+				"text": "As três melhores soluções serão premiadas em dinheiro e créditos na plataforma.",
+				"icon": "trophy"
+			},
+			{
+				"title": "Mentorias VIP",
+				"text": "Engenheiros seniores do Foxi estarão disponíveis para ajudar seu time.",
+				"icon": "light-bulb"
+			},
+			{
+				"title": "Vagas de Emprego",
+				"text": "Empresas parceiras estarão de olho nos talentos que se destacarem.",
+				"icon": "identification"
+			},
+			{
+				"title": "Kit Hacker",
+				"text": "Todos os participantes ganham um kit exclusivo com camiseta, adesivos e brindes.",
+				"icon": "cube-transparent"
+			}
+		],
+		"thankYou": {
+			"title": "Inscrição <strong>Recebida</strong>!",
+			"text": "Sua equipe está no processo de seleção para o Hackathon. Entraremos em contato em breve.",
+			"buttonText": "Entrar no Discord do Evento",
+			"infoTitle": "Próximos Passos",
+			"infoItems": [
+				{ "title": "Seleção", "text": "O resultado das equipes selecionadas sai dia 01/06." },
+				{ "title": "Regulamento", "text": "Leia as regras da competição enviadas por e-mail." }
+			]
+		}
+	},
+	{
+		"id": "workshop-ia-2025",
+		"title": "Workshop IA na Prática",
+		"description": "Aprenda a criar agentes inteligentes e automações avançadas no Workshop mais prático do mercado.",
+		"tag": "Workshop Técnico",
+		"heroTitle": "Domine a <strong>IA Generativa</strong> aplicada",
+		"heroHashtag": "#IA2025",
+		"heroIcon": "bolt",
+		"formTitle": "Inscrição no Workshop",
+		"formButtonText": "Garantir minha vaga",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"whyJoinTitle": "O que você vai construir?",
+		"benefits": [
+			{
+				"title": "Seu próprio Agente",
+				"text": "Saia do workshop com um agente de IA funcional rodando na sua infraestrutura.",
+				"icon": "rocket"
+			},
+			{
+				"title": "Integração via API",
+				"text": "Aprenda a conectar LLMs em seus sistemas legados via APIs robustas.",
+				"icon": "arrow-path-rounded-square"
+			},
+			{
+				"title": "Prompt Engineering",
+				"text": "Técnicas avançadas para extrair o melhor resultado dos modelos de linguagem.",
+				"icon": "chat-bubble-left-right"
+			},
+			{
+				"title": "Material do Aluno",
+				"text": "Acesso vitalício aos repositórios de código e vídeos das aulas.",
+				"icon": "book"
+			}
+		],
+		"thankYou": {
+			"title": "Bem-vindo ao <strong>Workshop</strong>!",
+			"text": "Sua matrícula foi confirmada. Prepare seu ambiente de desenvolvimento.",
+			"buttonText": "Acessar Área do Aluno",
+			"infoTitle": "Requisitos Técnicos",
+			"infoItems": [
+				{ "title": "Node.js", "text": "Versão 18 ou superior instalada." },
+				{ "title": "API Key", "text": "Tenha uma conta ativa na OpenAI ou Anthropic." }
+			]
+		}
+	}
+]

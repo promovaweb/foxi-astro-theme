@@ -1,0 +1,142 @@
+[
+	{
+		"id": "guia-produtividade",
+		"title": "Guia Definitivo de <strong>Produtividade</strong>",
+		"description": "Aprenda como dominar seu fluxo de trabalho e extrair o máximo de eficiência com nossas ferramentas.",
+		"tag": "Material Exclusivo",
+		"heroTitle": "Domine seu tempo e <strong>multiplique</strong> seus resultados",
+		"heroText": "Descubra as estratégias usadas pelas equipes de alta performance para manter o foco e entregar projetos complexos sem estresse.",
+		"color": "bg-blue-500",
+		"formTitle": "Receba o Guia Gratuitamente",
+		"formButtonText": "Quero baixar meu ebook",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"contentTitle": "Tudo o que você precisa para se tornar um <span class=\"text-primary-500\">mestre da eficiência</span>",
+		"contentText": "Neste ebook de 50 páginas, condensamos anos de experiência em gestão de projetos e produtividade pessoal em um guia prático e direto ao ponto.",
+		"benefits": [
+			"Priorização inteligente de tarefas",
+			"Eliminação de distrações digitais",
+			"Fluxos de trabalho otimizados",
+			"Gestão de energia vs tempo",
+			"Ferramentas de IA para produtividade",
+			"Comunicação assíncrona eficaz"
+		],
+		"testimonial": {
+			"text": "Este material mudou completamente a forma como nossa startup gerencia o backlog. Recomendo a todos!",
+			"author": "Diretor de Operações na TechFlow"
+		},
+		"thankYou": {
+			"title": "O guia está a caminho do seu <strong>e-mail</strong>!",
+			"text": "Acabamos de enviar o link de acesso para o seu endereço de e-mail. Por favor, verifique sua caixa de entrada e também a pasta de spam.",
+			"tipTitle": "Dica de Leitura",
+			"tipText": "Abra o guia no seu tablet ou e-reader para uma melhor experiência visual.",
+			"communityTitle": "Quer mais dicas de produtividade?",
+			"communityText": "Junte-se a mais de 10.000 profissionais em nossa comunidade no Discord e troque experiências em tempo real.",
+			"communityLink": "#"
+		}
+	},
+	{
+		"id": "automacao-ia",
+		"title": "Automação com <strong>IA</strong> para Equipes",
+		"description": "Descubra como implementar IA e automação nos processos internos da sua empresa sem precisar de uma equipe de engenharia dedicada.",
+		"tag": "Ebook Exclusivo",
+		"heroTitle": "Automatize o trabalho repetitivo e <strong>libere seu time</strong> para o que importa",
+		"heroText": "Descubra como implementar IA e automação nos processos internos da sua empresa sem precisar de uma equipe de engenharia dedicada.",
+		"color": "bg-primary-500",
+		"formTitle": "Acesse o Ebook Grátis",
+		"formButtonText": "Quero automatizar minha empresa",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"contentTitle": "Da teoria à prática: <span class=\"text-primary-500\">IA que funciona</span> no seu negócio",
+		"contentText": "Este ebook de 45 páginas apresenta casos de uso reais e um roteiro passo a passo para implementar automações inteligentes em vendas, suporte, marketing e operações.",
+		"benefits": [
+			"Mapeamento de processos automatizáveis",
+			"Ferramentas de IA no-code e low-code",
+			"Automação em atendimento ao cliente",
+			"IA para qualificação de leads",
+			"Pipelines de dados automatizados",
+			"ROI e métricas de automação"
+		],
+		"testimonial": {
+			"text": "Reduzimos em 40% o tempo gasto em tarefas operacionais depois de aplicar este guia.",
+			"author": "COO da Automata Labs"
+		},
+		"thankYou": {
+			"title": "Seu guia de <strong>Automação</strong> foi enviado!",
+			"text": "O acesso ao material foi enviado para o seu e-mail corporativo. Comece sua jornada de automação agora mesmo.",
+			"tipTitle": "Dica Extra",
+			"tipText": "Confira nosso canal no YouTube para tutoriais em vídeo sobre as ferramentas citadas no ebook.",
+			"communityTitle": "Participe do nosso ecossistema",
+			"communityText": "Troque figurinhas com outros líderes que estão automatizando suas operações.",
+			"communityLink": "#"
+		}
+	},
+	{
+		"id": "marketing-digital",
+		"title": "Marketing Digital para <strong>SaaS</strong>",
+		"description": "Um guia completo com estratégias, táticas e ferramentas para empresas SaaS que querem crescer de forma previsível.",
+		"tag": "Ebook Gratuito",
+		"heroTitle": "Escale sua <strong>aquisição de clientes</strong> com marketing digital inteligente",
+		"heroText": "Um guia completo com estratégias, táticas e ferramentas para empresas SaaS que querem crescer de forma previsível e sustentável.",
+		"color": "bg-emerald-500",
+		"formTitle": "Baixe o Ebook Gratuitamente",
+		"formButtonText": "Quero meu exemplar agora",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"contentTitle": "Tudo que você precisa para <span class=\"text-primary-500\">dominar o crescimento</span> do seu SaaS",
+		"contentText": "Com mais de 60 páginas de conteúdo prático, este ebook cobre desde a aquisição de leads até a retenção de clientes, com casos reais de empresas que cresceram do zero a seis dígitos.",
+		"benefits": [
+			"Funil de marketing para SaaS",
+			"SEO e conteúdo estratégico",
+			"Paid media com retorno garantido",
+			"Automação de nutrição de leads",
+			"Product-led growth na prática",
+			"Churn zero: retenção avançada"
+		],
+		"testimonial": {
+			"text": "Aplicamos as estratégias deste guia e triplicamos nossa base de clientes em 6 meses!",
+			"author": "CMO na StartupBR"
+		},
+		"thankYou": {
+			"title": "Pronto! O guia de <strong>SaaS</strong> está chegando.",
+			"text": "Verifique seu e-mail em alguns instantes. O conteúdo vai te ajudar a estruturar sua máquina de aquisição.",
+			"tipTitle": "Leitura Recomendada",
+			"tipText": "Visite nosso blog para ver o estudo de caso detalhado citado na página 12.",
+			"communityTitle": "Networking para Fundadores",
+			"communityText": "Junte-se ao nosso grupo exclusivo de marketing para SaaS no LinkedIn.",
+			"communityLink": "#"
+		}
+	},
+	{
+		"id": "vendas-b2b",
+		"title": "Vendas B2B de <strong>Alta Performance</strong>",
+		"description": "O guia definitivo para times de vendas que querem encurtar o ciclo de vendas e bater metas com consistência.",
+		"tag": "Ebook Premium Gratuito",
+		"heroTitle": "Feche mais negócios com um processo de <strong>vendas B2B</strong> implacável",
+		"heroText": "O guia definitivo para times de vendas que querem encurtar o ciclo de vendas, aumentar o ticket médio e bater metas com consistência.",
+		"color": "bg-purple-500",
+		"formTitle": "Baixe seu Guia de Vendas",
+		"formButtonText": "Quero fechar mais negócios",
+		"formUrl": "https://webhooks-v2.agenciasynca.com.br/webhook/7f9ec071-f0fe-46e6-aa1f-59f2e9060af2",
+		"contentTitle": "Domine a <strong>arte da negociação</strong> e fechamento",
+		"contentText": "Este guia prático revela como estruturar um pipeline de vendas B2B, desde a prospecção ativa até o fechamento de contas enterprise.",
+		"benefits": [
+			"Prospecção outbound estratégica",
+			"Qualificação de leads (BANT/GPCT)",
+			"Scripts de vendas de alta conversão",
+			"Gestão de objeções complexas",
+			"Social selling para vendedores",
+			"Análise de pipeline e previsibilidade"
+		],
+		"testimonial": {
+			"text": "Este guia se tornou o manual oficial de treinamento do nosso time de vendas. Essencial.",
+			"author": "VPE Sales na CloudScale"
+		},
+		"thankYou": {
+			"title": "Sucesso! Seu guia de <strong>Vendas</strong> foi enviado.",
+			"text": "O arquivo PDF foi enviado para seu e-mail. Prepare seu time para bater todas as metas este mês.",
+			"tipTitle": "Dica de Execução",
+			"tipText": "Compartilhe o capítulo 4 com seu time de SDRs para melhorar a prospecção imediatamente.",
+			"communityTitle": "Comunidade de Vendas",
+			"communityText": "Entre em nosso canal de Slack focado em vendas B2B e compartilhe desafios.",
+			"communityLink": "#"
+		}
+	}
+]

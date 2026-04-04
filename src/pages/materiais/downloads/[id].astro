@@ -1,0 +1,152 @@
+---
+// Download Landing Page (Template Dinâmico)
+// ------------
+import Layout from '@layouts/landing/DownloadLanding.astro'
+import LandingHero from '@components/blocks/landing/LandingHero.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
+import DownloadDetails from '@components/blocks/landing/DownloadDetails.astro'
+import ContentList from '@components/blocks/landing/ContentList.astro'
+import ImageSlider from '@components/blocks/landing/ImageSlider.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Section from '@components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+
+import { Image } from 'astro:assets'
+
+// Import de dados
+import downloads from '@data/json-files/downloads.json'
+
+export async function getStaticPaths() {
+	return downloads.map((download) => ({
+		params: { id: download.id },
+		props: { download }
+	}))
+}
+
+const { download } = Astro.props
+
+const metadata = {
+	title: download.title,
+	description: download.description
+}
+---
+
+<Layout {...metadata}>
+	<LandingHero 
+		tag={download.tag}
+		title={download.heroTitle}
+		text={download.description}
+	>
+		<div slot="image" class="w-full max-w-lg mx-auto lg:ml-auto">
+			<LandingForm 
+				title={download.formTitle} 
+				buttonText={download.formButtonText} 
+				thankYouPage={`/materiais/downloads/${download.id}/obrigado`}
+				formUrl={download.formUrl}
+				contrast={true} 
+			/>
+		</div>
+
+		<div slot="after-text">
+			<div class="flex items-center gap-4 text-sm text-neutral-500 font-medium">
+				<Icon name="shield-check" class="w-5 h-5 text-emerald-500" />
+				{download.infoNote}
+			</div>
+		</div>
+	</LandingHero>
+
+	<!-- Segunda Seção: Imagem 16:9 + Texto -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0">
+				<div class="relative rounded-3xl overflow-hidden aspect-video shadow-2xl border border-neutral-100 dark:border-neutral-800">
+					<Image 
+						src={download.heroImage} 
+						alt="Preview do Material" 
+						width={800} 
+						height={450} 
+						class="w-full h-full object-cover" 
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-neutral-900/40 to-transparent"></div>
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16 flex flex-col justify-center">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-8" set:html={download.section1.title} />
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+					{download.section1.text}
+				</p>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-0 leading-relaxed">
+					{download.section1.subtext}
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Terceira Seção: Texto de um lado e Lista de outro -->
+	<Section classes="bg-neutral-50 dark:bg-neutral-900/50 py-24 lg:py-32">
+		<Row>
+			<Col span="12" lg="6" classes="mb-12 lg:mb-0 flex flex-col justify-center">
+				<h2 class="text-3xl lg:text-5xl font-black text-neutral-900 dark:text-white mb-8" set:html={download.section2.title} />
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+					{download.section2.text}
+				</p>
+				<div class="flex flex-col gap-4">
+					{download.section2.features.map(feature => (
+						<div class="flex items-center gap-3">
+							<div class="w-10 h-10 bg-primary-500/10 text-primary-500 rounded-lg flex items-center justify-center">
+								<Icon name={feature.icon} class="w-5 h-5" />
+							</div>
+							<span class="font-bold text-neutral-900 dark:text-white">{feature.label}</span>
+						</div>
+					))}
+				</div>
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16">
+				<ContentList 
+					title={download.contentTitle} 
+					items={download.contentItems} 
+				/>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Quarta Seção: Detalhes do Download (2 colunas) -->
+	<Section classes="bg-white dark:bg-neutral-950 py-24 lg:py-32 border-t border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" lg="6" classes="mb-16 lg:mb-0">
+				<div class="mb-10">
+					<h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Especificações Técnicas</h3>
+					<p class="text-neutral-600 dark:text-neutral-400">Dados do arquivo para garantir que você tenha a melhor experiência ao abrir e editar o material.</p>
+				</div>
+				<DownloadDetails {...download.details} />
+			</Col>
+			<Col span="12" lg="6" classes="lg:pl-16">
+				<div class="h-full bg-neutral-900 text-white p-8 lg:p-12 rounded-[2rem] relative overflow-hidden group">
+					<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-500/20 rounded-full blur-[80px] group-hover:bg-primary-500/30 transition-all duration-700"></div>
+
+					<h3 class="text-2xl font-bold mb-6 relative z-10">{download.howToTitle}</h3>
+					<ul class="space-y-6 relative z-10">
+						{download.howToSteps.map((step, index) => (
+							<li class="flex gap-4">
+								<span class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-sm font-bold">{index + 1}</span>
+								<p class="text-neutral-300 text-sm">{step}</p>
+							</li>
+						))}
+					</ul>
+					<div class="mt-10 pt-8 border-t border-white/10 relative z-10">
+						<p class="text-xs text-neutral-500 italic">{download.howToTip}</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<ImageSlider 
+		title={download.sliderTitle} 
+		slides={download.slides} 
+	/>
+
+	<LandingFooter />
+</Layout>

@@ -1,0 +1,84 @@
+---
+// Página de Agradecimento: Evento (Template Dinâmico)
+// ------------
+import Layout from '@layouts/landing/EventLanding.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+// Import de dados
+import events from '@data/json-files/events.json'
+
+export async function getStaticPaths() {
+	return events.map((event) => ({
+		params: { id: event.id },
+		props: { event }
+	}))
+}
+
+const { event } = Astro.props
+const { thankYou } = event
+
+const metadata = {
+	title: `Inscrição Confirmada | ${event.title}`,
+	description: thankYou.text
+}
+---
+
+<Layout {...metadata}>
+	<Section padding="both" classes="min-h-[80vh] flex items-center bg-neutral-900 text-white relative overflow-hidden">
+		<!-- Background decoration -->
+		<div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+			<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-500 rounded-full blur-[150px]" />
+		</div>
+
+		<Row flex={true} classes="relative z-10 w-full">
+			<Col span="12" lg="8" align="center">
+				<div class="mb-10 inline-flex items-center justify-center w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
+					<Icon name="check-circle" class="w-10 h-10" />
+				</div>
+				<h1 class="text-4xl lg:text-7xl font-black mb-8 leading-[1.1]" set:html={thankYou.title} />
+				<p class="text-xl lg:text-2xl text-neutral-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+					{thankYou.text}
+				</p>
+				
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+					<Button link="/materiais" style="primary" size="lg" classes="w-full sm:w-auto">
+						<Icon name="bolt" class="w-5 h-5 mr-2" />
+						{thankYou.buttonText}
+					</Button>
+					<a href="#" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
+						<Icon name="bell" class="w-5 h-5" />
+						Adicionar ao Calendário
+					</a>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Seção de Info Adicional -->
+	<Section classes="py-24 bg-white dark:bg-neutral-950">
+		<Row justify="center">
+			<Col span="12" lg="10">
+				<div class="bg-neutral-50 dark:bg-neutral-900 p-12 rounded-[3rem] border border-neutral-100 dark:border-neutral-800 shadow-sm">
+					<h2 class="text-3xl font-bold mb-12 text-neutral-900 dark:text-white text-center">{thankYou.infoTitle}</h2>
+					<div class="grid md:grid-cols-2 gap-12">
+						{thankYou.infoItems.map((item: any) => (
+							<div class="flex gap-6">
+								<div class="w-14 h-14 bg-white dark:bg-neutral-800 rounded-2xl shadow-sm flex items-center justify-center shrink-0 border border-neutral-100 dark:border-neutral-700">
+									<Icon name="check-circle" class="w-7 h-7 text-primary-500" />
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">{item.title}</h4>
+									<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">{item.text}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

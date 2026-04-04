@@ -19,12 +19,11 @@ export async function getStaticPaths() {
 }
 
 const { hangout } = Astro.props
-const thankYou = hangout.thankYou
+const { thankYou } = hangout
 ---
 
 <Layout {...thankYou.metadata}>
 	<Section padding="both" classes="min-h-[80vh] bg-neutral-900 text-white relative overflow-hidden flex items-center pt-32 lg:pt-48">
-		<!-- Background decoration -->
 		<div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
 			<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-500 rounded-full blur-[150px]" />
 		</div>
@@ -38,28 +37,38 @@ const thankYou = hangout.thankYou
 				<p class="text-xl lg:text-2xl text-neutral-400 mb-12 max-w-3xl mx-auto leading-relaxed" set:html={thankYou.text} />
 				
 				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-					<Button link="#" style="primary" size="lg" classes="w-full sm:w-auto">
-						<Icon name="bell" class="w-5 h-5 mr-2" />
-						Adicionar ao Calendário
+					<Button link="/materiais" style="primary" size="lg" classes="w-full sm:w-auto">
+						<Icon name="bolt" class="w-5 h-5 mr-2" />
+						Explorar mais Materiais
 					</Button>
-					<a href="/materiais" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
-						Explorar outros materiais
+					<a href="#" class="text-white font-bold hover:text-primary-400 transition-colors flex items-center gap-2">
+						<Icon name="bell" class="w-5 h-5" />
+						{hangout.layout?.thankYouPage?.calendarText || "Salvar no Calendário"}
 					</a>
 				</div>
 			</Col>
 		</Row>
 	</Section>
 
-	<!-- Seção de Info Adicional -->
-	<Section classes="py-24 lg:py-32 bg-white dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-800">
-		<Row flex={true}>
-			<Col span="12" lg="8" align="center">
-				<h2 class="text-3xl lg:text-4xl font-bold mb-8 text-neutral-900 dark:text-white leading-tight">{thankYou.infoTitle}</h2>
-				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed max-w-2xl mx-auto" set:html={thankYou.infoText} />
-				<div class="bg-neutral-50 dark:bg-neutral-900 p-10 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-800 text-center max-w-sm mx-auto shadow-sm relative overflow-hidden">
-					<div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-					<h3 class="text-3xl font-black text-primary-500 mb-2 italic tracking-tighter">{thankYou.eventDate}</h3>
-					<p class="text-lg font-bold text-neutral-900 dark:text-white mb-0 uppercase tracking-widest">{thankYou.eventTime}</p>
+	<Section classes="py-24 lg:py-32 bg-white dark:bg-neutral-950">
+		<Row justify="center">
+			<Col span="12" lg="8">
+				<div class="bg-neutral-50 dark:bg-neutral-900 p-8 lg:p-16 rounded-[3rem] border border-neutral-100 dark:border-neutral-800 shadow-sm relative overflow-hidden">
+					<div class="flex flex-col items-center text-center">
+						<h2 class="text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white mb-4">{thankYou.infoTitle}</h2>
+						<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-12" set:html={thankYou.infoText} />
+						
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-lg">
+							<div class="bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700">
+								<span class="block text-primary-500 font-bold uppercase tracking-widest text-xs mb-2">Data</span>
+								<span class="text-xl font-black text-neutral-900 dark:text-white">{thankYou.eventDate}</span>
+							</div>
+							<div class="bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700">
+								<span class="block text-primary-500 font-bold uppercase tracking-widest text-xs mb-2">Horário</span>
+								<span class="text-xl font-black text-neutral-900 dark:text-white">{thankYou.eventTime}</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</Col>
 		</Row>
