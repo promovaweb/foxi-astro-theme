@@ -33,16 +33,28 @@ const {
 	subtitle,
 	image,
 	link,
-	classes = '!shadow-none border border-neutral-100 dark:border-neutral-800',
+	classes = '!shadow-none border border-neutral-100 dark:border-neutral-800 relative group',
 	tags
 } = Astro.props
 ---
 
 <Card classes={classes}>
-	{image && <Image src={image} alt={title} width={600} height={400} />}
+	{
+		image && (
+			<div class="overflow-hidden">
+				<Image
+					src={image}
+					alt={title}
+					width={600}
+					height={400}
+					class="transition-transform duration-500 group-hover:scale-105"
+				/>
+			</div>
+		)
+	}
 	<CardBody>
 		<h3 class="post-title">
-			<a href={link}>{title}</a>
+			<a href={link} class="after:absolute after:inset-0">{title}</a>
 		</h3>
 		<h4 class="post-subtitle">{subtitle}</h4>
 		<slot />
@@ -50,7 +62,7 @@ const {
 
 	{
 		tags && (
-			<div class="post-tags">
+			<div class="post-tags relative z-20">
 				{tags.map((tag: string) => (
 					<Badge name={tag} link={`/blog/tags/` + tag} classes="capitalize" />
 				))}
@@ -61,7 +73,7 @@ const {
 
 <style>
 	.post-title {
-		@apply mb-0 text-xl [&_a]:text-inherit;
+		@apply mb-0 text-xl transition-colors group-hover:text-primary-500 [&_a]:text-inherit;
 	}
 	.post-subtitle {
 		@apply mb-6 text-sm font-normal text-neutral-400 dark:text-neutral-400;

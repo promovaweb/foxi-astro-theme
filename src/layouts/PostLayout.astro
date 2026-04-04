@@ -6,8 +6,22 @@ const { frontmatter } = Astro.props
 import Layout from '@layouts/Layout.astro'
 
 // Section Components
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 import BlogPostHero from '@components/blocks/blog/BlogPostHero.astro'
 import AuthorSection from '@components/ui/AuthorSection.astro'
+import BlogCard from '@components/ui/cards/BlogCard.astro'
+
+// Data
+import { getCollection } from 'astro:content'
+
+// Fetch related posts (random 3 excluding current)
+const allPosts = await getCollection('blog')
+const relatedPosts = allPosts
+	.filter((post) => post.data.title !== frontmatter.title)
+	.sort(() => Math.random() - 0.5)
+	.slice(0, 3)
 
 // Content
 // - SEO
@@ -31,8 +45,44 @@ const SEO = {
 
 	<div class="post-body basic-text basic-text--lg">
 		<slot />
-		<AuthorSection authorSlug={frontmatter.author} />
 	</div>
+
+	<Section padding="bottom">
+		<Row>
+			<Col span="1" />
+			<Col span="10">
+				<AuthorSection authorSlug={frontmatter.author} />
+			</Col>
+			<Col span="1" />
+		</Row>
+	</Section>
+
+	{
+		relatedPosts.length > 0 && (
+			<Section classes="bg-neutral-50 dark:bg-neutral-900" padding="both">
+				<Row justify="center" classes="mb-12">
+					<Col span="12" align="center">
+						<h2 class="text-3xl font-bold font-headings text-neutral-900 dark:text-neutral-50">
+							Veja também
+						</h2>
+					</Col>
+				</Row>
+				<Row>
+					{relatedPosts.map((post) => (
+						<Col span="4">
+							<BlogCard
+								link={`/blog/${post.id}`}
+								title={post.data.title}
+								subtitle={`Por ${post.data.author} em ${new Date(post.data.pubDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}`}
+								image={post.data.image}
+								tags={post.data.tags}
+							/>
+						</Col>
+					))}
+				</Row>
+			</Section>
+		)
+	}
 </Layout>
 
 <style>
