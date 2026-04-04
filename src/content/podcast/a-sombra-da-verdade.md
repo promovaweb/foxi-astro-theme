@@ -1,8 +1,9 @@
 ---
 title: "2: A Sombra da Verdade"
 description: "Uma discussão profunda sobre como as notícias podem distorcer a realidade. Nossa convidada explica como uma simples foto a transformou no inimigo público número um."
-pubDate: 2024-03-13
+pubDate: 2024-03-10
 youtubeId: "aqz-KE-bpKQ"
+cover: "/blog/post-03-cover.png"
 ---
 
 Exploramos como a mídia pode construir e destruir reputações em questão de segundos. 

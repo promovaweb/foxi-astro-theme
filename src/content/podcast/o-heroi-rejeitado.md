@@ -3,6 +3,7 @@ title: "1: O Herói Rejeitado"
 description: "Neste episódio, conversamos com o homem que foi expulso de sua cidade após tentar salvá-la de uma inundação. Ele compartilha o que realmente aconteceu naquela noite e por que as pessoas o veem como o culpado."
 pubDate: 2024-03-20
 youtubeId: "aqz-KE-bpKQ"
+cover: "/blog/post-01-cover.png"
 ---
 
 Neste episódio, mergulhamos nos detalhes técnicos e emocionais que moldaram a jornada do nosso convidado. 
