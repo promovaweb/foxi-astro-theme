@@ -6,13 +6,16 @@
 // Componentes
 // - Layout
 import Layout from '@layouts/Layout.astro'
+import StickySidebar from '@components/blocks/basic/StickySidebar.astro'
 // - UI
 import Hero from '@components/blocks/hero/PageHeader.astro'
+import Breadcrumbs from '@components/ui/Breadcrumbs.astro'
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
 import Button from '@components/ui/Button.astro'
 import Badge from '@components/ui/Badge.astro'
+import ChangelogSidebar from '@components/blocks/changelog/ChangelogSidebar.astro'
 import { Icon } from 'astro-icon/components'
 
 // Data
@@ -29,6 +32,18 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content } = await render(entry)
 
+// Helper para formatar data em pt-BR
+const formatDate = (dateString: string) => {
+	const date = new Date(dateString)
+	return date.toLocaleDateString('pt-BR', {
+		day: '2-digit',
+		month: 'long',
+		year: 'numeric'
+	})
+}
+
+const formattedDate = formatDate(entry.data.date)
+
 // Content
 // - SEO
 const SEO = {
@@ -38,67 +53,100 @@ const SEO = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={entry.data.title} text={`Lançado em ${entry.data.date}`} />
-	<Section>
-		<Row justify="center">
-			<Col span="12" lg="8">
-				<div class="changelog-detail">
-					{
-						entry.data.category && (
-							<div class="mb-6 flex">
-								<a href={`/changelog/category/${entry.data.category}`}>
-									<Badge
-										name={entry.data.category}
-										type="primary"
-										classes="hover:bg-primary-600 transition-colors"
-									/>
-								</a>
-							</div>
-						)
-					}
-					{
-						entry.data.youtube ? (
-							<div class="changelog-detail__video mb-12 overflow-hidden rounded-3xl border border-neutral-100 shadow-xl dark:border-neutral-800">
+	<Hero title={entry.data.title} text={`Lançado oficialmente em ${formattedDate}`}>
+		<Breadcrumbs 
+			slot="breadcrumbs" 
+			classes="mb-8" 
+			customSegments={[
+				{ label: 'Changelog', link: '/changelog' },
+				{ label: entry.data.category, link: `/changelog/category/${entry.data.category}` },
+				{ label: entry.data.title, link: `/changelog/${entry.id}` }
+			]} 
+		/>
+	</Hero>
+	
+	{
+		entry.data.youtube && (
+			<Section classes="bg-neutral-50 dark:bg-neutral-900/50 border-b border-neutral-100 dark:border-neutral-800">
+				<Row>
+					<Col span="12">
+						<div class="changelog-detail__video overflow-hidden rounded-3xl shadow-2xl shadow-neutral-500/20 dark:shadow-neutral-950/50 border border-neutral-100 dark:border-neutral-800">
+							<div class="aspect-video w-full">
 								<iframe
 									width="100%"
-									height="500"
+									height="100%"
 									src={`https://www.youtube.com/embed/${entry.data.youtube}`}
 									title="YouTube video player"
 									frameborder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									allowfullscreen
-									class="aspect-video w-full h-auto"
+									class="w-full h-full"
 								/>
 							</div>
-						) : (
-							entry.data.image && (
-								<div class="changelog-detail__image mb-12 overflow-hidden rounded-3xl border border-neutral-100 shadow-xl dark:border-neutral-800">
-									<img
-										src={entry.data.image}
-										alt={entry.data.title}
-										class="h-full w-full object-cover"
-									/>
-								</div>
-							)
+						</div>
+					</Col>
+				</Row>
+			</Section>
+		)
+	}
+
+	<StickySidebar type="right" classes="bg-white dark:bg-neutral-950" padding="none">
+		<div slot="sidebar" class="py-12 lg:pt-12 lg:pb-24">
+			<ChangelogSidebar currentCategory={entry.data.category} />
+		</div>
+		
+		<div class="py-12 lg:pt-12 lg:pb-24 lg:pr-12">
+			<article class="changelog-detail">
+				<div class="flex flex-wrap items-center gap-4 mb-8">
+					{
+						entry.data.category && (
+							<a href={`/changelog/category/${entry.data.category}`}>
+								<Badge
+									name={entry.data.category}
+									type="primary"
+									classes="!text-xs !py-1 !px-4 uppercase tracking-widest hover:bg-primary-600 transition-colors"
+								/>
+							</a>
 						)
 					}
-					<div class="changelog-detail__content basic-text basic-text--lg">
-						<Content />
-					</div>
-					<div class="changelog-detail__footer mt-16 border-t border-neutral-100 pt-8 dark:border-neutral-800">
-						<Button link="/changelog" style="neutral" variation="outline">
-							<Icon name="chevron-left" class="mr-2" />
-							Voltar para o Changelog
-						</Button>
-					</div>
+					<span class="text-neutral-400 dark:text-neutral-500 font-bold text-sm uppercase tracking-widest">
+						• {formattedDate}
+					</span>
 				</div>
-			</Col>
-		</Row>
-	</Section>
+
+				<div class="changelog-detail__content basic-text">
+					<Content />
+				</div>
+
+				<div class="changelog-detail__footer mt-16 border-t border-neutral-100 pt-12 dark:border-neutral-800">
+					<Button link="/changelog" style="neutral" variation="outline" classes="group">
+						<Icon name="chevron-left" class="mr-2 transition-transform group-hover:-translate-x-1" />
+						Voltar para o Feed de Atualizações
+					</Button>
+				</div>
+			</article>
+		</div>
+	</StickySidebar>
 </Layout>
 
 <style>
 	.changelog-detail__content {
-		@apply text-neutral-700 dark:text-neutral-300;
+		@apply text-xl leading-relaxed text-neutral-700 dark:text-neutral-300 max-w-4xl;
+	}
+	/* Estilos para o conteúdo Markdown */
+	.changelog-detail__content :global(h2) {
+		@apply text-3xl font-black text-neutral-900 dark:text-white mt-12 mb-6;
+	}
+	.changelog-detail__content :global(h3) {
+		@apply text-2xl font-bold text-neutral-900 dark:text-white mt-8 mb-4;
+	}
+	.changelog-detail__content :global(p) {
+		@apply mb-6;
+	}
+	.changelog-detail__content :global(ul) {
+		@apply space-y-3 mb-8 list-none;
+	}
+	.changelog-detail__content :global(li) {
+		@apply relative pl-8 before:absolute before:left-0 before:top-3 before:h-2 before:w-2 before:rounded-full before:bg-primary-500;
 	}
 </style>

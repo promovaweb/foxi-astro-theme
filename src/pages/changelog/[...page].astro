@@ -2,12 +2,15 @@
 // Components
 // - Layout
 import Layout from '@layouts/Layout.astro'
+import StickySidebar from '@components/blocks/basic/StickySidebar.astro'
 // - UI
 import Hero from '@components/blocks/hero/PageHeader.astro'
-import ChangelogFilter from '@components/ui/ChangelogFilter.astro'
-import SimpleFeed from '@components/blocks/feeds/BasicFeed.astro'
+import Breadcrumbs from '@components/ui/Breadcrumbs.astro'
+import Feed from '@components/ui/Feed.astro'
 import CTA from '@components/blocks/CTA/BasicLight.astro'
 import Pagination from '@components/ui/Pagination.astro'
+import ChangelogSidebar from '@components/blocks/changelog/ChangelogSidebar.astro'
+import ChangelogFilter from '@components/ui/ChangelogFilter.astro'
 
 // Data
 import { getCollection } from 'astro:content'
@@ -46,9 +49,28 @@ const header = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
+	<Hero title={header.title} text={header.text}>
+		<Breadcrumbs 
+			slot="breadcrumbs" 
+			classes="mb-8" 
+			customSegments={[{ label: 'Changelog', link: '/changelog' }]} 
+		/>
+	</Hero>
+	
 	<ChangelogFilter />
-	<SimpleFeed data={page.data} />
-	<Pagination page={page} />
+
+	<StickySidebar type="right" classes="bg-white dark:bg-neutral-950" padding="none">
+		<div slot="sidebar" class="py-12 lg:pt-12 lg:pb-24">
+			<ChangelogSidebar />
+		</div>
+		
+		<div class="py-12 lg:pt-12 lg:pb-24 lg:pr-12">
+			<Feed data={page.data} />
+			<div class="mt-12">
+				<Pagination page={page} />
+			</div>
+		</div>
+	</StickySidebar>
+
 	<CTA />
 </Layout>

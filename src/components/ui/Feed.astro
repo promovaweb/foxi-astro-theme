@@ -41,14 +41,6 @@ const groupedData = data.reduce((acc, item) => {
 // Ordenando as datas (descendente)
 const sortedDates = Object.keys(groupedData).sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
 
-// Helper para renderizar o conteúdo se for uma entrada de conteúdo
-const renderContent = async (item: any) => {
-	if (item.render) {
-		const { Content } = await render(item)
-		return Content
-	}
-	return null
-}
 ---
 
 <ul aria-label="Feed de histórico de alterações" role="feed" class:list={['feed', { [`${classes}`]: classes }]}>
@@ -65,19 +57,17 @@ const renderContent = async (item: any) => {
 						</div>
 						
 						<div class="feed__item-container">
-							{items.map(async (item, index) => {
-								const Content = await renderContent(item)
+							{items.map((item, index) => {
 								const isEntry = !!item.data
 								const title = isEntry ? item.data.title : item.title
-								const image = isEntry ? item.data.image : item.image
+								const description = isEntry ? item.data.description : null
 								const youtube = isEntry ? item.data.youtube : null
 								const category = isEntry ? item.data.category : null
-								const text = isEntry ? null : item.text
 								const id = isEntry ? item.id : null
 
 								return (
 									<div class:list={["feed__item-content", { "mt-16 pt-16 border-t border-neutral-100 dark:border-neutral-800 border-dashed": index > 0 }]}>
-										<div class="flex flex-wrap items-center gap-3 mb-3">
+										<div class="flex flex-wrap items-center gap-3 mb-4">
 											{category && (
 												<a href={`/changelog/category/${category}`}>
 													<Badge 
@@ -92,15 +82,17 @@ const renderContent = async (item: any) => {
 											</span>
 										</div>
 
-										<h4 class="feed__item-header">
-											{id ? (
-												<a href={`/changelog/${id}`} class="group-hover:text-primary-500 transition-colors duration-300">
-													{title}
-												</a>
-											) : (
-												title
-											)}
-										</h4>
+										<div class="mb-8">
+											<h4 class="feed__item-header">
+												{id ? (
+													<a href={`/changelog/${id}`} class="group-hover:text-primary-500 transition-colors duration-300">
+														{title}
+													</a>
+												) : (
+													title
+												)}
+											</h4>
+										</div>
 
 										{youtube ? (
 											<div class="feed__item-video mb-8 overflow-hidden rounded-2xl shadow-2xl shadow-neutral-500/10 dark:shadow-neutral-950/50 border border-neutral-100 dark:border-neutral-800">
@@ -118,16 +110,11 @@ const renderContent = async (item: any) => {
 												</div>
 											</div>
 										) : (
-											<>
-												{image && (
-													<div class="feed__item-image hover:scale-[1.01] transition-transform duration-500">
-														<img src={image} alt={title} width="1000" height="500" class="w-full h-auto" />
-													</div>
-												)}
-												<div class="feed__item-text basic-text">
-													{Content ? <Content /> : <Fragment set:html={text} />}
-												</div>
-											</>
+											description && (
+												<p class="text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-4xl">
+													{description}
+												</p>
+											)
 										)}
 									</div>
 								)
@@ -157,13 +144,7 @@ const renderContent = async (item: any) => {
 		@apply relative flex-1 pl-8 lg:pl-0 before:absolute before:-left-[25px] lg:before:-left-[51px] before:top-3 before:z-10 before:h-4 before:w-4 before:-translate-x-1/2 before:rounded-full before:bg-white dark:before:bg-neutral-950 before:border-4 before:border-primary-500 before:shadow-[0_0_0_8px_rgba(var(--color-primary-500),0.1)] transition-all duration-300;
 	}
 	.feed__item-header {
-		@apply text-2xl lg:text-3xl font-black text-neutral-900 dark:text-white mb-6 leading-tight;
-	}
-	.feed__item-text {
-		@apply max-w-4xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400;
-	}
-	.feed__item-image {
-		@apply mb-8 overflow-hidden rounded-2xl border border-neutral-100 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 shadow-lg;
+		@apply text-3xl lg:text-4xl font-black text-neutral-900 dark:text-white leading-tight;
 	}
 	.feed__item-content {
 		@apply pb-4;

@@ -13,17 +13,17 @@ const blog = defineCollection({
 			author: z.string(),
 			tags: z.array(z.string())
 		})
-})
-
 const changelog = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/changelog' }),
 	schema: () =>
 		z.object({
 			title: z.string(),
+			description: z.string(),
 			date: z.string(),
-			image: z.string().optional(),
 			youtube: z.string().optional(),
-			category: z.string().optional(),
+			category: z.string()
+		})
+})
 			tags: z.array(z.string()).optional()
 		})
 })

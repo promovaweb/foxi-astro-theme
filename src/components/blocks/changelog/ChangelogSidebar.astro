@@ -1,0 +1,72 @@
+---
+// ChangelogSidebar
+// ------------
+// Descrição: Barra lateral para a página de changelog com categorias, links e newsletter.
+
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import { socialLinks } from '@config/socialLinks'
+
+const changelogEntries = await getCollection('changelog')
+const categories = [...new Set(changelogEntries.map((entry) => entry.data.category))].sort()
+
+const { currentCategory } = Astro.props
+---
+
+<div class="flex flex-col gap-12">
+	<!-- Newsletter Box -->
+	<div class="bg-primary-500 rounded-3xl p-8 text-white shadow-xl shadow-primary-500/20 relative overflow-hidden group">
+		<div class="relative z-10">
+			<h3 class="text-xl font-black mb-3 leading-tight">Fique por dentro das novidades!</h3>
+			<p class="text-primary-100 text-sm mb-6 leading-relaxed">Assine nossa newsletter e receba as atualizações direto no seu e-mail.</p>
+			<form class="flex flex-col gap-3">
+				<input 
+					type="email" 
+					placeholder="seu@email.com" 
+					class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-primary-200 focus:outline-none focus:ring-2 focus:ring-white/30 transition-all text-sm"
+				/>
+				<button class="w-full bg-white text-primary-600 font-bold py-3 rounded-xl hover:bg-primary-50 active:scale-[0.98] transition-all text-sm">
+					Inscrever-se
+				</button>
+			</form>
+		</div>
+		<!-- Decorative circles -->
+		<div class="absolute -right-10 -top-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-700"></div>
+		<div class="absolute -left-10 -bottom-10 w-32 h-32 bg-black/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-700"></div>
+	</div>
+
+	<!-- Social Media -->
+	<div class="flex flex-col gap-6">
+		<h3 class="text-sm font-black uppercase tracking-widest text-neutral-900 dark:text-white flex items-center gap-2">
+			<span class="w-8 h-[2px] bg-primary-500"></span>
+			Siga-nos
+		</h3>
+		<div class="grid grid-cols-4 gap-3">
+			{socialLinks.map((social) => (
+				<a 
+					href={social.link} 
+					class="w-full aspect-square flex items-center justify-center rounded-xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-500 hover:text-primary-500 hover:border-primary-500 hover:shadow-lg hover:shadow-primary-500/10 transition-all group"
+					title={social.name}
+				>
+					<Icon name={social.icon} class="w-5 h-5 transition-transform group-hover:scale-110" />
+				</a>
+			))}
+		</div>
+	</div>
+
+	<!-- Links Úteis -->
+	<div class="bg-neutral-50 dark:bg-neutral-900/50 rounded-3xl p-8 border border-neutral-100 dark:border-neutral-800">
+		<h3 class="text-lg font-black mb-4 dark:text-white text-neutral-900">Precisa de ajuda?</h3>
+		<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-6 leading-relaxed">Consulte nossa documentação completa ou entre em contato com nosso suporte técnico.</p>
+		<div class="flex flex-col gap-3">
+			<a href="/faq" class="flex items-center gap-3 text-sm font-bold text-neutral-900 dark:text-white hover:text-primary-500 transition-colors">
+				<Icon name="chat-bubble-left-right" class="w-5 h-5 text-primary-500" />
+				Central de Ajuda (FAQ)
+			</a>
+			<a href="/contact" class="flex items-center gap-3 text-sm font-bold text-neutral-900 dark:text-white hover:text-primary-500 transition-colors">
+				<Icon name="identification" class="w-5 h-5 text-primary-500" />
+				Suporte Técnico
+			</a>
+		</div>
+	</div>
+</div>

@@ -3,7 +3,8 @@
 // ------------
 // Descrição: Breadcrumbs consistem em uma lista de links que ajudam o usuário a visualizar a localização de uma página dentro da estrutura hierárquica de um site e permitem a navegação até qualquer um de seus "ancestrais".
 // Propriedades:
-// - Classes: classes adicionais
+// - customSegments: permite passar segmentos customizados para o breadcrumb
+// - classes: classes adicionais
 
 // Referência: https://wind-ui.com/components/breadcrumbs/
 
@@ -11,26 +12,46 @@
 // - UI
 import { Icon } from 'astro-icon/components'
 
-// Parsing de URL e geração de breadcrumb
-const url = new URL(Astro.request.url)
-const pathname = url.pathname
-const segments = pathname.split('/').filter(Boolean)
-const breadcrumbs = ['Início', ...segments]
-
 // Props
+type BreadcrumbSegment = {
+	label: string
+	link: string
+}
+
 type Props = {
+	customSegments?: BreadcrumbSegment[]
 	classes?: string
 }
-const { classes } = Astro.props
+
+const { customSegments, classes } = Astro.props
+
+// Se customSegments for fornecido, usa ele, senão gera automaticamente pela URL
+let breadcrumbs: BreadcrumbSegment[] = []
+
+if (customSegments) {
+	breadcrumbs = [{ label: 'Início', link: '/' }, ...customSegments]
+} else {
+	const url = new URL(Astro.request.url)
+	const pathname = url.pathname
+	const segments = pathname.split('/').filter(Boolean)
+	
+	breadcrumbs = [
+		{ label: 'Início', link: '/' },
+		...segments.map((segment, index) => ({
+			label: segment.replace(/-/g, ' '),
+			link: `/${segments.slice(0, index + 1).join('/')}`
+		}))
+	]
+}
 ---
 
 <nav aria-label="Breadcrumb" class:list={['breadcrumbs', { [`${classes}`]: classes }]}>
 	<ol class="breadcrumbs__list">
 		{
-			breadcrumbs.map((segment, index) => (
+			breadcrumbs.map((breadcrumb, index) => (
 				<li class="breadcrumbs__list-item">
-					<a href={`/${segments.slice(0, index).join('/')}`} class="breadcrumbs__item-link">
-						{index === 0 ? segment : segment.replace(/-/g, ' ')}
+					<a href={breadcrumb.link} class="breadcrumbs__item-link">
+						{breadcrumb.label}
 					</a>
 					{index < breadcrumbs.length - 1 && (
 						<Icon name="chevron-left" class="breadcrumbs__item-icon" />
