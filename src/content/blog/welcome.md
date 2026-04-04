@@ -2,7 +2,7 @@
 title: 'Bem-vindo ao Foxi!'
 pubDate: 2024-04-04T05:00:00Z
 description: "Estamos entusiasmados em apresentar o aplicativo de produtividade definitivo, projetado para ajudar você a gerenciar suas tarefas sem esforço e a se manter organizado e eficiente."
-author: 'Eleni K'
+author: 'luizeof'
 image: '/blog/post-01-cover.png'
 tags: ['produtividade', 'anúncio']
 ---

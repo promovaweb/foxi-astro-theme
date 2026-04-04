@@ -1,0 +1,73 @@
+---
+// Seção do Autor
+// Descrição: Exibe informações sobre o autor do post ou episódio
+
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import authorsData from '@data/json-files/authors.json'
+
+type Props = {
+  authorSlug: string
+}
+
+const { authorSlug } = Astro.props
+const author = authorsData.find((a) => a.slug === authorSlug)
+
+if (!author) return null
+
+// Mapeamento de ícones sociais
+const socialIcons = {
+  twitter: 'twitter-icon',
+  linkedin: 'linkedin-icon',
+  github: 'icon', // Usando 'icon' como fallback para github se não houver um específico
+  facebook: 'fb-icon',
+  instagram: 'instagram-icon'
+}
+---
+
+<section class="mt-16 p-8 rounded-3xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+  <div class="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+    <div class="flex-none">
+      <div class="relative size-24 lg:size-32 rounded-2xl overflow-hidden ring-4 ring-white dark:ring-neutral-800 shadow-xl">
+        <Image
+          src={author.avatar}
+          alt={author.name}
+          width={256}
+          height={256}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <div class="flex-1 text-center sm:text-left">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
+            {author.name}
+          </h3>
+          <p class="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-wider">
+            {author.role}
+          </p>
+        </div>
+        
+        <div class="flex justify-center sm:justify-end gap-3">
+          {Object.entries(author.social).map(([platform, link]) => (
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="p-2 rounded-lg bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors shadow-sm"
+              aria-label={platform}
+            >
+              <Icon name={socialIcons[platform as keyof typeof socialIcons] || 'globe-icon'} class="size-5" />
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <p class="mt-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        {author.bio}
+      </p>
+    </div>
+  </div>
+</section>

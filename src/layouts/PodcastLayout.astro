@@ -37,22 +37,9 @@ const hosts = ['Eric Gordon', 'Wes Mantooth']
     <div class="podcast-layout min-h-screen">
       <!-- Sidebar Desktop / Header Mobile -->
       <header class="podcast-sidebar bg-neutral-50 dark:bg-neutral-900 lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-[28rem] lg:items-start lg:overflow-y-auto xl:w-[30rem] border-b lg:border-r border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
-        <!-- Hosted by (Vertical Text) -->
-        <div class="hidden lg:sticky lg:top-0 lg:flex lg:w-16 lg:flex-none lg:items-center lg:px-12 lg:text-sm lg:whitespace-nowrap lg:[writing-mode:vertical-rl]">
-          <span class="font-mono text-neutral-500 dark:text-neutral-400">Apresentado por</span>
-          <span class="mt-6 flex gap-6 font-bold text-neutral-900 dark:text-neutral-50">
-            {hosts.map((host, index) => (
-              <>
-                {index !== 0 && <span aria-hidden="true" class="text-neutral-400 dark:text-neutral-600">/</span>}
-                {host}
-              </>
-            ))}
-          </span>
-        </div>
-
         <div class="relative z-10 mx-auto px-4 pt-10 pb-4 sm:px-6 md:max-w-2xl md:px-4 lg:min-h-full lg:flex-auto lg:px-8 lg:py-12 xl:px-12">
           <!-- Poster / Cover -->
-          <a href="/" class="podcast-sidebar__poster relative mx-auto block w-48 overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800 shadow-xl shadow-neutral-200 dark:shadow-neutral-900 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl transition-transform hover:scale-[1.02] duration-300" aria-label="Início">
+          <a href="/podcast" class="podcast-sidebar__poster relative mx-auto block w-48 overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800 shadow-xl shadow-neutral-200 dark:shadow-neutral-900 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl transition-transform hover:scale-[1.02] duration-300" aria-label="Podcast Início">
             <Image
               class="w-full h-auto object-cover"
               src={posterImage}
@@ -66,7 +53,7 @@ const hosts = ['Eric Gordon', 'Wes Mantooth']
 
           <div class="mt-10 text-center lg:mt-12 lg:text-left">
             <p class="text-xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">
-              <a href="/">Their Side</a>
+              <a href="/podcast">Their Side</a>
             </p>
             <p class="mt-3 text-lg leading-relaxed font-medium text-neutral-700 dark:text-neutral-300">
               Conversas com as pessoas mais tragicamente incompreendidas do nosso tempo.
@@ -74,40 +61,6 @@ const hosts = ['Eric Gordon', 'Wes Mantooth']
           </div>
 
           <AboutSection className="mt-12 hidden lg:block" />
-
-          <!-- Listen on -->
-          <section class="mt-10 lg:mt-12">
-            <h2 class="sr-only flex items-center font-mono text-sm font-medium text-neutral-900 dark:text-neutral-50 lg:not-sr-only">
-              <TinyWaveFormIcon colors={['fill-primary-300', 'fill-primary-500']} className="h-2.5 w-2.5" />
-              <span class="ml-2.5 uppercase tracking-wider">Ouça em</span>
-            </h2>
-            <ul role="list" class="mt-4 flex flex-wrap justify-center gap-10 text-base font-bold text-neutral-900 dark:text-neutral-100 lg:justify-start">
-              <li>
-                <a href="#" class="flex items-center gap-3 transition hover:text-primary-500" aria-label="Spotify">
-                  <Icon name="spotify" class="h-8 w-8 text-neutral-900 dark:text-neutral-100" />
-                  <span class="hidden sm:inline">Spotify</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="flex items-center gap-3 transition hover:text-primary-500" aria-label="Apple Podcasts">
-                  <Icon name="apple-podcast" class="h-8 w-8 text-neutral-900 dark:text-neutral-100" />
-                  <span class="hidden sm:inline">Apple Podcasts</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="flex items-center gap-3 transition hover:text-primary-500" aria-label="Overcast">
-                  <Icon name="overcast" class="h-8 w-8 text-neutral-900 dark:text-neutral-100" />
-                  <span class="hidden sm:inline">Overcast</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="flex items-center gap-3 transition hover:text-primary-500" aria-label="RSS Feed">
-                  <Icon name="rss" class="h-8 w-8 text-neutral-900 dark:text-neutral-100" />
-                  <span class="hidden sm:inline">RSS Feed</span>
-                </a>
-              </li>
-            </ul>
-          </section>
         </div>
       </header>
 

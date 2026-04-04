@@ -9,6 +9,7 @@ import { getCollection, render } from 'astro:content'
 import TinyWaveFormIcon from '@components/ui/podcast/TinyWaveFormIcon.astro'
 import NewsletterWidget from '@components/ui/podcast/NewsletterWidget.astro'
 import RelatedEpisodes from '@components/ui/podcast/RelatedEpisodes.astro'
+import AuthorSection from '@components/ui/AuthorSection.astro'
 
 export async function getStaticPaths() {
   const episodes = await getCollection('podcast')
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { episode } = Astro.props
-const { title, description, pubDate, youtubeId, cover } = episode.data
+const { title, description, pubDate, youtubeId, cover, author } = episode.data
 const { Content } = await render(episode)
 
 // Buscar outros episódios para a seção de recomendação de forma aleatória
@@ -134,7 +135,9 @@ const formattedDate = pubDate.toLocaleDateString('pt-BR', {
 
       <NewsletterWidget />
 
-      <!-- Latest Episodes Section -->
+      <AuthorSection authorSlug={author} />
+
+      <!-- Random Episodes Section -->
       <RelatedEpisodes episodes={randomEpisodes} />
 
       <footer class="mt-16 pt-12 border-t border-neutral-200 dark:border-neutral-800">

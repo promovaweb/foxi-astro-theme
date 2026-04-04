@@ -34,6 +34,7 @@ const podcast = defineCollection({
 			pubDate: z.coerce.date(),
 			youtubeId: z.string(),
 			cover: z.string(),
+			author: z.string()
 		})
 })
 

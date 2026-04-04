@@ -7,6 +7,7 @@ import Layout from '@layouts/Layout.astro'
 
 // Section Components
 import BlogPostHero from '@components/blocks/blog/BlogPostHero.astro'
+import AuthorSection from '@components/ui/AuthorSection.astro'
 
 // Content
 // - SEO
@@ -30,6 +31,7 @@ const SEO = {
 
 	<div class="post-body basic-text basic-text--lg">
 		<slot />
+		<AuthorSection authorSlug={frontmatter.author} />
 	</div>
 </Layout>
 

@@ -4,6 +4,7 @@ description: "Neste episódio, conversamos com o homem que foi expulso de sua ci
 pubDate: 2024-03-20
 youtubeId: "aqz-KE-bpKQ"
 cover: "/blog/post-01-cover.png"
+author: "luizeof"
 ---
 
 Neste episódio, mergulhamos nos detalhes técnicos e emocionais que moldaram a jornada do nosso convidado. 

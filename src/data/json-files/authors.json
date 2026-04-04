@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "luizeof",
+    "name": "Luiz Estevan",
+    "role": "Host & Editor",
+    "bio": "Entusiasta de tecnologia, design e boas conversas. Criador do Foxi Astro Theme e apaixonado por construir experiências digitais incríveis.",
+    "avatar": "/src/assets/avatars/avatar-01.webp",
+    "social": {
+      "twitter": "https://twitter.com/luizeof",
+      "linkedin": "https://linkedin.com/in/luizeof",
+      "github": "https://github.com/luizeof"
+    }
+  }
+]

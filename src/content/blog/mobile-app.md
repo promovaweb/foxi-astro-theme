@@ -2,7 +2,7 @@
 title: 'Lançamento do App Móvel Foxi'
 pubDate: 2024-04-05T05:00:00Z
 description: 'Lançamos novas atualizações de segurança para manter seus dados protegidos e seguros. Saiba mais sobre nossas melhorias de segurança mais recentes e como elas protegem você.'
-author: 'Eleni K'
+author: 'luizeof'
 image: '/blog/post-02-cover.png'
 tags: ['app', 'anúncio']
 ---

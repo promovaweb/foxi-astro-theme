@@ -2,7 +2,7 @@
 title: 'Melhorias de segurança já estão aqui!'
 pubDate: 2024-05-05T05:00:00Z
 description: 'O aplicativo móvel Foxi já está disponível! Gerencie suas tarefas e projetos em qualquer lugar com nosso novo app móvel. Mantenha-se conectado e produtivo, não importa onde você esteja.'
-author: 'Christos P'
+author: 'luizeof'
 image: '/blog/post-03-cover.png'
 tags: ['produtividade', 'app']
 ---

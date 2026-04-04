@@ -2,7 +2,7 @@
 title: 'Feedback dos usuários sobre o Foxi'
 pubDate: 2024-05-05T05:00:00Z
 description: "Seu feedback é fundamental para nós. Estamos constantemente nos esforçando para melhorar o Foxi com base em suas sugestões. Aqui estão algumas das melhorias mais recentes."
-author: 'Eleni K'
+author: 'luizeof'
 image: '/blog/post-04-cover.png'
 tags: ['produtividade', 'app']
 ---

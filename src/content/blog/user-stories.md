@@ -2,7 +2,7 @@
 title: 'Celebrando Histórias de Sucesso dos Usuários'
 pubDate: 2024-06-04T05:00:00Z
 description: 'Essas histórias nos inspiram a continuar inovando e melhorando o Foxi. Estamos orgulhosos do que nossos usuários alcançaram e comprometidos em ajudar mais pessoas a atingirem seu potencial máximo.'
-author: 'Eleni K'
+author: 'luizeof'
 image: '/blog/post-06-cover.png'
 tags: ['avaliações', 'anúncio']
 ---

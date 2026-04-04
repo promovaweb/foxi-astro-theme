@@ -4,6 +4,7 @@ description: "Uma discussão profunda sobre como as notícias podem distorcer a 
 pubDate: 2024-03-10
 youtubeId: "aqz-KE-bpKQ"
 cover: "/blog/post-03-cover.png"
+author: "luizeof"
 ---
 
 Exploramos como a mídia pode construir e destruir reputações em questão de segundos. 

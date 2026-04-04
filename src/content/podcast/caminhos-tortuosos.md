@@ -4,6 +4,7 @@ description: "Explorando a história de um empresário que perdeu tudo após uma
 pubDate: 2024-03-15
 youtubeId: "aqz-KE-bpKQ"
 cover: "/blog/post-02-cover.png"
+author: "luizeof"
 ---
 
 Uma história de resiliência e superação diante da traição corporativa.

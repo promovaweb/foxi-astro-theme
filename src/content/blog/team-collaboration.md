@@ -2,7 +2,7 @@
 title: 'Aprimorando a Colaboração em Equipe'
 pubDate: 2024-06-04T05:00:00Z
 description: 'No Foxi, acreditamos que a colaboração eficaz em equipe é a chave para alcançar grandes resultados. Nossa atualização mais recente introduz novos recursos projetados para aprimorar como sua equipe trabalha em conjunto.'
-author: 'Eleni K'
+author: 'luizeof'
 image: '/blog/post-05-cover.png'
 tags: ['app', 'anúncio']
 ---
