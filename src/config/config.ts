@@ -21,6 +21,7 @@ export interface Config {
 	changelogPageSize: number
 	podcastPageSize: number
 	exitIntentPopup: boolean
+	newsletterUrl: string
 }
 
 export const configData: Config = {
@@ -38,5 +39,6 @@ export const configData: Config = {
 	scrollAnimations: true,
 	changelogPageSize: 6,
 	podcastPageSize: 6,
-	exitIntentPopup: true
+	exitIntentPopup: true,
+	newsletterUrl: 'https://seu-servico-de-email.com/subscribe'
 }

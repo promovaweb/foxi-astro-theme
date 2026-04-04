@@ -4,7 +4,11 @@
 
 import Layout from '@layouts/PodcastLayout.astro'
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
 import { getCollection, render } from 'astro:content'
+import TinyWaveFormIcon from '@components/ui/podcast/TinyWaveFormIcon.astro'
+import NewsletterWidget from '@components/ui/podcast/NewsletterWidget.astro'
+import RelatedEpisodes from '@components/ui/podcast/RelatedEpisodes.astro'
 
 export async function getStaticPaths() {
   const episodes = await getCollection('podcast')
@@ -18,6 +22,13 @@ const { episode } = Astro.props
 const { title, description, pubDate, youtubeId, cover } = episode.data
 const { Content } = await render(episode)
 
+// Buscar outros episódios para a seção de recomendação de forma aleatória
+const allEpisodes = await getCollection('podcast')
+const randomEpisodes = (allEpisodes || [])
+  .filter((ep) => ep.id !== episode.id)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 4)
+
 const seoTitle = `${title} - Their Side`
 const formattedDate = pubDate.toLocaleDateString('pt-BR', {
   year: 'numeric',
@@ -27,67 +38,114 @@ const formattedDate = pubDate.toLocaleDateString('pt-BR', {
 ---
 
 <Layout title={seoTitle} description={description} ogImage={cover}>
-  <article class="py-16 px-4 sm:px-6 lg:px-12 xl:px-16">
-    <div class="w-full">
-      <header class="md:flex md:items-center md:justify-between mb-10">
-        <div class="min-w-0 flex-1">
+  <article class="py-8 lg:py-12 px-4 sm:px-6 lg:px-12 xl:px-16">
+    <div class="max-w-6xl mx-auto">
+      <!-- Hero Section -->
+      <header class="flex flex-col md:flex-row gap-8 lg:gap-12 items-center md:items-start mb-10 lg:mb-12">
+        <div class="flex-none w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 relative group">
+          <div class="absolute inset-0 bg-primary-500/10 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6 duration-300"></div>
+          <div class="relative overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800 shadow-2xl transition-transform group-hover:-translate-y-2 duration-300">
+            <Image
+              class="w-full h-full object-cover aspect-square"
+              src={cover}
+              alt={`Capa do episódio: ${title}`}
+              width={1024}
+              height={1024}
+              loading="eager"
+            />
+            <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+          </div>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left pt-1">
           <time
             datetime={pubDate.toISOString()}
-            class="block font-mono text-sm leading-7 text-neutral-500 dark:text-neutral-400"
+            class="inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-[0.2em] text-primary-600 dark:text-primary-400 uppercase"
           >
+            <span class="w-6 h-px bg-primary-500/50 hidden md:block"></span>
             {formattedDate}
           </time>
-          <h1 class="mt-2 text-4xl font-bold text-neutral-900 dark:text-neutral-50 sm:text-5xl lg:text-6xl sm:tracking-tight font-headings">
+          
+          <h1 class="mt-1 text-2xl font-extrabold text-neutral-900 dark:text-neutral-50 sm:text-3xl lg:text-4xl tracking-tight font-headings leading-[1.1]">
             {title}
           </h1>
-        </div>
-        <div class="mt-4 flex md:mt-0 md:ml-4">
-          <a
-            href="/podcast"
-            class="inline-flex items-center gap-2 rounded-md bg-neutral-200 dark:bg-white/10 px-3 py-2 text-sm font-semibold text-neutral-900 dark:text-white hover:bg-neutral-300 dark:hover:bg-white/20 transition shadow-sm"
-          >
-            <Icon name="chevron-left" class="size-4" />
-            Voltar
-          </a>
-          <a
-            href={`https://www.youtube.com/watch?v=${youtubeId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="ml-3 inline-flex items-center gap-2 rounded-md bg-primary-500 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-600 transition shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
-          >
-            <Icon name="youtube-icon" class="size-5" />
-            Ver no Youtube
-          </a>
+          
+          <p class="mt-3 text-base lg:text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 font-medium max-w-2xl">
+            {description}
+          </p>
+
+          <div class="mt-5 flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <a
+              href={`https://www.youtube.com/watch?v=${youtubeId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full bg-primary-500 px-5 py-2 text-sm font-bold text-white hover:bg-primary-600 transition shadow-lg shadow-primary-500/25"
+            >
+              <Icon name="youtube-icon" class="size-4" />
+              Ver no Youtube
+            </a>
+            <a
+              href="/podcast"
+              class="inline-flex items-center gap-2 rounded-full bg-neutral-200 dark:bg-white/10 px-5 py-2 text-sm font-bold text-neutral-900 dark:text-white hover:bg-neutral-300 dark:hover:bg-white/20 transition"
+            >
+              <Icon name="chevron-left" class="size-4" />
+              Voltar
+            </a>
+          </div>
         </div>
       </header>
 
-      <!-- YouTube Video em Destaque -->
-      <div class="mt-8 aspect-video overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 shadow-lg">
-        <iframe
-          class="h-full w-full"
-          src={`https://www.youtube.com/embed/${youtubeId}`}
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
+      <!-- Player Section -->
+      <section class="relative mt-12 lg:mt-16 mb-10">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="flex-none flex items-center gap-2.5 text-primary-600 dark:text-primary-400 bg-primary-500/5 dark:bg-primary-500/10 px-3 py-1.5 rounded-full ring-1 ring-inset ring-primary-500/20">
+            <Icon name="youtube-icon" class="size-4 animate-pulse" />
+            <span class="text-[11px] font-black uppercase tracking-[0.1em]">Assista agora</span>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-neutral-200 via-neutral-200 to-transparent dark:from-neutral-800 dark:via-neutral-800"></div>
+          <div class="hidden xs:block opacity-40">
+            <TinyWaveFormIcon colors={['fill-neutral-400', 'fill-neutral-500']} className="h-3 w-10" />
+          </div>
+        </div>
 
-      <div class="mt-10 prose prose-neutral dark:prose-invert max-w-none w-full">
+        <div class="relative group">
+
+        <div class="relative group">
+          <!-- Efeito de brilho ao fundo -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200"></div>
+          
+          <!-- YouTube Video -->
+          <div class="relative aspect-video overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-black/5 dark:ring-white/5">
+            <iframe
+              class="h-full w-full"
+              src={`https://www.youtube.com/embed/${youtubeId}`}
+              title="YouTube video player"
+              style="border: 0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-12 prose prose-neutral dark:prose-invert max-w-none w-full prose-headings:font-headings prose-headings:font-bold prose-a:text-primary-500 hover:prose-a:text-primary-600 prose-img:rounded-xl">
         <Content />
       </div>
 
-      <div class="mt-12 pt-12 border-t border-neutral-200 dark:border-neutral-800">
+      <NewsletterWidget />
+
+      <!-- Latest Episodes Section -->
+      <RelatedEpisodes episodes={randomEpisodes} />
+
+      <footer class="mt-16 pt-12 border-t border-neutral-200 dark:border-neutral-800">
         <a 
           href="/podcast" 
-          class="text-sm font-bold text-neutral-900 dark:text-neutral-50 hover:text-primary-500 flex items-center gap-2 transition"
+          class="inline-flex items-center gap-2 text-sm font-bold text-neutral-600 dark:text-neutral-400 hover:text-primary-500 transition group"
         >
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Voltar para a lista de episódios
+          <Icon name="chevron-left" class="size-4 transition-transform group-hover:-translate-x-1" />
+          Ver todos os episódios
         </a>
-      </div>
+      </footer>
     </div>
   </article>
 </Layout>
