@@ -10,8 +10,13 @@
 // - features: Array de funcionalidades com título, texto e ícone
 
 // Componentes
+// - Layout
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 // - UI
 import Button from '@components/ui/Button.astro'
+import InputField from '@components/ui/forms/form-elements/InputField.astro'
 import { Icon } from 'astro-icon/components'
 
 // Dados
@@ -40,36 +45,46 @@ const {
 } = Astro.props
 ---
 
-<div class="newsletter-features relative isolate overflow-hidden bg-white py-16 dark:bg-neutral-950 sm:py-24 lg:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-			<div class="max-w-xl lg:max-w-lg">
-				<h2 class="newsletter-features__title text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-5xl" set:html={title} />
-				<p class="newsletter-features__description mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-					{text}
-				</p>
-				<form
-					aria-label="Formulário de inscrição na newsletter"
-					method="POST"
-					action={configData.newsletterUrl}
-					class="newsletter-features__form mt-6 flex max-w-md items-start gap-x-4"
-				>
-					<label for="newsletter-features-email" class="sr-only">Endereço de e-mail</label>
-					<input
+<Section id="newsletter-features" classes="newsletter-features isolate overflow-hidden bg-white dark:bg-neutral-950">
+	<!-- Fundo Decorativo -->
+	<div aria-hidden="true" class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6">
+		<div
+			style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"
+			class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary-200 to-primary-500 opacity-20 dark:opacity-10"
+		>
+		</div>
+	</div>
+	<Row>
+		<!-- Coluna do formulário -->
+		<Col span="12" lg="6">
+			<h2 class="newsletter-features__title text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-5xl" set:html={title} />
+			<p class="newsletter-features__description mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+				{text}
+			</p>
+			<form
+				aria-label="Formulário de inscrição na newsletter"
+				method="POST"
+				action={configData.newsletterUrl}
+				class="newsletter-features__form mt-6 flex max-w-md items-start gap-x-4"
+			>
+				<div class="newsletter-features__input-wrapper flex-auto">
+					<InputField
 						id="newsletter-features-email"
 						name="email"
 						type="email"
+						label={placeholder}
 						required
-						placeholder={placeholder}
-						autocomplete="email"
-						class="min-w-0 flex-auto h-12 rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary-500 sm:text-sm/6 dark:bg-neutral-900 dark:text-white dark:outline-neutral-800 dark:focus:outline-primary-500"
+						classes="mb-0"
 					/>
-					<Button type="submit" style="primary" size="lg" classes="flex-none">
-						{button}
-					</Button>
-				</form>
-			</div>
-			<dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+				</div>
+				<Button type="submit" style="primary" size="lg" classes="flex-none mt-1">
+					{button}
+				</Button>
+			</form>
+		</Col>
+		<!-- Coluna de funcionalidades -->
+		<Col span="12" lg="6" classes="lg:pt-2">
+			<dl class="newsletter-features__list grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
 				{
 					features.map((feature) => (
 						<div class="flex flex-col items-start">
@@ -86,17 +101,9 @@ const {
 					))
 				}
 			</dl>
-		</div>
-	</div>
-	<!-- Fundo Decorativo -->
-	<div aria-hidden="true" class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6">
-		<div
-			style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"
-			class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary-200 to-primary-500 opacity-20 dark:opacity-10"
-		>
-		</div>
-	</div>
-</div>
+		</Col>
+	</Row>
+</Section>
 
 <style>
 	.newsletter-features__title {
@@ -104,5 +111,8 @@ const {
 	}
 	.newsletter-features__description {
 		@apply text-pretty;
+	}
+	.newsletter-features__list {
+		@apply h-full;
 	}
 </style>

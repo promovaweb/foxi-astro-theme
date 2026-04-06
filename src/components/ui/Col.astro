@@ -3,20 +3,32 @@
 // ------------
 // Descrição: Representa uma coluna em uma grade de 12 colunas.
 // Propriedades:
-// - Span: a abrangência da coluna (1 a 12)
-// - SpanMobile: a abrangência da coluna no mobile (1 a 12)
+// - Span: a abrangência da coluna no desktop (1 a 12)
+// - Lg: sobrescreve o span no breakpoint lg (1 a 12)
+// - SpanMobile: a abrangência da coluna no mobile (1 a 12), padrão 12
 // - Align: o alinhamento horizontal da coluna (start, center, end)
+// - RowSpan: abrangência de linhas na grade (1 a 6)
+// - RowSpanLg: abrangência de linhas no breakpoint lg (1 a 6)
 // - Classes: classes adicionais
 
 // Props
 type Props = {
+	/** Span da coluna no desktop (1–12). Usado como fallback se `lg` não for informado. */
 	span?: string
+	/** Sobrescreve o span no breakpoint lg (1–12). */
 	lg?: string
+	/** Span da coluna no mobile (1–12). Padrão: 12. */
 	spanMobile?: string
+	/** Alinhamento do texto na coluna (start, center, end). */
 	align?: string
+	/** Abrangência de linhas da grade (row-span). */
+	rowSpan?: string
+	/** Abrangência de linhas da grade no breakpoint lg (lg:row-span). */
+	rowSpanLg?: string
+	/** Classes CSS adicionais. */
 	classes?: string
 }
-const { span, lg, spanMobile = '12', align, classes } = Astro.props
+const { span, lg, spanMobile = '12', align, rowSpan, rowSpanLg, classes } = Astro.props
 
 const desktopSpan = lg || span
 const hasContent = Astro.slots.default
@@ -27,6 +39,8 @@ const hasContent = Astro.slots.default
 		'col',
 		{ ['col-span-' + `${spanMobile}`]: spanMobile },
 		{ ['lg:col-span-' + `${desktopSpan}`]: desktopSpan },
+		{ ['row-span-' + `${rowSpan}`]: rowSpan },
+		{ ['lg:row-span-' + `${rowSpanLg}`]: rowSpanLg },
 		{ ['text-' + `${align}`]: align },
 		{ [`${classes}`]: classes }
 	]}

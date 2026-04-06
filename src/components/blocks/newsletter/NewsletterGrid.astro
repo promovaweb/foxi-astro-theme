@@ -11,8 +11,13 @@
 // - link: A URL do link
 
 // Componentes
+// - Layout
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
 // - UI
 import Button from '@components/ui/Button.astro'
+import InputField from '@components/ui/forms/form-elements/InputField.astro'
 
 // Dados
 import { configData } from '@config'
@@ -36,39 +41,43 @@ const {
 } = Astro.props
 ---
 
-<div class="newsletter-grid bg-white py-16 dark:bg-neutral-950 sm:py-24 lg:py-32">
-	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
-		<h2 class="newsletter-grid__title max-w-xl text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl lg:col-span-7" set:html={title} />
-		<form
-			aria-label="Formulário de inscrição na newsletter"
-			method="POST"
-			action={configData.newsletterUrl}
-			class="newsletter-grid__form w-full max-w-md lg:col-span-5 lg:pt-2"
-		>
-			<div class="flex items-start gap-x-4">
-				<label for="newsletter-grid-email" class="sr-only">Endereço de e-mail</label>
-				<input
-					id="newsletter-grid-email"
-					name="email"
-					type="email"
-					required
-					placeholder={placeholder}
-					autocomplete="email"
-					class="min-w-0 flex-auto h-12 rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary-500 sm:text-sm/6 dark:bg-neutral-900 dark:text-white dark:outline-neutral-800 dark:focus:outline-primary-500"
-				/>
-				<Button type="submit" style="primary" size="lg" classes="flex-none">
-					{button}
-				</Button>
-			</div>
-			<p class="newsletter-grid__policy mt-4 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
-				{policy}{' '}
-				<a href={link} class="font-semibold whitespace-nowrap text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
-					{policyLink}
-				</a>.
-			</p>
-		</form>
-	</div>
-</div>
+<Section id="newsletter-grid" classes="newsletter-grid bg-white dark:bg-neutral-950">
+	<Row>
+		<Col span="12" lg="7" classes="flex items-center">
+			<h2 class="newsletter-grid__title text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl" set:html={title} />
+		</Col>
+		<Col span="12" lg="5" classes="flex items-start">
+			<form
+				aria-label="Formulário de inscrição na newsletter"
+				method="POST"
+				action={configData.newsletterUrl}
+				class="newsletter-grid__form w-full pt-2"
+			>
+				<div class="newsletter-grid__fields flex items-start gap-x-4">
+					<div class="newsletter-grid__input-wrapper flex-auto">
+						<InputField
+							id="newsletter-grid-email"
+							name="email"
+							type="email"
+							label={placeholder}
+							required
+							classes="mb-0"
+						/>
+					</div>
+					<Button type="submit" style="primary" size="lg" classes="flex-none mt-1">
+						{button}
+					</Button>
+				</div>
+				<p class="newsletter-grid__policy mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+					{policy}{' '}
+					<a href={link} class="font-semibold whitespace-nowrap text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+						{policyLink}
+					</a>.
+				</p>
+			</form>
+		</Col>
+	</Row>
+</Section>
 
 <style>
 	.newsletter-grid__title {

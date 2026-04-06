@@ -5,16 +5,26 @@
 // Propriedades:
 // - Flex: se a linha é flex ou não (o padrão é grid)
 // - Mode: use para sobrescrever o modo claro/escuro para uma linha específica. Útil se você tiver uma linha que possa conter um fundo escuro
+// - Rows: define explicitamente o número de linhas da grade (grid-rows-{n})
+// - RowsLg: define o número de linhas da grade no breakpoint lg (lg:grid-rows-{n})
 // - classes: classes adicionais
 
 // Props
 type Props = {
+	/** Se verdadeiro, usa flexbox em vez de grid. */
 	flex?: boolean
+	/** Classes CSS adicionais. */
 	classes?: string
+	/** Sobrescreve o modo claro/escuro para esta linha. */
 	mode?: string
+	/** Alinhamento horizontal dos itens (ex: center, end). */
 	justify?: string
+	/** Número de linhas explícitas da grade (grid-rows-{n}). */
+	rows?: string
+	/** Número de linhas explícitas no breakpoint lg (lg:grid-rows-{n}). */
+	rowsLg?: string
 }
-const { flex, mode, classes, justify } = Astro.props
+const { flex, mode, classes, justify, rows, rowsLg } = Astro.props
 ---
 
 <div
@@ -22,6 +32,8 @@ const { flex, mode, classes, justify } = Astro.props
 		'row',
 		{ 'row--flex': flex },
 		{ [`justify-${justify}`]: justify },
+		{ ['grid-rows-' + rows]: rows },
+		{ ['lg:grid-rows-' + rowsLg]: rowsLg },
 		{ [`${classes}`]: classes },
 		{ [`${mode}`]: mode }
 	]}

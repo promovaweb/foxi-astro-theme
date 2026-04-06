@@ -7,7 +7,7 @@
 // - text: O texto de descrição da seção de newsletter
 // - button: O texto para o botão de inscrição
 // - placeholder: O texto de placeholder para o campo de e-mail
-// - image: O caminho para a imagem
+// - image: O caminho para a imagem (relativo a src/assets/)
 
 // Componentes
 // - UI
@@ -64,7 +64,7 @@ if (!images[image]) throw new Error(`"${image}" não existe no glob: "src/assets
 								type="email"
 								label={placeholder}
 								required
-								classes="!bg-white !border-primary-300 !text-neutral-900 placeholder:text-neutral-500 mb-0"
+								classes="mb-0 newsletter-image__input"
 							/>
 						</div>
 						<Button type="submit" style="white" size="lg" classes="w-full sm:w-auto mt-1">
@@ -75,7 +75,7 @@ if (!images[image]) throw new Error(`"${image}" não existe no glob: "src/assets
 			</Col>
 			<Col span="12" lg="6" classes="hidden lg:block">
 				<div class="newsletter-image__image-wrapper absolute inset-y-0 right-0 w-1/2">
-					<Image src={images[image]()} alt="Newsletter" class="h-full w-full object-cover opacity-20 lg:opacity-100" />
+					<Image src={images[image]()} alt="Newsletter" class="h-full w-full object-cover" />
 				</div>
 			</Col>
 		</Row>
@@ -89,11 +89,21 @@ if (!images[image]) throw new Error(`"${image}" não existe no glob: "src/assets
 	.newsletter-image__text {
 		@apply text-pretty;
 	}
-	/* Sobrescreve estilos de Input para esta variante específica */
-	:global(.newsletter-image .input__field) {
-		@apply bg-white border-primary-300 text-neutral-900 placeholder:text-neutral-500 focus:border-primary-500;
+
+	/* Estilos do campo de email sobre o fundo primary-500 */
+	:global(.newsletter-image .newsletter-image__input .input__field) {
+		@apply bg-white border-primary-300 text-neutral-900 placeholder:text-neutral-400 focus:border-primary-700;
 	}
-	:global(.newsletter-image .input__label) {
-		@apply text-neutral-500 before:bg-white peer-focus:text-primary-500;
+
+	/* Label no estado padrão (dentro do campo) */
+	:global(.newsletter-image .newsletter-image__input .input__label) {
+		@apply text-neutral-500;
+	}
+
+	/* Label flutuante: fundo primary-500 para cobrir a borda do campo */
+	:global(.newsletter-image .newsletter-image__input .input__field:focus ~ .input__label),
+	:global(.newsletter-image .newsletter-image__input .input__field:not(:placeholder-shown) ~ .input__label),
+	:global(.newsletter-image .newsletter-image__input .input__field:-webkit-autofill ~ .input__label) {
+		@apply bg-white text-primary-600;
 	}
 </style>
