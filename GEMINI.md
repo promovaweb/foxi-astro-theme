@@ -94,7 +94,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 17. **Trabalho com UI (ui-component)** — A skill `ui-component` é **obrigatória para TODO e QUALQUER trabalho que envolva interface**, novos componentes, páginas ou modificação de estilo. Antes de agir, ative a skill, consulte o `DESIGN.md` e o guia em `UI-COMPONENTS.md`.
 18. **Sincronização DESIGN.md / global.css** — O arquivo `DESIGN.md` deve estar sempre sincronizado com o `src/styles/global.css`. Qualquer alteração estrutural nas variáveis CSS ou regras globais deve ser documentada no manual de design.
 19. **Registro de Componentes** — Qualquer novo componente criado **DEVE** ser registrado no arquivo central `UI-COMPONENTS.md` com sua descrição e insight de uso.
-20. **Sincronização de Skills/Comandos** — Qualquer skill criada ou modificada em `.gemini/skills/` deve ter seu comando correspondente criado ou atualizado em `.claude/commands/`, e vice-versa. Isso garante que as capacidades das IAs permaneçam equivalentes.
+20. **Sincronização de Skills** — Qualquer skill criada ou modificada em `.gemini/skills/` deve ter sua skill correspondente criada ou atualizada em `.claude/skills/`, e vice-versa. Isso garante que as capacidades das IAs permaneçam equivalentes.
 21. **Conventional Commits** — Todo commit solicitado **DEVE** seguir o padrão: `tipo(escopo): descrição`. Ex: `feat(blog): suporte a rss`.
 22. **Separação de Lógica** — Evite lógica complexa no frontmatter do Astro. Extraia para `src/utils/` ou `src/lib/`.
 23. **Diagramas Mermaid** — Use blocos de código `mermaid` para documentar fluxos complexos em arquivos Markdown.

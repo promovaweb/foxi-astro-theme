@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "tailwind-best-practices": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "e1d78db545e6df6bb3afb7f0078461d43e5258f3d8f27e4362099f6a92b462da"
+    }
+  }
+}
