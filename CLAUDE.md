@@ -74,6 +74,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 16. **Trabalho com UI (ui-component)** — A skill `ui-component` é **obrigatória para TODO e QUALQUER trabalho que envolva interface**, novos componentes, páginas ou modificação de estilo. Antes de agir, ative a skill, consulte o `DESIGN.md` e o inventário em `references/components.md`.
 17. **Sincronização DESIGN.md / global.css** — O arquivo `DESIGN.md` deve estar sempre sincronizado com o `src/styles/global.css`. Qualquer alteração estrutural nas variáveis CSS ou regras globais deve ser documentada no manual de design.
 18. **Registro de Componentes** — Qualquer novo componente criado **DEVE** ser registrado no arquivo de referências da skill `ui-component` (`references/components.md`).
+19. **Sincronização de Skills/Comandos** — Qualquer comando criado ou modificado em `.claude/commands/` deve ter sua skill correspondente criada ou atualizada em `.gemini/skills/`, e vice-versa. Isso garante que as capacidades das IAs permaneçam equivalentes.
 
 ---
 
