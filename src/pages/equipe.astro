@@ -1,0 +1,86 @@
+---
+// Componentes
+// - Layout
+import Layout from '@layouts/Layout.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+// - Blocos
+import TeamGrid from '@components/blocks/team/TeamGrid.astro'
+import Hero from '@components/blocks/hero/CentredHero.astro'
+
+// Dados
+import teamData from '@data/json-files/teamData.json'
+
+// Imagens (importações necessárias para o componente <Image /> do Astro)
+import avatar01 from '@/assets/avatars/avatar-01.webp'
+import avatar02 from '@/assets/avatars/avatar-02.webp'
+import avatar03 from '@/assets/avatars/avatar-03.webp'
+import avatar04 from '@/assets/avatars/avatar-04.webp'
+import avatar05 from '@/assets/avatars/avatar-05.webp'
+
+// Mapeamento de imagens para os dados JSON
+const teamWithImages = teamData.team.map((member, index) => {
+	const images = [avatar01, avatar02, avatar03, avatar04, avatar05]
+	return {
+		...member,
+		image: images[index]
+	}
+})
+
+// SEO
+const SEO = {
+	title: 'Equipe | Foxi Astro Theme',
+	description: 'Conheça a equipe talentosa por trás do Foxi Astro Theme. Especialistas dedicados a criar as melhores ferramentas de produtividade.'
+}
+---
+
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	dataLayer={{ pageType: 'page', pageTitle: SEO.title, pageDescription: SEO.description }}
+>
+	<Hero
+		title={teamData.title}
+		text={teamData.description}
+		notification="Estamos contratando novos talentos!"
+		notificationLink="/contact"
+		primaryButton={{ name: 'Junte-se a nós', link: '/contact' }}
+		secondaryButton={{ name: 'Ver vagas', link: '#' }}
+	/>
+
+	<Section id="cultura" classes="bg-neutral-50 dark:bg-neutral-900/50">
+		<Row>
+			<Col span="12" align="center" classes="mb-12">
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white lg:text-4xl">Nossa <strong>Cultura</strong> e Valores</h2>
+				<p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+					Acreditamos que grandes produtos são construídos por pessoas apaixonadas e em um ambiente de colaboração e respeito.
+				</p>
+			</Col>
+		</Row>
+		<Row classes="gap-y-8 lg:gap-x-12">
+			<Col span="12" lg="4">
+				<h3 class="mb-4 text-xl font-bold text-neutral-900 dark:text-white">Inovação Constante</h3>
+				<p class="text-neutral-600 dark:text-neutral-400">
+					Estamos sempre buscando novas formas de resolver problemas antigos. A curiosidade é o que nos move a criar ferramentas que realmente fazem a diferença no dia a dia.
+				</p>
+			</Col>
+			<Col span="12" lg="4">
+				<h3 class="mb-4 text-xl font-bold text-neutral-900 dark:text-white">Foco no Usuário</h3>
+				<p class="text-neutral-600 dark:text-neutral-400">
+					Cada funcionalidade que desenvolvemos nasce de uma necessidade real. Ouvimos nossa comunidade para garantir que o Foxi evolua na direção certa.
+				</p>
+			</Col>
+			<Col span="12" lg="4">
+				<h3 class="mb-4 text-xl font-bold text-neutral-900 dark:text-white">Trabalho Remoto</h3>
+				<p class="text-neutral-600 dark:text-neutral-400">
+					Nossa equipe é distribuída, o que nos permite contar com os melhores talentos, não importa onde estejam. Valorizamos a autonomia e o equilíbrio entre vida e trabalho.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<TeamGrid
+		team={teamWithImages}
+	/>
+</Layout>

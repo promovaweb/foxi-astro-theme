@@ -56,6 +56,10 @@ Seções complexas pré-montadas para construção rápida de páginas.
 - `features/FeatureSticky.astro`: Layout moderno com scroll lateral fixo.
 - `features/ScreenshotFeature.astro`: Foco em visualização de interface.
 
+#### Equipe (Team)
+
+- `team/TeamGrid.astro`: Grid de cards de membros da equipe com imagem, cargo e links sociais.
+
 #### Precificação (Pricing)
 
 - `pricing/PricingColumns.astro`: Comparação de 3 a 4 planos.

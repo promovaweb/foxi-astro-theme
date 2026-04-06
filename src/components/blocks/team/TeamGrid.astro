@@ -1,0 +1,140 @@
+---
+/**
+ * Componente: TeamGrid
+ * Descrição: Um grid de cards de membros da equipe com imagem, cargo, biografia e links sociais.
+ *
+ * Propriedades:
+ * @param {string} title - O título da seção da equipe.
+ * @param {string} description - Uma breve descrição ou introdução da equipe.
+ * @param {Array} team - Lista de objetos de membros da equipe.
+ * @param {string} classes - Classes CSS adicionais para o wrapper da seção.
+ */
+
+// Componentes UI
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+
+// Tipos
+interface TeamMember {
+	name: string
+	role: string
+	bio: string
+	image: any // Caminho da imagem
+	social?: {
+		linkedin?: string
+		twitter?: string
+		github?: string
+		instagram?: string
+	}
+}
+
+type Props = {
+	title?: string
+	description?: string
+	team: TeamMember[]
+	classes?: string
+}
+
+const { title, description, team, classes } = Astro.props
+---
+
+<Section id="equipe" classes={`team-grid ${classes || ''}`}>
+	{ (title || description) && (
+		<Row>
+			<Col span="12" align="center" classes="team-grid__header">
+				{title && <h2 class="team-grid__title">{title}</h2>}
+				{description && <p class="team-grid__description">{description}</p>}
+			</Col>
+		</Row>
+	)}
+	<Row classes="team-grid__content">
+		{
+			team.map((member) => (
+				<Col span="12" lg="4" classes="team-grid__col">
+					<div class="team-card">
+						<div class="team-card__image-wrapper">
+							<Image
+								src={member.image}
+								alt={member.name}
+								width={400}
+								height={400}
+								class="team-card__image"
+							/>
+						</div>
+						<div class="team-card__body">
+							<h3 class="team-card__name">{member.name}</h3>
+							<p class="team-card__role">{member.role}</p>
+							<p class="team-card__bio">{member.bio}</p>
+							{member.social && (
+								<div class="team-card__social">
+									{member.social.linkedin && (
+										<a href={member.social.linkedin} aria-label={`LinkedIn de ${member.name}`}>
+											<Icon name="linkedin-icon" class="team-card__icon" />
+										</a>
+									)}
+									{member.social.twitter && (
+										<a href={member.social.twitter} aria-label={`Twitter de ${member.name}`}>
+											<Icon name="twitter-icon" class="team-card__icon" />
+										</a>
+									)}
+									{member.social.github && (
+										<a href={member.social.github} aria-label={`GitHub de ${member.name}`}>
+											<Icon name="github-icon" class="team-card__icon" />
+										</a>
+									)}
+									{member.social.instagram && (
+										<a href={member.social.instagram} aria-label={`Instagram de ${member.name}`}>
+											<Icon name="instagram-icon" class="team-card__icon" />
+										</a>
+									)}
+								</div>
+							)}
+						</div>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	.team-grid__header {
+		@apply mb-12 lg:mb-16;
+	}
+	.team-grid__title {
+		@apply text-3xl font-bold text-neutral-900 dark:text-white lg:text-4xl;
+	}
+	.team-grid__description {
+		@apply mx-auto mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400;
+	}
+	.team-grid__content {
+		@apply gap-y-8;
+	}
+	.team-card {
+		@apply flex flex-col items-center overflow-hidden rounded-2xl border border-neutral-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary-200 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-800;
+	}
+	.team-card__image-wrapper {
+		@apply mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-primary-100 dark:border-primary-900;
+	}
+	.team-card__image {
+		@apply h-full w-full object-cover;
+	}
+	.team-card__name {
+		@apply mb-1 text-xl font-bold text-neutral-900 dark:text-white;
+	}
+	.team-card__role {
+		@apply mb-4 font-medium text-primary-600 dark:text-primary-400;
+	}
+	.team-card__bio {
+		@apply mb-6 text-neutral-600 dark:text-neutral-400;
+	}
+	.team-card__social {
+		@apply flex justify-center gap-4;
+	}
+	.team-card__icon {
+		@apply h-5 w-5 text-neutral-400 transition-colors hover:text-primary-600 dark:hover:text-primary-400;
+	}
+</style>

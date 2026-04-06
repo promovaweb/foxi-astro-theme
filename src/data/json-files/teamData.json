@@ -1,0 +1,55 @@
+{
+	"title": "Nossa Equipe",
+	"description": "Conheça os talentos por trás do Foxi Astro Theme. Uma equipe dedicada a criar as melhores experiências digitais.",
+	"team": [
+		{
+			"name": "Ricardo Silva",
+			"role": "CEO & Fundador",
+			"bio": "Ricardo tem mais de 15 anos de experiência em tecnologia e lidera a visão estratégica do Foxi.",
+			"image": "/src/assets/avatars/avatar-01.webp",
+			"social": {
+				"linkedin": "#",
+				"twitter": "#"
+			}
+		},
+		{
+			"name": "Ana Oliveira",
+			"role": "Diretora de Design",
+			"bio": "Ana é a mente criativa por trás da identidade visual e UX impecável do nosso tema.",
+			"image": "/src/assets/avatars/avatar-02.webp",
+			"social": {
+				"linkedin": "#",
+				"instagram": "#"
+			}
+		},
+		{
+			"name": "Lucas Santos",
+			"role": "Desenvolvedor Lead",
+			"bio": "Especialista em Astro e performance, Lucas garante que cada linha de código seja otimizada.",
+			"image": "/src/assets/avatars/avatar-03.webp",
+			"social": {
+				"github": "#",
+				"linkedin": "#"
+			}
+		},
+		{
+			"name": "Mariana Costa",
+			"role": "Gerente de Produto",
+			"bio": "Mariana coordena o desenvolvimento de novas funcionalidades ouvindo sempre nossos usuários.",
+			"image": "/src/assets/avatars/avatar-04.webp",
+			"social": {
+				"linkedin": "#"
+			}
+		},
+		{
+			"name": "Felipe Mendes",
+			"role": "Especialista em Marketing",
+			"bio": "Felipe ajuda a espalhar a palavra sobre o Foxi e a construir nossa comunidade crescente.",
+			"image": "/src/assets/avatars/avatar-05.webp",
+			"social": {
+				"twitter": "#",
+				"linkedin": "#"
+			}
+		}
+	]
+}
