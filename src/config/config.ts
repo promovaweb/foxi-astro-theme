@@ -47,7 +47,7 @@ export const configData: Config = {
 	canonical: true,
 	noindex: false,
 	mode: 'auto',
-	scrollAnimations: true,
+	scrollAnimations: false,
 	blogPageSize: 6,
 	changelogPageSize: 6,
 	podcastPageSize: 6,
