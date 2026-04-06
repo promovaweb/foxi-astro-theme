@@ -72,7 +72,7 @@ const downloadUrl = thankYou.downloadUrl
 		</Row>
 	</Section>
 
-	<script define:vars={{ downloadUrl }}>
+	<script is:inline define:vars={{ downloadUrl }}>
 		// Gatilho de download automático se for um arquivo direto
 		if (downloadUrl && !downloadUrl.startsWith('http')) {
 			setTimeout(() => {

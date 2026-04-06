@@ -27,7 +27,7 @@ const { slides, title } = Astro.props
 
 	<div class="image-slider__viewport relative group">
 		<div class="image-slider__container flex transition-transform duration-700 ease-in-out cursor-grab active:cursor-grabbing" id="slider-container">
-			{slides.map((slide, index) => (
+			{slides.map((slide) => (
 				<div class="image-slider__slide flex-shrink-0 w-full px-4 lg:px-20">
 					<div class="relative overflow-hidden rounded-[2rem] lg:rounded-[3rem] shadow-xl aspect-video bg-white dark:bg-neutral-900">
 						{/* Imagem Limpa 1920x1080 */}

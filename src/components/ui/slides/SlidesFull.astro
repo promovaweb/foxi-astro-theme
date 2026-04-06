@@ -71,7 +71,7 @@ const { slides, id = "full-slides", autoplay = true, classes } = Astro.props
 	</div>
 </div>
 
-<script define:vars={{ id, autoplay, slidesCount: slides.length }}>
+<script is:inline define:vars={{ id, autoplay, slidesCount: slides.length }}>
 	function initSlidesFull() {
 		const slides = document.querySelectorAll(`#${id} .slides-full__slide`);
 		const indicators = document.querySelectorAll(`#${id} .slides-full__indicator`);

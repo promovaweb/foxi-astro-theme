@@ -3,14 +3,8 @@
 // ------------
 // Descrição: Barra lateral para a página de changelog com categorias, links e newsletter.
 
-import { getCollection } from 'astro:content'
 import { Icon } from 'astro-icon/components'
 import { socialLinks } from '@config/socialLinks'
-
-const changelogEntries = await getCollection('changelog')
-const categories = [...new Set(changelogEntries.map((entry) => entry.data.category))].sort()
-
-const { currentCategory } = Astro.props
 ---
 
 <div class="flex flex-col gap-12">

@@ -24,7 +24,7 @@ const { slides, id = "basic-slides", autoplay = true, classes } = Astro.props
 
 <div class:list={["slides-basic relative group overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-900", classes]} id={id}>
 	<div class="slides-basic__container flex transition-transform duration-700 ease-in-out" id={`${id}-container`}>
-		{slides.map((slide, index) => (
+		{slides.map((slide) => (
 			<div class="slides-basic__slide flex-shrink-0 w-full relative">
 				{/* Imagem Limpa 1920x1080 */}
 				<div class="aspect-video overflow-hidden">
@@ -62,7 +62,7 @@ const { slides, id = "basic-slides", autoplay = true, classes } = Astro.props
 	</div>
 </div>
 
-<script define:vars={{ id, autoplay, slidesCount: slides.length }}>
+<script is:inline define:vars={{ id, autoplay, slidesCount: slides.length }}>
 	function initSlidesBasic() {
 		const container = document.getElementById(`${id}-container`);
 		const prevBtn = document.getElementById(`${id}-prev`);

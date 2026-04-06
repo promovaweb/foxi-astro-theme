@@ -25,7 +25,7 @@ const { slides, id = "split-slides", autoplay = true, classes } = Astro.props
 
 <div class:list={["slides-split relative overflow-hidden bg-white dark:bg-neutral-950 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-800 shadow-xl", classes]} id={id}>
 	<div class="slides-split__container flex transition-transform duration-1000 ease-[cubic-bezier(0.7,0,0.3,1)]" id={`${id}-container`}>
-		{slides.map((slide, index) => (
+		{slides.map((slide) => (
 			<div class="slides-split__slide flex-shrink-0 w-full grid lg:grid-cols-2">
 				{/* Text Content */}
 				<div class="p-8 lg:p-20 flex flex-col justify-center order-2 lg:order-1 bg-neutral-50 dark:bg-neutral-900/50">
@@ -61,7 +61,7 @@ const { slides, id = "split-slides", autoplay = true, classes } = Astro.props
 	</div>
 </div>
 
-<script define:vars={{ id, autoplay, slidesCount: slides.length }}>
+<script is:inline define:vars={{ id, autoplay, slidesCount: slides.length }}>
 	function initSlidesSplit() {
 		const container = document.getElementById(`${id}-container`);
 		const prevBtn = document.getElementById(`${id}-prev`);
