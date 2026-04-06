@@ -92,7 +92,7 @@ Nunca use caminhos relativos (`../`, `../../`). Utilize os aliases definidos no 
 | `@layouts/*` | `src/layouts/*` |
 | `@config/*` | `src/config/*` |
 | `@data/*` | `src/data/*` |
-| `@types/*` | `src/types/*` |
+| `@type/*` | `src/types/*` |
 
 ## 5. Segurança de Tipos e Asserções
 

@@ -2,7 +2,7 @@
 // ------------
 // Description: Configurações de comportamento do aplicativo, UI e serviços.
 
-import type { AppSettings } from '@types/config'
+import type { AppSettings } from '@type/config'
 
 export const appSettings: AppSettings = {
 	mode: 'auto',

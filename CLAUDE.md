@@ -166,7 +166,10 @@ import { socialLinks } from '@config/socialLinks'
 | Blocos de página | `src/components/blocks/` |
 | Estilos globais | `src/styles/global.css` |
 | Config do Tailwind | `tailwind.config.mjs` |
-| Config do site | `src/config/config.ts` |
+| Config Agregadora | `src/config/config.ts` |
+| Config de Identidade/SEO | `src/config/siteSettings.ts` |
+| Config de Comportamento/App | `src/config/appSettings.ts` |
+| Tipos de Configuração | `src/types/config.ts` |
 | Config da navegação | `src/config/navigationBar.ts` |
 | Config do rodapé | `src/config/footerNavigation.ts` |
 | Links sociais | `src/config/socialLinks.ts` |

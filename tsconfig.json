@@ -12,8 +12,8 @@
       "@config/*": ["./src/config/*"],
       "@data/*": ["./src/data/*"],
       "@icons/*": ["./src/icons/*"],
-      "@types/config": ["./src/types/config.ts"],
-      "@types/*": ["./src/types/*"]
+      "@type/config": ["./src/types/config.ts"],
+      "@type/*": ["./src/types/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

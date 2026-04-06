@@ -2,7 +2,7 @@
 // ------------
 // Description: Configurações de identidade do site, SEO e redes sociais.
 
-import type { SiteSettings } from '@types/config'
+import type { SiteSettings } from '@type/config'
 
 export const siteSettings: SiteSettings = {
 	siteTitle: 'Foxi. Tailwind CSS Astro Starter Kit da Oxygenna',

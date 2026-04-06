@@ -173,7 +173,7 @@ import { socialLinks } from '@config/socialLinks'
 | Config Agregadora | `src/config/config.ts` |
 | Config de Identidade/SEO | `src/config/siteSettings.ts` |
 | Config de Comportamento/App | `src/config/appSettings.ts` |
-| Tipos de Configuração | `src/config/types.ts` |
+| Tipos de Configuração | `src/types/config.ts` |
 | Config da navegação | `src/config/navigationBar.ts` |
 | Config do rodapé | `src/config/footerNavigation.ts` |
 | Links sociais | `src/config/socialLinks.ts` |

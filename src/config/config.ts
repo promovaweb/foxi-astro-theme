@@ -4,7 +4,7 @@
 
 import { siteSettings } from './siteSettings'
 import { appSettings } from './appSettings'
-import type { Config, Mode, Logo, SiteSettings, AppSettings as AppSettingsType } from '@types/config'
+import type { Config, Mode, Logo, SiteSettings, AppSettings as AppSettingsType } from '@type/config'
 
 export type { Config, Mode, Logo, SiteSettings, AppSettingsType as AppSettings }
 
