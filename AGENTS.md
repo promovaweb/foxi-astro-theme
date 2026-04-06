@@ -37,3 +37,4 @@ Os arquivos `GEMINI.md`, `CLAUDE.md` e `AGENTS.md` devem estar sempre sincroniza
 - **Aliases de Path**: Nunca usar caminhos relativos; sempre usar `@config/`, `@components/`, etc.
 - **Tipagem**: Toda nova funcionalidade deve ser estritamente tipada seguindo o `TYPESCRIPT.md`.
 - **Documentação Obrigatória (JSDoc)**: Todos os arquivos de definição em `src/types/` e arquivos de configuração em `src/config/` **DEVEM** conter documentação JSDoc em cada propriedade e estrutura (em pt-BR).
+- **Consistência de Design (ui-component)**: O `DESIGN.md` é a fonte única de verdade para UI/UX. Antes de criar qualquer componente ou página, você **DEVE** ativar a skill `ui-component` e consultar o `DESIGN.md`.

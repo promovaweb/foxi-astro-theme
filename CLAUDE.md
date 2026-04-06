@@ -71,6 +71,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 13. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 14. **Modularização de Configurações** — As configurações do site devem ser modularizadas em `src/config/`. O arquivo `src/config/config.ts` atua como um agregador central. Configurações de identidade e SEO ficam em `siteSettings.ts`, enquanto comportamentos do aplicativo e UI ficam em `appSettings.ts`. Todas as interfaces e tipos devem ser centralizados em `src/types/config.ts`.
 15. **Documentação Obrigatória (JSDoc)** — Todos os arquivos de definição em `src/types/` e arquivos de configuração em `src/config/` **DEVEM** conter documentação JSDoc em cada propriedade e estrutura (em pt-BR).
+16. **Consistência de Design (DESIGN.md)** — O `DESIGN.md` é a fonte única de verdade para UI/UX. Antes de criar qualquer componente ou página, você **DEVE** ativar a skill `ui-component` e consultar o `DESIGN.md`.
 
 ---
 
