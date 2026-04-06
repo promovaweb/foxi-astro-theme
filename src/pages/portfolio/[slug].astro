@@ -1,0 +1,135 @@
+---
+// Página Single de Portfólio
+// ------------
+// Descrição: Detalhes de um projeto específico do portfólio.
+
+import Layout from '@layouts/Layout.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import { Image } from 'astro:assets'
+import Button from '@components/ui/Button.astro'
+
+// Dados
+import portfolioData from '@data/json-files/portfolioData.json'
+
+export async function getStaticPaths() {
+	return portfolioData.map((project) => ({
+		params: { slug: project.slug },
+		props: { project }
+	}))
+}
+
+const { project } = Astro.props
+
+const title = `${project.title} | Portfólio Foxi`
+const description = project.description
+---
+
+<Layout 
+	title={title} 
+	description={description}
+	dataLayer={{
+		pageType: 'material',
+		pageTitle: title,
+		pageDescription: description,
+		category: project.category
+	}}
+>
+	<!-- Hero do Projeto -->
+	<Section id="project-hero" padding="top" classes="bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" align="center">
+				<div class="mb-6">
+					<span class="px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-500 text-sm font-bold uppercase tracking-widest">
+						{project.category}
+					</span>
+				</div>
+				<h1 class="text-4xl lg:text-6xl font-black mb-6" set:html={project.title} />
+				<p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+					{project.description}
+				</p>
+			</Col>
+		</Row>
+		<Row classes="mt-12">
+			<Col span="12">
+				<div class="overflow-hidden rounded-[2rem] shadow-2xl border border-neutral-200 dark:border-neutral-800">
+					<img 
+						src={project.image} 
+						alt={project.title} 
+						class="w-full h-auto aspect-video object-cover"
+					/>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Detalhes do Projeto -->
+	<Section id="project-details" classes="bg-white dark:bg-neutral-950">
+		<Row>
+			<Col span="8" classes="pr-0 lg:pr-12">
+				<h2 class="text-3xl font-bold mb-6">Sobre o Projeto</h2>
+				<p class="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 mb-8">
+					{project.fullDescription}
+				</p>
+				
+				<h3 class="text-2xl font-bold mb-4">Recursos Implementados</h3>
+				<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+					{project.features.map((feature) => (
+						<li class="flex items-center gap-3 p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800">
+							<span class="p-1 rounded-full bg-primary-500 text-white">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+							</span>
+							<span class="font-medium">{feature}</span>
+						</li>
+					))}
+				</ul>
+
+				<h3 class="text-2xl font-bold mb-4">Resultados Alcançados</h3>
+				<div class="p-8 rounded-[2rem] bg-primary-500 text-white shadow-xl shadow-primary-500/20">
+					<p class="text-xl font-medium leading-relaxed italic">
+						"{project.results}"
+					</p>
+				</div>
+			</Col>
+			
+			<Col span="4">
+				<div class="sticky top-24 p-8 rounded-[2rem] bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800">
+					<h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6">Informações</h3>
+					<div class="space-y-6">
+						<div>
+							<span class="block text-xs text-neutral-500 uppercase mb-1">Cliente</span>
+							<span class="text-lg font-bold">{project.client}</span>
+						</div>
+						<div>
+							<span class="block text-xs text-neutral-500 uppercase mb-1">Data</span>
+							<span class="text-lg font-bold">{project.date}</span>
+						</div>
+						<div>
+							<span class="block text-xs text-neutral-500 uppercase mb-1">Categoria</span>
+							<span class="text-lg font-bold">{project.category}</span>
+						</div>
+					</div>
+					<div class="mt-10">
+						<Button link="/portfolio" style="neutral" classes="w-full justify-center">
+							Voltar ao Portfólio
+						</Button>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- CTA Final -->
+	<Section id="project-cta" classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center" classes="max-w-4xl mx-auto">
+				<h2 class="text-4xl font-black mb-6">Inspirado por este projeto?</h2>
+				<p class="text-xl text-neutral-600 dark:text-neutral-400 mb-10">
+					Vamos conversar sobre como podemos ajudar sua empresa a alcançar resultados similares com soluções digitais de alto impacto.
+				</p>
+				<Button size="lg" link="/contact">Iniciar meu projeto</Button>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

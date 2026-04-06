@@ -19,7 +19,15 @@ const SEO = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout 
+	title={SEO.title} 
+	description={SEO.description}
+	dataLayer={{
+		pageType: 'error',
+		pageTitle: SEO.title,
+		pageDescription: SEO.description
+	}}
+>
 	<Section>
 		<Row flex classes="text-center">
 			<Col span="2" />

@@ -31,6 +31,18 @@ export const navigationBarData: NavData = {
 		{ name: 'Funcionalidades', link: '/features' },
 		{ name: 'Preços', link: '/pricing' },
 		{
+			name: 'Páginas',
+			link: '#',
+			submenu: [
+				{ name: 'Produto', link: '/produto' },
+				{ name: 'Onboarding', link: '/onboarding' },
+				{ name: 'Comparar', link: '/comparar' },
+				{ name: 'Portfólio', link: '/portfolio' },
+				{ name: 'Newsletter', link: '/newsletter' },
+				{ name: 'Assine', link: '/assine' }
+			]
+		},
+		{
 			name: 'Recursos',
 			link: '#',
 			submenu: [

@@ -1,0 +1,99 @@
+---
+// Página de Vendas (Assine)
+// ------------
+// Descrição: Página de alta conversão focada na venda do produto e assinatura.
+
+import Layout from '@layouts/Layout.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import SplitHero from '@components/blocks/hero/SplitHero.astro'
+import PricingStandardEnterprise from '@components/blocks/pricing/PricingStandardEnterprise.astro'
+import FeatureList from '@components/blocks/features/FeatureList.astro'
+import BasicDarkTestimonial from '@components/blocks/testimonials/BasicDark.astro'
+import FAQ from '@components/blocks/FAQ/Basic.astro'
+
+// Imagem de Depoimento
+import testimonialBg from '@/assets/testimonial-bg-01.webp'
+
+const title = "Assine o Foxi Pro | Comece sua transformação digital"
+const description = "Escolha o plano ideal e tenha acesso imediato a todas as ferramentas do Foxi Pro. Aumente a produtividade da sua equipe hoje mesmo."
+
+// URL Externa para Assinatura (Exemplo: Stripe, Hotmart, etc)
+const checkoutUrl = "https://checkout.exemplo.com/foxi-pro"
+---
+
+<Layout 
+	title={title} 
+	description={description}
+	dataLayer={{
+		pageType: 'checkout',
+		pageTitle: title,
+		pageDescription: description,
+		category: 'Vendas'
+	}}
+>
+	<!-- Hero de Vendas -->
+	<SplitHero 
+		title="Pronto para levar seu negócio ao <strong>próximo nível?</strong>"
+		text="Junte-se a mais de 30.000 profissionais que já otimizaram seus fluxos de trabalho com o Foxi Pro. Assine agora e tenha acesso ilimitado."
+		primaryButton={{ name: 'Assinar Agora', link: checkoutUrl }}
+		secondaryButton={{ name: 'Ver Planos', link: '#oferta' }}
+		badge="Oferta Limitada"
+		badgeText="Garanta 20% de desconto no plano anual"
+	/>
+
+	<!-- Benefícios Principais -->
+	<Section id="benefits-sales" classes="bg-white dark:bg-neutral-950 border-y border-neutral-100 dark:border-neutral-800">
+		<Row>
+			<Col span="12" align="center" classes="mb-16">
+				<h2 class="text-3xl lg:text-5xl font-black">Tudo o que você precisa para <strong>vencer</strong></h2>
+				<p class="text-xl text-neutral-600 dark:text-neutral-400 mt-4">Uma plataforma completa, sem letras miúdas e focada em resultados.</p>
+			</Col>
+		</Row>
+		<FeatureList />
+	</Section>
+
+	<!-- Oferta em Destaque -->
+	<div id="oferta">
+		<PricingStandardEnterprise />
+	</div>
+
+	<!-- Depoimento de Impacto -->
+	<BasicDarkTestimonial 
+		blockquote="O Foxi Pro não é apenas uma ferramenta, é um diferencial competitivo. Em menos de um mês, nossa equipe reduziu o tempo de projeto em 30%."
+		figcaption="Ana Paula"
+		cite="CTO, InovaTech"
+		bg={testimonialBg}
+	/>
+
+	<!-- Objeções e Dúvidas (FAQ) -->
+	<FAQ classes="bg-neutral-50 dark:bg-neutral-900" />
+
+	<!-- CTA Final de Fechamento -->
+	<Section id="final-checkout" classes="bg-white dark:bg-neutral-950 py-24">
+		<Row>
+			<Col span="12" align="center" classes="max-w-4xl mx-auto">
+				<div class="p-12 lg:p-20 rounded-[3rem] bg-neutral-900 dark:bg-primary-500 text-white shadow-2xl relative overflow-hidden">
+					<!-- Elemento Decorativo -->
+					<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+					<div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-primary-500/20 dark:bg-white/20 rounded-full blur-3xl"></div>
+					
+					<h2 class="text-4xl lg:text-6xl font-black mb-8 relative z-10">Sua jornada rumo à <strong>excelência</strong> começa aqui.</h2>
+					<p class="text-xl text-neutral-300 dark:text-primary-50 mb-12 relative z-10">
+						Não deixe para amanhã a produtividade que você pode ter hoje. Assine agora e transforme sua rotina.
+					</p>
+					<div class="relative z-10">
+						<Button size="lg" link={checkoutUrl} style="primary" classes="!bg-white !text-neutral-900 hover:!bg-neutral-100 scale-125">
+							Assinar Agora
+						</Button>
+					</div>
+					<p class="mt-8 text-sm text-neutral-400 dark:text-primary-100 relative z-10">
+						Pagamento seguro via SSL. Cancele quando quiser.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

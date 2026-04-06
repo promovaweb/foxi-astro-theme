@@ -1,0 +1,211 @@
+---
+// Página de Inscrição na Newsletter (Versão Mega Landing)
+// ------------
+// Descrição: Landing page de alta conversão para a newsletter, com hero massivo e foco total no formulário.
+
+import Layout from '@layouts/Layout.astro'
+import LandingForm from '@components/blocks/landing/LandingForm.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Testimonial from '@components/ui/Testimonial.astro'
+import { Icon } from 'astro-icon/components'
+import AvatarGroup from '@components/ui/AvatarGroup.astro'
+
+// Imagens
+import testimonialBg from '@/assets/testimonial-bg-02.webp'
+import user1 from '@/assets/avatars/avatar-01.webp'
+import user2 from '@/assets/avatars/avatar-02.webp'
+import user3 from '@/assets/avatars/avatar-03.webp'
+
+// Dados
+import { configData } from '@config'
+
+const avatars = [
+	{ image: { src: user1.src, alt: 'Assinante' }, link: '#' },
+	{ image: { src: user2.src, alt: 'Assinante' }, link: '#' },
+	{ image: { src: user3.src, alt: 'Assinante' }, link: '#' }
+]
+
+const title = "A Newsletter que os Especialistas não querem que você perca"
+const description = "Junte-se a +5.000 profissionais de elite. Receba estratégias semanais de Astro e Tailwind que vão acelerar sua carreira em 10x."
+---
+
+<Layout 
+	title={title} 
+	description={description}
+	dataLayer={{
+		pageType: 'page',
+		pageTitle: title,
+		pageDescription: description,
+		category: 'Marketing'
+	}}
+>
+	<!-- Hero Customizado e Massivo -->
+	<Section id="intro" padding="top" classes="relative overflow-hidden bg-white dark:bg-neutral-950 py-16 lg:py-32">
+		<!-- Padrão Decorativo de Fundo -->
+		<div class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] opacity-20"></div>
+		
+		<Row>
+			<Col span="12" lg="6" classes="flex flex-col justify-center">
+				<span class="text-primary-500 font-bold uppercase tracking-widest text-sm mb-6 block">Conteúdo Exclusivo</span>
+				<h1 class="text-4xl lg:text-7xl font-black mb-8 text-neutral-900 dark:text-white leading-[1.1]">
+					Domine o <strong>Astro & Tailwind</strong> antes de todo mundo
+				</h1>
+				<p class="text-xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
+					Não é apenas mais uma newsletter. É o seu passe VIP para as estratégias que estão moldando o futuro da web. Receba curadoria de elite e códigos exclusivos toda terça-feira.
+				</p>
+				
+				<div class="flex flex-col gap-6">
+					<div class="flex items-center gap-4">
+						<AvatarGroup avatars={avatars} radius="rounded-full" size="sm" />
+						<p class="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+							Junte-se a <span class="text-primary-500 font-bold">+5.420</span> assinantes satisfeitos
+						</p>
+					</div>
+					<div class="flex flex-wrap gap-4 opacity-70 grayscale">
+						<span class="text-xs font-bold uppercase tracking-widest">As seen in:</span>
+						<span class="text-xs font-bold uppercase tracking-widest text-neutral-400">Tech Weekly</span>
+						<span class="text-xs font-bold uppercase tracking-widest text-neutral-400">Dev Community</span>
+						<span class="text-xs font-bold uppercase tracking-widest text-neutral-400">UI Trends</span>
+					</div>
+				</div>
+			</Col>
+			
+			<Col span="12" lg="6" classes="flex items-center justify-center pt-12 lg:pt-0 lg:pl-10">
+				<!-- O Form é o Destaque -->
+				<LandingForm 
+					title="Garanta sua vaga gratuita"
+					buttonText="Quero meu acesso agora"
+					thankYouPage="/contact"
+					formUrl={configData.newsletterUrl}
+					contrast={true}
+					classes="rotate-0 lg:-rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl"
+				/>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Gatilhos: Curiosidade e Reciprocidade -->
+	<Section id="insider-value" classes="bg-neutral-50 dark:bg-neutral-900 border-y border-neutral-200 dark:border-neutral-800 relative z-10">
+		<Row>
+			<Col span="12" align="center" classes="mb-16">
+				<h2 class="text-3xl lg:text-5xl font-black">O que você vai receber <strong>(e ninguém mais tem)</strong></h2>
+			</Col>
+		</Row>
+		<Row>
+			<Col span="4">
+				<div class="p-8 rounded-3xl bg-white dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-all h-full">
+					<div class="w-12 h-12 bg-primary-500 rounded-2xl flex items-center justify-center text-white mb-6">
+						<Icon name="bolt" class="w-6 h-6" />
+					</div>
+					<h3 class="text-xl font-bold mb-4 italic">Deep Dives Semanais</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						Análises técnicas profundas sobre o ecossistema Astro. Saiba como otimizar o Core Web Vitals ao extremo e bater 100 no Lighthouse.
+					</p>
+				</div>
+			</Col>
+			<Col span="4">
+				<div class="p-8 rounded-3xl bg-white dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-all h-full">
+					<div class="w-12 h-12 bg-primary-500 rounded-2xl flex items-center justify-center text-white mb-6">
+						<Icon name="document-text" class="w-6 h-6" />
+					</div>
+					<h3 class="text-xl font-bold mb-4 italic">Snippets de Ouro</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						Toda semana um componente Tailwind ou uma Action do Astro pronta para copiar e colar. Exclusivo para quem está na lista.
+					</p>
+				</div>
+			</Col>
+			<Col span="4">
+				<div class="p-8 rounded-3xl bg-white dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-all h-full">
+					<div class="w-12 h-12 bg-primary-500 rounded-2xl flex items-center justify-center text-white mb-6">
+						<Icon name="shield-check" class="w-6 h-6" />
+					</div>
+					<h3 class="text-xl font-bold mb-4 italic">Bastidores do Foxi</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						Saiba como construímos este tema, os erros que cometemos e as decisões arquiteturais que tomamos. Otimização pura.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Gatilho: Autoridade e Prova Social -->
+	<Section id="social-proof-megatestimonial" mode="dark" bg={testimonialBg}>
+		<Row>
+			<Col span="12" align="center">
+				<div class="max-w-4xl mx-auto">
+					<Icon name="quotes" class="w-16 h-16 text-primary-500/30 mb-8 mx-auto" />
+					<Testimonial
+						blockquote="Eu assino mais de 20 newsletters de desenvolvimento, mas o Foxi Insights é a única que eu realmente coloco em prática. É 100% sinal e 0% ruído."
+						figcaption="Gabriel Siqueira"
+						cite="Senior Front-end, TechUnicorn"
+						align="center"
+						size="4xl"
+						mobileSize="2xl"
+						classes="!leading-tight font-black"
+					/>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Gatilho: Antecipação -->
+	<Section id="whats-inside" classes="bg-white dark:bg-neutral-950 py-24">
+		<Row>
+			<Col span="6" classes="flex flex-col justify-center lg:pr-12">
+				<h2 class="text-3xl lg:text-4xl font-black mb-6">O que preparamos para a <strong>próxima edição</strong></h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+					Assine hoje e não perca o especial sobre <strong>Otimização de Performance no Astro 5</strong> e novos padrões de componentes.
+				</p>
+				<div class="space-y-6">
+					<div class="flex items-center gap-4">
+						<div class="p-2 rounded-full bg-emerald-500/10 text-emerald-500">
+							<Icon name="check-circle" class="w-6 h-6" />
+						</div>
+						<p class="font-medium">100% Grátis para sempre</p>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="p-2 rounded-full bg-emerald-500/10 text-emerald-500">
+							<Icon name="check-circle" class="w-6 h-6" />
+						</div>
+						<p class="font-medium">Unsubscribe com 1 clique</p>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="p-2 rounded-full bg-emerald-500/10 text-emerald-500">
+							<Icon name="check-circle" class="w-6 h-6" />
+						</div>
+						<p class="font-medium">Sem anúncios ou promoções irritantes</p>
+					</div>
+				</div>
+			</Col>
+			<Col span="6" classes="mt-12 lg:mt-0">
+				<!-- Mockup de Newsletter -->
+				<div class="relative group">
+					<div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-primary-800 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+					<div class="relative p-8 lg:p-12 rounded-[2.5rem] bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-2xl overflow-hidden">
+						<div class="h-2 w-20 bg-primary-500 mb-6 rounded-full"></div>
+						<div class="space-y-4">
+							<div class="h-8 w-full bg-neutral-100 dark:bg-neutral-800 rounded-lg"></div>
+							<div class="h-4 w-5/6 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg"></div>
+							<div class="h-40 w-full bg-neutral-50 dark:bg-neutral-800/50 rounded-2xl flex items-center justify-center border-2 border-dashed border-neutral-200 dark:border-neutral-700">
+								<Icon name="document-text" class="w-12 h-12 text-neutral-300 dark:text-neutral-600" />
+							</div>
+							<div class="h-4 w-full bg-neutral-50 dark:bg-neutral-800/50 rounded-lg"></div>
+							<div class="h-4 w-3/4 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg"></div>
+						</div>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	h1 {
+		@apply text-pretty;
+	}
+	p {
+		@apply text-pretty;
+	}
+</style>

@@ -1,0 +1,93 @@
+---
+// Página de Portfólio
+// ------------
+// Descrição: Listagem de projetos do portfólio usando Bento Grid.
+
+import Layout from '@layouts/Layout.astro'
+import PageHeader from '@components/blocks/hero/PageHeader.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Card from '@components/ui/cards/BasicCard.astro'
+
+// Dados
+import portfolioData from '@data/json-files/portfolioData.json'
+
+const title = "Nosso Portfólio | Projetos em Destaque"
+const description = "Explore nossa galeria de projetos e veja como ajudamos nossos clientes a alcançar resultados extraordinários."
+---
+
+<Layout 
+	title={title} 
+	description={description}
+	dataLayer={{
+		pageType: 'page',
+		pageTitle: title,
+		pageDescription: description,
+		category: 'Portfólio'
+	}}
+>
+	<PageHeader 
+		title="Transformando ideias em <strong>realidade digital</strong>"
+		text="Conheça alguns dos nossos trabalhos mais recentes e as soluções que desenvolvemos para empresas de diversos setores."
+	/>
+
+	<Section id="portfolio-grid" classes="bg-white dark:bg-neutral-950">
+		<Row>
+			<!-- Primeiro Bloco Bento: Destaque + 2 menores -->
+			<Col span="8">
+				<Card
+					title={portfolioData[0].title}
+					subtitle={portfolioData[0].description}
+					image={portfolioData[0].image}
+					link={`/portfolio/${portfolioData[0].slug}`}
+					classes="h-full"
+				/>
+			</Col>
+			<Col span="4" classes="flex flex-col gap-6">
+				<Card
+					title={portfolioData[1].title}
+					subtitle={portfolioData[1].category}
+					link={`/portfolio/${portfolioData[1].slug}`}
+					icon="chart-pie"
+					classes="flex-1"
+				/>
+				<Card
+					title={portfolioData[2].title}
+					subtitle={portfolioData[2].category}
+					link={`/portfolio/${portfolioData[2].slug}`}
+					icon="paint-brush"
+					classes="flex-1"
+				/>
+			</Col>
+		</Row>
+		
+		<Row classes="mt-6">
+			<!-- Segundo Bloco Bento: 2 colunas iguais -->
+			<Col span="6">
+				<Card
+					title={portfolioData[3].title}
+					subtitle={portfolioData[3].description}
+					image={portfolioData[3].image}
+					link={`/portfolio/${portfolioData[3].slug}`}
+					classes="h-full"
+				/>
+			</Col>
+			<Col span="6">
+				<Card
+					title={portfolioData[4].title}
+					subtitle={portfolioData[4].description}
+					image={portfolioData[4].image}
+					link={`/portfolio/${portfolioData[4].slug}`}
+					classes="h-full"
+				/>
+			</Col>
+		</Row>
+
+		<Row classes="mt-12">
+			<Col span="12" align="center">
+				<p class="text-neutral-600 dark:text-neutral-400">Trabalhamos com mais de 100 clientes em projetos de tecnologia e design.</p>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

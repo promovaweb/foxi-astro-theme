@@ -1,0 +1,70 @@
+---
+// Página de Produto
+// ------------
+// Descrição: Apresentação detalhada do produto com hero, funcionalidades, destaque e depoimentos.
+
+import Layout from '@layouts/Layout.astro'
+import SplitHero from '@components/blocks/hero/SplitHero.astro'
+import FeatureCards from '@components/blocks/features/FeatureCards.astro'
+import ScreenshotFeature from '@components/blocks/features/ScreenshotFeature.astro'
+import BasicDarkTestimonial from '@components/blocks/testimonials/BasicDark.astro'
+import HomeCTA from '@components/blocks/hero/HomeCTA.astro'
+
+// Imagem de Depoimento
+import testimonialBg from '@/assets/testimonial-bg-01.webp'
+
+const title = "Foxi Pro - A plataforma definitiva para sua equipe"
+const description = "Descubra como o Foxi Pro pode transformar a produtividade da sua empresa com ferramentas intuitivas e poderosas."
+---
+
+<Layout 
+	title={title} 
+	description={description}
+	dataLayer={{
+		pageType: 'page',
+		pageTitle: title,
+		pageDescription: description,
+		category: 'Produto'
+	}}
+>
+	<SplitHero 
+		title="Potencialize seu negócio com <strong>Foxi Pro</strong>"
+		text="A solução completa para gestão de projetos, comunicação e automação de fluxos de trabalho. Tudo o que sua equipe precisa em um só lugar."
+		badge="Novo Lançamento"
+		badgeText="Conheça o Foxi Pro v2.0"
+	/>
+	
+	<FeatureCards />
+
+	<ScreenshotFeature 
+		badge="Poder e Simplicidade"
+		title="Uma interface que <strong>sua equipe vai amar</strong>"
+		text="Projetamos cada detalhe para ser intuitivo. Menos tempo aprendendo ferramentas, mais tempo entregando resultados excepcionais."
+		features={[
+			{
+				name: 'Painéis Dinâmicos',
+				description: 'Visualize seus dados em tempo real com widgets personalizáveis.',
+				icon: 'chart-pie'
+			},
+			{
+				name: 'Colaboração em Tempo Real',
+				description: 'Trabalhe simultaneamente com sua equipe sem conflitos de edição.',
+				icon: 'chat-bubbles'
+			},
+			{
+				name: 'Automações Inteligentes',
+				description: 'Elimine tarefas repetitivas com nosso motor de regras no-code.',
+				icon: 'bolt'
+			}
+		]}
+	/>
+
+	<BasicDarkTestimonial 
+		blockquote="Desde que implementamos o Foxi Pro, nossa velocidade de entrega aumentou em 40%. É a ferramenta que faltava para escalar nossa operação com segurança."
+		figcaption="Ricardo Oliveira"
+		cite="Diretor de Operações, TechFlow"
+		bg={testimonialBg}
+	/>
+
+	<HomeCTA />
+</Layout>

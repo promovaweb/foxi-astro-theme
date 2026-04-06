@@ -1,0 +1,62 @@
+[
+	{
+		"slug": "projeto-eco-track",
+		"title": "EcoTrack Mobile App",
+		"description": "Uma plataforma completa para monitoramento de pegada de carbono em tempo real.",
+		"category": "Mobile App",
+		"image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+		"date": "Janeiro 2024",
+		"client": "GreenTech Solutions",
+		"fullDescription": "O EcoTrack foi desenvolvido para ajudar indivíduos e empresas a monitorar, reduzir e compensar suas emissões de carbono. O aplicativo utiliza algoritmos avançados para calcular o impacto ambiental de atividades diárias, desde o transporte até o consumo de energia doméstica.",
+		"features": ["Monitoramento em Tempo Real", "Relatórios Mensais", "Dicas de Sustentabilidade", "Gamificação"],
+		"results": "Mais de 50.000 usuários ativos nos primeiros 3 meses e uma redução média de 15% na pegada de carbono por usuário."
+	},
+	{
+		"slug": "sistema-fin-flux",
+		"title": "FinFlux Dashboard",
+		"description": "Dashboard financeiro inteligente com análise preditiva de fluxo de caixa.",
+		"category": "Web Application",
+		"image": "https://images.unsplash.com/photo-1551288049-bbda3865c174?q=80&w=2070&auto=format&fit=crop",
+		"date": "Novembro 2023",
+		"client": "Finanças Avançadas S.A.",
+		"fullDescription": "O FinFlux é uma ferramenta robusta para CFOs e gestores financeiros. Ele consolida dados de múltiplas fontes e fornece insights valiosos através de inteligência artificial, permitindo uma tomada de decisão mais rápida e precisa.",
+		"features": ["Integração Multi-Banco", "IA Preditiva", "Relatórios Automatizados", "Controle de Acessos"],
+		"results": "Otimização de 30% no tempo de conciliação bancária e redução de 10% em custos operacionais desnecessários."
+	},
+	{
+		"slug": "branding-nova-era",
+		"title": "Identidade Visual Nova Era",
+		"description": "Reposicionamento de marca para uma das maiores varejistas do setor tech.",
+		"category": "Branding",
+		"image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop",
+		"date": "Setembro 2023",
+		"client": "Nova Era Tech",
+		"fullDescription": "O projeto Nova Era envolveu uma pesquisa profunda de mercado e comportamento do consumidor. Criamos uma identidade visual moderna, dinâmica e escalável que reflete os valores de inovação e acessibilidade da marca.",
+		"features": ["Design de Logo", "Manual da Marca", "Design de Embalagens", "Estratégia Visual"],
+		"results": "Aumento de 25% no reconhecimento de marca e feedback extremamente positivo da base de clientes fiéis."
+	},
+	{
+		"slug": "plataforma-edu-cloud",
+		"title": "EduCloud LMS",
+		"description": "Plataforma de aprendizado online focada em educação corporativa.",
+		"category": "E-learning",
+		"image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop",
+		"date": "Julho 2023",
+		"client": "Instituto de Treinamento Global",
+		"fullDescription": "EduCloud é uma plataforma LMS (Learning Management System) de última geração. Focada na experiência do usuário e na retenção de conhecimento, a plataforma oferece trilhas de aprendizado personalizadas e ferramentas de colaboração.",
+		"features": ["Trilhas de Aprendizado", "Provas e Certificados", "Fórum de Discussão", "Análise de Desempenho"],
+		"results": "Taxa de conclusão de cursos 40% superior à média do mercado e alta satisfação dos colaboradores treinados."
+	},
+	{
+		"slug": "e-commerce-luxo",
+		"title": "Luxury Watches Store",
+		"description": "Experiência de compra premium para relógios de alta joalheria.",
+		"category": "E-commerce",
+		"image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop",
+		"date": "Maio 2023",
+		"client": "Time & Elegance",
+		"fullDescription": "Para a Time & Elegance, criamos um e-commerce que transparece exclusividade. Cada interação foi desenhada para emular o atendimento personalizado de uma loja física de luxo, com foco em imagens de alta qualidade e navegação fluida.",
+		"features": ["Navegação Minimalista", "Imagens 360°", "Chat Exclusivo", "Pagamento Seguro"],
+		"results": "Ticket médio aumentado em 15% e taxa de conversão superior em 5% no primeiro semestre."
+	}
+]

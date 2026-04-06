@@ -98,6 +98,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 21. **Conventional Commits** — Todo commit solicitado **DEVE** seguir o padrão: `tipo(escopo): descrição`. Ex: `feat(blog): suporte a rss`.
 22. **Separação de Lógica** — Evite lógica complexa no frontmatter do Astro. Extraia para `src/utils/` ou `src/lib/`.
 23. **Diagramas Mermaid** — Use blocos de código `mermaid` para documentar fluxos complexos em arquivos Markdown.
+24. **DataLayer Obrigatório** — Todas as páginas `.astro` que utilizam o componente `Layout` DEVEM obrigatoriamente passar a prop `dataLayer` com informações relevantes (tipo de página, título, categoria, etc.) para integração com Analytics/GTM.
 
 ---
 

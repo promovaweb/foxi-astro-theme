@@ -1,0 +1,126 @@
+---
+// Página de Onboarding
+// ------------
+// Descrição: Guia de boas-vindas e primeiros passos para novos usuários.
+
+import Layout from '@layouts/Layout.astro'
+import PageHeader from '@components/blocks/hero/PageHeader.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import VideoPlayer from '@components/ui/VideoPlayer.astro'
+import Feature from '@components/ui/Feature.astro'
+import FAQ from '@components/blocks/FAQ/Basic.astro'
+import CTA from '@components/ui/CTA.astro'
+import Button from '@components/ui/Button.astro'
+
+const title = "Bem-vindo ao Foxi - Guia de Onboarding"
+const description = "Tudo o que você precisa saber para começar a usar o Foxi Pro e extrair o máximo de valor da nossa plataforma."
+---
+
+<Layout 
+	title={title} 
+	description={description}
+	dataLayer={{
+		pageType: 'page',
+		pageTitle: title,
+		pageDescription: description,
+		category: 'Suporte'
+	}}
+>
+	<PageHeader 
+		title="Vamos começar sua <strong>jornada de sucesso</strong>"
+		text="Siga este guia passo a passo para configurar sua conta e começar a gerenciar seus projetos com mais eficiência."
+	/>
+
+	<Section id="steps" classes="bg-white dark:bg-neutral-950">
+		<Row>
+			<Col span="12" classes="mb-12">
+				<div class="max-w-4xl mx-auto">
+					<VideoPlayer videoId="dQw4w9WgXcQ" title="Vídeo de Introdução ao Foxi Pro" />
+				</div>
+			</Col>
+		</Row>
+		<Row>
+			<Col span="4">
+				<Feature title="1. Configure seu Perfil" icon="user" align="left" classes="mb-12">
+					Personalize sua conta, adicione uma foto e defina suas preferências de notificação para não perder nada importante.
+				</Feature>
+			</Col>
+			<Col span="4">
+				<Feature title="2. Convide sua Equipe" icon="user-group" align="left" classes="mb-12">
+					Adicione seus colaboradores e defina níveis de acesso personalizados para cada projeto e ferramenta.
+				</Feature>
+			</Col>
+			<Col span="4">
+				<Feature title="3. Crie seu Primeiro Projeto" icon="rocket" align="left" classes="mb-12">
+					Use nossos templates prontos ou comece do zero. Organize tarefas, prazos e marcos em poucos minutos.
+				</Feature>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section id="resources" classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="6">
+				<h2 class="text-pretty">Ainda precisa de <strong>ajuda?</strong></h2>
+				<p class="text-lg">Nossa base de conhecimento está repleta de tutoriais detalhados e dicas de especialistas.</p>
+				<ul class="mt-8 space-y-4">
+					<li class="flex items-center gap-3">
+						<span class="p-1 rounded-full bg-primary-500/10 text-primary-500">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+						</span>
+						<span>Webinars semanais ao vivo</span>
+					</li>
+					<li class="flex items-center gap-3">
+						<span class="p-1 rounded-full bg-primary-500/10 text-primary-500">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+						</span>
+						<span>Documentação técnica completa</span>
+					</li>
+					<li class="flex items-center gap-3">
+						<span class="p-1 rounded-full bg-primary-500/10 text-primary-500">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+						</span>
+						<span>Comunidade ativa no Discord</span>
+					</li>
+				</ul>
+			</Col>
+			<Col span="6">
+				<div class="grid grid-cols-2 gap-4">
+					<div class="p-6 rounded-2xl bg-white dark:bg-neutral-800 shadow-sm border border-neutral-100 dark:border-neutral-700">
+						<h3 class="text-lg font-bold mb-2">Treinamento</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Agende uma demo com nossos consultores.</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white dark:bg-neutral-800 shadow-sm border border-neutral-100 dark:border-neutral-700">
+						<h3 class="text-lg font-bold mb-2">Suporte 24/7</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Fale com nosso time via chat ou email.</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white dark:bg-neutral-800 shadow-sm border border-neutral-100 dark:border-neutral-700">
+						<h3 class="text-lg font-bold mb-2">Segurança</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Saiba como protegemos seus dados.</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white dark:bg-neutral-800 shadow-sm border border-neutral-100 dark:border-neutral-700">
+						<h3 class="text-lg font-bold mb-2">Novidades</h3>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">Acompanhe nosso changelog mensal.</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<FAQ />
+
+	<Section id="final-cta">
+		<Row>
+			<Col span="12">
+				<CTA 
+					title="Pronto para o <strong>próximo nível?</strong>"
+					text="Junte-se a milhares de equipes que já transformaram sua forma de trabalhar com o Foxi Pro."
+				>
+					<Button size="lg" link="/pricing">Explorar Planos</Button>
+				</CTA>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
