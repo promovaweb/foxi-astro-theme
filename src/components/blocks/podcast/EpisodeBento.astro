@@ -1,0 +1,128 @@
+---
+/**
+ * Componente: EpisodeBento
+ * Descrição: Grid bento refinado com destaque horizontal (lado a lado) para o primeiro episódio.
+ */
+
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+
+// Placeholder 1:1
+import placeholderCover from '@/assets/podcast-cover-placeholder.svg'
+
+type Episode = {
+	id: string
+	data: {
+		title: string
+		description: string
+		cover: any
+		pubDate: Date
+	}
+}
+
+type Props = {
+	title?: string
+	episodes: Episode[]
+}
+
+const { 
+	title = "Mais episódios para <strong>você</strong>",
+	episodes 
+} = Astro.props
+
+if (!episodes || episodes.length === 0) return null
+---
+
+<section class="episode-bento py-24 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50/30 dark:bg-neutral-950/20">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<Row classes="mb-16">
+			<Col span="12">
+				<h2 class="text-4xl font-black text-neutral-900 dark:text-white lg:text-5xl tracking-tight" set:html={title} />
+			</Col>
+		</Row>
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			{episodes.slice(0, 4).map((episode, index) => {
+				const isMain = index === 0;
+				const coverImage = episode.data.cover || placeholderCover;
+
+				return (
+				<a 
+					href={`/podcast/${episode.id}`}
+					class:list={[
+						"group relative flex flex-col overflow-hidden rounded-[2.5rem] bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-500/40",
+						isMain ? "md:col-span-3" : "md:col-span-1"
+					]}
+				>
+					<div class:list={[
+						"flex h-full w-full",
+						isMain ? "flex-col md:flex-row" : "flex-col"
+					]}>
+						<!-- Imagem Container -->
+						<div class:list={[
+							"relative overflow-hidden shrink-0 bg-neutral-100 dark:bg-neutral-800",
+							isMain ? "w-full md:w-[400px] aspect-square" : "w-full aspect-square"
+						]}>
+							<Image 
+								src={coverImage} 
+								alt={episode.data.title}
+								width={600}
+								height={600}
+								class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+							/>
+							<div class="absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/5"></div>
+						</div>
+
+						<!-- Conteúdo -->
+						<div class:list={[
+                            "flex-1 flex flex-col justify-center",
+                            isMain ? "p-10 lg:p-16" : "p-8 lg:p-10"
+                        ]}>
+							<div class="mb-6 flex items-center justify-between">
+								<div class="inline-flex items-center gap-2 rounded-full bg-primary-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary-600 dark:text-primary-400">
+									Destaque da Semana
+								</div>
+								<Icon name="youtube-icon" class="h-6 w-6 text-neutral-300 group-hover:text-red-500 transition-all duration-300" />
+							</div>
+							
+							<h3 class:list={[
+								"font-black leading-tight text-neutral-900 dark:text-white mb-6 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors",
+								isMain ? "text-3xl lg:text-5xl" : "text-xl"
+							]}>
+								{episode.data.title}
+							</h3>
+							
+							<p class:list={[
+								"text-neutral-600 dark:text-neutral-400 text-base leading-relaxed mb-10",
+								isMain ? "line-clamp-3 max-w-2xl" : "line-clamp-2"
+							]}>
+								{episode.data.description}
+							</p>
+
+							<div class="mt-auto flex items-center gap-3 text-xs font-black text-primary-500 group-hover:translate-x-2 transition-transform">
+								OUVIR EPISÓDIO <Icon name="long-arrow-right" class="h-5 w-5" />
+							</div>
+						</div>
+					</div>
+				</a>
+			)})}
+		</div>
+	</div>
+</section>
+
+<style>
+	.line-clamp-2 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.line-clamp-3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>

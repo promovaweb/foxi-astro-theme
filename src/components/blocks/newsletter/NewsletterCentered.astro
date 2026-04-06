@@ -46,12 +46,12 @@ const {
 					aria-label="Formulário de inscrição na newsletter"
 					method="POST"
 					action={configData.newsletterUrl}
-					class="newsletter-centered__form mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:items-start"
+					class="newsletter-centered__form mt-10 flex flex-col items-center gap-4"
 				>
-					<div class="newsletter-centered__input-wrapper w-full max-w-md">
-						<InputField id="newsletter-email" name="email" type="email" label={placeholder} required classes="mb-0" />
+					<div class="newsletter-centered__input-wrapper w-full max-w-md text-left">
+						<InputField id="newsletter-email" name="email" type="email" label={placeholder} required classes="mb-0 text-left" />
 					</div>
-					<Button type="submit" style="primary" size="lg" classes="w-full sm:w-auto mt-1">
+					<Button type="submit" style="primary" size="lg" classes="w-full max-w-md sm:w-auto">
 						{button}
 					</Button>
 				</form>

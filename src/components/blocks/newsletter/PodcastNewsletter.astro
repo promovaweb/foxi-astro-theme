@@ -1,0 +1,129 @@
+---
+/**
+ * Componente: PodcastNewsletter
+ * Descrição: Um bloco de newsletter grande e impactante para a seção de podcasts.
+ * Exibe a capa do podcast e um formulário de captura de e-mails.
+ */
+
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import posterImage from '@/assets/podcast-poster.png'
+import { configData } from '@config'
+
+type Props = {
+	title?: string
+	text?: string
+	classes?: string
+}
+
+const {
+	title = 'Não perca nenhum <strong>episódio</strong> novo',
+	text = 'Junte-se a mais de 5.000 ouvintes e receba as notas dos episódios, links recomendados e conteúdos exclusivos diretamente no seu e-mail.',
+	classes = ''
+} = Astro.props
+---
+
+<Section id="podcast-newsletter" classes={`podcast-newsletter ${classes}`}>
+	<div class="podcast-newsletter__container relative overflow-hidden rounded-[3rem] bg-neutral-900 px-8 py-16 lg:px-20 lg:py-24">
+		<!-- Elementos Decorativos de Fundo -->
+		<div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary-500/10 blur-3xl transition-all duration-1000 group-hover:bg-primary-500/20"></div>
+		<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-primary-900/20 blur-3xl transition-all duration-1000 group-hover:bg-primary-900/30"></div>
+
+		<Row classes="items-center lg:gap-x-16">
+			<!-- Coluna da Imagem (Capa) -->
+			<Col span="12" lg="5" classes="mb-12 lg:mb-0">
+				<div class="relative mx-auto max-w-[320px] lg:max-w-none">
+					<!-- Efeito de Glow na Capa -->
+					<div class="absolute -inset-4 bg-primary-500/20 blur-2xl opacity-50 rounded-full"></div>
+					<div class="relative aspect-square overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10 transition-transform duration-500 hover:scale-[1.02]">
+						<Image
+							src={posterImage}
+							alt="Capa do Podcast Foxi"
+							width={600}
+							height={600}
+							class="h-full w-full object-cover"
+						/>
+					</div>
+					<!-- Badge flutuante -->
+					<div class="absolute -bottom-6 -right-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary-500 p-4 text-center text-white shadow-xl ring-4 ring-neutral-900">
+						<div class="flex flex-col items-center">
+							<span class="text-xs font-black uppercase tracking-tighter leading-none">Top</span>
+							<span class="text-2xl font-black leading-none">#1</span>
+							<span class="text-[10px] font-bold uppercase opacity-80 leading-none">Chart</span>
+						</div>
+					</div>
+				</div>
+			</Col>
+
+			<!-- Coluna do Conteúdo -->
+			<Col span="12" lg="7" classes="text-center lg:text-left">
+				<div class="z-10 relative">
+					<div class="mb-6 inline-flex items-center gap-2.5 rounded-full bg-primary-500/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.15em] text-primary-400 ring-1 ring-inset ring-primary-500/20">
+						<Icon name="bell-alert" class="h-4 w-4" />
+						Assine a News
+					</div>
+					
+					<h2 class="mb-6 text-4xl font-black tracking-tight text-white lg:text-5xl lg:leading-[1.1]" set:html={title} />
+					
+					<p class="mb-10 text-lg leading-relaxed text-neutral-400 lg:text-xl max-w-2xl mx-auto lg:mx-0">
+						{text}
+					</p>
+
+					<form 
+						action={configData.newsletterUrl} 
+						method="POST" 
+						class="flex flex-col gap-4 sm:flex-row w-full"
+					>
+						<div class="relative flex-1">
+							<Icon name="user" class="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-500 transition-colors" />
+							<input
+								type="email"
+								name="email"
+								placeholder="Seu melhor e-mail"
+								required
+								class="h-16 w-full rounded-2xl border border-neutral-800 bg-neutral-950 pl-14 pr-6 text-lg text-white outline-none ring-primary-500/20 transition-all focus:border-primary-500 focus:ring-4"
+							/>
+						</div>
+						<button
+							type="submit"
+							class="group relative flex h-16 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary-500 px-8 text-lg font-black text-white transition-all hover:bg-primary-600 active:scale-95 sm:px-10"
+						>
+							<span class="relative z-10 flex items-center gap-2">
+								Assinar Agora
+								<Icon name="long-arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1" />
+							</span>
+						</button>
+					</form>
+
+					<div class="mt-8 flex items-center justify-center lg:justify-start gap-6 opacity-60 grayscale transition-all hover:grayscale-0">
+						<span class="text-xs font-bold uppercase tracking-widest text-neutral-500">Disponível em:</span>
+						<div class="flex gap-4">
+							<Icon name="spotify" class="h-5 w-5 text-white" />
+							<Icon name="apple-podcast" class="h-5 w-5 text-white" />
+							<Icon name="youtube-icon" class="h-5 w-5 text-white" />
+						</div>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.podcast-newsletter__container {
+		@apply transition-all duration-500;
+	}
+	
+	/* Efeito de pulse sutil no badge */
+	@keyframes soft-pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+	}
+	
+	.podcast-newsletter__container .absolute.-bottom-6 {
+		animation: soft-pulse 3s ease-in-out infinite;
+	}
+</style>

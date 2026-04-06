@@ -5,11 +5,22 @@
 import Layout from '@layouts/PodcastLayout.astro'
 import EpisodeEntry from '@components/ui/podcast/EpisodeEntry.astro'
 import Pagination from '@components/ui/Pagination.astro'
+import PodcastHero from '@components/blocks/hero/PodcastHero.astro'
+import PodcastNewsletter from '@components/blocks/newsletter/PodcastNewsletter.astro'
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+
 import { getCollection } from 'astro:content'
 import { configData } from '@config'
 import type { Page } from 'astro'
 
 export async function getStaticPaths({ paginate }: any) {
+  // Se o podcast estiver desativado nas configurações, não gerar rotas
+  if (!podcastConfig.enabled) {
+    return [];
+  }
+
   const episodes = await getCollection('podcast')
   // Ordenar por data de publicação (mais recente primeiro)
   const sortedEpisodes = episodes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -32,14 +43,34 @@ const description = configData.podcastDescription
 	description={description}
 	dataLayer={{ pageType: 'podcast', pageTitle: title, pageDescription: description }}
 >
-  <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
-    <div class="mt-4 lg:mt-8">
+  <!-- Hero específico de Podcast no slot do layout -->
+  <PodcastHero slot="hero" />
+
+  <Section id="episodes" classes="!py-12 sm:!py-24">
+    <Row>
+      <Col span="12">
+        <div class="flex items-center justify-between mb-12 border-b border-neutral-200 dark:border-neutral-800 pb-6">
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-white font-headings uppercase tracking-tight">
+            Episódios <span class="text-primary-500">Recentes</span>
+          </h2>
+          <span class="text-neutral-500 dark:text-neutral-400 font-medium">{page.total} episódios encontrados</span>
+        </div>
+      </Col>
+    </Row>
+    
+    <div class="space-y-2">
       {page.data.map((episode: any) => (
         <EpisodeEntry episode={episode} />
       ))}
     </div>
-    <div class="px-4 sm:px-6 lg:px-8 mt-12 pb-12">
-      <Pagination page={page} />
-    </div>
-  </div>
+
+    <Row classes="mt-16">
+      <Col span="12" classes="flex justify-center">
+        <Pagination page={page} />
+      </Col>
+    </Row>
+  </Section>
+
+  <!-- Newsletter para ouvintes (Grande e Impactante) -->
+  <PodcastNewsletter />
 </Layout>

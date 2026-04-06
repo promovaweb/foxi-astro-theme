@@ -1,0 +1,58 @@
+---
+/**
+ * Componente: PodcastHero
+ * Descrição: Componente de conteúdo para o hero de podcast. 
+ * Deve ser usado dentro do slot="hero" do PodcastLayout.
+ */
+
+import Col from '@components/ui/Col.astro'
+import Row from '@components/ui/Row.astro'
+import { Icon } from 'astro-icon/components'
+import { configData } from '@config'
+
+type Props = {
+	title?: string
+	description?: string
+}
+
+const { 
+	title = "Foxi <strong>Insights</strong> Podcast",
+	description = "Conversas profundas sobre tecnologia, produtividade e o futuro do desenvolvimento web com convidados que estão mudando o mercado."
+} = Astro.props
+
+// Filtrar apenas plataformas com links válidos
+const activePlatforms = (configData.podcastPlatforms || []).filter(p => p.link && p.link !== false);
+---
+
+<div class="podcast-hero-content py-12 lg:py-20 px-4 sm:px-6 lg:px-12">
+    <Row classes="items-center">
+        <Col span="12" classes="text-center z-10">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <span class="flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-primary-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+                </span>
+                <span class="text-sm font-bold tracking-widest uppercase text-primary-600 dark:text-primary-400">Novo Episódio toda Terça</span>
+            </div>
+            
+            <h1 class="text-4xl lg:text-6xl font-bold text-neutral-900 dark:text-white mb-6 leading-tight max-w-4xl mx-auto" set:html={title} />
+            <p class="text-lg lg:text-xl text-neutral-600 dark:text-neutral-400 mb-10 mx-auto max-w-3xl leading-relaxed">
+                {description}
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                {activePlatforms.map((platform) => (
+                    <a 
+                        href={platform.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-2 px-6 py-3 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 transition-colors shadow-sm"
+                    >
+                        <Icon name={platform.icon} class="w-6 h-6" style={`color: ${platform.color}`} />
+                        <span class="font-bold text-neutral-900 dark:text-white">{platform.name}</span>
+                    </a>
+                ))}
+            </div>
+        </Col>
+    </Row>
+</div>

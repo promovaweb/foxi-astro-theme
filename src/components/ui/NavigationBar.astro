@@ -34,6 +34,14 @@ const savedNavActions = navActions.map((action) => ({
 	size: action.size as 'base' | 'lg' | 'sm',
 	style: action.style as 'primary' | 'secondary' | 'neutral'
 }))
+
+// Filtro dinâmico para remover itens desabilitados via config
+const filteredNavItems = navItems.filter(item => {
+	if (item.name.toLowerCase() === 'podcast' && !configData.podcastEnabled) {
+		return false
+	}
+	return true
+})
 ---
 
 <header class="header">
@@ -75,7 +83,7 @@ const savedNavActions = navActions.map((action) => ({
 			<!-- Links de navegação -->
 			<ul role="menubar" aria-label="Selecionar página" class="header__menu">
 				{
-					navItems.map((item) => (
+					filteredNavItems.map((item) => (
 						<li role="none" class="header__menu-item">
 							{!item.submenu ? (
 								<a

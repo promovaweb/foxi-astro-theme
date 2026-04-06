@@ -4,11 +4,14 @@
 
 import { siteSettings } from './siteSettings'
 import { appSettings } from './appSettings'
+import { podcastConfig } from './podcast'
 import type { Config, Mode, Logo, SiteSettings, AppSettings as AppSettingsType } from '@type/config'
 
 export type { Config, Mode, Logo, SiteSettings, AppSettingsType as AppSettings }
 
 export const configData: Config = {
 	...siteSettings,
-	...appSettings
+	...appSettings,
+	podcastEnabled: podcastConfig.enabled,
+	podcastPlatforms: podcastConfig.platforms
 }

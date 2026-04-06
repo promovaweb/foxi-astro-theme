@@ -76,6 +76,25 @@ export interface AppSettings {
 }
 
 /**
+ * Configurações de plataformas de Podcast.
+ */
+export interface PodcastPlatform {
+	/** Nome da plataforma (ex: Spotify, YouTube) */
+	name: string
+	/** Nome do ícone do astro-icon (deve existir em src/icons/) */
+	icon: string
+	/** URL para o perfil ou canal do podcast, ou false para desativar */
+	link: string | false
+	/** Cor hexadecimal ou CSS para o ícone */
+	color: string
+}
+
+/**
  * Agregador central que combina as configurações de site e de aplicativo.
  */
-export interface Config extends SiteSettings, AppSettings {}
+export interface Config extends SiteSettings, AppSettings {
+	/** Habilita ou desabilita a seção de podcast no site */
+	podcastEnabled: boolean
+	/** Lista de plataformas de podcast configuradas */
+	podcastPlatforms?: PodcastPlatform[]
+}

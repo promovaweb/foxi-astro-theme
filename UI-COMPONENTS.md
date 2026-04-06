@@ -60,6 +60,11 @@ Seções complexas pré-montadas para construção rápida de páginas.
 
 - `team/TeamGrid.astro`: Grid de cards de membros da equipe com imagem, cargo e links sociais.
 
+#### Podcast
+
+- `podcast/PodcastBento.astro`: Vitrine em estilo Bento Grid para o podcast na Home e Blog.
+- `podcast/EpisodeBento.astro`: Grid bento para exibir episódios relacionados ou recomendados.
+
 #### Precificação (Pricing)
 
 - `pricing/PricingColumns.astro`: Comparação de 3 a 4 planos.
@@ -75,6 +80,7 @@ Seções complexas pré-montadas para construção rápida de páginas.
 - `newsletter/NewsletterWithImage.astro`: Fundo colorido `primary-500` com imagem decorativa à direita.
 - `newsletter/NewsletterGrid.astro`: Título à esquerda e formulário à direita com link de política de privacidade.
 - `newsletter/NewsletterFeatures.astro`: Formulário à esquerda e lista de benefícios (ícone + texto) à direita.
+- `newsletter/PodcastNewsletter.astro`: Bloco grande e impactante para podcast com exibição da capa.
 
 ### 3. Cards e Formulários
 
