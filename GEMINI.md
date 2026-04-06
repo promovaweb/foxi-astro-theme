@@ -77,7 +77,8 @@ Para criar um novo material de marketing (ex: `/materiais/novo-ebook`):
 5. **Atualização da Listagem:** Adicione o novo material ao arquivo `src/data/json-files/materialsData.json` para que ele apareça automaticamente na central de materiais.
 6. **Página de Agradecimento:** Toda landing page deve obrigatoriamente ter uma página de agradecimento correspondente com uma URL separada (ex: `src/pages/materiais/nome-do-material-obrigado.astro`). Não use subpáginas.
 
-### Exemplo de Estrutura:
+### Exemplo de Estrutura
+
 ```astro
 ---
 import Layout from '@layouts/landing/EbookLanding.astro'
@@ -93,11 +94,11 @@ import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
 </Layout>
 ```
 
-14. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
-15. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
-16. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
-17. **Aliases de path obrigatórios** — Todo `import` deve usar os aliases definidos no `tsconfig.json`. Nunca usar caminhos relativos com `../` ou `../../`. Use `@components/`, `@layouts/`, `@styles/`, `@config/`, `@data/` ou `@/` (aponta para `src/`).
-18. **Git e Versionamento** — Nunca realizar `git add`, `git commit` ou `git push` automaticamente. Estas ações devem ser executadas APENAS quando solicitadas explicitamente pelo usuário.
+1. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
+2. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
+3. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
+4. **Aliases de path obrigatórios** — Todo `import` deve usar os aliases definidos no `tsconfig.json`. Nunca usar caminhos relativos com `../` ou `../../`. Use `@components/`, `@layouts/`, `@styles/`, `@config/`, `@data/` ou `@/` (aponta para `src/`).
+5. **Git e Versionamento** — Nunca realizar `git add`, `git commit` ou `git push` automaticamente. Estas ações devem ser executadas APENAS quando solicitadas explicitamente pelo usuário.
 
 ---
 
@@ -124,7 +125,7 @@ Ao criar um novo componente:
 O projeto usa aliases TypeScript/Vite configurados no `tsconfig.json`. **Todo import deve usar aliases — nunca caminhos relativos.**
 
 | Alias | Aponta para | Exemplo de uso |
-|---|---|---|
+| --- | --- | --- |
 | `@/*` | `src/*` | `import Layout from '@/layouts/Layout.astro'` |
 | `@components/*` | `src/components/*` | `import Button from '@components/ui/Button.astro'` |
 | `@layouts/*` | `src/layouts/*` | `import Layout from '@layouts/Layout.astro'` |
@@ -133,6 +134,7 @@ O projeto usa aliases TypeScript/Vite configurados no `tsconfig.json`. **Todo im
 | `@data/*` | `src/data/*` | `import features from '@data/json-files/featuresData.json'` |
 
 **Nunca usar:**
+
 ```ts
 // ❌ Errado — caminho relativo
 import Button from '../../components/ui/Button.astro'
@@ -148,7 +150,7 @@ import { socialLinks } from '@config/socialLinks'
 ## Localização dos Arquivos
 
 | O quê | Onde |
-|---|---|
+| --- | --- |
 | Primitivos de UI | `src/components/ui/` |
 | Blocos de página | `src/components/blocks/` |
 | Estilos globais | `src/styles/global.css` |

@@ -23,7 +23,7 @@ O Manifesto Ágil foi escrito em 2001. Seus valores continuam relevantes, mas a 
 ### Os 4 Valores Revisitados
 
 | Valor Ágil | O Que Muitas Empresas Fazem | O Que Deveriam Fazer |
-|-----------|---------------------------|----------------------|
+| --- | --- | --- |
 | Indivíduos > Processos | Impõem Jira com workflows rígidos | Empoderam times para escolher suas ferramentas |
 | Software funcionando > Documentação | Entregam software sem contexto | Documentam o suficiente para manutenção |
 | Colaboração > Contrato | Tratam cliente como oponente | Incluem o cliente na descoberta |
@@ -110,7 +110,7 @@ As 3 perguntas tradicionais são um guia, não uma obrigação:
 - **Formato mais comum:**
 
 | Coluna | Pergunta |
-|--------|----------|
+| --- | --- |
 | O que foi bem? | O que devemos continuar fazendo? |
 | O que pode melhorar? | O que está nos atrapalhando? |
 | O que vamos tentar? | Ações concretas para o próximo sprint |
@@ -133,7 +133,7 @@ Kanban e Scrum não são concorrentes. Muitas equipes os combinam:
 ### Quando Usar Kanban vs Scrum
 
 | Critério | Kanban | Scrum |
-|---------|--------|-------|
+| --- | --- | --- |
 | Tipo de trabalho | Fluxo contínuo, demanda variável | Desenvolvimento com sprints |
 | Previsibilidade | Baixa | Alta |
 | Mudanças | Aceita a qualquer momento | Protege durante o sprint |

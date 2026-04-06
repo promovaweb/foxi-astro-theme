@@ -7,9 +7,10 @@ cover: "/blog/post-03-cover.png"
 author: "luizeof"
 ---
 
-Exploramos como a mídia pode construir e destruir reputações em questão de segundos. 
+Exploramos como a mídia pode construir e destruir reputações em questão de segundos.
 
 ## Destaques do Episódio
+
 - O contexto da foto viral.
 - O impacto na vida pessoal e profissional.
 - A luta jurídica para limpar o nome.

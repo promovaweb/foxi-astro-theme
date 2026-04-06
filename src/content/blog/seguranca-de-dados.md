@@ -20,7 +20,7 @@ Este guia explica os conceitos essenciais de segurança de dados, as obrigaçõe
 Toda estratégia de segurança da informação é construída sobre três pilares:
 
 | Pilar | Nome completo | Significado |
-|-------|--------------|-------------|
+| --- | --- | --- |
 | **C** | Confidencialidade | Apenas pessoas autorizadas acessam os dados |
 | **I** | Integridade | Os dados não são alterados sem autorização |
 | **A** | Disponibilidade | Os dados estão acessíveis quando necessários |
@@ -54,7 +54,7 @@ Cada usuário deve ter acesso apenas ao que precisa para realizar seu trabalho. 
 O Foxi implementa RBAC com os seguintes níveis:
 
 | Papel | Permissões | Exemplo de uso |
-|-------|-----------|----------------|
+| --- | --- | --- |
 | Visualizador | Leitura apenas | Stakeholders externos |
 | Colaborador | Leitura + criação de tarefas | Membros da equipe |
 | Editor | Leitura + edição + criação | Líderes de projeto |
@@ -70,6 +70,7 @@ O Foxi implementa RBAC com os seguintes níveis:
 Toda comunicação entre seu navegador e o Foxi é protegida por **TLS 1.3** — o padrão mais recente e seguro de criptografia em trânsito.
 
 Isso significa que:
+
 - Senhas nunca trafegam em texto puro
 - Sessões são criptografadas de ponta a ponta
 - Certificados são renovados automaticamente

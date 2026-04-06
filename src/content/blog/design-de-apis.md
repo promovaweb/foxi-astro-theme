@@ -32,7 +32,7 @@ REST (*Representational State Transfer*) não é um protocolo — é um estilo a
 
 Use **substantivos no plural** para coleções, nunca verbos:
 
-```
+```text
 # ❌ Errado — verbos na URL
 GET /getTasks
 POST /createTask
@@ -49,7 +49,7 @@ DELETE /tasks/123      # remover tarefa
 
 ### Hierarquia de Recursos
 
-```
+```text
 # Recursos aninhados (máximo 2 níveis de aninhamento)
 GET  /projects/456/tasks          # tarefas de um projeto
 POST /projects/456/tasks          # criar tarefa no projeto
@@ -65,7 +65,7 @@ GET  /projects/456/tasks/123      # tarefa específica no projeto
 ## Métodos HTTP e Seus Significados
 
 | Método | Idempotente | Seguro | Uso |
-|--------|------------|--------|-----|
+| --- | --- | --- | --- |
 | `GET` | ✅ | ✅ | Leitura de recursos |
 | `POST` | ❌ | ❌ | Criação de recursos |
 | `PUT` | ✅ | ❌ | Substituição completa |
@@ -258,7 +258,7 @@ echo "${REMAINING}/${LIMIT} requisições restantes"
 ### Estratégias Comparadas
 
 | Estratégia | Exemplo | Prós | Contras |
-|-----------|---------|------|---------|
+| --- | --- | --- | --- |
 | URL path | `/v1/tasks` | Explícito, fácil de testar | Quebra URLs ao versionar |
 | Header | `API-Version: 2025-01` | URLs limpas | Difícil de testar no browser |
 | Query param | `/tasks?version=1` | Simples | Poluição dos parâmetros |
@@ -268,7 +268,7 @@ O Foxi usa **URL path versioning** por ser o mais explícito e fácil de adotar.
 
 ### Política de Descontinuação (Deprecation)
 
-```
+```text
 # Header de aviso quando endpoint está sendo descontinuado
 HTTP/1.1 200 OK
 Deprecation: true

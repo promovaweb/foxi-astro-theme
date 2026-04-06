@@ -36,7 +36,7 @@ Cria uma nova tarefa no projeto especificado.
 **Headers obrigatórios:**
 
 | Header | Valor | Descrição |
-|--------|-------|-----------|
+| --- | --- | --- |
 | `Authorization` | `Bearer {token}` | Token de acesso da API |
 | `Content-Type` | `application/json` | Formato do corpo da requisição |
 
@@ -69,7 +69,7 @@ Cria uma nova tarefa no projeto especificado.
 **Códigos de erro:**
 
 | Código | Significado | Causa comum |
-|--------|-------------|-------------|
+| --- | --- | --- |
 | `400` | Bad Request | Campo obrigatório ausente ou inválido |
 | `401` | Unauthorized | Token ausente ou expirado |
 | `403` | Forbidden | Sem permissão no projeto |
@@ -94,15 +94,18 @@ O sistema precisa de um banco de dados relacional que suporte transações ACID,
 Adotar PostgreSQL 16 como banco de dados principal para todos os módulos novos.
 
 **Consequências positivas:**
+
 - Suporte nativo a JSON/JSONB para dados semi-estruturados
 - Extensões como `pg_trgm` para busca full-text eficiente
 - Ecosistema maduro e vasta documentação
 
 **Consequências negativas:**
+
 - Maior complexidade operacional vs. SQLite em ambientes de desenvolvimento local
 - Necessidade de configuração de réplicas para alta disponibilidade
 
 **Alternativas consideradas:**
+
 - *MySQL 8.0* — Descartado por limitações na manipulação de JSON e window functions
 - *MongoDB* — Descartado pela necessidade de consistência transacional forte
 
@@ -180,7 +183,7 @@ Um exemplo de código que não funciona é pior que nenhum exemplo. Boas prátic
 A documentação envelhece. Crie um processo para mantê-la viva:
 
 | Gatilho | Ação obrigatória |
-|---------|-----------------|
+| --- | --- |
 | Nova feature lançada | Atualizar docs do usuário e changelog |
 | Breaking change na API | Atualizar docs da API + guia de migração |
 | Bug corrigido que afetava comportamento documentado | Corrigir a documentação |
@@ -193,16 +196,19 @@ A documentação envelhece. Crie um processo para mantê-la viva:
 ## Ferramentas Recomendadas
 
 ### Para Documentação de API
+
 - **Swagger/OpenAPI** — Padrão de mercado para APIs REST
 - **Redocly** — Portais de documentação bonitos a partir de specs OpenAPI
 - **Postman** — Documentação interativa que serve também como ambiente de testes
 
 ### Para Documentação de Produto
+
 - **Notion** — Flexível e colaborativo
 - **Confluence** — Robusto para grandes organizações
 - **GitBook** — Bonito e integrado com Git
 
 ### Para Bases de Conhecimento Internas
+
 - **Foxi Docs** — Documentação contextualizada ao trabalho e projetos
 - **Slab** — Focado em busca e descoberta de conhecimento
 - **Tettra** — Integração nativa com Slack para busca de documentação

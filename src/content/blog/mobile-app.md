@@ -9,7 +9,7 @@ tags: ['app', 'anúncio']
 
 O aplicativo móvel Foxi já está disponível! Gerencie suas tarefas e projetos em qualquer lugar com nosso novo app móvel. Mantenha-se conectado e produtivo, não importa onde você esteja.
 
-### Recursos
+## Recursos
 
 - **Funcionalidade Total no Mobile**: Acesse todos os recursos do Foxi em seu dispositivo móvel. Gerencie tarefas, comunique-se com sua equipe e acompanhe seus projetos com facilidade.
 - **Sincronização com Desktop**: Sincronize perfeitamente seus dados entre o aplicativo móvel e a versão desktop do Foxi. Mantenha suas informações atualizadas em todos os dispositivos.
@@ -21,7 +21,7 @@ Baixe o aplicativo móvel Foxi hoje mesmo na App Store ou no Google Play e leve 
 
 Lançamos novas atualizações de segurança para manter seus dados protegidos e seguros. Saiba mais sobre nossas melhorias de segurança mais recentes e como elas protegem você.
 
-### Melhorias no App
+## Melhorias no App
 
 - **Autenticação de Dois Fatores**: Adicione uma camada extra de segurança à sua conta com a autenticação de dois fatores. Este recurso exige que você verifique sua identidade usando um segundo dispositivo ou método.
 - **Criptografia de Dados**: Todos os dados transmitidos e armazenados no Foxi são agora criptografados usando protocolos de criptografia padrão da indústria. Suas informações estão protegidas contra acesso não autorizado.

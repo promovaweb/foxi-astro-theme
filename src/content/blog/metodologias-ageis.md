@@ -41,7 +41,7 @@ Scrum é um framework de gestão para desenvolvimento iterativo e incremental. T
 ### Papéis no Scrum
 
 | Papel | Responsabilidade | Tempo dedicado |
-|-------|-----------------|---------------|
+| --- | --- | --- |
 | Product Owner | Priorização do backlog, visão do produto | 100% |
 | Scrum Master | Facilitação, remoção de impedimentos | 50–100% |
 | Dev Team | Desenvolvimento e entrega | 100% |
@@ -84,7 +84,7 @@ Kanban é orientado a dados. As métricas principais são:
 ### Comparação entre Colunas Típicas
 
 | Coluna | Significado | Limite WIP sugerido |
-|--------|-------------|---------------------|
+| --- | --- | --- |
 | Backlog | Trabalho priorizado aguardando início | Sem limite |
 | A Fazer | Prontos para serem iniciados | 3–5 |
 | Em Progresso | Sendo trabalhados agora | 1–2 por pessoa |
@@ -134,7 +134,7 @@ O trabalho é organizado em ciclos de **6 semanas** (ao contrário das sprints c
 ## Comparativo Final
 
 | Critério | Scrum | Kanban | Shape Up |
-|----------|-------|--------|----------|
+| --- | --- | --- | --- |
 | Ciclo de entrega | 1–4 semanas | Contínuo | 6 semanas |
 | Papéis definidos | Sim (3 papéis) | Não | Sim (Shaper + Builder) |
 | Reuniões | Muitas e regulares | Poucas | Muito poucas |

@@ -378,7 +378,7 @@ Tabelas devem seguir estas exigências:
 1. Sempre incluir linha de cabeçalho e linha separadora.
 2. A linha separadora usa `---` (mínimo três traços) em cada coluna.
 3. Colunas alinhadas com pipes `|` para legibilidade no formato bruto.
-4. Sem espaços em branco dentro das células.
+4. **Espaço obrigatório**: Deve haver exatamente um espaço em branco de cada lado do conteúdo de cada célula (regra MD060).
 
 **Exemplo correto:**
 
@@ -388,6 +388,66 @@ Tabelas devem seguir estas exigências:
 | Astro | Framework web | 5.x |
 | Tailwind CSS | Utilitários CSS | 3.x |
 | markdownlint | Linting de Markdown | latest |
+```
+
+---
+
+### MD026 — Sem pontuação final em headings
+
+Headings não devem terminar com pontuação (ponto final, dois pontos, exclamação, etc.).
+
+**Errado:**
+
+```markdown
+## Introdução:
+```
+
+**Correto:**
+
+```markdown
+## Introdução
+```
+
+---
+
+### MD029 — Prefixos de listas ordenadas
+
+Listas ordenadas devem usar numeração sequencial (1, 2, 3...).
+
+**Errado:**
+
+```markdown
+1. Primeiro item
+1. Segundo item
+```
+
+**Correto:**
+
+```markdown
+1. Primeiro item
+2. Segundo item
+```
+
+---
+
+### MD036 — Sem ênfase como heading
+
+Não use negrito ou itálico em uma linha isolada para simular um heading. Use a sintaxe de heading real (`#`).
+
+**Errado:**
+
+```markdown
+**Seção Importante**
+
+Conteúdo...
+```
+
+**Correto:**
+
+```markdown
+### Seção Importante
+
+Conteúdo...
 ```
 
 ---

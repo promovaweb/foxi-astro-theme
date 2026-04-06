@@ -22,7 +22,7 @@ Open source alimenta a internet. Praticamente todo software comercial depende de
 A licença define *como* o código pode ser usado:
 
 | Licença | Tipo | Pode usar comercialmente | Deve abrir código derivado | Exemplos |
-|---------|------|------------------------|---------------------------|---------|
+| --- | --- | --- | --- | --- |
 | MIT | Permissiva | Sim | Não | React, Vue, jQuery |
 | Apache 2.0 | Permissiva | Sim | Não | Kubernetes, Android |
 | GPL v3 | Copyleft forte | Sim | Sim (todo o software) | Linux, WordPress |
@@ -127,7 +127,7 @@ Quanto mais estável e confiável um projeto open source se torna:
 ### Modelos de Financiamento
 
 | Modelo | Como Funciona | Exemplos | Sustentabilidade |
-|--------|---------------|---------|-----------------|
+| --- | --- | --- | --- |
 | Open Collective | Doações da comunidade | Webpack, Babel | Baixa a média |
 | GitHub Sponsors | Patrocínio direto a mantenedores | Vários projetos | Baixa a média |
 | Dual License | Open source + licença comercial | MySQL, Qt | Boa |

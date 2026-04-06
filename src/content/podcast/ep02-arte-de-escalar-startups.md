@@ -59,7 +59,7 @@ A empresa precisa funcionar sem depender de heróis individuais. Isso requer:
 ## Comparativo: Antes e Depois da Escala
 
 | Aspecto | Fase de Validação | Fase de Escala |
-|---------|-------------------|----------------|
+| --- | --- | --- |
 | Contratação | Generalistas curiosos | Especialistas sênior |
 | Tomada de decisão | Fundador centralizado | Times autônomos |
 | Comunicação | Informal, direta | Estruturada, documentada |

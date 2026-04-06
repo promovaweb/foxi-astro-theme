@@ -38,7 +38,7 @@ O conceito de MVP (Produto Mínimo Viável) é frequentemente mal interpretado. 
 ## Perfil dos Convidados
 
 | Nome | Empresa | Produto | Usuários Ativos |
-|------|---------|---------|-----------------|
+| --- | --- | --- | --- |
 | Rafael Mendes | Taskly | Gestão de tarefas | 45.000 |
 | Camila Torres | NotaFácil | Faturamento digital | 12.000 |
 | Bruno Alves | DevBoard | Monitoramento de deploys | 8.500 |
@@ -139,7 +139,7 @@ Os convidados foram surpreendentemente honestos sobre seus fracassos. Aqui estã
 Para quem está começando no mundo de produtos digitais, aqui estão os termos mais citados neste episódio:
 
 | Termo | Significado |
-|-------|-------------|
+| --- | --- |
 | MVP | Produto Mínimo Viável — menor versão que entrega valor real |
 | CAC | Custo de Aquisição de Cliente — quanto custa conquistar 1 novo cliente |
 | LTV | Lifetime Value — receita total gerada por um cliente ao longo do tempo |

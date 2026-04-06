@@ -61,7 +61,7 @@ Ver o usuário usando o produto (ou fazendo o trabalho sem o produto) revela o q
 #### Mapa de Empatia
 
 | Quadrante | Pergunta Central |
-|-----------|-----------------|
+| --- | --- |
 | O que pensa e sente | Quais são seus medos, aspirações e preocupações? |
 | O que vê | Qual é o ambiente ao seu redor? |
 | O que ouve | Quais influências moldam sua opinião? |
@@ -99,7 +99,7 @@ Esta é a fase que mais sofre com mal-entendidos. Ideação não é apenas brain
 Tipos de protótipo por fidelidade:
 
 | Tipo | Fidelidade | Tempo de Criação | Quando Usar |
-|------|-----------|------------------|-------------|
+| --- | --- | --- | --- |
 | Papel e caneta | Muito baixa | 15 minutos | Exploração inicial de conceitos |
 | Wireframe digital | Baixa | 1-2 horas | Teste de fluxo e navegação |
 | Mockup estático | Média | 4-8 horas | Teste de layout e visual |
@@ -127,6 +127,7 @@ Testar não é apresentar. É observar pessoas reais usando o que você criou se
 **Problema inicial:** Taxa de ativação de 23% na primeira semana após cadastro.
 
 **Processo:**
+
 - 15 entrevistas com usuários que não ativaram
 - Insight central: usuários não entendiam o "primeiro valor" do produto
 - 3 protótipos testados com 6 usuários cada
@@ -139,6 +140,7 @@ Testar não é apresentar. É observar pessoas reais usando o que você criou se
 **Problema inicial:** 42% de abandono no checkout.
 
 **Processo:**
+
 - Gravações de sessão com Hotjar
 - 8 entrevistas focadas na etapa de abandono
 - Insight: usuários tinham medo de errar o endereço de cobrança

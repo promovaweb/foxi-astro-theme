@@ -18,7 +18,7 @@ A pandemia foi o maior experimento involuntário de trabalho remoto da história
 Os números globais revelam uma transformação permanente:
 
 | Modelo | 2019 | 2021 | 2023 | 2025 (tendência) |
-|--------|------|------|------|------------------|
+| --- | --- | --- | --- | --- |
 | Presencial 100% | 85% | 23% | 42% | 38% |
 | Híbrido | 10% | 35% | 40% | 45% |
 | Remoto 100% | 5% | 42% | 18% | 17% |

@@ -20,7 +20,7 @@ O planejamento estratégico é a ponte entre os dois.
 Um planejamento sólido opera em quatro níveis temporais:
 
 | Horizonte | Artefato | Revisão | Responsável |
-|-----------|---------|---------|-------------|
+| --- | --- | --- | --- |
 | 3–5 anos | Visão e missão | Anual | CEO + C-Level |
 | 1 ano | Estratégia anual | Semestral | Diretoria |
 | 3 meses | OKRs trimestrais | Mensal | Gestores |
@@ -67,7 +67,7 @@ Antes de planejar o próximo, entenda o que aconteceu:
 ### Passo 2: Análise de Contexto (SWOT Rápido)
 
 | Análise | Perguntas-chave |
-|---------|----------------|
+| --- | --- |
 | **Forças** | O que fazemos excepcionalmente bem? Onde somos difíceis de copiar? |
 | **Fraquezas** | O que nos atrasa? Onde perdemos para concorrentes? |
 | **Oportunidades** | Que tendências podemos aproveitar? Que segmentos não atendemos? |
@@ -88,7 +88,7 @@ O roadmap não é uma lista de features — é uma *narrativa* sobre como você 
 **Roadmap orientado a resultado vs. feature:**
 
 | Abordagem de Feature ❌ | Abordagem de Resultado ✅ |
-|------------------------|--------------------------|
+| --- | --- |
 | "Lançar modo offline" | "Permitir trabalho em qualquer contexto" |
 | "Adicionar relatórios" | "Empoderar gestores com visibilidade" |
 | "Criar API pública" | "Expandir o ecossistema de integrações" |
@@ -102,17 +102,20 @@ O roadmap não é uma lista de features — é uma *narrativa* sobre como você 
 
 O formato mais simples e mais usado para comunicação com stakeholders:
 
-**AGORA (Este trimestre)**
+#### AGORA (Este trimestre)
+
 - Integração com Google Calendar (Q1 2025)
 - Modo offline para tarefas
 - Dashboard de OKRs v2
 
-**EM BREVE (Próximo trimestre)**
+#### EM BREVE (Próximo trimestre)
+
 - Foxi Intelligence (IA)
 - Relatórios customizáveis
 - App mobile redesenhado
 
-**MAIS TARDE (6+ meses)**
+#### MAIS TARDE (6+ meses)
+
 - Marketplace de integrações
 - Foxi para Enterprise (SSO, SCIM)
 - API pública v2
@@ -120,7 +123,7 @@ O formato mais simples e mais usado para comunicação com stakeholders:
 ### Por Horizonte e Confiança
 
 | Horizonte | Confiança | Detalhe esperado |
-|-----------|-----------|-----------------|
+| --- | --- | --- |
 | 0–3 meses | Alta | Especificado e priorizado |
 | 3–6 meses | Média | Definido em nível de tema |
 | 6–12 meses | Baixa | Direção estratégica |
@@ -156,6 +159,7 @@ Planos que ignoram os aprendizados do trimestre anterior repetem os mesmos erros
 ### 2. Comprometer Capacidade Total
 
 Nunca aloque 100% da capacidade da equipe no planejamento. Reserve:
+
 - 20% para bugs e débito técnico emergente
 - 10% para oportunidades imprevistas
 - 10% para apoio entre times

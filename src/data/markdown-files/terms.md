@@ -77,7 +77,7 @@ These terms are governed by and construed in accordance with the laws of the jur
 
 If you have any questions about these Terms of Service, please contact us at:
 
-Email: support@foxi.com
+Email: <support@foxi.com>
 Address: 123 Foxi Lane, Productivity City, PC 12345
 
 ## Miscellaneous
@@ -94,4 +94,4 @@ If any provision of these terms is found to be invalid or unenforceable, the rem
 
 Our failure to enforce any right or provision of these terms will not be considered a waiver of those rights.
 
-_Last updated: July 10, 2024_
+Last updated: July 10, 2024

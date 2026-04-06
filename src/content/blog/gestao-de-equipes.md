@@ -42,7 +42,7 @@ Essa insegurança leva a dois extremos igualmente problemáticos:
 Nem toda comunicação precisa de resposta imediata. Estabeleça uma hierarquia clara:
 
 | Canal | Tipo | Tempo de resposta |
-|-------|------|-------------------|
+| --- | --- | --- |
 | Chat (Slack) | Assíncrono | Até 4 horas |
 | E-mail | Assíncrono | Até 24 horas |
 | Tarefa no Foxi | Assíncrono | Até 48 horas |

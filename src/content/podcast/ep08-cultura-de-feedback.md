@@ -34,7 +34,7 @@ Letícia identificou três tipos de gatilhos que fazem o feedback ser mal recebi
 Times sem cultura de feedback pagam um preço invisível:
 
 | Problema | Consequência Imediata | Consequência a Longo Prazo |
-|---------|----------------------|---------------------------|
+| --- | --- | --- |
 | Conflitos não resolvidos | Queda de produtividade | Demissões ou saídas voluntárias |
 | Comportamentos problemáticos | Clima deteriorado | Cultura tóxica normalizada |
 | Performance abaixo do esperado | Entregas atrasadas | Desligamentos surpresa |
@@ -72,7 +72,7 @@ Variação do SBI com foco em ação:
 
 Framework criado por Kim Scott, ex-Google e Apple:
 
-```
+```text
                     DESAFIO DIRETO
                     (Alta franqueza)
                           ↑
@@ -102,11 +102,13 @@ A ferramenta mais poderosa e mais mal utilizada por gestores técnicos:
 **Frequência:** Semanal (30 min) ou quinzenal (60 min)
 
 **O que NÃO é 1-on-1:**
+
 - Status update de tarefas
 - Revisão de projetos
 - Reunião que o gestor domina
 
 **O que É 1-on-1:**
+
 - Espaço da pessoa, não do gestor
 - Conversa sobre desenvolvimento, carreira, desafios
 - Oportunidade para feedback bidirecional
@@ -180,7 +182,7 @@ Um contexto específico para times técnicos:
 Defina explicitamente o nível de cada comentário para reduzir ambiguidade:
 
 | Nível | Prefixo | Significado |
-|-------|---------|-------------|
+| --- | --- | --- |
 | Bloqueador | `[BLOCK]` | Deve ser resolvido antes do merge |
 | Sugestão forte | `[SUGGEST]` | Recomendado, mas decide o autor |
 | Nitpick | `[NIT]` | Pequena melhoria, pode ignorar |

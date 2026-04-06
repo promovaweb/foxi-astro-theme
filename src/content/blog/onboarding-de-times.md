@@ -62,7 +62,7 @@ Foco em **autonomia e contribuição**:
 Use esta estrutura como base para qualquer função:
 
 | Período | Meta Principal | Critério de Sucesso |
-|---------|---------------|---------------------|
+| --- | --- | --- |
 | 30 dias | Aprender | Conhece o produto, os processos e as pessoas-chave |
 | 60 dias | Contribuir | Entrega trabalho com qualidade sem supervisão constante |
 | 90 dias | Liderar | Toma decisões, resolve problemas, propõe melhorias |

@@ -18,7 +18,7 @@ A inteligência artificial deixou de ser um tema de ficção científica ou excl
 Estamos vivendo uma transição sem precedentes. Em menos de dois anos, as ferramentas de IA generativa passaram de curiosidades técnicas para instrumentos de trabalho do dia a dia. Veja os números:
 
 | Indicador | 2022 | 2023 | 2024 (projeção) |
-|-----------|------|------|-----------------|
+| --- | --- | --- | --- |
 | Usuários de IA generativa no trabalho | 2% | 34% | 67% |
 | Empresas com políticas de uso de IA | 8% | 41% | 78% |
 | Redução média de tempo em tarefas repetitivas | 5% | 22% | 38% |
@@ -133,7 +133,7 @@ Toda empresa precisa de uma política de IA clara:
 
 Para gerar um resumo executivo de reunião:
 
-```
+```text
 Você é um assistente especializado em comunicação corporativa.
 
 CONTEXTO:
@@ -194,7 +194,7 @@ Empresas que implementaram IA de forma estruturada relatam:
 ## Resumo das Principais Ferramentas
 
 | Categoria | Ferramenta | Ponto Forte | Limitação |
-|-----------|-----------|-------------|-----------|
+| --- | --- | --- | --- |
 | Chat geral | Claude 3.5 | Raciocínio e escrita | Sem geração de imagem |
 | Chat geral | GPT-4o | Multimodal | Custo |
 | Código | GitHub Copilot | Integração com IDE | Qualidade variável |

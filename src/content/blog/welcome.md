@@ -17,7 +17,7 @@ Seja você gerenciando tarefas pessoais, colaborando com uma equipe ou acompanha
 
 > O Foxi combina recursos poderosos com uma interface intuitiva para ajudar você a se manter organizado e eficiente!
 
-### Recursos Principais
+## Recursos Principais
 
 - **Mensagens Internas (In-App Messaging)**: Comunique-se diretamente no aplicativo usando nosso sistema de mensagens integrado.
 - **Gestão de Projetos (Project Management)**: Organize e gerencie seus projetos com facilidade.

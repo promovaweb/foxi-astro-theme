@@ -24,6 +24,7 @@ Antes de criar qualquer dashboard, entenda a diferença entre os tipos de métri
 Medem o que *já aconteceu*. São importantes, mas não permitem ação preventiva.
 
 **Exemplos:**
+
 - Receita do mês
 - Churn rate do trimestre
 - NPS do cliente
@@ -34,6 +35,7 @@ Medem o que *já aconteceu*. São importantes, mas não permitem ação preventi
 Medem o que está *acontecendo agora* e preveem resultados futuros. São as mais valiosas para gestão proativa.
 
 **Exemplos:**
+
 - Número de demos realizadas esta semana (prediz receita)
 - Cobertura de testes adicionada (prediz qualidade)
 - Check-ins de OKR realizados (prediz atingimento de metas)
@@ -44,6 +46,7 @@ Medem o que está *acontecendo agora* e preveem resultados futuros. São as mais
 Ajudam a entender *por que* algo aconteceu. São usadas para análise de causa raiz.
 
 **Exemplos:**
+
 - Taxa de conversão por canal de aquisição
 - Tempo médio de resolução por tipo de bug
 - Velocidade da sprint por membro da equipe
@@ -76,7 +79,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 ### Dashboard de Produto
 
 | Métrica | Frequência | Ferramenta |
-|---------|-----------|-----------|
+| --- | --- | --- |
 | DAU/MAU (usuários ativos) | Diária | Mixpanel |
 | Retenção por coorte | Semanal | Amplitude |
 | Feature adoption rate | Quinzenal | Pendo |
@@ -86,7 +89,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 ### Dashboard de Engenharia
 
 | Métrica | Frequência | Ferramenta |
-|---------|-----------|-----------|
+| --- | --- | --- |
 | Deploy frequency | Diária | GitHub + Foxi |
 | Lead time for changes | Semanal | LinearB |
 | MTTR (Mean Time to Recovery) | Por incidente | PagerDuty |
@@ -96,7 +99,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 ### Dashboard de Suporte
 
 | Métrica | Frequência | Ferramenta |
-|---------|-----------|-----------|
+| --- | --- | --- |
 | Tempo médio de resposta | Horária | Zendesk |
 | CSAT (Customer Satisfaction) | Diária | Intercom |
 | Volume por canal | Diária | Foxi |
@@ -112,6 +115,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 **Frequência:** Semanal ou quinzenal
 **Formato:** 1 página, visual, sem jargão técnico
 **Conteúdo:**
+
 - 3–5 KPIs principais vs. meta
 - Principais riscos e oportunidades
 - Decisões necessárias da liderança
@@ -122,6 +126,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 **Frequência:** Diária ou semanal
 **Formato:** Dashboard interativo com drill-down
 **Conteúdo:**
+
 - Progresso dos OKRs da área
 - Capacidade e carga da equipe
 - Bloqueios e dependências
@@ -132,6 +137,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 **Frequência:** Em tempo real ou diária
 **Formato:** Board visual, fácil de atualizar
 **Conteúdo:**
+
 - Tarefas do dia e da semana
 - Status dos projetos ativos
 - Alertas e prioridades emergentes
@@ -144,6 +150,7 @@ Um dashboard deve contar uma história. A hierarquia de informação segue:
 ### A Armadilha da Vaidade
 
 **Métricas de vaidade** são números que crescem mas não indicam saúde real do negócio:
+
 - ~~Número de downloads~~ → use usuários ativos
 - ~~Curtidas em redes sociais~~ → use conversões geradas
 - ~~Horas trabalhadas~~ → use entregas realizadas
@@ -160,6 +167,7 @@ Um relatório com 50 métricas não é mais completo — é menos útil. Ningué
 ### A Armadilha do Dado Sem Contexto
 
 Dizer "nossa taxa de conclusão de tarefas é 73%" não diz nada sem:
+
 - Qual era o mês passado? (tendência)
 - Qual é a meta? (gap)
 - Como outros times estão? (benchmark interno)

@@ -18,7 +18,7 @@ A indústria de tecnologia tem um problema que não aparece nos pitch decks: uma
 Os números são preocupantes:
 
 | Indicador | Tecnologia | Média Geral |
-|-----------|-----------|-------------|
+| --- | --- | --- |
 | Taxa de burnout | 52% | 23% |
 | Intenção de trocar de emprego por esgotamento | 38% | 18% |
 | Dias de afastamento por saúde mental | 11/ano | 6/ano |

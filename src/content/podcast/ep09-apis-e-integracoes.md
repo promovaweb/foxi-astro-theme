@@ -31,7 +31,7 @@ APIs são a espinha dorsal da internet moderna. Todo produto digital relevante t
 Uma das perguntas mais comuns. A resposta honesta é: depende.
 
 | Critério | REST | GraphQL | gRPC |
-|---------|------|---------|------|
+| --- | --- | --- | --- |
 | Casos de uso | APIs públicas genéricas | Apps com múltiplos clientes | Comunicação interna entre serviços |
 | Flexibilidade do cliente | Baixa | Alta | Baixa |
 | Performance | Boa | Variável | Excelente |
@@ -49,7 +49,7 @@ Uma das perguntas mais comuns. A resposta honesta é: depende.
 
 Use substantivos no plural, não verbos:
 
-```
+```text
 ❌ /getUsers
 ❌ /createUser
 ❌ /deleteUser
@@ -62,7 +62,7 @@ Use substantivos no plural, não verbos:
 ### Códigos de Status HTTP Corretos
 
 | Código | Situação | Uso Correto |
-|--------|---------|-------------|
+| --- | --- | --- |
 | 200 | OK | Resposta bem-sucedida |
 | 201 | Created | Recurso criado com sucesso |
 | 204 | No Content | Operação bem-sucedida sem retorno |
@@ -117,7 +117,7 @@ GET /users?cursor=eyJpZCI6MTAwfQ&limit=20
 
 Estrutura do token:
 
-```
+```text
 header.payload.signature
 
 eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMiLCJleHAiOjE3MDAwMDB9.abc123
@@ -156,7 +156,7 @@ Para autorização de terceiros acessarem dados do usuário:
 
 Toda API pública precisa de rate limiting:
 
-```
+```text
 HTTP/1.1 429 Too Many Requests
 X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 0
@@ -185,7 +185,7 @@ Toda API precisa de uma estratégia de versionamento:
 
 ### Via URL (mais comum)
 
-```
+```text
 /v1/users
 /v2/users
 ```
@@ -195,7 +195,7 @@ Toda API precisa de uma estratégia de versionamento:
 
 ### Via Header
 
-```
+```text
 Accept: application/vnd.myapi.v2+json
 ```
 

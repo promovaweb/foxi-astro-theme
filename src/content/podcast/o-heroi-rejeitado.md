@@ -7,10 +7,11 @@ cover: "/blog/post-01-cover.png"
 author: "luizeof"
 ---
 
-Neste episódio, mergulhamos nos detalhes técnicos e emocionais que moldaram a jornada do nosso convidado. 
+Neste episódio, mergulhamos nos detalhes técnicos e emocionais que moldaram a jornada do nosso convidado.
 Abaixo você encontrará os principais pontos discutidos e referências citadas durante a conversa.
 
 ## Pontos Principais
+
 - A infância e as primeiras influências.
 - O momento da grande mudança e as consequências imediatas.
 - Como lidar com a percepção pública distorcida.

@@ -39,7 +39,7 @@ Todo trabalho no Foxi começa com um **Projeto**. Pense no projeto como um cont�
 O Foxi suporta uma hierarquia de 4 níveis para organização das tarefas:
 
 | Nível | Tipo | Descrição | Limite |
-|-------|------|-----------|--------|
+| --- | --- | --- | --- |
 | 1 | Projeto | Objetivo macro | Ilimitado |
 | 2 | Épico | Agrupamento de funcionalidades | 100 por projeto |
 | 3 | Tarefa | Unidade de trabalho | 1.000 por épico |

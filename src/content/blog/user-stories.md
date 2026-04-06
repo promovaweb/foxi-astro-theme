@@ -9,13 +9,13 @@ tags: ['avaliações', 'anúncio']
 
 ![Foxi está aqui.](/blog/post-06.png)
 
-### Histórias de Sucesso
+## Histórias de Sucesso
 
 - **Aumentando a Produtividade em uma Equipe Remota**: Sarah e sua equipe passaram para o trabalho remoto e tiveram dificuldades para se manterem conectados. Com a gestão de projetos e as mensagens internas do Foxi, eles simplificaram sua comunicação e aumentaram a produtividade em 40%.
 - **Organizando Projetos Pessoais**: John, um designer freelancer, usou o Foxi para gerenciar seus múltiplos projetos de clientes. Os dashboards customizáveis permitiram que ele acompanhasse prazos e entregas, ajudando-o a atingir seus objetivos de forma eficiente.
 - **Melhorando o Desempenho Acadêmico**: Emily, uma estudante universitária, usou o Foxi para organizar seu cronograma de estudos e projetos em grupo. Ela viu uma melhoria significativa em suas notas e habilidades de gestão de tempo.
 
-#### Feedback dos Usuários
+### Feedback dos Usuários
 
 > O Foxi mudou completamente a forma como nossa equipe opera. Estamos mais organizados, nos comunicamos melhor e fazemos mais em menos tempo.
 

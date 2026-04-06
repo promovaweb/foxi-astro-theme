@@ -7,7 +7,7 @@ image: '/blog/post-02-cover.png'
 tags: ['feedback', 'cultura', 'liderança', 'desenvolvimento']
 ---
 
-*"Você precisa trabalhar na sua comunicação."*
+> *"Você precisa trabalhar na sua comunicação."*
 
 Esta frase é provavelmente o feedback mais inútil que alguém pode receber. Não especifica o problema. Não sugere melhora. Não oferece contexto. E ainda por cima, deixa o receptor na defensiva.
 
@@ -39,7 +39,7 @@ Pesquisas da Gallup mostram que funcionários que recebem feedback regular e pos
 ### Por Direção
 
 | Tipo | Fluxo | Exemplo |
-|------|-------|---------|
+| --- | --- | --- |
 | Top-down | Gestor → Colaborador | Avaliação de desempenho |
 | Bottom-up | Colaborador → Gestor | Feedback sobre liderança |
 | Lateral | Par → Par | Revisão de código, retrospectiva |
@@ -47,12 +47,14 @@ Pesquisas da Gallup mostram que funcionários que recebem feedback regular e pos
 
 ### Por Natureza
 
-**Feedback de Reforço (Positivo)**
+#### Feedback de Reforço (Positivo)
+
 - Reconhece e consolida comportamentos desejados
 - Deve ser específico, não genérico
 - Exemplo: *"Sua apresentação para o cliente X foi excelente — a forma como você antecipou as objeções e trouxe dados de ROI fez a diferença para fechar o contrato."*
 
-**Feedback de Desenvolvimento (Construtivo)**
+#### Feedback de Desenvolvimento (Construtivo)
+
 - Aponta comportamentos a mudar com clareza e compaixão
 - Deve ser acionável e futuro-orientado
 - Exemplo: *"Nas últimas três reuniões, você interrompeu colegas antes que eles terminassem de falar. Isso reduziu o espaço para as ideias deles. O que você poderia fazer diferente?"*
@@ -145,11 +147,13 @@ Receber feedback bem é tão importante quanto dá-lo. Princípios:
 ### Em Code Reviews
 
 **Evite:**
+
 - ~~"Isso está errado"~~ — Julgamento sem contexto
 - ~~"Por que você fez assim?"~~ — Soa como acusação
 - ~~Comentários no estilo pessoal~~ — "Você sempre..."
 
 **Prefira:**
+
 - "Considere usar `async/await` aqui — o `.then()` encadeado tende a ficar difícil de debugar"
 - "Não entendi a intenção desta função. Pode adicionar um comentário explicando o `por quê`?"
 - "Isso funciona! Uma alternativa seria `X`, que pode ser mais legível para quem não conhece a lib"
@@ -279,7 +283,7 @@ Respondido por: [ANÔNIMO]  |  Data: ____/____/____
 ## Métricas de Cultura de Feedback
 
 | Métrica | Como medir | Meta sugerida |
-|---------|-----------|---------------|
+| --- | --- | --- |
 | Frequência de 1:1s | Registro no Foxi | Semanal ou quinzenal |
 | Participação em 360° | % de colaboradores | > 90% |
 | eNPS (Employee NPS) | Pesquisa anônima | > 30 |

@@ -24,6 +24,7 @@ OKR é um framework de definição e acompanhamento de metas com uma estrutura s
 O **Objetivo** responde à pergunta: *"Para onde queremos ir?"*
 
 Um bom objetivo é:
+
 - Inspirador e ambicioso
 - Qualitativo (não numérico)
 - Limitado no tempo (geralmente trimestral)
@@ -34,6 +35,7 @@ Um bom objetivo é:
 Os **Resultados-Chave** respondem: *"Como saberemos se chegamos lá?"*
 
 Um bom resultado-chave é:
+
 - Quantitativo e mensurável
 - Específico e verificável
 - Desafiador, mas alcançável
@@ -55,19 +57,21 @@ Um bom resultado-chave é:
 ### Por Nível Hierárquico
 
 | Nível | Quem define | Frequência | Exemplo |
-|-------|-------------|------------|---------|
+| --- | --- | --- | --- |
 | Empresa | C-Level | Anual + Trimestral | Dobrar receita em 12 meses |
 | Time | Líderes de área | Trimestral | Reduzir churn em 30% |
 | Individual | Colaborador + gestor | Trimestral | Concluir 3 projetos estratégicos |
 
 ### Por Tipo de Ambição
 
-**OKRs Comprometidos (Committed OKRs)**
+#### OKRs Comprometidos (Committed OKRs)
+
 - Expectativa de conclusão: 100%
 - Representam metas operacionais essenciais
 - Não cumprimento = problema sério
 
-**OKRs Aspiracionais (Aspirational OKRs)**
+#### OKRs Aspiracionais (Aspirational OKRs)
+
 - Expectativa de conclusão: 60–70%
 - Representam visão e direção
 - 100% atingido = meta pouco ambiciosa
@@ -123,16 +127,19 @@ Menos é mais. A regra: **máximo de 5 objetivos** por nível, cada um com **no 
 ## Cadência de Acompanhamento
 
 ### Semanal
+
 - Check-in de 15 minutos por OKR
 - Cada Key Result recebe um status: 🟢 On Track | 🟡 Em Risco | 🔴 Off Track
 - Identificação de bloqueios e ações necessárias
 
 ### Mensal
+
 - Revisão aprofundada dos OKRs
 - Ajuste de prioridades se necessário
 - Compartilhamento de progresso com stakeholders
 
 ### Trimestral
+
 - Pontuação final dos OKRs (0.0 a 1.0)
 - Retrospectiva: o que aprendemos?
 - Definição dos OKRs do próximo trimestre
@@ -144,7 +151,7 @@ Menos é mais. A regra: **máximo de 5 objetivos** por nível, cada um com **no 
 O Google usa uma escala de 0.0 a 1.0:
 
 | Pontuação | Interpretação |
-|-----------|---------------|
+| --- | --- |
 | 0.0 – 0.3 | Falha no trabalho ou falta de esforço |
 | 0.4 – 0.6 | Progresso, mas meta não atingida |
 | 0.7 – 0.9 | Zona ideal — meta desafiadora e quase atingida |

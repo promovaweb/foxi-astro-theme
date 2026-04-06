@@ -24,6 +24,7 @@ Acontece em tempo real. Ambos os participantes precisam estar disponíveis ao me
 **Exemplos:** Reunião presencial, videochamada, ligação telefônica, mensagens instantâneas com expectativa de resposta imediata
 
 **Quando usar:**
+
 - Emergências reais
 - Brainstorming criativo
 - Conversas emocionalmente complexas (demissão, conflito, feedback difícil)
@@ -37,6 +38,7 @@ Acontece em momentos diferentes. Cada participante responde quando é possível 
 **Exemplos:** E-mail, comentários em tarefas do Foxi, vídeos gravados (Loom), documentos compartilhados, mensagens de voz
 
 **Quando usar:**
+
 - Compartilhamento de informações e atualizações
 - Perguntas que não precisam de resposta imediata
 - Revisão e aprovação de trabalho
@@ -50,6 +52,7 @@ Acontece em momentos diferentes. Cada participante responde quando é possível 
 ### 1. Escreva Como se a Pessoa Não Pudesse Responder por 24h
 
 Quando você escreve com essa mentalidade, você naturalmente:
+
 - Antecipa perguntas e as responde de antemão
 - Fornece contexto suficiente para que a decisão seja tomada
 - Inclui alternativas quando há opções
@@ -72,6 +75,7 @@ No militar americano, toda comunicação começa com a conclusão. Aplique o mes
 ### 3. Documente Decisões, Não Apenas Conversas
 
 Toda decisão importante deve ser registrada de forma assíncrona com:
+
 - O que foi decidido
 - Por que foi decidido
 - Quem decidiu
@@ -83,7 +87,7 @@ Toda decisão importante deve ser registrada de forma assíncrona com:
 Sem expectativas claras, a comunicação assíncrona gera ansiedade. Defina e comunique:
 
 | Canal | SLA de resposta | Exemplo de uso |
-|-------|----------------|----------------|
+| --- | --- | --- |
 | Mensagem urgente | 1 hora | Produção fora do ar |
 | Chat de equipe | 4 horas | Dúvidas do dia a dia |
 | Tarefas no Foxi | 24 horas | Trabalho normal |

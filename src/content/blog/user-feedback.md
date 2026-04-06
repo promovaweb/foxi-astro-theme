@@ -11,7 +11,7 @@ Seu feedback é fundamental para nós. Estamos constantemente nos esforçando pa
 
 ![Foxi está aqui.](/blog/post-01.png)
 
-### Melhorias
+## Melhorias
 
 1. **Desempenho Aprimorado**: Otimizamos o aplicativo para rodar de forma mais rápida e eficiente, garantindo uma experiência de usuário suave.
 2. **Correções de Bugs**: Nossa equipe corrigiu vários bugs e problemas relatados pelos usuários. Obrigado por nos ajudar a identificar e resolver esses problemas.

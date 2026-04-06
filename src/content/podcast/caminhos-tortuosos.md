@@ -10,6 +10,7 @@ author: "luizeof"
 Uma história de resiliência e superação diante da traição corporativa.
 
 ## Tópicos Abordados
+
 - A ascensão da empresa original.
 - A denúncia que mudou tudo.
 - A investigação paralela.

@@ -38,7 +38,7 @@ De um lado, entusiastas prometem que a IA vai eliminar o trabalho monótono e li
 ### Setores de Alto Impacto (Automação Significativa)
 
 | Setor | Tarefas em risco | Novas oportunidades |
-|-------|-----------------|---------------------|
+| --- | --- | --- |
 | Jurídico | Pesquisa de jurisprudência, contratos padrão | Estratégia jurídica complexa, advocacy |
 | Contabilidade | Escrituração, declarações simples | Consultoria tributária, planejamento |
 | Jornalismo | Notícias de dados (esportes, finanças) | Investigação, curadoria, análise |
@@ -66,6 +66,7 @@ A pesquisa econômica mostra que, historicamente, tecnologia **complementa** hab
 #### 1. Tornar-se Especialista em Prompt Engineering
 
 Saber extrair o melhor da IA é uma habilidade valiosa. Profissionais que sabem:
+
 - Estruturar prompts eficazes
 - Iterar e refinar resultados
 - Detectar erros e alucinações

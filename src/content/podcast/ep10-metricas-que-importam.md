@@ -16,13 +16,13 @@ Toda empresa moderna tem dashboards. Poucas têm decisões melhores por causa de
 ## O Problema com "Ser Data-Driven"
 
 > "Quando uma empresa diz que é data-driven, geralmente significa que usa dados para confirmar decisões que já foram tomadas com base em intuição. Isso não é data-driven — é *HiPPO-driven* com estatísticas para embelezar." — **Fernanda Luz, Head of Data**
-
-*HiPPO = Highest Paid Person's Opinion (Opinião da Pessoa Mais Bem Paga)*
+>
+> HiPPO = Highest Paid Person's Opinion (Opinião da Pessoa Mais Bem Paga)
 
 ### Data-Driven vs Data-Informed
 
 | Abordagem | Descrição | Quando Usar |
-|-----------|-----------|-------------|
+| --- | --- | --- |
 | **Data-Driven** | Os dados decidem automaticamente | Decisões operacionais repetíveis, testes A/B com alta confiança |
 | **Data-Informed** | Os dados informam, humanos decidem | Decisões estratégicas, novos mercados, situações sem histórico |
 | **Data-Ignorant** | Intuição sem dados | Evitar — exceto no estágio 0, quando não há dados ainda |
@@ -44,7 +44,7 @@ Você não pode analisar o que não coleta:
 
 Arquitetura moderna de dados:
 
-```
+```text
 [Fontes] → [Ingestão] → [Data Warehouse] → [Transformação] → [BI/Analytics]
 
 Exemplos:
@@ -79,7 +79,7 @@ O ponto que a maioria das empresas ainda não chegou:
 Uma única métrica que captura o valor que o produto entrega ao cliente:
 
 | Empresa | North Star Metric |
-|---------|-----------------|
+| --- | --- |
 | Spotify | Tempo escutado por usuário por mês |
 | Airbnb | Noites reservadas |
 | Facebook | DAU (Usuários Ativos Diários) |
@@ -88,7 +88,7 @@ Uma única métrica que captura o valor que o produto entrega ao cliente:
 #### Framework HEART (Google)
 
 | Dimensão | Significado | Exemplo de Métrica |
-|----------|-------------|-------------------|
+| --- | --- | --- |
 | **H**appiness | Satisfação do usuário | NPS, CSAT |
 | **E**ngagement | Uso ativo | Sessões por semana, tarefas criadas |
 | **A**doption | Novos usuários usando funcionalidade | % ativação de nova feature |
@@ -100,7 +100,7 @@ Uma única métrica que captura o valor que o produto entrega ao cliente:
 As métricas fundamentais de um negócio SaaS:
 
 | Métrica | Fórmula | Benchmark Saudável |
-|---------|---------|-------------------|
+| --- | --- | --- |
 | MRR | Soma de todas as assinaturas mensais | Crescimento > 10% ao mês (early stage) |
 | ARR | MRR × 12 | — |
 | Churn Rate | Clientes cancelados / Total clientes | < 2% ao mês (SMB), < 0,5% (enterprise) |
@@ -136,7 +136,7 @@ A maioria dos dashboards tem o problema oposto do esperado: **informação demai
 Para cada métrica no dashboard, defina:
 
 | Campo | Descrição | Exemplo |
-|-------|-----------|---------|
+| --- | --- | --- |
 | Nome | Nome claro da métrica | Taxa de Ativação D7 |
 | Definição | Como é calculada exatamente | % de usuários que criam ao menos 1 tarefa nos primeiros 7 dias |
 | Dono | Quem é responsável | Head de Produto |
@@ -170,7 +170,7 @@ Para cada métrica no dashboard, defina:
 
 Análise de coorte é a ferramenta mais poderosa para entender retenção:
 
-```
+```text
 Coorte       | Semana 0 | Semana 1 | Semana 2 | Semana 4 | Semana 8
 -------------|----------|----------|----------|----------|----------
 Jan/2024     | 100%     | 62%      | 48%      | 35%      | 28%
@@ -179,6 +179,7 @@ Mar/2024     | 100%     | 71%      | 58%      | 44%      | —
 ```
 
 **O que analisar:**
+
 - A retenção está melhorando entre coortes? (produto melhorando)
 - Onde está o maior drop? (onde atuar)
 - Existe um "patamar de retenção"? (indica produto-market fit)

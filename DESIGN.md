@@ -7,7 +7,7 @@ Este documento é a fonte única de verdade para a linguagem visual e a arquitet
 ## Stack
 
 | Camada | Tecnologia |
-|---|---|
+| --- | --- |
 | Framework | Astro 6 |
 | Estilização | Tailwind CSS 3 (utility-first) |
 | Ícones | `astro-icon` (sprites SVG em `src/icons/`) |
@@ -25,7 +25,7 @@ Definida em `tailwind.config.mjs` → `theme.extend.colors`.
 ### Primária (cor da marca — Rosa/Magenta)
 
 | Token | Hex | Uso |
-|---|---|---|
+| --- | --- | --- |
 | `primary-50` | `#fdf2f8` | Fundos muito claros, tingimentos sutis |
 | `primary-100` | `#fce7f3` | Fundo de hover em botões secundários |
 | `primary-200` | `#fbcfe8` | Estados desabilitados |
@@ -41,15 +41,15 @@ Definida em `tailwind.config.mjs` → `theme.extend.colors`.
 ### Neutra (escala baseada em Slate)
 
 | Token | Hex | Uso |
-|---|---|---|
+| --- | --- | --- |
 | `neutral-50` | `#f8fafc` | Fundos de página (claro), divisores sutis |
 | `neutral-100` | `#f1f5f9` | Bordas de card, fundos de seção |
 | `neutral-200` | `#e2e8f0` | Bordas, divisores |
 | `neutral-300` | `#cbd5e1` | Texto de placeholder |
 | `neutral-400` | `#94a3b8` | Texto silenciado, rótulos pequenos |
 | `neutral-500` | `#64748b` | **Texto de corpo padrão (modo claro)** |
-| `neutral-600` | `#475569` | Texto de corpo ligeiramente mais escuro |
-| `neutral-700` | `#334155` | **Texto de título (modo claro)**, fundo de botão neutro |
+| neutral-600 | #475569 | Texto de corpo ligeiramente mais escuro |
+| neutral-700 | #334155 | **Texto de título (modo claro)**, fundo de botão neutro |
 | `neutral-800` | `#1e293b` | Hover em botões neutros |
 | `neutral-900` | `#0f172a` | Foco em botões neutros |
 | `neutral-950` | `#020617` | **Fundo de página (modo escuro)** |
@@ -57,7 +57,7 @@ Definida em `tailwind.config.mjs` → `theme.extend.colors`.
 ### Mapeamento semântico
 
 | Contexto | Claro | Escuro |
-|---|---|---|
+| --- | --- | --- |
 | Fundo da página | `white` | `neutral-950` |
 | Texto de corpo | `neutral-500` | `neutral-400` |
 | Texto de título | `neutral-700` | `neutral-50` |
@@ -78,7 +78,7 @@ font-headings: "Outfit Variable"   /* h1–h6, logo, marcas */
 ### Escala (definida em `src/styles/global.css`)
 
 | Elemento | Mobile | Desktop | Peso |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `h1` | `text-4xl` (36px) | `text-6xl` (60px) | `font-bold` |
 | `h2` | `text-3xl` (30px) | `text-5xl` (48px) | `font-bold` |
 | `h3` | `text-2xl` (24px) | `text-3xl` (30px) | `font-bold` |
@@ -107,7 +107,7 @@ font-headings: "Outfit Variable"   /* h1–h6, logo, marcas */
 O layout utiliza um **grid CSS de 12 colunas** construído com os componentes `Row` + `Col`.
 
 | Breakpoint | Colunas |
-|---|---|
+| --- | --- |
 | Mobile (`< md`) | 4 colunas |
 | Tablet (`md`) | 8 colunas |
 | Desktop (`lg+`) | 12 colunas |
@@ -115,7 +115,7 @@ O layout utiliza um **grid CSS de 12 colunas** construído com os componentes `R
 ### Padding de seção
 
 | Valor da prop | Classes aplicadas |
-|---|---|
+| --- | --- |
 | `both` (padrão) | `py-12 lg:py-24` |
 | `top` | `pt-12 lg:pt-24` |
 | `bottom` | `pb-12 lg:pb-24` |
@@ -138,7 +138,7 @@ O layout utiliza um **grid CSS de 12 colunas** construído com os componentes `R
 Seção de página de nível superior. Envolve o conteúdo em um `<section>` com um `.container` centralizado dentro.
 
 | Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `id` | `string` | — | ID âncora da seção |
 | `fullWidth` | `boolean` | `false` | Remove a largura máxima do container |
 | `stickyCol` | `boolean` | `false` | Habilita coluna sticky dentro da seção |
@@ -154,7 +154,7 @@ Seção de página de nível superior. Envolve o conteúdo em um `<section>` com
 Linha do grid de 12 colunas. Os filhos diretos devem ser componentes `<Col>`.
 
 | Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `flex` | `boolean` | `false` | Usa flexbox em vez de grid |
 | `justify` | `string` | — | Alinhamento horizontal (`start`, `center`, `end`, `between`, `around`, `evenly`) |
 | `mode` | `string` | — | Força sobrescrita de modo |
@@ -165,7 +165,7 @@ Linha do grid de 12 colunas. Os filhos diretos devem ser componentes `<Col>`.
 Coluna dentro de um `<Row>`. Usa utilitários `col-span-*` do Tailwind.
 
 | Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `span` | `string` | — | Span desktop (1–12) |
 | `lg` | `string` | — | Span desktop (1–12) - Alias para `span` |
 | `spanMobile` | `string` | `'12'` | Span mobile (1–12) |
@@ -181,7 +181,7 @@ Coluna dentro de um `<Row>`. Usa utilitários `col-span-*` do Tailwind.
 Renderiza como `<a>` quando `type="link"` ou quando a prop `link` é fornecida; caso contrário renderiza como `<button>`.
 
 | Prop | Tipo | Padrão | Opções |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `type` | `string` | `'button'` | `'link' \| 'button' \| 'submit' \| 'reset'` |
 | `size` | `string` | `'base'` | `'lg' \| 'base' \| 'sm'` |
 | `link` | `string` | — | href para botões âncora |
@@ -194,7 +194,7 @@ Renderiza como `<a>` quando `type="link"` ou quando a prop `link` é fornecida; 
 **Matriz de estilos:**
 
 | Estilo | Aparência padrão | Variação `outline` | Variação `link` |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `primary` | Fundo rosa sólido, texto branco | Borda rosa, fundo transparente | Texto rosa, fundo transparente |
 | `secondary` | Fundo rosa claro, texto rosa | Borda rosa, fundo transparente | Texto rosa, fundo transparente |
 | `neutral` | Fundo slate escuro, texto branco | Borda slate, fundo transparente | Texto slate escuro |
@@ -205,7 +205,7 @@ Renderiza como `<a>` quando `type="link"` ou quando a prop `link` é fornecida; 
 Widget de divulgação expansível usando `<details>/<summary>` nativos.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `title` | `string` | obrigatório |
 | `text` | `string` | obrigatório |
 | `open` | `boolean` | `false` |
@@ -216,7 +216,7 @@ Widget de divulgação expansível usando `<details>/<summary>` nativos.
 Diálogo de sobreposição em tela cheia. Acionado por `<Button modal="id">`.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `id` | `string` | — |
 | `title` | `string` | — |
 | `classes` | `string` | — |
@@ -234,7 +234,7 @@ Notificação fixa no canto inferior direito. Exibida automaticamente após 3s d
 Etiqueta/rótulo inline pequeno. Renderiza como `<a>` se `link` for fornecido.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `name` | `string` | obrigatório |
 | `link` | `string` | — |
 | `type` | `'neutral' \| 'primary'` | `'neutral'` |
@@ -245,7 +245,7 @@ Etiqueta/rótulo inline pequeno. Renderiza como `<a>` se `link` for fornecido.
 Unidade de ícone + título + texto de corpo. Usado em listas de funcionalidades e blocos de destaque.
 
 | Prop | Tipo | Padrão | Opções |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `type` | `string` | `'top-icon'` | `'top-icon' \| 'side-icon'` |
 | `title` | `string` | — | |
 | `icon` | `string` | `'rocket'` | Qualquer ícone de `src/icons/` |
@@ -254,6 +254,7 @@ Unidade de ícone + título + texto de corpo. Usado em listas de funcionalidades
 | `classes` | `string` | — | |
 
 **Estilos de ícone:**
+
 - `normal` → `size-6 text-primary-500` (ícone de contorno, cor da marca)
 - `square` → `size-10 bg-primary-500 rounded p-2 text-white` (quadrado preenchido, ícone branco)
 
@@ -262,7 +263,7 @@ Unidade de ícone + título + texto de corpo. Usado em listas de funcionalidades
 Bloco de citação de cliente com avatar e avaliação por estrelas opcionais.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `blockquote` | `string` | obrigatório |
 | `figcaption` | `string` | obrigatório |
 | `cite` | `string` | — |
@@ -280,7 +281,7 @@ Bloco de citação de cliente com avatar e avaliação por estrelas opcionais.
 Imagem de usuário envolta em um link.
 
 | Prop | Tipo | Padrão | Opções |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `size` | `string` | `'base'` | `'lg'(48px) \| 'base'(40px) \| 'sm'(32px) \| 'xs'(24px)` |
 | `link` | `string` | `'#'` | |
 | `radius` | `string` | — | Qualquer classe `rounded` do Tailwind |
@@ -300,7 +301,7 @@ Avaliação por estrelas (0–5) usando ícones SVG preenchidos/vazios.
 Lista vertical de itens.
 
 | Prop | Tipo | Padrão | Opções |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `type` | `string` | `'basic'` | `'basic' \| 'checklist'` |
 | `listItems` | `Array<{listItem: string}>` | obrigatório | |
 | `listColor` | `string` | `'primary'` | `'primary' \| 'neutral' \| 'white'` |
@@ -313,7 +314,7 @@ Lista vertical de itens.
 Elemento inline em formato de pílula para anúncios ou indicadores de status. Possui dois slots: `button` (ação à esquerda) e padrão (texto do corpo).
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `elevated` | `boolean` | — |
 | `radius` | `string` | `'rounded'` |
 | `classes` | `string` | — |
@@ -339,7 +340,7 @@ Seção de texto de call-to-action (título + slot de corpo).
 Embed responsivo de vídeo do YouTube (16:9).
 
 | Prop | Tipo | Descrição |
-|---|---|---|
+| --- | --- | --- |
 | `videoId` | `string` | ID do vídeo no YouTube (ex: `dQw4w9WgXcQ`) |
 | `title` | `string` | Título para acessibilidade do iframe |
 
@@ -348,7 +349,7 @@ Embed responsivo de vídeo do YouTube (16:9).
 Ícone de rede social com cor da marca e tooltip.
 
 | Prop | Tipo | Descrição |
-|---|---|---|
+| --- | --- | --- |
 | `platform` | `string` | Plataforma (ex: `instagram`, `facebook`, `linkedin`, `whatsapp`, `twitter`, `tiktok`, `youtube`, `website`) |
 | `link` | `string` | URL de destino |
 | `size` | `number` | Tamanho em pixels (padrão: 24) |
@@ -359,7 +360,7 @@ Embed responsivo de vídeo do YouTube (16:9).
 Exibe detalhes técnicos de um arquivo para download.
 
 | Prop | Tipo | Descrição |
-|---|---|---|
+| --- | --- | --- |
 | `format` | `string` | Extensão do arquivo (ex: PDF, ZIP) |
 | `size` | `string` | Tamanho legível (ex: 2.4 MB) |
 | `version` | `string` | Versão do material |
@@ -370,7 +371,7 @@ Exibe detalhes técnicos de um arquivo para download.
 Lista de itens com ícones de check para landing pages.
 
 | Prop | Tipo | Descrição |
-|---|---|---|
+| --- | --- | --- |
 | `title` | `string` | Título da seção (suporta HTML) |
 | `items` | `string[]` | Array de strings com os benefícios/recursos |
 
@@ -385,7 +386,7 @@ Todos os cards estão em `src/components/ui/cards/`.
 Card de uso geral com imagem, ícone, título e subtítulo opcionais.
 
 | Prop | Tipo | Padrão | Opções |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `title` | `string` | `''` | |
 | `subtitle` | `string` | — | |
 | `titleSize` | `string` | `'lg'` | `'sm' \| 'base' \| 'lg' \| 'xl'` |
@@ -434,13 +435,14 @@ Chave de alternância liga/desliga.
 Card completo de plano de preços.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `data` | `PricingTableProps` | obrigatório |
 | `id` | `string` | — |
 | `listType` | `'basic' \| 'checklist'` | — |
 | `classes` | `string` | — |
 
 Tipos:
+
 - `basic` — card branco, botão primário
 - `featured` — fundo rosa (`bg-primary-500`), texto invertido
 
@@ -471,7 +473,7 @@ Componentes de apresentação e sliders em `src/components/ui/slides/`.
 Slider básico de imagens com legendas sobrepostas.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `slides` | `Array<{image, caption}>` | obrigatório |
 | `id` | `string` | `'basic-slides'` |
 | `autoplay` | `boolean` | `true` |
@@ -482,7 +484,7 @@ Slider básico de imagens com legendas sobrepostas.
 Slider com layout dividido (Texto à esquerda, Imagem à direita).
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `slides` | `Array<{title, text, image}>` | obrigatório |
 | `id` | `string` | `'split-slides'` |
 | `autoplay` | `boolean` | `true` |
@@ -493,11 +495,11 @@ Slider com layout dividido (Texto à esquerda, Imagem à direita).
 Slider em tela cheia com conteúdo centralizado e transições de opacidade.
 
 | Prop | Tipo | Padrão |
-|---|---|---|
+| --- | --- | --- |
 | `slides` | `Array<{title, text, image, buttonLink, buttonText}>` | obrigatório |
 | `id` | `string` | `'full-slides'` |
 | `autoplay` | `boolean` | `true` |
-| `classes` | `string` | — |
+| `classes` | `string | — |
 
 ---
 
@@ -506,7 +508,7 @@ Slider em tela cheia com conteúdo centralizado e transições de opacidade.
 Blocos compostos de nível de página estão em `src/components/blocks/`.
 
 | Caminho | Descrição |
-|---|---|
+| --- | --- |
 | `blocks/hero/HomeCTA.astro` | Hero da homepage com título e botões CTA |
 | `blocks/hero/PageHeader.astro` | Banner hero de páginas internas |
 | `blocks/hero/ContactHero.astro` | Hero da página de contato |
@@ -532,9 +534,9 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/pricing/PricingComparison.astro` | Tabela de comparação detalhada de recursos |
 | `blocks/pricing/PricingSplitDark.astro` | Seção com cabeçalho escuro e cards de preço brancos |
 | `blocks/pricing/PricingLifetime.astro` | Seção de assinatura vitalícia com box de preço lateral |
-| `blocks/pricing/PricingThreeColumns.astro` | Seção de três colunas com badge de "Mais Popular" |
+| `blocks/pricing/PricingThreeColumns.astro` | Seção de três colunas com badge de "Mais Popular |
 | `blocks/pricing/PricingDetails.astro` | Seção detalhada com preços mensais e anuais |
-| `blocks/pricing/PricingToggle.astro` | Seção de preços com alternância dinâmica Mensal/Anual |
+| `blocks/pricing/PricingToggle.astro | Seção de preços com alternância dinâmica Mensal/Anual |
 | `blocks/pricing/PricingGrowing.astro` | Tabela de comparação avançada para planos em crescimento |
 | `blocks/pricing/PricingSplitDarkFreq.astro` | Seção escura com alternância de frequência e tabela de comparação |
 | `blocks/pricing/PricingFullFeatured.astro` | Layout dividido com lista de recursos detalhada e box de preço lateral |
@@ -570,7 +572,7 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 | `blocks/landing/DownloadDetails.astro` | Detalhes técnicos do arquivo para download |
 | `blocks/landing/ContentList.astro` | Lista de benefícios/conteúdo com ícones |
 | `ui/slides/SlidesBasic.astro` | Slider básico de imagens com legendas |
-| `ui/slides/SlidesSplit.astro` | Slider com layout dividido (Texto | Imagem) |
+| `ui/slides/SlidesSplit.astro` | Slider com layout dividido (Texto \| Imagem) |
 | `ui/slides/SlidesFull.astro` | Slider em tela cheia com conteúdo centralizado |
 
 ---
@@ -590,9 +592,9 @@ Blocos compostos de nível de página estão em `src/components/blocks/`.
 Keyframes personalizados definidos em `tailwind.config.mjs`:
 
 | Classe | Descrição |
-|---|---|
+| --- | --- |
 | `animate-dropdown` | 300ms ease-in-out, desliza para baixo de -1rem com opacidade 0 |
-| `animate-fadeInShadowLight` | 500ms, aparece sombra sutil de caixa (modo claro) |
+| `animate-fadeInShadowLight | 500ms, aparece sombra sutil de caixa (modo claro) |
 | `animate-fadeInShadowDark` | 500ms, aparece sombra mais profunda de caixa (modo escuro) |
 | `animate-fadeUp` | 500ms ease-in-out, desliza para cima de 1rem com opacidade 0 |
 
@@ -618,11 +620,11 @@ Para **desabilitar** as animações de scroll, defina `scrollAnimations: false` 
 ## Arquivos de Configuração
 
 | Arquivo | Finalidade |
-|---|---|
+| --- | --- |
 | `src/config/config.ts` | Título do site, descrição, OG image, logo, modo, animações de scroll |
 | `src/config/navigationBar.ts` | Logo, itens de navegação (com submenus opcionais), botões de ação |
 | `src/config/footerNavigation.ts` | Texto sobre / logo do rodapé, colunas de links, copyright |
-| `src/config/socialLinks.ts` | Links de redes sociais e ícones |
+| `src/config/socialLinks.ts | Links de redes sociais e ícones |
 | `src/config/analytics.ts` | IDs do Google Analytics / Tag Manager |
 
 ---

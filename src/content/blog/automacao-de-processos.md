@@ -39,7 +39,7 @@ Antes de automatizar, você precisa entender o que existe. Use esta estrutura:
 ### Diagrama SIPOC
 
 | Fornecedor | Entrada | Processo | Saída | Cliente |
-|------------|---------|----------|-------|---------|
+| --- | --- | --- | --- | --- |
 | Cliente | Formulário preenchido | Triagem de suporte | Ticket categorizado | Equipe de suporte |
 | Vendedor | Pedido de compra | Aprovação de fornecedor | Ordem emitida | Financeiro |
 | Dev | Código enviado | Pipeline CI/CD | Build aprovado | QA |
@@ -118,7 +118,7 @@ Com o Zapier ou Make (antigo Integromat), você pode conectar o Foxi a mais de *
 Acompanhe estas métricas antes e depois de implementar automações:
 
 | Métrica | Antes | Depois | Melhoria |
-|---------|-------|--------|----------|
+| --- | --- | --- | --- |
 | Tempo médio de resposta ao cliente | 4h | 45min | -81% |
 | Tarefas criadas manualmente/semana | 120 | 18 | -85% |
 | Erros em processos de entrega | 12/mês | 1/mês | -92% |
@@ -129,21 +129,25 @@ Acompanhe estas métricas antes e depois de implementar automações:
 ## Plano de Implementação em 4 Semanas
 
 ### Semana 1 — Mapeamento
+
 - Listar todos os processos repetitivos da equipe
 - Calcular o tempo gasto em cada um
 - Priorizar pelo impacto × esforço de implementação
 
 ### Semana 2 — Piloto
+
 - Escolher o processo de maior impacto e menor risco
 - Implementar a automação no Foxi
 - Testar com um subconjunto da equipe
 
 ### Semana 3 — Refinamento
+
 - Coletar feedback dos usuários do piloto
 - Ajustar regras e condições
 - Documentar o processo automatizado
 
 ### Semana 4 — Expansão
+
 - Escalar a automação para toda a equipe
 - Iniciar o segundo processo prioritário
 - Criar um calendário de revisão trimestral

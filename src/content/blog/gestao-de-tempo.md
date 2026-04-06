@@ -42,7 +42,7 @@ Estudos da Universidade de Stanford mostram que pessoas que se consideram "boas 
 **Como implementar:**
 
 | Horário | Bloco | Atividade |
-|---------|-------|-----------|
+| --- | --- | --- |
 | 07h–08h | Pessoal | Exercício, meditação, leitura |
 | 08h–10h | Foco Profundo | Trabalho de maior complexidade (sem reuniões) |
 | 10h–10h30 | Comunicação | E-mails, Slack, Foxi |
@@ -68,7 +68,7 @@ Estudos da Universidade de Stanford mostram que pessoas que se consideram "boas 
 
 **Árvore de decisão GTD:**
 
-```
+```text
 Item capturado
 ├── É acionável?
 │   ├── NÃO → Arquivo, lixo ou "algum dia/talvez"
@@ -90,6 +90,7 @@ Item capturado
 4. A cada 4 pomodoros, faça uma pausa de **15–30 minutos**
 
 **Regras fundamentais:**
+
 - Se uma interrupção externa acontecer, registre e retome
 - Se uma ideia surgir, anote e continue
 - Nunca interrompa um pomodoro no meio
@@ -128,6 +129,7 @@ Antes de mudar, entenda a situação atual. Faça um **Time Audit** por 1 semana
 ### Template de Time Audit
 
 Registre cada atividade com:
+
 - Hora de início e fim
 - Categoria (foco profundo, reunião, comunicação, administração, pessoal)
 - Energia (alta, média, baixa)
@@ -136,7 +138,7 @@ Registre cada atividade com:
 Ao final da semana, calcule:
 
 | Categoria | Horas investidas | % do total | Valor gerado |
-|-----------|-----------------|------------|--------------|
+| --- | --- | --- | --- |
 | Foco profundo | __ h | __ % | Alto |
 | Reuniões | __ h | __ % | Variado |
 | Comunicação | __ h | __ % | Médio |

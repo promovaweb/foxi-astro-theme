@@ -38,7 +38,7 @@ Responsável por **mais de 70% dos incidentes** de segurança. O ataque funciona
 Variantes mais comuns:
 
 | Variante | Canal | Sofisticação | Frequência |
-|---------|-------|-------------|-----------|
+| --- | --- | --- | --- |
 | Email phishing | E-mail | Baixa | Muito alta |
 | Spear phishing | E-mail | Alta | Alta |
 | Smishing | SMS | Média | Alta |
@@ -144,6 +144,7 @@ Para implementar na sua empresa:
 > **Política de Senhas — Versão 1.2**
 >
 > Todas as senhas de sistemas corporativos devem:
+>
 > - Ter no mínimo **16 caracteres**
 > - Combinar letras maiúsculas, minúsculas, números e símbolos
 > - Ser únicas para cada sistema (nunca reutilizar)
