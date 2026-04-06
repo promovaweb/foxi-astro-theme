@@ -1,0 +1,33 @@
+---
+import type { DataLayerInfo } from '@/types/analytics'
+
+export interface Props extends DataLayerInfo {}
+
+const {
+	pageType,
+	pageTitle,
+	pageDescription,
+	author,
+	publishDate,
+	category,
+	tags,
+	materialType
+} = Astro.props
+
+const dataLayerObject = {
+	event: 'page_view_metadata',
+	page_type: pageType,
+	page_title: pageTitle,
+	page_description: pageDescription,
+	author: author,
+	publish_date: publishDate,
+	category: category,
+	tags: tags,
+	material_type: materialType
+}
+---
+
+<script is:inline define:vars={{ dataLayerObject }}>
+	window.dataLayer = window.dataLayer || []
+	window.dataLayer.push(dataLayerObject)
+</script>

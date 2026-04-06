@@ -16,23 +16,26 @@ import { configData } from '@config'
 import '@styles/global.css'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/outfit'
+import type { DataLayerInfo } from '@/types/analytics'
 
 type Props = {
   title?: string
   description?: string
   ogImage?: string
+  dataLayer?: DataLayerInfo
 }
 
 const { 
   title = configData.siteTitle, 
   description = configData.siteDescription, 
-  ogImage = configData.ogImage 
+  ogImage = configData.ogImage,
+  dataLayer
 } = Astro.props
 ---
 
 <!doctype html>
 <html lang="pt-BR" class="scroll-animation mode-auto relative">
-  <Header title={title} description={description} ogImage={ogImage} />
+  <Header title={title} description={description} ogImage={ogImage} dataLayer={dataLayer} />
   <body class="bg-neutral-50 dark:bg-neutral-950">
     <GoogleTagManagerBody />
     

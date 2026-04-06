@@ -32,7 +32,11 @@ const SEO = {
 const highlights = materialsData.slice(0, 5)
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	dataLayer={{ pageType: 'material', pageTitle: SEO.title, pageDescription: SEO.description }}
+>
 	<Hero 
 		title="Central de <strong>Materiais</strong>" 
 		text="Conteúdo exclusivo e gratuito para ajudar você e sua empresa a crescerem com inteligência e eficiência."

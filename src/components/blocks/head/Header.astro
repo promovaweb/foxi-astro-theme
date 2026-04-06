@@ -3,9 +3,11 @@
 import { ClientRouter } from 'astro:transitions'
 import GoogleAnalytics from '@components/scripts/googleAnalytics.astro'
 import GoogleTagManagerHead from '@components/scripts/googleTagManagerHead.astro'
+import DataLayer from '@components/scripts/DataLayer.astro'
 import GoogleSearchConsole from '@components/scripts/googleSearchConsole.astro'
 // Partials
 import Seo from '@components/blocks/head/partials/Seo.astro'
+import type { DataLayerInfo } from '@/types/analytics'
 // Dados
 import { configData } from '@config'
 
@@ -19,6 +21,7 @@ type Props = {
 	ogImage?: string
 	canonical?: boolean
 	noindex?: boolean
+	dataLayer?: DataLayerInfo
 }
 // Metadados da Página
 const {
@@ -26,12 +29,18 @@ const {
 	description = configData.siteDescription,
 	ogImage = configData.ogImage,
 	canonical = configData.canonical,
-	noindex = configData.noindex
+	noindex = configData.noindex,
+	dataLayer = {
+		pageType: 'page',
+		pageTitle: title,
+		pageDescription: description
+	}
 } = Astro.props
 ---
 
 <head>
 	{googleAnalyticsMeasurementID && <GoogleAnalytics />}
+	{googleTagManagerID && <DataLayer {...dataLayer} />}
 	{googleTagManagerID && <GoogleTagManagerHead />}
 	<GoogleSearchConsole />
 	<meta charset="UTF-8" />

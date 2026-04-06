@@ -20,7 +20,11 @@ const SEO = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	dataLayer={{ pageType: 'home', pageTitle: SEO.title, pageDescription: SEO.description }}
+>
 	<Hero />
 	<Features />
 	<Testimonial bg={testimonialBackground} bgPosition="right" />

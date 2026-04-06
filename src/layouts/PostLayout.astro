@@ -41,7 +41,18 @@ const SEO = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	dataLayer={{
+		pageType: 'blog',
+		pageTitle: frontmatter.title,
+		pageDescription: frontmatter.description,
+		author: frontmatter.author,
+		publishDate: frontmatter.pubDate.toISOString(),
+		tags: frontmatter.tags
+	}}
+>
 	<BlogPostHero
 		tags={frontmatter.tags}
 		title={frontmatter.title}

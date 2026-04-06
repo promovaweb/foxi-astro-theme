@@ -41,7 +41,11 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	dataLayer={{ pageType: 'blog', pageTitle: SEO.title, pageDescription: SEO.description }}
+>
 	<Hero title={header.title} text={header.text} />
 	<BlogPosts page={page} />
 </Layout>

@@ -30,7 +30,16 @@ const metadata = {
 }
 ---
 
-<Layout {...metadata}>
+<Layout
+	{...metadata}
+	dataLayer={{
+		pageType: 'material',
+		pageTitle: ebook.title,
+		pageDescription: ebook.description,
+		materialType: 'ebook',
+		category: ebook.tag
+	}}
+>
 	<LandingHero 
 		tag={ebook.tag}
 		title={ebook.heroTitle}

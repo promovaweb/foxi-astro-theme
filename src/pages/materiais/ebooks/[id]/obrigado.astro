@@ -28,7 +28,16 @@ const metadata = {
 }
 ---
 
-<Layout {...metadata}>
+<Layout
+	{...metadata}
+	dataLayer={{
+		pageType: 'thanks',
+		pageTitle: metadata.title,
+		pageDescription: metadata.description,
+		materialType: 'ebook',
+		category: ebook.tag
+	}}
+>
 	<Section padding="both" classes="bg-white dark:bg-neutral-950 pt-32 lg:pt-48">
 		<Row>
 			<Col span="12" lg="6" classes="mb-16 lg:mb-0 flex items-center justify-center">

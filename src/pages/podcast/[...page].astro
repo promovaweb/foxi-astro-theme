@@ -27,7 +27,11 @@ const title = `${configData.siteTitle} - Podcast (Página ${page.currentPage})`
 const description = configData.podcastDescription
 ---
 
-<Layout title={title} description={description}>
+<Layout
+	title={title}
+	description={description}
+	dataLayer={{ pageType: 'podcast', pageTitle: title, pageDescription: description }}
+>
   <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
     <div class="px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-neutral-50 font-headings">

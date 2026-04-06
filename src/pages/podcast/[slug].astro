@@ -39,7 +39,18 @@ const formattedDate = pubDate.toLocaleDateString('pt-BR', {
 })
 ---
 
-<Layout title={seoTitle} description={description} ogImage={cover}>
+<Layout
+	title={seoTitle}
+	description={description}
+	ogImage={cover}
+	dataLayer={{
+		pageType: 'podcast',
+		pageTitle: title,
+		pageDescription: description,
+		author: author,
+		publishDate: pubDate.toISOString()
+	}}
+>
   <article class="py-10 lg:py-16 px-4 sm:px-6 lg:px-12 xl:px-16">
     <div class="max-w-6xl mx-auto">
       <!-- Hero Section -->
