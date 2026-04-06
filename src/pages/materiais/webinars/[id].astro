@@ -161,7 +161,7 @@ const organizers = webinar.organizers
 				<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{organizers.host.role}</p>
 				<div class="flex justify-center gap-4 mb-6">
 					{organizers.host.socials.map(social => (
-						<SocialIcon platform={social.platform} link={social.link} size={20} />
+						<SocialIcon platform={social.platform as any} link={social.link} size={20} />
 					))}
 				</div>
 				<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
@@ -179,7 +179,7 @@ const organizers = webinar.organizers
 					<p class="text-primary-500 font-bold mb-4 uppercase tracking-widest text-sm">{speaker.role}</p>
 					<div class="flex justify-center gap-4 mb-6">
 						{speaker.socials.map(social => (
-							<SocialIcon platform={social.platform} link={social.link} size={20} />
+							<SocialIcon platform={social.platform as any} link={social.link} size={20} />
 						))}
 					</div>
 					<p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-sm mx-auto leading-relaxed">

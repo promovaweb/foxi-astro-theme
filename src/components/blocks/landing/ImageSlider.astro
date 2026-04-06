@@ -68,7 +68,7 @@ const { slides, title } = Astro.props
 
 <script>
 	function initSlider() {
-		const container = document.getElementById('slider-container');
+		const container = document.getElementById('slider-container') as HTMLElement;
 		const slides = container?.querySelectorAll('.image-slider__slide');
 		const prevBtn = document.getElementById('prev-btn');
 		const nextBtn = document.getElementById('next-btn');

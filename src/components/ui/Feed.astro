@@ -55,7 +55,7 @@ const sortedDates = Object.keys(groupedData).sort((a, b) => new Date(b).getTime(
 						</div>
 						
 						<div class="feed__item-container">
-							{items.map((item, index) => {
+							{items.map((item: any, index: number) => {
 								const isEntry = !!item.data
 								const title = isEntry ? item.data.title : item.title
 								const description = isEntry ? item.data.description : null

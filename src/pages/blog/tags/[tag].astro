@@ -14,10 +14,10 @@ import BlogPosts from '@components/blocks/blog/BlogPosts.astro'
 import { getCollection } from 'astro:content'
 export async function getStaticPaths() {
 	const allPosts = await getCollection('blog')
-	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].filter(tag => tag !== undefined) as string[]
 
 	return uniqueTags.map((tag) => {
-		const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
+		const filteredPosts = allPosts.filter((post) => post.data.tags?.includes(tag))
 		return {
 			params: { tag },
 			props: { posts: filteredPosts }

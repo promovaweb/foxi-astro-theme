@@ -17,6 +17,10 @@ export async function getStaticPaths({ paginate }: any) {
 	return paginate(materialsData, { pageSize: 6 })
 }
 
+type Props = {
+	page: any
+}
+
 const { page } = Astro.props
 
 const SEO = {
