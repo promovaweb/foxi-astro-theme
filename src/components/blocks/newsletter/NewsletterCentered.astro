@@ -16,6 +16,9 @@ import Col from '@components/ui/Col.astro'
 import Button from '@components/ui/Button.astro'
 import InputField from '@components/ui/forms/form-elements/InputField.astro'
 
+// Dados
+import { configData } from '@config'
+
 type Props = {
 	title?: string
 	text?: string
@@ -41,12 +44,14 @@ const {
 				</p>
 				<form
 					aria-label="Formulário de inscrição na newsletter"
-					class="newsletter-centered__form mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+					method="POST"
+					action={configData.newsletterUrl}
+					class="newsletter-centered__form mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:items-start"
 				>
 					<div class="newsletter-centered__input-wrapper w-full max-w-md">
-						<InputField id="newsletter-email" type="email" label={placeholder} required />
+						<InputField id="newsletter-email" name="email" type="email" label={placeholder} required classes="mb-0" />
 					</div>
-					<Button type="submit" style="primary" size="lg" classes="w-full sm:w-auto">
+					<Button type="submit" style="primary" size="lg" classes="w-full sm:w-auto mt-1">
 						{button}
 					</Button>
 				</form>

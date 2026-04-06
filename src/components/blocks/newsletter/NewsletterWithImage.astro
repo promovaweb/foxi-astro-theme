@@ -18,6 +18,9 @@ import Button from '@components/ui/Button.astro'
 import InputField from '@components/ui/forms/form-elements/InputField.astro'
 import { Image } from 'astro:assets'
 
+// Dados
+import { configData } from '@config'
+
 type Props = {
 	title?: string
 	text?: string
@@ -50,18 +53,21 @@ if (!images[image]) throw new Error(`"${image}" não existe no glob: "src/assets
 					</p>
 					<form
 						aria-label="Formulário de inscrição na newsletter"
-						class="newsletter-image__form mt-8 flex flex-col items-center gap-4 sm:flex-row"
+						method="POST"
+						action={configData.newsletterUrl}
+						class="newsletter-image__form mt-8 flex flex-col items-center gap-4 sm:flex-row sm:items-start"
 					>
 						<div class="newsletter-image__input-wrapper w-full max-w-sm">
 							<InputField
 								id="newsletter-image-email"
+								name="email"
 								type="email"
 								label={placeholder}
 								required
-								classes="!bg-white !border-primary-300 !text-neutral-900 placeholder:text-neutral-500"
+								classes="!bg-white !border-primary-300 !text-neutral-900 placeholder:text-neutral-500 mb-0"
 							/>
 						</div>
-						<Button type="submit" style="white" size="lg" classes="w-full sm:w-auto">
+						<Button type="submit" style="white" size="lg" classes="w-full sm:w-auto mt-1">
 							{button}
 						</Button>
 					</form>

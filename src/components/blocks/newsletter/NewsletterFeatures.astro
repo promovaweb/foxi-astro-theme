@@ -14,6 +14,9 @@
 import Button from '@components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 
+// Dados
+import { configData } from '@config'
+
 interface Feature {
 	title: string
 	text: string
@@ -47,7 +50,9 @@ const {
 				</p>
 				<form
 					aria-label="Formulário de inscrição na newsletter"
-					class="newsletter-features__form mt-6 flex max-w-md gap-x-4"
+					method="POST"
+					action={configData.newsletterUrl}
+					class="newsletter-features__form mt-6 flex max-w-md items-start gap-x-4"
 				>
 					<label for="newsletter-features-email" class="sr-only">Endereço de e-mail</label>
 					<input
@@ -57,7 +62,7 @@ const {
 						required
 						placeholder={placeholder}
 						autocomplete="email"
-						class="min-w-0 flex-auto rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary-500 sm:text-sm/6 dark:bg-neutral-900 dark:text-white dark:outline-neutral-800 dark:focus:outline-primary-500"
+						class="min-w-0 flex-auto h-12 rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary-500 sm:text-sm/6 dark:bg-neutral-900 dark:text-white dark:outline-neutral-800 dark:focus:outline-primary-500"
 					/>
 					<Button type="submit" style="primary" size="lg" classes="flex-none">
 						{button}

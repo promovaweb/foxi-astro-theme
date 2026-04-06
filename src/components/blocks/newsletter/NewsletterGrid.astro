@@ -14,6 +14,9 @@
 // - UI
 import Button from '@components/ui/Button.astro'
 
+// Dados
+import { configData } from '@config'
+
 type Props = {
 	title?: string
 	button?: string
@@ -38,9 +41,11 @@ const {
 		<h2 class="newsletter-grid__title max-w-xl text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl lg:col-span-7" set:html={title} />
 		<form
 			aria-label="Formulário de inscrição na newsletter"
+			method="POST"
+			action={configData.newsletterUrl}
 			class="newsletter-grid__form w-full max-w-md lg:col-span-5 lg:pt-2"
 		>
-			<div class="flex gap-x-4">
+			<div class="flex items-start gap-x-4">
 				<label for="newsletter-grid-email" class="sr-only">Endereço de e-mail</label>
 				<input
 					id="newsletter-grid-email"
@@ -49,7 +54,7 @@ const {
 					required
 					placeholder={placeholder}
 					autocomplete="email"
-					class="min-w-0 flex-auto rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary-500 sm:text-sm/6 dark:bg-neutral-900 dark:text-white dark:outline-neutral-800 dark:focus:outline-primary-500"
+					class="min-w-0 flex-auto h-12 rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary-500 sm:text-sm/6 dark:bg-neutral-900 dark:text-white dark:outline-neutral-800 dark:focus:outline-primary-500"
 				/>
 				<Button type="submit" style="primary" size="lg" classes="flex-none">
 					{button}
