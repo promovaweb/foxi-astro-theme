@@ -59,7 +59,17 @@ const SEO = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout 
+	title={SEO.title} 
+	description={SEO.description}
+	dataLayer={{
+		pageType: 'page',
+		pageTitle: SEO.title,
+		pageDescription: SEO.description,
+		category: entry.data.category,
+		publishDate: entry.data.date
+	}}
+>
 	<Hero title={entry.data.title} text={entry.data.description}>
 		<Breadcrumbs 
 			slot="breadcrumbs" 

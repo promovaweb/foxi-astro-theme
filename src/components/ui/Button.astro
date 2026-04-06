@@ -1,30 +1,35 @@
 ---
-// Button
-// ------------
-// Descrição: Botões são elementos interativos ativados por um usuário com um mouse, teclado ou toque
-// Propriedades:
-// - Type: o tipo do botão (link, button, submit, reset). Se o tipo for link, o botão será renderizado como uma tag de âncora
-// - Size: o tamanho do botão (lg, base, sm)
-// - Link: o link do botão (se o tipo for link)
-// - Modal: O id do modal que o botão pode acionar (opcional)
-// - Style: o estilo do botão (primary, secondary, neutral)
-// - Variation: a variação do botão (default, outline, link)
-// - Elevated: se o botão é elevado ou não (opcional)
-// - classes: classes adicionais
-// Referência: https://wind-ui.com/components/buttons/
+/**
+ * Componente: Botão (Button)
+ * ------------
+ * Descrição: Botões são elementos interativos ativados por um usuário com um mouse, teclado ou toque.
+ * Se o tipo for 'link' ou a propriedade 'link' for fornecida, ele será renderizado como uma tag de âncora (<a>).
+ */
 
-// Props
+/**
+ * Propriedades do componente Botão.
+ */
 type Props = {
+	/** O identificador HTML único do botão ou link. */
 	id?: string
+	/** O tipo do botão (link, button, submit, reset). Padrão é 'button'. */
 	type?: 'link' | 'button' | 'submit' | 'reset'
+	/** O tamanho do botão (lg, base, sm). Padrão é 'base'. */
 	size?: 'lg' | 'base' | 'sm'
+	/** A URL de destino para o botão tipo link. */
 	link?: string
+	/** O ID do modal (Bootstrap ou custom) que este botão aciona. */
 	modal?: string
+	/** O estilo visual do botão (primary, secondary, neutral, white). Padrão é 'primary'. */
 	style?: 'primary' | 'secondary' | 'neutral' | 'white'
+	/** Variação visual do estilo (outline ou link). */
 	variation?: 'outline' | 'link'
+	/** Se verdadeiro, adiciona uma sombra para efeito de elevação. */
 	elevated?: boolean
+	/** Classes CSS adicionais para customização extra. */
 	classes?: string
 }
+
 const {
 	id,
 	type = 'button',

@@ -37,6 +37,22 @@ Componentes atômicos e fundamentais para construção de layouts.
 | `Breadcrumbs.astro` | Trilha de navegação. | Melhora o SEO e a navegabilidade. |
 | `ModeSwitcher.astro` | Alternador de tema. | Alterna entre Claro, Escuro e Sistema. |
 | `VideoPlayer.astro` | Embed responsivo do YouTube. | Mantém a proporção 16:9 automaticamente. |
+| `AuthorSection.astro` | Bloco de autor para blog/podcast. | Exibe biografia, avatar e links sociais do autor. |
+| `AvatarGroup.astro` | Empilhamento de avatares. | Útil para exibir múltiplos participantes ou depoimentos. |
+| `ChangelogFilter.astro` | Filtro de categorias para changelog. | Permite navegação rápida entre tipos de atualização. |
+| `ChipNotification.astro` | Notificação discreta (pill). | Ideal para anúncios curtos ou status no topo da página. |
+| `Countdown.astro` | Contador regressivo. | Use para lançamentos ou eventos com data marcada. |
+| `CTA.astro` | Chamada para ação genérica. | Bloco reutilizável para conversão rápida. |
+| `EbookCover.astro` | Visualização de capa de ebook. | Efeito 3D ou mockup para materiais ricos. |
+| `ExitIntentPopup.astro` | Modal de intenção de saída. | Disparado quando o usuário move o mouse para fora da janela. |
+| `Feed.astro` | Lista de atividades ou posts. | Layout cronológico para blog, podcast ou changelog. |
+| `Highlight.astro` | Texto ou bloco em destaque. | Chama a atenção para informações críticas. |
+| `List.astro` | Lista estilizada com ícones. | Alternativa mais visual para listas `<ul>` padrão. |
+| `MaterialsFilter.astro` | Filtro para central de materiais. | Filtra por categoria (ebooks, webinars, etc). |
+| `Pagination.astro` | Controles de paginação. | Integrado com a função `paginate()` do Astro. |
+| `Rating.astro` | Sistema de estrelas/avaliação. | Usado em depoimentos ou reviews de produtos. |
+| `SocialLinks.astro` | Ícones de redes sociais. | Consome dados de `@config/socialLinks.ts`. |
+| `Toast.astro` | Notificação flutuante temporária. | Feedback para ações de formulário ou sistema. |
 
 ### 2. Blocos de Página (`src/components/blocks/`)
 

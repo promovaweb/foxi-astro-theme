@@ -42,7 +42,17 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description} noindex={true}>
+<Layout 
+	title={SEO.title} 
+	description={SEO.description} 
+	noindex={true}
+	dataLayer={{
+		pageType: 'blog',
+		pageTitle: SEO.title,
+		pageDescription: SEO.description,
+		category: tag
+	}}
+>
 	<Hero title={header.title} text={header.text} />
 	<BlogPosts data={posts} />
 </Layout>

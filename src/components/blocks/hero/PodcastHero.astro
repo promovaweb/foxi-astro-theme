@@ -21,7 +21,7 @@ const {
 } = Astro.props
 
 // Filtrar apenas plataformas com links válidos
-const activePlatforms = (configData.podcastPlatforms || []).filter(p => p.link && p.link !== false);
+const activePlatforms = (configData.podcastPlatforms || []).filter((p): p is typeof p & { link: string } => typeof p.link === 'string');
 ---
 
 <div class="podcast-hero-content py-12 lg:py-20 px-4 sm:px-6 lg:px-12">

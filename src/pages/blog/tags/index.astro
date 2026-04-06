@@ -15,7 +15,14 @@ import { getCollection } from 'astro:content'
 const allPosts = await getCollection('blog')
 ---
 
-<Layout noindex={true}>
+<Layout 
+	noindex={true}
+	dataLayer={{
+		pageType: 'blog',
+		pageTitle: 'Tags do Blog',
+		pageDescription: 'Explore todas as tags do blog da Foxi.'
+	}}
+>
 	<Hero title="Tags" />
 	<BlogPosts data={allPosts} />
 </Layout>

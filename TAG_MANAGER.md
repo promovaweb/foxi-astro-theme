@@ -27,7 +27,7 @@ As informações enviadas ao DataLayer seguem a interface `DataLayerInfo`.
 | :--- | :--- | :--- |
 | `page_type` | `string` | Tipo de conteúdo: `home`, `blog`, `podcast`, `material`, `page`, `thanks`, `error`. |
 | `page_title` | `string` | Título amigável da página. |
-| `page_description`| `string` | Descrição curta da página. |
+| `page_description` | `string` | Descrição curta da página. |
 | `author` | `string` | Autor do conteúdo (especialmente para Blog e Podcast). |
 | `publish_date` | `string` | Data de publicação (ISO 8601). |
 | `category` | `string` | Categoria principal do conteúdo. |
@@ -37,6 +37,7 @@ As informações enviadas ao DataLayer seguem a interface `DataLayerInfo`.
 ### Evento Padrão
 
 Sempre que uma página é carregada, o seguinte evento é disparado no DataLayer:
+
 - **Evento:** `page_view_metadata`
 
 ## Como Implementar em Novas Páginas/Layouts

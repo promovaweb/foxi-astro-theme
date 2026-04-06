@@ -46,7 +46,16 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout 
+	title={SEO.title} 
+	description={SEO.description}
+	dataLayer={{
+		pageType: 'page',
+		pageTitle: SEO.title,
+		pageDescription: SEO.description,
+		category: category
+	}}
+>
 	<Hero title={header.title} text={header.text}>
 		<Breadcrumbs 
 			slot="breadcrumbs" 

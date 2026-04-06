@@ -13,7 +13,7 @@ import Col from '@components/ui/Col.astro'
 import ChangelogBanner from '@components/blocks/changelog/ChangelogBanner.astro'
 
 import { getCollection } from 'astro:content'
-import { configData } from '@config'
+import { configData, podcastConfig } from '@config'
 import type { Page } from 'astro'
 
 export async function getStaticPaths({ paginate }: any) {

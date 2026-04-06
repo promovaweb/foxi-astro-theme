@@ -1,36 +1,49 @@
 ---
-// Seção (Section)
-// ------------
-// Descrição: um componente fundamental que representa uma seção de conteúdo dentro de uma página. O componente section pode conter qualquer número de linhas.
-// Propriedades:
-// - Id: o id da seção
-// - FullWidth: se a seção se expandirá para a largura total ou não
-// - StickyCol: especifica se a seção pode conter uma coluna fixa (sticky) ou não
-// - Mode: use para sobrescrever o modo claro/escuro para uma seção específica. Útil se você tiver uma seção que possa conter um fundo escuro
-// - Padding: por padrão, cada seção tem um preenchimento vertical. A propriedade padding define onde o preenchimento é aplicado (top, bottom, both, none), o padrão é both
-// - Bg: a imagem de fundo da seção
-// - BgPosition: a posição do fundo (center, top, bottom)
-// - BgHeight: a altura do fundo
-// - classes: classes adicionais
+/**
+ * Componente: Seção (Section)
+ * ------------
+ * Descrição: O bloco fundamental de layout que representa uma seção de conteúdo.
+ * Cada seção atua como um container que pode abrigar múltiplas linhas (Rows) e colunas (Cols).
+ */
 
-// Props
-type BgProps =  {
+/**
+ * Propriedades para a imagem de fundo da seção.
+ */
+type BgProps = {
+	/** URL da imagem. */
 	src: string
+	/** Largura intrínseca. */
 	width: number
+	/** Altura intrínseca. */
 	height: number
+	/** Formato da imagem (webp, png, etc). */
 	format: string
 }
+
+/**
+ * Propriedades do componente Seção.
+ */
 type Props = {
+	/** O identificador HTML exclusivo da seção. */
 	id?: string
+	/** Se verdadeiro, o conteúdo da seção ocupará 100% da largura. */
 	fullWidth?: boolean
+	/** Se verdadeiro, permite o uso de colunas fixas (sticky) dentro desta seção. */
 	stickyCol?: boolean
+	/** Sobrescreve o modo de cor (claro ou escuro) para esta seção específica. */
 	mode?: 'dark' | 'light'
+	/** Define onde o preenchimento vertical será aplicado. Padrão é 'both'. */
 	padding?: 'both' | 'top' | 'bottom' | 'none'
+	/** Dados da imagem de fundo opcional. */
 	bg?: BgProps
+	/** Posição CSS do fundo (ex: 'center', 'top'). Padrão é 'center'. */
 	bgPosition?: string
+	/** Altura customizada da seção ou do fundo. Padrão é '100%'. */
 	bgHeight?: string
+	/** Classes CSS adicionais. */
 	classes?: string
 }
+
 const {
 	id,
 	fullWidth,
@@ -84,7 +97,7 @@ const bgStyle = bg
 		@apply pt-12 lg:pt-24;
 	}
 	.section--padded-b {
-		@apply pb-12 lg:pb-24;
+		@apply pb-12 lg:py-24;
 	}
 	.section__bg {
 		@apply absolute inset-0 bg-cover;
