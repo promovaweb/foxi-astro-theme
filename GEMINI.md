@@ -75,9 +75,9 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 14. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 15. **Modularização de Configurações** — As configurações do site devem ser modularizadas em `src/config/`. O arquivo `src/config/config.ts` atua como um agregador central. Configurações de identidade e SEO ficam em `siteSettings.ts`, enquanto comportamentos do aplicativo e UI ficam em `appSettings.ts`. Todas as interfaces e tipos devem ser centralizados em `src/types/config.ts`.
 16. **Documentação Obrigatória (JSDoc)** — Todos os arquivos de definição em `src/types/` e arquivos de configuração em `src/config/` **DEVEM** conter documentação JSDoc em cada propriedade e estrutura (em pt-BR).
-17. **Trabalho com UI (ui-component)** — A skill `ui-component` é **obrigatória para TODO e QUALQUER trabalho que envolva interface**, novos componentes, páginas ou modificação de estilo. Antes de agir, ative a skill, consulte o `DESIGN.md` e o inventário em `references/components.md`.
+17. **Trabalho com UI (ui-component)** — A skill `ui-component` é **obrigatória para TODO e QUALQUER trabalho que envolva interface**, novos componentes, páginas ou modificação de estilo. Antes de agir, ative a skill, consulte o `DESIGN.md` e o guia em `UI-COMPONENTS.md`.
 18. **Sincronização DESIGN.md / global.css** — O arquivo `DESIGN.md` deve estar sempre sincronizado com o `src/styles/global.css`. Qualquer alteração estrutural nas variáveis CSS ou regras globais deve ser documentada no manual de design.
-19. **Registro de Componentes** — Qualquer novo componente criado **DEVE** ser registrado no arquivo de referências da skill `ui-component` (`references/components.md`).
+19. **Registro de Componentes** — Qualquer novo componente criado **DEVE** ser registrado no arquivo central `UI-COMPONENTS.md` com sua descrição e insight de uso.
 20. **Sincronização de Skills/Comandos** — Qualquer skill criada ou modificada em `.gemini/skills/` deve ter seu comando correspondente criado ou atualizado em `.claude/commands/`, e vice-versa. Isso garante que as capacidades das IAs permaneçam equivalentes.
 
 ---
