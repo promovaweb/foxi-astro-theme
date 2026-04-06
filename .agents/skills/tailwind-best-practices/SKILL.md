@@ -1,60 +1,72 @@
 ---
 name: tailwind-best-practices
 description: |
-  TRIGGER when user mentions "Tailwind", "tailwind", "tw-", or "tailwindcss", or when working
-  in any project that uses Tailwind CSS (tailwind in dependencies, tailwind.config.* present,
-  @tailwind/@import "tailwindcss" directives in CSS files). Also activate for styling questions
-  in Tailwind projects even without explicit "Tailwind" keyword — e.g., "why isn't md:w-1/2
-  applying?", "my @source glob isn't picked up", "responsive design", "dark mode", "custom
-  colors", "spacing", "flex/grid layout". Covers: CSS-to-utility conversion, theme/color
-  configuration, dark mode, content/source path setup, class detection issues, responsive
-  breakpoints, focus-visible/ring accessibility, v3-to-v4 migration, component styling.
-  Must be loaded before using any Tailwind MCP tools.
-  DO NOT trigger for: Bootstrap, Bulma, plain CSS without Tailwind context, or non-styling topics.
+  DISPARA quando o usuário menciona "Tailwind", "tailwind", "tw-", ou "tailwindcss", ou quando trabalha
+  em qualquer projeto que use Tailwind CSS (tailwind nas dependências, tailwind.config.* presente,
+  diretivas @tailwind/@import "tailwindcss" em arquivos CSS). Também ative para perguntas de estilização
+  em projetos Tailwind mesmo sem a palavra-chave explícita "Tailwind" — ex: "por que o md:w-1/2 não está
+  aplicando?", "meu glob @source não está sendo detectado", "design responsivo", "modo escuro", "cores
+  personalizadas", "espaçamento", "layout flex/grid". Cobre: conversão de CSS para utilitários, configuração
+  de tema/cores, modo escuro, configuração de caminhos de conteúdo/source, problemas de detecção de classes,
+  breakpoints responsivos, acessibilidade focus-visible/ring, migração de v3 para v4, estilização de componentes.
+  Deve ser carregado antes de usar qualquer ferramenta MCP do Tailwind.
+  NÃO disparar para: Bootstrap, Bulma, CSS puro sem contexto Tailwind, ou tópicos não relacionados a estilização.
 ---
 
-# Tailwind CSS v4 Best Practices
+# Melhores Práticas de Tailwind CSS v4
 
-You have access to up-to-date Tailwind CSS documentation via MCP tools. Use these tools to provide accurate, current information.
+Você tem acesso à documentação atualizada do Tailwind CSS via ferramentas MCP. Use estas ferramentas para fornecer informações precisas e atuais.
 
-## Available MCP Tools
+---
+
+## Ferramentas MCP Disponíveis
 
 ### `mcp__tailwindcss__search_tailwind_docs`
-Use when user asks about any Tailwind feature, utility, or concept.
+
+Use quando o usuário perguntar sobre qualquer recurso, utilitário ou conceito do Tailwind.
 
 ### `mcp__tailwindcss__get_tailwind_utilities`
-Use when user needs utility classes for a specific CSS property.
+
+Use quando o usuário precisar de classes utilitárias para uma propriedade CSS específica.
 
 ### `mcp__tailwindcss__get_tailwind_colors`
-Use when user asks about colors, palettes, or color-related utilities.
+
+Use quando o usuário perguntar sobre cores, paletas ou utilitários relacionados a cores.
 
 ### `mcp__tailwindcss__convert_css_to_tailwind`
-Use when user has CSS they want to convert to Tailwind utility classes.
+
+Use quando o usuário tiver CSS que deseja converter para classes utilitárias do Tailwind.
 
 ### `mcp__tailwindcss__generate_component_template`
-Use when user needs a component template with Tailwind styling.
+
+Use quando o usuário precisar de um template de componente com estilização Tailwind.
 
 ---
 
-## Reference Files
+## Arquivos de Referência
 
-Read the relevant file for detailed patterns, code examples, and documentation URLs:
+Leia o arquivo relevante para padrões detalhados, exemplos de código e URLs de documentação:
 
-### `docs-urls.md` — Official Documentation URLs
-URL tables organized by category (Getting Started, Core Concepts, Layout, Spacing, Sizing, Typography, Backgrounds & Borders, Effects, Transforms & Animation, Interactivity). Use with WebFetch when MCP tools are unavailable.
+### `docs-urls.md` — URLs da Documentação Oficial
 
-### `v4-syntax.md` — Tailwind CSS v4 Core Syntax
-**CRITICAL**: v4 changed significantly from v3. Covers `@import "tailwindcss"`, `@theme` directive for CSS-based configuration (colors, fonts, spacing), `@source` for detection, `@variant dark` for dark mode, `@layer components` for extraction, `@plugin` for plugins.
+Tabelas de URLs organizadas por categoria (Introdução, Conceitos Principais, Layout, Espaçamento, Dimensionamento, Tipografia, Fundos e Bordas, Efeitos, Transformações e Animação, Interatividade). Use com WebFetch quando as ferramentas MCP não estiverem disponíveis.
 
-### `best-practices.md` — Best Practices
-Class ordering convention (layout → spacing → sizing → typography → colors → effects → interactive), responsive design (mobile-first, breakpoint reference), component extraction rule (3+ times), theme variables over hardcoded values, accessibility (focus-visible, sr-only, contrast).
+### `v4-syntax.md` — Sintaxe Principal do Tailwind CSS v4
 
-### `anti-patterns.md` — v4 Anti-Patterns
-v3 → v4 migration table (tailwind.config.js → @theme, @tailwind → @import, etc.), common mistakes (inline styles, px values, duplicate/conflicting utilities).
+**CRÍTICO**: O v4 mudou significativamente em relação ao v3. Cobre `@import "tailwindcss"`, diretiva `@theme` para configuração baseada em CSS (cores, fontes, espaçamento), `@source` para detecção, `@variant dark` para modo escuro, `@layer components` para extração, `@plugin` para plugins.
 
-### `quick-reference.md` — Quick Reference
-Response guidelines for helping with Tailwind, example response flow, spacing scale table, common utility patterns (centered content, card, responsive grid, truncation, gradient, fixed header).
+### `best-practices.md` — Melhores Práticas
+
+Convenção de ordenação de classes (layout → espaçamento → dimensionamento → tipografia → cores → efeitos → interativo), design responsivo (mobile-first, referência de breakpoints), regra de extração de componentes (3+ vezes), variáveis de tema sobre valores hardcoded, acessibilidade (focus-visible, sr-only, contraste).
+
+### `anti-patterns.md` — Antipadrões do v4
+
+Tabela de migração v3 → v4 (tailwind.config.js → @theme, @tailwind → @import, etc.), erros comuns (estilos inline, valores em px, utilitários duplicados/conflitantes).
+
+### `quick-reference.md` — Referência Rápida
+
+Diretrizes de resposta para ajudar com Tailwind, fluxo de resposta de exemplo, tabela de escala de espaçamento, padrões de utilitários comuns (conteúdo centralizado, card, grid responsivo, truncamento, gradiente, cabeçalho fixo).
 
 ---
 
-*For the latest documentation, always refer to https://tailwindcss.com/docs*
+*Para a documentação mais recente, consulte sempre [tailwindcss.com/docs](https://tailwindcss.com/docs)*

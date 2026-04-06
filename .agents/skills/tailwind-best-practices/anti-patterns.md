@@ -1,37 +1,47 @@
-## v4 Anti-Patterns to Avoid
+# Antipadrões do v4 a Evitar
 
-### DO NOT USE (v3 patterns):
+> Guia de antipadrões e erros comuns ao trabalhar com Tailwind CSS v4.
 
-| Wrong (v3) | Correct (v4) |
-|------------|--------------|
-| `tailwind.config.js` | CSS `@theme { }` directive |
+---
+
+## NÃO USE (padrões do v3)
+
+| Errado (v3) | Correto (v4) |
+| --- | --- |
+| `tailwind.config.js` | Diretiva CSS `@theme { }` |
 | `@tailwind base;` | `@import "tailwindcss";` |
-| `@tailwind components;` | (included in import) |
-| `@tailwind utilities;` | (included in import) |
-| `darkMode: 'class'` in config | `@variant dark { }` in CSS |
-| `theme.extend.colors` in JS | `--color-*` in @theme |
-| `content: [...]` in JS | `@source "..."` in CSS |
+| `@tailwind components;` | (incluído no import) |
+| `@tailwind utilities;` | (incluído no import) |
+| `darkMode: 'class'` na config | `@variant dark { }` no CSS |
+| `theme.extend.colors` no JS | `--color-*` no @theme |
+| `content: [...]` no JS | `@source "..."` no CSS |
 
-### Common Mistakes
+---
+
+## Erros Comuns
 
 ```html
-<!-- Wrong: Inline styles when utility exists -->
+<!-- Errado: Estilos inline quando existe utilitário -->
 <div style="display: flex; gap: 1rem;">
-<!-- Correct -->
+
+<!-- Correto -->
 <div class="flex gap-4">
 
-<!-- Wrong: px values when scale exists -->
+<!-- Errado: valores em px quando existe escala -->
 <div class="p-[16px]">
-<!-- Correct -->
+
+<!-- Correto -->
 <div class="p-4">
 
-<!-- Wrong: Duplicate utilities -->
+<!-- Errado: Utilitários duplicados -->
 <div class="p-4 p-6">
-<!-- Correct -->
+
+<!-- Correto -->
 <div class="p-6">
 
-<!-- Wrong: Conflicting utilities -->
+<!-- Errado: Utilitários conflitantes -->
 <div class="flex block">
-<!-- Correct: Choose one -->
+
+<!-- Correto: Escolha um -->
 <div class="flex">
 ```

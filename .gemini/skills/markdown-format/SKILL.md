@@ -3,12 +3,20 @@ name: markdown-format
 description: Aplica as regras de escrita e linting em arquivos Markdown do projeto
 ---
 
+# Skill: Formatar e Validar Markdown
+
+> Guia para aplicação de regras de linting e formatação em arquivos Markdown.
+
 Antes de qualquer ação, leia o arquivo `MARKDOWN.md` na raiz do projeto. Ele é a fonte única de verdade para todas as regras de formatação, linting e boas práticas de Markdown neste projeto.
+
+---
 
 ## Escopo
 
 Se o usuário especificou um arquivo ou glob, processe apenas esses arquivos.
 Caso contrário, processe todos os arquivos `.md` do projeto, exceto `node_modules/` e `.git/`.
+
+---
 
 ## Passo 1 — Ler o MARKDOWN.md
 
@@ -18,6 +26,8 @@ cat MARKDOWN.md
 
 Internalize todas as regras antes de continuar.
 
+---
+
 ## Passo 2 — Executar o markdownlint
 
 ```bash
@@ -26,6 +36,8 @@ markdownlint "**/*.md" --ignore node_modules --ignore .git
 ```
 
 Anote cada erro reportado: arquivo, linha e ID da regra violada.
+
+---
 
 ## Passo 3 — Corrigir os arquivos
 
@@ -40,6 +52,8 @@ Para cada erro encontrado, leia o arquivo, aplique a correção correspondente c
 7. Newline final (MD047)
 
 Arquivos em `src/content/` possuem frontmatter — não aplique regras de linting ao bloco entre `---`. Aplique apenas ao corpo Markdown.
+
+---
 
 ## Passo 4 — Confirmar
 

@@ -5,7 +5,11 @@ allowed-tools: Bash, Read, Write, Glob, Grep
 
 # Skill: Novo Changelog
 
+> Guia para criação de novas entradas no changelog do projeto Foxi Astro Theme.
+
 Você deve criar uma nova entrada no changelog do projeto Foxi Astro Theme seguindo o padrão estabelecido.
+
+---
 
 ## Passo 1 — Identificar a versão atual
 
@@ -14,6 +18,8 @@ Liste os arquivos de changelog existentes e identifique a versão mais recente:
 ```bash
 ls src/content/changelog/ | sort -V | tail -5
 ```
+
+---
 
 ## Passo 2 — Analisar os commits desde a última versão
 
@@ -29,6 +35,8 @@ Leia também o arquivo do changelog mais recente para entender o contexto:
 cat src/content/changelog/<versao-mais-recente>.md
 ```
 
+---
+
 ## Passo 3 — Determinar a nova versão
 
 Com base nos commits encontrados, decida o incremento de versão seguindo o Semantic Versioning:
@@ -38,6 +46,8 @@ Com base nos commits encontrados, decida o incremento de versão seguindo o Sema
 - **MAJOR** (X.0.0): Mudanças que quebram compatibilidade, reescritas significativas
 
 Se o usuário passou o número da versão como argumento (`$ARGUMENTS`), use-o diretamente.
+
+---
 
 ## Passo 4 — Determinar a categoria
 
@@ -54,9 +64,13 @@ Escolha a categoria mais adequada com base nas mudanças:
 - `API` — integrações e endpoints
 - `Documentação` — docs, CLAUDE.md, DESIGN.md, README
 
+---
+
 ## Passo 5 — Gerar as tags
 
 Extraia tags relevantes dos commits. Use apenas termos técnicos em minúsculo, sem acentos. Exemplos: `astro`, `tailwind`, `typescript`, `seo`, `dark-mode`, `componentes`, `n8n`, `claude`, `gemini`.
+
+---
 
 ## Passo 6 — Criar o arquivo
 
@@ -91,7 +105,9 @@ Parágrafo introdutório explicando o contexto e motivação desta release.
 Instruções práticas se necessário.
 ```
 
-## Regras obrigatórias
+---
+
+## Regras Obrigatórias
 
 - Todo o conteúdo deve estar em **Português do Brasil**
 - Use a data de hoje: use o comando `date +%Y-%m-%d` para obter a data atual

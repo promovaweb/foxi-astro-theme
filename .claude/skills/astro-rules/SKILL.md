@@ -1,6 +1,10 @@
 # Astro Rules Command
 
-Guia de arquitetura, hidratação e regras do Astro 4+. Use obrigatoriamente para todo e qualquer desenvolvimento de componente (.astro) ou página inteira.
+> Guia de arquitetura, hidratação e regras do Astro 4+.
+
+Use obrigatoriamente para todo e qualquer desenvolvimento de componente (.astro) ou página inteira.
+
+---
 
 ## Fluxo Obrigatório
 
@@ -8,11 +12,15 @@ Guia de arquitetura, hidratação e regras do Astro 4+. Use obrigatoriamente par
 
 Sempre leia o conteúdo do arquivo `ASTRO.md` localizado na raiz do projeto. Ele é o guia consolidado de práticas avançadas do Astro.
 
+---
+
 ### 2. Regras de Hidratação
 
 - **Zero-JS Padrão**: Não adicione JS interativo no cliente a menos que seja solicitado ou necessário.
 - **Diretivas Estritas**: Se usar framework client-side, escolha a menor diretiva possível (ex: `client:visible` para conteúdos abaixo da dobra, `client:load` para componentes críticos no carregamento).
 - **Server Islands**: Para dados dinâmicos pesados no servidor (carrinho, perfil de usuário), use `server:defer`.
+
+---
 
 ### 3. Gestão de Estado e Ciclo de Vida
 
@@ -22,10 +30,14 @@ Sempre leia o conteúdo do arquivo `ASTRO.md` localizado na raiz do projeto. Ele
   - Use `document.addEventListener('astro:page-load', () => {})` para inicializar ou reinicializar scripts Vanilla.
   - Para persistência de componentes interativos (como players de áudio/vídeo) durante a navegação, use `transition:persist`.
 
+---
+
 ### 4. Busca de Dados e Endpoints
 
 - **Astro Actions**: Prefira criar e enviar dados via *Actions* (`astro:actions`) em vez de criar endpoints HTTP manuais em `src/pages/api`.
 - **Zod**: Toda e qualquer *Content Collection* (seja local ou remota via *loader* na Content Layer API) deve usar validação estrita com esquemas Zod.
+
+---
 
 ### 5. Paginação e i18n
 

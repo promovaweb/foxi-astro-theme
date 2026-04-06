@@ -1,38 +1,48 @@
-## Response Guidelines
+# Referência Rápida
 
-When helping with Tailwind CSS:
-
-1. **Always use v4 syntax** - No tailwind.config.js, use @theme in CSS
-2. **Use MCP tools first** - Get current documentation before answering
-3. **Prefer theme variables** - `bg-primary` not `bg-blue-500`
-4. **Include accessibility** - Add focus-visible, sr-only where appropriate
-5. **Show complete examples** - Include all necessary classes
-6. **Explain class choices** - Help users understand why
-
-### Example Response Flow
-
-**User:** "How do I create a button with hover effect?"
-
-**Response:**
-1. Use `mcp__tailwindcss__get_tailwind_utilities` for button-related utilities
-2. Provide example with proper class ordering:
-
-```html
-<button class="px-4 py-2 rounded-lg font-medium bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors">
-  Click me
-</button>
-```
-
-3. Explain the classes used
-4. Suggest extracting to component if used multiple times
+> Diretrizes de resposta e padrões comuns para Tailwind CSS v4.
 
 ---
 
-## Quick Reference
+## Diretrizes de Resposta
 
-### Spacing Scale
-| Class | Size |
-|-------|------|
+Ao ajudar com Tailwind CSS:
+
+1. **Sempre use a sintaxe v4** — Sem `tailwind.config.js`, use `@theme` no CSS.
+2. **Use as ferramentas MCP primeiro** — Obtenha a documentação atual antes de responder.
+3. **Prefira variáveis de tema** — `bg-primary` em vez de `bg-blue-500`.
+4. **Inclua acessibilidade** — Adicione `focus-visible`, `sr-only` onde apropriado.
+5. **Mostre exemplos completos** — Inclua todas as classes necessárias.
+6. **Explique as escolhas de classes** — Ajude os usuários a entender o porquê.
+
+---
+
+### Fluxo de Resposta de Exemplo
+
+**Usuário:** "Como crio um botão com efeito de hover?"
+
+**Resposta:**
+
+1. Use `mcp__tailwindcss__get_tailwind_utilities` para utilitários relacionados a botões.
+2. Forneça um exemplo com a ordenação correta de classes:
+
+   ```html
+   <button class="px-4 py-2 rounded-lg font-medium bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors">
+     Clique aqui
+   </button>
+   ```
+
+3. Explique as classes usadas.
+4. Sugira extrair para um componente se for usado várias vezes.
+
+---
+
+## Referência Rápida
+
+### Escala de Espaçamento
+
+| Classe | Tamanho |
+| --- | --- |
 | 1 | 0.25rem (4px) |
 | 2 | 0.5rem (8px) |
 | 3 | 0.75rem (12px) |
@@ -44,28 +54,30 @@ When helping with Tailwind CSS:
 | 12 | 3rem (48px) |
 | 16 | 4rem (64px) |
 
-### Common Patterns
+---
+
+### Padrões Comuns
 
 ```html
-<!-- Centered content -->
+<!-- Conteúdo centralizado -->
 <div class="flex items-center justify-center">
 
 <!-- Card -->
 <div class="p-6 bg-card rounded-xl border border-border shadow-sm">
 
-<!-- Responsive grid -->
+<!-- Grid responsivo -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-<!-- Truncated text -->
-<p class="truncate">Long text that will be truncated...</p>
+<!-- Texto truncado -->
+<p class="truncate">Texto longo que será truncado...</p>
 
-<!-- Gradient background -->
+<!-- Fundo com gradiente -->
 <div class="bg-gradient-to-r from-primary to-secondary">
 
-<!-- Fixed header -->
+<!-- Cabeçalho fixo -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
 ```
 
 ---
 
-*For the latest documentation, always refer to https://tailwindcss.com/docs*
+*Para a documentação mais recente, consulte sempre [tailwindcss.com/docs](https://tailwindcss.com/docs)*
