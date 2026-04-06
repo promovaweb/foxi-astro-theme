@@ -8,7 +8,15 @@
 
 **Todo o código, comentários, documentação, nomes de variáveis descritivas, textos de interface e respostas geradas para este projeto devem estar em Português do Brasil (pt-BR).** Isso inclui comentários em arquivos `.astro`, `.ts` e `.css`, conteúdo de componentes, mensagens de erro e qualquer texto visível ao usuário.
 
-**Regra importante: Não é permitido traduzir termos técnicos (ex: props, slot, layout, frontmatter, etc.). Mantenha os termos técnicos em sua forma original.**
+Regra importante: Não é permitido traduzir termos técnicos (ex: props, slot, layout, frontmatter, etc.). Mantenha os termos técnicos em sua forma original.
+
+---
+
+## Referência de Início Rápido
+
+**Para configurar um novo site baseado neste template, consulte o guia [GETTING_STARTED.md](./GETTING_STARTED.md).**
+
+Este guia contém a checklist completa para personalização de marca, configurações de SEO e infraestrutura inicial.
 
 ---
 
@@ -188,6 +196,7 @@ import { socialLinks } from '@config/socialLinks'
 | Ícones | `src/icons/` |
 | Páginas | `src/pages/` |
 | Layouts | `src/layouts/` |
+| Guia Inicial | `GETTING_STARTED.md` |
 
 ---
 

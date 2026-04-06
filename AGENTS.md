@@ -8,11 +8,13 @@
 
 Antes de realizar qualquer alteração, o agente deve consultar os arquivos de diretrizes:
 
+- `GETTING_STARTED.md`: Guia de primeiros passos e configuração inicial.
 - `GEMINI.md`: Regras absolutas e contexto do projeto.
 - `CLAUDE.md`: Instruções específicas para Claude Code.
 - `TYPESCRIPT.md`: Boas práticas de TypeScript e modularização de tipos.
 - `MARKDOWN.md`: Padrões de formatação e linting de Markdown.
 - `DESIGN.md`: Linguagem visual e Design System.
+- `UI-COMPONENTS.md`: Inventário e guia de componentes de interface.
 
 ---
 
