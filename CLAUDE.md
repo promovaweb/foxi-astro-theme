@@ -8,6 +8,21 @@
 
 ---
 
+## Referência aos Padrões de Markdown
+
+**Antes de criar ou modificar qualquer arquivo `.md` neste projeto, leia o `MARKDOWN.md`.**
+
+O `MARKDOWN.md` é a fonte única de verdade para formatação, linting e boas práticas de Markdown. Ele documenta todas as regras do markdownlint ativas, convenções de frontmatter para coleções de conteúdo (changelog, blog, podcast), padrões de tabelas, links, blocos de código e idioma.
+
+### Quando consultar o MARKDOWN.md
+
+- Criar ou editar um arquivo de changelog em `src/content/changelog/` → verificar frontmatter obrigatório e estrutura do corpo
+- Criar ou editar um post de blog em `src/content/blog/` → verificar frontmatter e regras de formatação
+- Criar ou editar qualquer arquivo `.md` na raiz (`CLAUDE.md`, `GEMINI.md`, `DESIGN.md`, `README.md`) → aplicar todas as regras de linting
+- Usar listas, tabelas, blocos de código ou links em qualquer `.md` → seguir as convenções definidas
+
+---
+
 ## Referência ao Design System
 
 **Antes de criar, modificar ou estender qualquer componente, página, bloco ou estilo neste projeto, leia o `DESIGN.md`.**
@@ -38,8 +53,9 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 8. **Primitivos de layout** — Usar `<Section>` → `<Row>` → `<Col>` para todos os layouts de página. Não criar wrappers customizados de seção/linha/grid.
 9. **Dados em config** — Conteúdo repetido (itens de nav, links do rodapé, listas de funcionalidades, dados de preços) deve ficar em `src/config/` ou `src/data/json-files/`. Nunca hardcodar nos componentes.
 10. **Changelog em Markdown** — O histórico de alterações (changelog) é gerenciado via arquivos Markdown na coleção de conteúdo em `src/content/changelog/`. Novas versões devem ser adicionadas como arquivos `.md` nesta pasta. O tamanho da paginação pode ser configurado em `src/config/config.ts` através da propriedade `changelogPageSize`.
-11. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados como páginas Astro individuais em `src/pages/materiais/`. Cada página deve utilizar um dos layouts especializados de `src/layouts/landing/` e os componentes modulares de `src/components/blocks/landing/`.
-12. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
+11. **Padrões de Markdown** — Todo arquivo `.md` criado ou modificado em qualquer lugar do projeto (recursivamente) deve obedecer às regras do `MARKDOWN.md`. Use a skill `/markdown-format` ao final de qualquer tarefa que envolva arquivos Markdown.
+12. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados como páginas Astro individuais em `src/pages/materiais/`. Cada página deve utilizar um dos layouts especializados de `src/layouts/landing/` e os componentes modulares de `src/components/blocks/landing/`.
+13. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 
 ---
 
@@ -73,11 +89,11 @@ import LandingFooter from '@components/blocks/landing/LandingFooter.astro'
 </Layout>
 ```
 
-11. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
-12. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
-13. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
-14. **Aliases de path obrigatórios** — Todo `import` deve usar os aliases definidos no `tsconfig.json`. Nunca usar caminhos relativos com `../` ou `../../`. Use `@components/`, `@layouts/`, `@styles/`, `@config/`, `@data/` ou `@/` (aponta para `src/`).
-15. **Git e Versionamento** — Nunca realizar `git add`, `git commit` ou `git push` automaticamente. Estas ações devem ser executadas APENAS quando solicitadas explicitamente pelo usuário.
+14. **Famílias de fontes** — Texto de corpo usa `font-sans` (Inter). Títulos, logos, marcas usam `font-headings` (Outfit). Não introduzir outras famílias de fontes.
+15. **Documentação Obrigatória** — Sempre que um componente for criado ou alterado, o seu design system deve ser documentado ou atualizado no `DESIGN.md`.
+16. **SEO e Metatags** — Toda nova página deve utilizar o componente `Layout` que integra o plugin `astro-seo`. Certifique-se de passar as props `title` e `description` adequadas para cada página para garantir uma boa indexação.
+17. **Aliases de path obrigatórios** — Todo `import` deve usar os aliases definidos no `tsconfig.json`. Nunca usar caminhos relativos com `../` ou `../../`. Use `@components/`, `@layouts/`, `@styles/`, `@config/`, `@data/` ou `@/` (aponta para `src/`).
+18. **Git e Versionamento** — Nunca realizar `git add`, `git commit` ou `git push` automaticamente. Estas ações devem ser executadas APENAS quando solicitadas explicitamente pelo usuário.
 
 ---
 
