@@ -1,13 +1,10 @@
 ---
 /**
  * Componente: ChangelogBanner
- * Descrição: Um banner de CTA (Call to Action) que destaca a atualização mais recente do changelog.
- * Este componente busca automaticamente a última entrada do changelog e a exibe com uma "capa padrão" simulada.
+ * Descrição: Um banner estilo "Hero Card" com fundo de grid tecnológico (CSS/SVG).
  */
 
 import Section from '@components/ui/Section.astro'
-import Row from '@components/ui/Row.astro'
-import Col from '@components/ui/Col.astro'
 import Button from '@components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 import { getCollection } from 'astro:content'
@@ -17,111 +14,86 @@ const allChangelog = await getCollection('changelog')
 const latestEntry = allChangelog
 	.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())[0]
 
-// Se não houver changelog, o componente não renderiza nada
 if (!latestEntry) return null
 
 const { title, description, date, category } = latestEntry.data
-
-// Formatação da data em pt-BR
 const formattedDate = new Date(date).toLocaleDateString('pt-BR', {
 	day: '2-digit',
-	month: 'short',
+	month: 'long',
 	year: 'numeric'
 })
-
-// Caminho para a capa padrão (OG padrão do site)
-const defaultCover = "/og.jpg" 
 ---
 
-<Section id="latest-changelog-banner" classes="changelog-banner overflow-hidden py-12 lg:py-24">
-	<div class="changelog-banner__container group relative overflow-hidden rounded-[2rem] bg-neutral-900 border border-neutral-800 shadow-2xl shadow-neutral-950/50 transition-all duration-500 hover:border-primary-500/30">
+<Section id="latest-changelog-banner" classes="!py-12">
+	<div class="changelog-banner__card group relative overflow-hidden rounded-[2.5rem] bg-neutral-950 shadow-2xl transition-all duration-500 hover:shadow-primary-500/20 border border-neutral-800">
 		
-		<Row classes="items-stretch min-h-[450px]">
-			<!-- Coluna de Texto -->
-			<Col span="12" lg="7" classes="relative z-20 flex flex-col justify-center p-8 lg:p-16">
-				<div class="mb-6 flex items-center gap-4">
-					<span class="inline-flex items-center rounded-full bg-primary-500 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg shadow-primary-500/20">
-						{category || 'Nova Versão'}
+		<!-- Grid Background (SVG + CSS) -->
+		<div class="absolute inset-0 pointer-events-none overflow-hidden">
+			<!-- O Grid Principal -->
+			<div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+			
+			<!-- Brilho de Acento -->
+			<div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[300px] w-[600px] bg-primary-500/10 blur-[120px] rounded-full"></div>
+			
+			<!-- Linhas de Luz Animadas (Opcional/Sutil) -->
+			<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
+		</div>
+
+		<!-- Content Area -->
+		<div class="relative z-10 p-8 lg:p-14 flex flex-col justify-end min-h-[320px] lg:min-h-[380px]">
+			<div class="flex flex-wrap items-center gap-4 mb-6">
+				<div class="flex items-center gap-2 rounded-full bg-primary-500/10 border border-primary-500/20 px-4 py-1.5 backdrop-blur-sm">
+					<span class="relative flex h-2 w-2">
+						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+						<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
 					</span>
-					<span class="text-xs font-bold text-neutral-400 uppercase tracking-widest">
-						Lançado em {formattedDate}
+					<span class="text-[10px] font-black uppercase tracking-widest text-primary-500">
+						{category || 'Lançamento'}
 					</span>
 				</div>
-				
-				<h2 class="text-3xl lg:text-5xl font-black text-white leading-tight mb-6 group-hover:text-primary-400 transition-colors">
+				<span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">
+					Atualizado em {formattedDate}
+				</span>
+			</div>
+
+			<div class="max-w-3xl">
+				<h2 class="text-3xl lg:text-5xl font-black text-white leading-tight mb-4 group-hover:text-primary-400 transition-colors">
 					{title}
 				</h2>
-				
-				<p class="text-lg lg:text-xl text-neutral-400 mb-10 max-w-xl leading-relaxed line-clamp-2">
-					{description || "Confira todas as novidades, melhorias e correções que acabamos de lançar no Foxi."}
+				<p class="text-lg text-neutral-400 mb-10 line-clamp-2 max-w-2xl font-medium leading-relaxed">
+					{description || "Explore as últimas melhorias e novos recursos que acabamos de adicionar ao Foxi para elevar sua experiência."}
 				</p>
-				
-				<div class="flex flex-wrap gap-4">
-					<Button 
-						link={`/changelog/${latestEntry.id}`} 
-						style="primary" 
-						size="lg" 
-						elevated 
-						classes="font-black group/btn"
-					>
-						Ver Notas da Versão
-						<Icon name="long-arrow-right" class="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
-					</Button>
-					<Button 
-						link="/changelog" 
-						style="neutral" 
-						variation="outline" 
-						size="lg" 
-						classes="font-bold text-white border-white/20 hover:bg-white/5"
-					>
-						Acessar Changelog
-					</Button>
-				</div>
-			</Col>
-			
-			<!-- Coluna da Imagem (Capa Padrão Dinâmica) -->
-			<Col span="12" lg="5" classes="relative min-h-[300px] lg:min-h-full p-0 overflow-hidden bg-neutral-800">
-				<!-- Overlay de gradiente -->
-				<div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/40 to-transparent z-10 hidden lg:block"></div>
-				<div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent z-10 lg:hidden"></div>
-				
-				<!-- Imagem de Capa -->
-				<img 
-					src={defaultCover} 
-					alt={`Capa padrão para a versão ${title}`} 
-					class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-80"
-				/>
-				
-				<!-- Selo Flutuante de Versão -->
-				<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-					<div class="version-badge opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-						<span class="text-[12rem] font-black text-white tracking-tighter leading-none select-none">
-							{title.split(':')[0] || 'NEW'}
-						</span>
-					</div>
-				</div>
+			</div>
 
-				<!-- Tag de Destaque -->
-				<div class="absolute top-8 right-8 z-30 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl hidden lg:block">
-					<div class="flex items-center gap-3">
-						<div class="flex -space-x-2">
-							<div class="h-8 w-8 rounded-full bg-primary-500 flex items-center justify-center border-2 border-neutral-900">
-								<Icon name="rocket" class="h-4 w-4 text-white" />
-							</div>
-						</div>
-						<p class="text-xs font-black text-white uppercase tracking-tighter">Último Lançamento</p>
-					</div>
-				</div>
-			</Col>
-		</Row>
+			<div class="flex flex-wrap items-center gap-6">
+				<Button 
+					link={`/changelog/${latestEntry.id}`} 
+					style="primary" 
+					size="lg" 
+					elevated
+					classes="font-black group/btn"
+				>
+					Explorar Novidades
+					<Icon name="long-arrow-right" class="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
+				</Button>
+				
+				<a href="/changelog" class="inline-flex items-center text-sm font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-widest gap-2 group/link">
+					Histórico Completo
+					<Icon name="long-arrow-right" class="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+				</a>
+			</div>
+		</div>
+
+		<!-- Floating Decorative Element (Rocket) -->
+		<div class="absolute top-8 right-8 lg:top-14 lg:right-14 opacity-10 pointer-events-none group-hover:opacity-30 transition-all duration-700 group-hover:-translate-y-2 group-hover:translate-x-2">
+			<Icon name="rocket" class="h-20 w-20 lg:h-32 text-white -rotate-12" />
+		</div>
 	</div>
 </Section>
 
 <style>
-	.changelog-banner {
-		@apply transition-all duration-500;
-	}
-	.version-badge {
-		transform: rotate(-5deg);
+	.changelog-banner__card {
+		background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+		background-size: 24px 24px;
 	}
 </style>
