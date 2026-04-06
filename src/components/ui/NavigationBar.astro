@@ -142,6 +142,12 @@ const savedNavActions = navActions.map((action) => ({
 	.header__menu-item {
 		@apply relative flex cursor-pointer flex-col items-stretch lg:flex-row;
 	}
+	.header__menu-item:hover .header__submenu {
+		@apply lg:block;
+	}
+	.header__menu-item:hover .header__menu-chevron {
+		@apply lg:rotate-180;
+	}
 	.header__menu-link {
 		@apply relative flex items-center gap-1 py-4 transition-colors duration-300 hover:text-primary-500 focus:text-primary-600 focus:outline-none focus-visible:outline-none lg:px-6 [&.active]:text-primary-500;
 	}
@@ -152,10 +158,10 @@ const savedNavActions = navActions.map((action) => ({
 		@apply left-0 top-full hidden animate-dropdown rounded bg-neutral-300/10 px-4 lg:absolute lg:min-w-48 lg:rounded-t-none lg:bg-white/90 lg:p-0 lg:shadow-lg lg:shadow-neutral-700/5 lg:backdrop-blur-sm dark:bg-neutral-500/10 lg:dark:bg-neutral-900/90 lg:dark:shadow-neutral-950/50 [.header\_\_menu-item.open_&]:block;
 	}
 	.header__submenu-item {
-		@apply hidden [.header\_\_menu-item.open_&]:block;
+		@apply hidden [.header\_\_menu-item.open_&]:block lg:[.header\_\_menu-item:hover_&]:block;
 	}
-	.header__submenu-link {
-		@apply px-8 py-4 hover:text-primary-500 [.header\_\_menu-item.open_&]:flex;
+	.header__submenu .header__menu-link {
+		@apply px-8 py-4 hover:text-primary-500 [.header\_\_menu-item.open_&]:flex lg:[.header\_\_menu-item:hover_&]:flex;
 	}
 	.header__toggle {
 		@apply relative order-10 block h-10 w-10 self-center lg:hidden [&--open]:visible [&--open]:opacity-100;

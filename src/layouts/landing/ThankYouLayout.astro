@@ -76,13 +76,13 @@ const { title, description, message = "Seu material está a caminho!", downloadU
 		<LandingFooter />
 		<Scripts />
 
-		{downloadUrl && (
-			<script define:vars={{ downloadUrl }}>
+		<script is:inline define:vars={{ downloadUrl }}>
+			if (downloadUrl) {
 				// Trigger download after 2 seconds
 				setTimeout(() => {
 					window.location.href = downloadUrl;
 				}, 2000);
-			</script>
-		)}
+			}
+		</script>
 	</body>
 </html>

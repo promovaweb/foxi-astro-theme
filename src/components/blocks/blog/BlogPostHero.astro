@@ -10,7 +10,6 @@
 
 // Components
 // Components
-import { Image } from 'astro:assets'
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
@@ -26,7 +25,7 @@ type Props = {
 	publishDate?: string
 	image?: any
 }
-const { tags, title, author, publishDate, image } = Astro.props
+const { tags, title, author, publishDate } = Astro.props
 ---
 
 <Section id="post-intro" classes="bg-neutral-50 dark:bg-neutral-900" padding="none">

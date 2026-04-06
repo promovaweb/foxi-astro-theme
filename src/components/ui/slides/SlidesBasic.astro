@@ -26,7 +26,7 @@ const { slides, id = "basic-slides", autoplay = true, classes } = Astro.props
 	<div class="slides-basic__container flex transition-transform duration-700 ease-in-out" id={`${id}-container`}>
 		{slides.map((slide, index) => (
 			<div class="slides-basic__slide flex-shrink-0 w-full relative">
-				<!-- Imagem Limpa 1920x1080 -->
+				{/* Imagem Limpa 1920x1080 */}
 				<div class="aspect-video overflow-hidden">
 					<Image 
 						src={slide.image || defaultPlaceholder} 
@@ -36,7 +36,7 @@ const { slides, id = "basic-slides", autoplay = true, classes } = Astro.props
 						class="w-full h-full object-cover" 
 					/>
 				</div>
-				<!-- Legenda abaixo da imagem ou em área limpa -->
+				{/* Legenda abaixo da imagem ou em área limpa */}
 				<div class="p-6 lg:p-10 bg-white dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-800">
 					<p class="text-neutral-900 dark:text-white text-lg lg:text-2xl font-bold leading-tight opacity-0 translate-y-4 transition-all duration-700 delay-300 slide-caption">
 						{slide.caption}

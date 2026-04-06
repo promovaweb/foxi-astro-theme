@@ -29,7 +29,7 @@ const { slides, id = "full-slides", autoplay = true, classes } = Astro.props
 	<div class="slides-full__wrapper h-full w-full relative">
 		{slides.map((slide, index) => (
 			<div class="slides-full__slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0" data-index={index}>
-				<!-- Imagem de Fundo Limpa 1920x1080 -->
+				{/* Imagem de Fundo Limpa 1920x1080 */}
 				<div class="absolute inset-0 overflow-hidden">
 					<Image 
 						src={slide.image || defaultPlaceholder} 
@@ -39,7 +39,7 @@ const { slides, id = "full-slides", autoplay = true, classes } = Astro.props
 						class="w-full h-full object-cover" 
 					/>
 				</div>
-				<!-- Conteúdo em Card Lateral (para evitar overlay na imagem toda) -->
+				{/* Conteúdo em Card Lateral (para evitar overlay na imagem toda) */}
 				<div class="relative h-full container mx-auto px-4 flex items-center justify-start pointer-events-none">
 					<div class="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md p-8 lg:p-16 rounded-[2.5rem] shadow-2xl max-w-2xl border border-neutral-100 dark:border-neutral-800 pointer-events-auto slide-card translate-x-[-2rem] opacity-0 transition-all duration-700 delay-300">
 						<h3 class="text-3xl lg:text-6xl font-black text-neutral-900 dark:text-white mb-6 leading-tight slide-title">
