@@ -4,20 +4,50 @@
     "strictNullChecks": true,
     "allowJs": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@config": ["./src/config/config.ts"],
-      "@config/*": ["./src/config/*"],
-      "@data/*": ["./src/data/*"],
-      "@icons/*": ["./src/icons/*"],
-      "@types/config": ["./src/types/config.ts"],
-      "@type/*": ["./src/types/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@lib/*": ["./src/lib/*"]
-      }
+      "@/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@config": [
+        "./src/config/config.ts"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@data/*": [
+        "./src/data/*"
+      ],
+      "@icons/*": [
+        "./src/icons/*"
+      ],
+      "@types/config": [
+        "./src/types/config.ts"
+      ],
+      "@type/*": [
+        "./src/types/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ]
+    }
   },
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "include": [
+    ".astro/types.d.ts",
+    "**/*",
+    "./worker-configuration.d.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }
