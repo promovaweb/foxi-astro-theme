@@ -8,17 +8,18 @@
 
 Todos os componentes seguem os princípios definidos no [DESIGN.md](./DESIGN.md) e [TYPESCRIPT.md](./TYPESCRIPT.md).
 
-1.  **Nomenclatura BEM**: Classes CSS devem seguir o padrão `.bloco__elemento--modificador`.
-2.  **Estilos Escopados**: Use sempre o bloco `<style>` com `@apply`. Evite estilos inline.
-3.  **Tipagem Estrita**: Todo componente deve ter seu tipo `Props` documentado com JSDoc.
-4.  **Astro Primitives**: Use `<Image />` para performance e `<Icon />` para iconografia.
-5.  **Dark Mode**: Suporte nativo via variáveis CSS semânticas (`--accent`, `--bg-page`) ou variantes `dark:`.
+1. **Nomenclatura BEM**: Classes CSS devem seguir o padrão `.bloco__elemento--modificador`.
+2. **Estilos Escopados**: Use sempre o bloco `<style>` com `@apply`. Evite estilos inline.
+3. **Tipagem Estrita**: Todo componente deve ter seu tipo `Props` documentado com JSDoc.
+4. **Astro Primitives**: Use `<Image />` para performance e `<Icon />` para iconografia.
+5. **Dark Mode**: Suporte nativo via variáveis CSS semânticas (`--accent`, `--bg-page`) ou variantes `dark:`.
 
 ---
 
 ## 🗂️ Inventário de Componentes
 
 ### 1. Primitivos de UI (`src/components/ui/`)
+
 Componentes atômicos e fundamentais para construção de layouts.
 
 | Componente | Descrição | Insights de Uso |
@@ -38,31 +39,37 @@ Componentes atômicos e fundamentais para construção de layouts.
 | `VideoPlayer.astro` | Embed responsivo do YouTube. | Mantém a proporção 16:9 automaticamente. |
 
 ### 2. Blocos de Página (`src/components/blocks/`)
+
 Seções complexas pré-montadas para construção rápida de páginas.
 
 #### Heros
+
 - `hero/HomeCTA.astro`: Versão principal com título impactante e CTAs duplos.
 - `hero/CentredHero.astro`: Design limpo com foco centralizado.
 - `hero/SplitHero.astro`: Conteúdo de um lado e screenshot do app/produto do outro.
 - `hero/HalfImageHero.astro`: Imagem de fundo ocupando 50% da largura.
 
 #### Funcionalidades (Features)
+
 - `features/FeatureCards.astro`: Grid de ícones e descrições curtas.
 - `features/FeatureList.astro`: Lista detalhada com ícones laterais.
 - `features/FeatureSticky.astro`: Layout moderno com scroll lateral fixo.
 - `features/ScreenshotFeature.astro`: Foco em visualização de interface.
 
 #### Precificação (Pricing)
+
 - `pricing/PricingColumns.astro`: Comparação de 3 a 4 planos.
 - `pricing/PricingToggle.astro`: Alternância dinâmica entre cobrança mensal e anual.
 - `pricing/PricingComparison.astro`: Tabela técnica detalhada de recursos.
 
 #### Conversão (CTA & Newsletter)
+
 - `CTA/BrandCTA.astro`: Banner de fundo colorido na cor da marca.
 - `CTA/CenteredCTA.astro`: Banner centralizado com gradiente.
 - `newsletter/NewsletterSplit.astro`: Texto e formulário divididos.
 
 ### 3. Cards e Formulários
+
 - `ui/cards/BasicCard.astro`: Card genérico com suporte a imagem e ícone.
 - `ui/cards/BlogCard.astro`: Especializado para listagens de blog.
 - `ui/forms/Form.astro`: Wrapper com validação e acessibilidade.
@@ -75,6 +82,16 @@ Seções complexas pré-montadas para construção rápida de páginas.
 - **Reuso Primeiro**: Antes de criar, verifique se o componente `BasicCard` ou `Feature` pode ser estendido com novos slots ou props.
 - **Performance**: Sempre use a prop `loading="lazy"` em componentes que ficam abaixo da dobra (fold).
 - **Acessibilidade**: Certifique-se de que todos os componentes interativos tenham `aria-label` e estados de foco visíveis.
+- **Empty States**: Sempre trate listas vazias. Nunca deixe o usuário sem feedback visual se não houver dados para exibir.
+
+---
+
+## 🏗️ Separação de Lógica (Utils & Lib)
+
+Se um componente precisar de cálculos ou transformações de dados, mova-os para:
+
+- `src/utils/`: Funções puras.
+- `src/lib/`: Integrações e lógica pesada.
 
 ---
 

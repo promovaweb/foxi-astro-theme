@@ -338,6 +338,22 @@ Identificadores usados neste projeto:
 | Saída de terminal | `text` |
 | YAML | `yaml` |
 | HTML | `html` |
+| Mermaid | `mermaid` |
+
+---
+
+## Diagramas e Fluxos
+
+Para documentar arquiteturas, fluxos de dados ou estados complexos, use **Mermaid.js**.
+
+````markdown
+```mermaid
+graph TD
+    A[Início] --> B{Decisão}
+    B -- Sim --> C[Resultado 1]
+    B -- Não --> D[Resultado 2]
+```
+````
 
 ---
 

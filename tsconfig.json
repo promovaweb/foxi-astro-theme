@@ -12,9 +12,11 @@
       "@config/*": ["./src/config/*"],
       "@data/*": ["./src/data/*"],
       "@icons/*": ["./src/icons/*"],
-      "@type/config": ["./src/types/config.ts"],
-      "@type/*": ["./src/types/*"]
-    }
+      "@types/config": ["./src/types/config.ts"],
+      "@type/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@lib/*": ["./src/lib/*"]
+      }
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]

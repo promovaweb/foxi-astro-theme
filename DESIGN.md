@@ -24,6 +24,7 @@
 Todo o design system é controlado através do arquivo `src/styles/global.css`. Este arquivo define as variáveis de cores no formato de canais RGB, permitindo que o Tailwind aplique modificadores de opacidade (ex: `bg-primary-500/50`).
 
 ### Sincronização Obrigatória
+
 Qualquer alteração estrutural em `src/styles/global.css` **DEVE** ser documentada neste arquivo para manter a consistência entre o código e o manual de design.
 
 ---
@@ -42,10 +43,12 @@ Qualquer alteração estrutural em `src/styles/global.css` **DEVE** ser document
 ## Paleta de Cores (Tokens RGB)
 
 ### Primárias (Marca)
+
 - `--primary-50` até `--primary-950`
 - Exemplo: `--primary-500: 226 24 125`
 
 ### Neutras (Cinzas)
+
 - `--neutral-50` até `--neutral-950`
 - Exemplo: `--neutral-500: 100 116 139`
 
@@ -74,6 +77,7 @@ Estes tokens são redefinidos automaticamente via classe `.dark` no `<html>`:
 - **Corpo**: `text-base` / `text-base` (`font-normal`)
 
 ### Regras de Elementos Base
+
 - **Body**: Usa `--bg-page` e `--text-body`. Ativa `antialiased` e `scroll-smooth`.
 - **Headings**: Usam `--text-heading` e `font-headings`.
 - **Strong**: Dentro de títulos, usa `--accent` sem aumentar o peso da fonte.
@@ -91,8 +95,8 @@ A classe `.basic-text` é usada para estilizar conteúdo Markdown ou vindo de CM
 - **Imagens**: Bordas arredondadas `rounded-3xl` e sombra `shadow-lg`.
 - **Tabelas**: Bordas arredondadas `rounded-2xl`, borda `--border-color`, listras zebra em linhas pares.
 - **Código**:
-    - Inline: Fundo claro/escuro com texto na cor `--accent`.
-    - Blocos (`pre`): Fundo `neutral-900`, texto claro, scroll horizontal.
+  - Inline: Fundo claro/escuro com texto na cor `--accent`.
+  - Blocos (`pre`): Fundo `neutral-900`, texto claro, scroll horizontal.
 
 ---
 
@@ -109,6 +113,7 @@ Use sempre os primitivos `<Section>`, `<Row>` e `<Col>` para manter a consistên
 | Desktop | 12 | `<Col span="12">` |
 
 ### Tokens de Espaçamento Configuráveis
+
 - `--container-px`: Padding lateral do container (padrão: `1.5rem`).
 - `--section-py`: Padding vertical mobile (padrão: `3rem`).
 - `--section-py-lg`: Padding vertical desktop (padrão: `6rem`).
@@ -118,10 +123,12 @@ Use sempre os primitivos `<Section>`, `<Row>` e `<Col>` para manter a consistên
 ## Funcionalidades Especiais de CSS
 
 ### Animações de Scroll
+
 - Classe `.scroll-animation`: Quando ativa no `<html>`, aplica `translate-y-4` e `opacity-0` às colunas.
 - Transição escalonada (staggered delay) de 50ms a 875ms para os primeiros 12 filhos.
 
 ### Copiar Código
+
 - `.code-wrapper`: Contêiner relativo para blocos de código.
 - `.copy-button`: Botão flutuante que aparece ao hover, com feedback visual `.copied`.
 
@@ -137,3 +144,17 @@ Use sempre os primitivos `<Section>`, `<Row>` e `<Col>` para manter a consistên
 6. **Astro Image**: Use sempre `<Image />` para ativos locais.
 7. **Aliases**: Sempre use `@components/`, `@layouts/`, `@config/`, `@type/`, etc.
 8. **Documentação JSDoc**: Documente cada prop e estrutura conforme `TYPESCRIPT.md`.
+
+---
+
+## Empty States e Fallbacks
+
+Todos os componentes que consomem dados dinâmicos (listas, posts, feeds) devem prever estados de fallback:
+
+1. **Empty States**: Se a lista estiver vazia, exiba uma mensagem amigável. Padrão: `Não há [itens] disponíveis no momento.`
+2. **Fallbacks de Imagem**: Use imagens de placeholder se o ativo original falhar.
+3. **Skeleton Screens**: Para carregamentos complexos, mantenha a estrutura do layout.
+
+---
+
+## Sincronização DESIGN.md / global.css

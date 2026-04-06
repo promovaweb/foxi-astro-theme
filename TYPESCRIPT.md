@@ -112,7 +112,26 @@ const style = action.style as 'primary' | 'secondary' | 'neutral'
 
 ---
 
-## 7. Documentação Obrigatória (JSDoc)
+## 7. Separação de Lógica (Logic Externalization)
+
+Para manter os componentes Astro limpos e facilitar a testabilidade, a lógica complexa não deve residir no frontmatter do `.astro`.
+
+- **`src/utils/`**: Funções utilitárias puras (ex: formatar data, manipular strings).
+- **`src/lib/`**: Lógica de integração com APIs, serviços ou manipulação de dados complexos.
+
+**Exemplo:**
+
+```ts
+// ✅ Correto: src/utils/date.ts
+export const formatDate = (date: Date) => { ... }
+
+// No componente Astro:
+import { formatDate } from '@utils/date'
+```
+
+---
+
+## 8. Documentação Obrigatória (JSDoc)
 
 Todos os arquivos de definição em `src/types/` e arquivos de configuração em `src/config/` **DEVEM** conter documentação JSDoc em cada propriedade e estrutura.
 

@@ -66,7 +66,7 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 8. **Primitivos de layout** — Usar `<Section>` → `<Row>` → `<Col>` para todos os layouts de página. Não criar wrappers customizados de seção/linha/grid.
 9. **Dados em config** — Conteúdo repetido (itens de nav, links do rodapé, listas de funcionalidades, dados de preços) deve ficar em `src/config/` ou `src/data/json-files/`. Nunca hardcodar nos componentes.
 10. **Changelog em Markdown** — O histórico de alterações (changelog) é gerenciado via arquivos Markdown na coleção de conteúdo em `src/content/changelog/`. Novas versões devem ser adicionadas como arquivos `.md` nesta pasta. O tamanho da paginação pode ser configurado em `src/config/config.ts` através da propriedade `changelogPageSize`.
-11. **Padrões de Markdown** — Todo arquivo `.md` criado ou modificado em qualquer lugar do projeto (recursivamente) deve obedecer às regras do `MARKDOWN.md`. Use a skill `/markdown-format` ao final de qualquer tarefa que envolva arquivos Markdown.
+11. **Padrões de Markdown (CRÍTICO)** — Todo arquivo `.md` criado ou modificado **DEVE** obedecer às regras do `MARKDOWN.md`. Você **DEVE OBRIGATORIAMENTE** usar a skill `/markdown-format` ao final de qualquer tarefa que envolva arquivos Markdown. Falhar nesta etapa é uma quebra de protocolo.
 12. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados como páginas Astro individuais em `src/pages/materiais/`. Cada página deve utilizar um dos layouts especializados de `src/layouts/landing/` e os componentes modulares de `src/components/blocks/landing/`.
 13. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
 14. **Modularização de Configurações** — As configurações do site devem ser modularizadas em `src/config/`. O arquivo `src/config/config.ts` atua como um agregador central. Configurações de identidade e SEO ficam em `siteSettings.ts`, enquanto comportamentos do aplicativo e UI ficam em `appSettings.ts`. Todas as interfaces e tipos devem ser centralizados em `src/types/config.ts`.
@@ -75,6 +75,9 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 17. **Sincronização DESIGN.md / global.css** — O arquivo `DESIGN.md` deve estar sempre sincronizado com o `src/styles/global.css`. Qualquer alteração estrutural nas variáveis CSS ou regras globais deve ser documentada no manual de design.
 18. **Registro de Componentes** — Qualquer novo componente criado **DEVE** ser registrado no arquivo central `UI-COMPONENTS.md` com sua descrição e insight de uso.
 19. **Sincronização de Skills/Comandos** — Qualquer comando criado ou modificado em `.claude/commands/` deve ter sua skill correspondente criada ou atualizada em `.gemini/skills/`, e vice-versa. Isso garante que as capacidades das IAs permaneçam equivalentes.
+20. **Conventional Commits** — Todo commit solicitado **DEVE** seguir o padrão: `tipo(escopo): descrição`. Ex: `feat(blog): suporte a rss`.
+21. **Separação de Lógica** — Evite lógica complexa no frontmatter do Astro. Extraia para `src/utils/` ou `src/lib/`.
+22. **Diagramas Mermaid** — Use blocos de código `mermaid` para documentar fluxos complexos em arquivos Markdown.
 
 ---
 
