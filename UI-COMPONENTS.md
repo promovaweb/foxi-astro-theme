@@ -60,6 +60,10 @@ Seções complexas pré-montadas para construção rápida de páginas.
 
 - `team/TeamGrid.astro`: Grid de cards de membros da equipe com imagem, cargo e links sociais.
 
+#### Blog
+
+- `blog/BlogBento.astro`: Vitrine em estilo Bento Grid para os posts mais recentes do blog.
+
 #### Podcast
 
 - `podcast/PodcastBento.astro`: Vitrine em estilo Bento Grid para o podcast na Home e Blog.

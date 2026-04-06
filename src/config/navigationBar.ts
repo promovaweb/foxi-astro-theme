@@ -28,10 +28,18 @@ export interface NavData {
 export const navigationBarData: NavData = {
 	navItems: [
 		{ name: 'Início', link: '/' },
-		{ name: 'Materiais', link: '/materiais' },
-		{ name: 'Podcast', link: '/podcast' },
+		{ name: 'Funcionalidades', link: '/features' },
 		{ name: 'Preços', link: '/pricing' },
-		{ name: 'Recursos', link: '/features' },
+		{
+			name: 'Recursos',
+			link: '#',
+			submenu: [
+				{ name: 'Blog', link: '/blog' },
+				{ name: 'Podcast', link: '/podcast' },
+				{ name: 'Changelog', link: '/changelog' },
+				{ name: 'Materiais', link: '/materiais' }
+			]
+		},
 		{
 			name: 'Componentes',
 			link: '#',
@@ -47,15 +55,6 @@ export const navigationBarData: NavData = {
 				{ name: 'Contato', link: '/components/contact' },
 				{ name: 'Slides', link: '/components/slides' },
 				{ name: 'Equipe', link: '/equipe' }
-			]
-		},
-		{
-			name: 'Blog',
-			link: '#',
-			submenu: [
-				{ name: 'Ver Blog', link: '/blog' },
-				{ name: 'Changelog', link: '/changelog' },
-				{ name: 'Termos', link: '/terms' }
 			]
 		},
 		{ name: 'Contato', link: '/contact' }

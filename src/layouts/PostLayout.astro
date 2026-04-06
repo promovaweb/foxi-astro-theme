@@ -14,9 +14,11 @@ import BlogPostHero from '@components/blocks/blog/BlogPostHero.astro'
 import AuthorWidget from '@components/ui/blog/AuthorWidget.astro'
 import BlogCard from '@components/ui/cards/BlogCard.astro'
 import StickySidebar from '@components/blocks/basic/StickySidebar.astro'
+import EpisodeBento from '@components/blocks/podcast/EpisodeBento.astro'
 
 // Data
 import { getCollection } from 'astro:content'
+import { configData } from '@config'
 
 // Fetch data for the sidebar and footer
 const allPosts = await getCollection('blog')
@@ -32,6 +34,12 @@ const relatedPosts = (allPosts || [])
 const recentPosts = (sortedPosts || [])
 	.filter((post) => post.data.title !== frontmatter.title)
 	.slice(0, 3)
+
+// Fetch random podcast episodes
+const allEpisodes = await getCollection('podcast')
+const randomEpisodes = (allEpisodes || [])
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 4)
 
 // Content
 // - SEO
@@ -141,6 +149,14 @@ const SEO = {
 		</div>
 	</StickySidebar>
 
+    <!-- Podcast Section (Exibida apenas se o podcast estiver habilitado) -->
+    {configData.podcastEnabled && randomEpisodes.length > 0 && (
+        <EpisodeBento 
+            title="Aprofunde seu conhecimento no <strong>Podcast</strong>" 
+            episodes={randomEpisodes} 
+        />
+    )}
+
 	{
 		relatedPosts.length > 0 && (
 			<Section classes="bg-neutral-50 dark:bg-neutral-900" padding="both">
@@ -178,8 +194,8 @@ const SEO = {
 		form.addEventListener('submit', (e) => {
 			e.preventDefault();
 			formContent.classList.add('hidden');
-			successContent.classList.remove('hidden');
 			successContent.classList.add('flex');
+			successContent.classList.remove('hidden');
 		});
 	}
 

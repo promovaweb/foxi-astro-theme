@@ -15,7 +15,7 @@ import { getCollection } from 'astro:content'
 const allPosts = await getCollection('blog')
 ---
 
-<Layout>
+<Layout noindex={true}>
 	<Hero title="Tags" />
 	<BlogPosts data={allPosts} />
 </Layout>
