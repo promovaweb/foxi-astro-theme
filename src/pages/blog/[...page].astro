@@ -10,6 +10,7 @@ import Layout from '@layouts/Layout.astro'
 import Hero from '@components/blocks/hero/PageHeader.astro'
 import BlogPosts from '@components/blocks/blog/BlogPosts.astro'
 import PodcastBento from '@components/blocks/podcast/PodcastBento.astro'
+import ChangelogBanner from '@components/blocks/changelog/ChangelogBanner.astro'
 
 // Data
 import { getCollection } from 'astro:content'
@@ -50,4 +51,5 @@ const header = {
 	<Hero title={header.title} text={header.text} />
 	<BlogPosts page={page} />
 	{page.currentPage === 1 && <PodcastBento />}
+	{page.currentPage === 1 && <ChangelogBanner />}
 </Layout>

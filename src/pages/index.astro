@@ -10,6 +10,7 @@ import HighlightBlocks from '@components/blocks/highlights/HightlightRows.astro'
 import CTA from '@components/blocks/CTA/BasicDark.astro'
 import PodcastBento from '@components/blocks/podcast/PodcastBento.astro'
 import BlogBento from '@components/blocks/blog/BlogBento.astro'
+import ChangelogBanner from '@components/blocks/changelog/ChangelogBanner.astro'
 
 // Content
 // - Testimonial background
@@ -31,7 +32,8 @@ const SEO = {
 	<Features />
 	<Testimonial bg={testimonialBackground} bgPosition="right" />
 	<HighlightBlocks />
-    <BlogBento />
+	<BlogBento />
 	<PodcastBento />
+	<ChangelogBanner />
 	<CTA />
 </Layout>

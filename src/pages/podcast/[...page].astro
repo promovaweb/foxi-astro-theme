@@ -10,6 +10,7 @@ import PodcastNewsletter from '@components/blocks/newsletter/PodcastNewsletter.a
 import Section from '@components/ui/Section.astro'
 import Row from '@components/ui/Row.astro'
 import Col from '@components/ui/Col.astro'
+import ChangelogBanner from '@components/blocks/changelog/ChangelogBanner.astro'
 
 import { getCollection } from 'astro:content'
 import { configData } from '@config'
@@ -70,6 +71,8 @@ const description = configData.podcastDescription
       </Col>
     </Row>
   </Section>
+
+  {page.currentPage === 1 && <ChangelogBanner />}
 
   <!-- Newsletter para ouvintes (Grande e Impactante) -->
   <PodcastNewsletter />

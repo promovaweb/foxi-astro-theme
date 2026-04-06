@@ -60,9 +60,12 @@ Seções complexas pré-montadas para construção rápida de páginas.
 
 - `team/TeamGrid.astro`: Grid de cards de membros da equipe com imagem, cargo e links sociais.
 
-#### Blog
+#### Blog & Changelog
 
 - `blog/BlogBento.astro`: Vitrine em estilo Bento Grid para os posts mais recentes do blog.
+- `changelog/ChangelogBanner.astro`: Banner de CTA em tela cheia para a última atualização do changelog.
+- `changelog/ChangelogCTA.astro`: Banner simples e moderno para destacar a versão mais recente.
+- `changelog/ChangelogSidebar.astro`: Barra lateral com categorias e datas para navegação interna.
 
 #### Podcast
 

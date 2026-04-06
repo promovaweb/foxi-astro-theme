@@ -1,0 +1,127 @@
+---
+/**
+ * Componente: ChangelogBanner
+ * Descrição: Um banner de CTA (Call to Action) que destaca a atualização mais recente do changelog.
+ * Este componente busca automaticamente a última entrada do changelog e a exibe com uma "capa padrão" simulada.
+ */
+
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
+
+// Buscar o changelog mais recente
+const allChangelog = await getCollection('changelog')
+const latestEntry = allChangelog
+	.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())[0]
+
+// Se não houver changelog, o componente não renderiza nada
+if (!latestEntry) return null
+
+const { title, description, date, category } = latestEntry.data
+
+// Formatação da data em pt-BR
+const formattedDate = new Date(date).toLocaleDateString('pt-BR', {
+	day: '2-digit',
+	month: 'short',
+	year: 'numeric'
+})
+
+// Caminho para a capa padrão (OG padrão do site)
+const defaultCover = "/og.jpg" 
+---
+
+<Section id="latest-changelog-banner" classes="changelog-banner overflow-hidden py-12 lg:py-24">
+	<div class="changelog-banner__container group relative overflow-hidden rounded-[2rem] bg-neutral-900 border border-neutral-800 shadow-2xl shadow-neutral-950/50 transition-all duration-500 hover:border-primary-500/30">
+		
+		<Row classes="items-stretch min-h-[450px]">
+			<!-- Coluna de Texto -->
+			<Col span="12" lg="7" classes="relative z-20 flex flex-col justify-center p-8 lg:p-16">
+				<div class="mb-6 flex items-center gap-4">
+					<span class="inline-flex items-center rounded-full bg-primary-500 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg shadow-primary-500/20">
+						{category || 'Nova Versão'}
+					</span>
+					<span class="text-xs font-bold text-neutral-400 uppercase tracking-widest">
+						Lançado em {formattedDate}
+					</span>
+				</div>
+				
+				<h2 class="text-3xl lg:text-5xl font-black text-white leading-tight mb-6 group-hover:text-primary-400 transition-colors">
+					{title}
+				</h2>
+				
+				<p class="text-lg lg:text-xl text-neutral-400 mb-10 max-w-xl leading-relaxed line-clamp-2">
+					{description || "Confira todas as novidades, melhorias e correções que acabamos de lançar no Foxi."}
+				</p>
+				
+				<div class="flex flex-wrap gap-4">
+					<Button 
+						link={`/changelog/${latestEntry.id}`} 
+						style="primary" 
+						size="lg" 
+						elevated 
+						classes="font-black group/btn"
+					>
+						Ver Notas da Versão
+						<Icon name="long-arrow-right" class="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
+					</Button>
+					<Button 
+						link="/changelog" 
+						style="neutral" 
+						variation="outline" 
+						size="lg" 
+						classes="font-bold text-white border-white/20 hover:bg-white/5"
+					>
+						Acessar Changelog
+					</Button>
+				</div>
+			</Col>
+			
+			<!-- Coluna da Imagem (Capa Padrão Dinâmica) -->
+			<Col span="12" lg="5" classes="relative min-h-[300px] lg:min-h-full p-0 overflow-hidden bg-neutral-800">
+				<!-- Overlay de gradiente -->
+				<div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/40 to-transparent z-10 hidden lg:block"></div>
+				<div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent z-10 lg:hidden"></div>
+				
+				<!-- Imagem de Capa -->
+				<img 
+					src={defaultCover} 
+					alt={`Capa padrão para a versão ${title}`} 
+					class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-80"
+				/>
+				
+				<!-- Selo Flutuante de Versão -->
+				<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+					<div class="version-badge opacity-20 group-hover:opacity-40 transition-opacity duration-700">
+						<span class="text-[12rem] font-black text-white tracking-tighter leading-none select-none">
+							{title.split(':')[0] || 'NEW'}
+						</span>
+					</div>
+				</div>
+
+				<!-- Tag de Destaque -->
+				<div class="absolute top-8 right-8 z-30 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl hidden lg:block">
+					<div class="flex items-center gap-3">
+						<div class="flex -space-x-2">
+							<div class="h-8 w-8 rounded-full bg-primary-500 flex items-center justify-center border-2 border-neutral-900">
+								<Icon name="rocket" class="h-4 w-4 text-white" />
+							</div>
+						</div>
+						<p class="text-xs font-black text-white uppercase tracking-tighter">Último Lançamento</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.changelog-banner {
+		@apply transition-all duration-500;
+	}
+	.version-badge {
+		transform: rotate(-5deg);
+	}
+</style>

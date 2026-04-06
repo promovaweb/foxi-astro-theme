@@ -1,0 +1,74 @@
+---
+/**
+ * Componente: ChangelogCTA
+ * Descrição: Um banner simples de CTA que destaca a versão mais recente do changelog.
+ */
+
+import Section from '@components/ui/Section.astro'
+import Row from '@components/ui/Row.astro'
+import Col from '@components/ui/Col.astro'
+import Button from '@components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
+
+// Buscar o changelog mais recente
+const allChangelog = await getCollection('changelog')
+const latestVersion = allChangelog
+	.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())[0]
+
+if (!latestVersion) return null
+
+const { title, date, category } = latestVersion.data
+const formattedDate = new Date(date).toLocaleDateString('pt-BR', {
+	day: '2-digit',
+	month: 'short',
+	year: 'numeric'
+})
+---
+
+<Section id="latest-changelog" classes="py-12">
+	<div class="changelog-cta group relative overflow-hidden rounded-3xl bg-neutral-50 p-8 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-all hover:border-primary-500/30 hover:shadow-xl hover:shadow-primary-500/5">
+		<!-- Elemento Decorativo: Versão em marca d'água -->
+		<div class="absolute -right-4 -top-4 select-none text-8xl font-black text-neutral-200/50 dark:text-neutral-800/50 transition-transform duration-700 group-hover:-translate-x-4 group-hover:rotate-3">
+			NEW
+		</div>
+
+		<Row classes="items-center">
+			<Col span="12" lg="8">
+				<div class="relative z-10">
+					<div class="mb-4 flex items-center gap-3">
+						<span class="inline-flex items-center rounded-full bg-primary-500 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest text-white">
+							{category || 'Update'}
+						</span>
+						<time class="text-xs font-bold text-neutral-500 uppercase tracking-tighter">
+							Lançado em {formattedDate}
+						</time>
+					</div>
+					<h2 class="text-2xl font-black text-neutral-900 dark:text-white lg:text-3xl">
+						{title}
+					</h2>
+					<p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400 line-clamp-1 max-w-2xl">
+						Confira todas as melhorias e correções da nova atualização do Foxi.
+					</p>
+				</div>
+			</Col>
+			<Col span="12" lg="4" classes="mt-8 lg:mt-0 flex lg:justify-end">
+				<Button 
+					link={`/changelog#${latestVersion.id}`} 
+					style="primary" 
+					size="lg" 
+					classes="w-full sm:w-auto font-black shadow-lg shadow-primary-500/20"
+				>
+					Ver Notas da Versão
+					<Icon name="long-arrow-right" class="ml-2 h-5 w-5" />
+				</Button>
+			</Col>
+		</Row>
+	</div>
+</Section>
+
+<style>
+	.changelog-cta {
+		@apply transition-all duration-500;
+	}
+</style>
