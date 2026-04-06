@@ -36,6 +36,14 @@ O `TYPESCRIPT.md` define as regras de tipagem, modularização de configuraçõe
 
 ---
 
+## Referência ao Astro Framework
+
+**Antes de arquitetar novos componentes, resolver problemas de hidratação, SPA/View Transitions ou estado, leia o `ASTRO.md`.**
+
+O `ASTRO.md` é a fonte única de verdade para práticas recomendadas do Astro Framework (versões 4+). Ele documenta a arquitetura de ilhas, renderização híbrida, gerenciamento de dados com Content Layer, i18n, paginação e dicas avançadas. Sempre consulte este guia para sugestões sobre como usar as APIs corretas do Astro.
+
+---
+
 ## Referência às Instruções para Agentes
 
 **Este projeto possui diretrizes específicas para agentes de IA documentadas em `AGENTS.md`.**

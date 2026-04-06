@@ -38,6 +38,8 @@ Qualquer alteração estrutural em `src/styles/global.css` **DEVE** ser document
 - `src/components/ui/cards/`: Padrões de cards reutilizáveis.
 - `src/components/ui/forms/`: Elementos e estruturas de formulário.
 
+> **Importante:** Para decisões arquiteturais sobre a construção dos componentes, diretivas de hidratação (Astro Islands), gerenciamento de estado no cliente (ex: Nano Stores) ou resolução de problemas técnicos do framework, sempre consulte a referência obrigatória **[ASTRO.md](./ASTRO.md)**.
+
 ---
 
 ## Paleta de Cores (Tokens RGB)

@@ -25,8 +25,8 @@ Componentes atômicos e fundamentais para construção de layouts.
 | Componente | Descrição | Insights de Uso |
 | :--- | :--- | :--- |
 | `Section.astro` | Seção de nível superior com container. | Use como wrapper principal de cada bloco de página. |
-| `Row.astro` | Linha do grid de 12 colunas. | Deve conter apenas filhos `<Col />`. |
-| `Col.astro` | Coluna do sistema de grid. | Configure `span` para desktop e `spanMobile`. |
+| `Row.astro` | Linha do grid de 12 colunas. | Props: `rows` e `rowsLg` para definir `grid-rows-{n}` e `lg:grid-rows-{n}`. Deve conter apenas filhos `<Col />`. |
+| `Col.astro` | Coluna do sistema de grid. | Props de span: `span`, `lg`, `spanMobile`. Props de row: `rowSpan` e `rowSpanLg` para `row-span-{n}` e `lg:row-span-{n}`. |
 | `Button.astro` | Botão versátil (link, submit, modal). | Suporta estilos `primary`, `secondary`, `neutral`. |
 | `NavigationBar.astro` | Cabeçalho principal sticky. | Consome dados de `@config/navigationBar.ts`. |
 | `Footer.astro` | Rodapé completo. | Consome dados de `@config/footerNavigation.ts`. |
@@ -66,7 +66,11 @@ Seções complexas pré-montadas para construção rápida de páginas.
 
 - `CTA/BrandCTA.astro`: Banner de fundo colorido na cor da marca.
 - `CTA/CenteredCTA.astro`: Banner centralizado com gradiente.
-- `newsletter/NewsletterSplit.astro`: Texto e formulário divididos.
+- `newsletter/NewsletterCentered.astro`: Formulário centralizado com título, descrição e nota de privacidade.
+- `newsletter/NewsletterSplit.astro`: Texto à esquerda e formulário à direita em layout dividido.
+- `newsletter/NewsletterWithImage.astro`: Fundo colorido `primary-500` com imagem decorativa à direita.
+- `newsletter/NewsletterGrid.astro`: Título à esquerda e formulário à direita com link de política de privacidade.
+- `newsletter/NewsletterFeatures.astro`: Formulário à esquerda e lista de benefícios (ícone + texto) à direita.
 
 ### 3. Cards e Formulários
 
