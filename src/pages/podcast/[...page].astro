@@ -6,7 +6,7 @@ import Layout from '@layouts/PodcastLayout.astro'
 import EpisodeEntry from '@components/ui/podcast/EpisodeEntry.astro'
 import Pagination from '@components/ui/Pagination.astro'
 import { getCollection } from 'astro:content'
-import { configData } from '@config/config'
+import { configData } from '@config'
 import type { Page } from 'astro'
 
 export async function getStaticPaths({ paginate }: any) {
