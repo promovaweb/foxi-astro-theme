@@ -1,0 +1,39 @@
+# Foxi — Instruções para Agentes de IA
+
+> Este documento define como os agentes de IA (Gemini, Claude, etc.) devem operar neste projeto, garantindo consistência e segurança.
+
+---
+
+## 1. Referências Obrigatórias
+
+Antes de realizar qualquer alteração, o agente deve consultar os arquivos de diretrizes:
+
+- `GEMINI.md`: Regras absolutas e contexto do projeto.
+- `CLAUDE.md`: Instruções específicas para Claude Code.
+- `TYPESCRIPT.md`: Boas práticas de TypeScript e modularização de tipos.
+- `MARKDOWN.md`: Padrões de formatação e linting de Markdown.
+- `DESIGN.md`: Linguagem visual e Design System.
+
+---
+
+## 2. Sincronização de Documentação
+
+Os arquivos `GEMINI.md`, `CLAUDE.md` e `AGENTS.md` devem estar sempre sincronizados em relação às regras de negócio e diretrizes técnicas. Sempre que uma mudança for aplicada em um destes arquivos, o agente **DEVE** replicar a alteração nos outros dois.
+
+---
+
+## 3. Fluxo de Trabalho
+
+1. **Pesquisa**: Mapear o codebase e validar suposições.
+2. **Estratégia**: Planejar a implementação com base nas regras dos arquivos de diretrizes.
+3. **Execução**: Aplicar as mudanças cirurgicamente.
+4. **Validação**: Executar testes e garantir integridade estrutural.
+
+---
+
+## 4. Regras Absolutas
+
+- **Idioma pt-BR**: Toda comunicação técnica e de interface em Português do Brasil.
+- **Aliases de Path**: Nunca usar caminhos relativos; sempre usar `@config/`, `@components/`, etc.
+- **Tipagem**: Toda nova funcionalidade deve ser estritamente tipada seguindo o `TYPESCRIPT.md`.
+- **Documentação Obrigatória (JSDoc)**: Todos os arquivos de definição em `src/types/` e arquivos de configuração em `src/config/` **DEVEM** conter documentação JSDoc em cada propriedade e estrutura (em pt-BR).

@@ -19,7 +19,8 @@ import Switcher from '@components/ui/ModeSwitcher.astro'
 
 // Dados
 import { navigationBarData } from '@config/navigationBar'
-const { logo, navItems, navActions } = navigationBarData
+import { configData } from '@config/config'
+const { navItems, navActions } = navigationBarData
 
 // Determinar o caminho atual
 const path = new URL(Astro.request.url).pathname
@@ -40,8 +41,21 @@ const savedNavActions = navActions.map((action) => ({
 		<nav aria-label="navegação principal" role="navigation" class="header__nav">
 			<!-- Logo -->
 			<a href="/" class="header__logo">
-				<img src={logo.src} alt={logo.alt} width="48" height="48" />
-				<span>{logo.text}</span>
+				<img
+					src={configData.logo.src}
+					alt={configData.logo.alt}
+					width="48"
+					height="48"
+					class="dark:hidden"
+				/>
+				<img
+					src={configData.logo.srcDark || configData.logo.src}
+					alt={configData.logo.alt}
+					width="48"
+					height="48"
+					class="hidden dark:block"
+				/>
+				<span>{configData.logo.text}</span>
 			</a>
 
 			<!-- Alternador de menu -->

@@ -2,12 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	/* 
+	   Design Tokens - Cores (Formato RGB para suporte a opacidade do Tailwind)
+	   Edite estes valores para mudar as cores de todo o site.
+	   Use ferramentas online para converter HEX para RGB se necessário.
+	*/
+
+	/* Primárias (Ex: #e2187d -> 226 24 125) */
+	--primary-50: 253 242 248;
+	--primary-100: 252 231 243;
+	--primary-200: 251 207 232;
+	--primary-300: 249 168 212;
+	--primary-400: 244 114 182;
+	--primary-500: 226 24 125;
+	--primary-600: 219 39 119;
+	--primary-700: 190 24 93;
+	--primary-800: 157 23 77;
+	--primary-900: 131 24 67;
+	--primary-950: 80 7 36;
+
+	/* Neutras (Ex: #64748b -> 100 116 139) */
+	--neutral-50: 248 250 252;
+	--neutral-100: 241 245 249;
+	--neutral-200: 226 232 240;
+	--neutral-300: 203 213 225;
+	--neutral-400: 148 163 184;
+	--neutral-500: 100 116 139;
+	--neutral-600: 71 85 105;
+	--neutral-700: 51 65 85;
+	--neutral-800: 30 41 59;
+	--neutral-900: 15 23 42;
+	--neutral-950: 2 6 23;
+
+	/* Tipografia */
+	--font-sans: "Inter Variable", sans-serif;
+	--font-headings: "Outfit Variable", sans-serif;
+
+	/* Layout & Espaçamento */
+	--container-px: 1.5rem;
+	--section-py: 3rem;
+	--section-py-lg: 6rem;
+
+	/* Semantic Tokens - Modo Claro */
+	--bg-page: 255 255 255;
+	--text-body: var(--neutral-500);
+	--text-heading: var(--neutral-700);
+	--accent: var(--primary-500);
+	--border-color: var(--neutral-100);
+}
+
+.dark {
+	/* Semantic Tokens - Modo Escuro */
+	--bg-page: var(--neutral-950);
+	--text-body: var(--neutral-400);
+	--text-heading: var(--neutral-50);
+	--accent: var(--primary-500);
+	--border-color: var(--neutral-800);
+}
+
 /* Layout rules */
 html {
 	@apply scroll-smooth antialiased;
 }
 body {
-	@apply bg-white text-neutral-500 has-[.header\_\_menu--open]:overflow-hidden lg:has-[.header\_\_menu--open]:overflow-auto dark:bg-neutral-950 dark:text-neutral-400 [.dark_&]:text-neutral-400 [.light_&]:text-neutral-500;
+	background-color: rgb(var(--bg-page));
+	color: rgb(var(--text-body));
+	@apply has-[.header\_\_menu--open]:overflow-hidden lg:has-[.header\_\_menu--open]:overflow-auto;
 }
 
 /* Main typography */
@@ -20,8 +81,10 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-headings text-neutral-700 last:mb-0 dark:text-neutral-50 [&>strong]:text-primary-500 [.dark_&]:text-neutral-50 [.light_&]:text-neutral-700;
+	color: rgb(var(--text-heading));
+	@apply font-headings last:mb-0;
 }
+
 h1 strong,
 h2 strong,
 h3 strong,
@@ -29,7 +92,9 @@ h4 strong,
 h5 strong,
 h6 strong {
 	font-weight: inherit;
+	color: rgb(var(--accent));
 }
+
 h1,
 h2,
 h3 {
@@ -65,34 +130,71 @@ h5 {
 h6 {
 	@apply text-base lg:text-lg;
 }
+
 main a {
-	@apply text-primary-500 hover:text-primary-600;
+	color: rgb(var(--accent));
 }
+
+main a:hover {
+	@apply opacity-80 transition-opacity;
+}
+
 .highlight {
-	@apply text-primary-500;
+	color: rgb(var(--accent));
 }
+
 .small {
-	@apply text-sm font-normal text-neutral-400 dark:text-neutral-500;
+	@apply text-sm font-normal;
+	color: rgb(var(--text-body));
+	opacity: 0.8;
 }
+
 /* Global basic styling */
 .basic-text {
-	@apply [&_p]:mb-8 [&_p]:leading-[1.8] [&_p]:text-neutral-600 dark:[&_p]:text-neutral-400;
-	@apply [&_blockquote]:my-12 [&_blockquote]:border-l-4 [&_blockquote]:border-primary-500 [&_blockquote]:pl-10 [&_blockquote]:py-2 [&_blockquote]:text-xl [&_blockquote]:italic [&_blockquote]:font-medium [&_blockquote]:text-neutral-900 dark:[&_blockquote]:text-neutral-100;
-	@apply [&_h2]:mb-8 [&_h2]:mt-20 [&_h2]:border-l-4 [&_h2]:border-primary-500 [&_h2]:pl-6 [&_h2]:text-4xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-neutral-900 lg:[&_h2]:text-5xl dark:[&_h2]:text-neutral-50;
-	@apply [&_h3]:mb-6 [&_h3]:mt-16 [&_h3]:text-3xl [&_h3]:font-bold [&_h3]:tracking-tight [&_h3]:text-neutral-900 lg:[&_h3]:text-4xl dark:[&_h3]:text-neutral-50;
-	@apply [&_h4]:mb-4 [&_h4]:mt-12 [&_h4]:text-2xl [&_h4]:font-bold [&_h4]:tracking-tight [&_h4]:text-neutral-900 lg:[&_h4]:text-3xl dark:[&_h4]:text-neutral-50;
+	@apply [&_p]:mb-8 [&_p]:leading-[1.8];
+	color: rgb(var(--text-body));
+
+	@apply [&_blockquote]:my-12 [&_blockquote]:border-l-4 [&_blockquote]:border-[rgb(var(--accent))] [&_blockquote]:pl-10 [&_blockquote]:py-2 [&_blockquote]:text-xl [&_blockquote]:italic [&_blockquote]:font-medium;
+	@apply [&_blockquote]:text-[rgb(var(--text-heading))];
+
+	@apply [&_h2]:mb-8 [&_h2]:mt-20 [&_h2]:border-l-4 [&_h2]:border-[rgb(var(--accent))] [&_h2]:pl-6 [&_h2]:text-4xl [&_h2]:font-bold [&_h2]:tracking-tight lg:[&_h2]:text-5xl;
+	@apply [&_h2]:text-[rgb(var(--text-heading))];
+
+	@apply [&_h3]:mb-6 [&_h3]:mt-16 [&_h3]:text-3xl [&_h3]:font-bold [&_h3]:tracking-tight lg:[&_h3]:text-4xl;
+	@apply [&_h3]:text-[rgb(var(--text-heading))];
+
+	@apply [&_h4]:mb-4 [&_h4]:mt-12 [&_h4]:text-2xl [&_h4]:font-bold [&_h4]:tracking-tight lg:[&_h4]:text-3xl;
+	@apply [&_h4]:text-[rgb(var(--text-heading))];
+
 	@apply [&_img]:my-12 [&_img]:rounded-3xl [&_img]:shadow-lg;
-	@apply [&_ul]:mb-8 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:marker:text-primary-500;
-	@apply [&_ol]:mb-8 [&_ol]:ml-6 [&_ol]:list-decimal [&_ol]:space-y-3 [&_ol]:marker:font-bold [&_ol]:marker:text-primary-500;
+
+	@apply [&_ul]:mb-8 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:marker:text-[rgb(var(--accent))];
+	@apply [&_ol]:mb-8 [&_ol]:ml-6 [&_ol]:list-decimal [&_ol]:space-y-3 [&_ol]:marker:font-bold [&_ol]:marker:text-[rgb(var(--accent))];
+
 	@apply [&_li]:pl-2;
-	@apply [&_a]:font-semibold [&_a]:text-primary-500 [&_a]:underline [&_a]:decoration-primary-500/30 [&_a]:underline-offset-4 hover:[&_a]:decoration-primary-500;
-	@apply [&_table]:my-12 [&_table]:w-full [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-2xl [&_table]:border [&_table]:border-neutral-200 dark:[&_table]:border-neutral-800;
+
+	@apply [&_a]:font-semibold [&_a]:text-[rgb(var(--accent))] [&_a]:underline [&_a]:decoration-[rgb(var(--accent))]/30 [&_a]:underline-offset-4 hover:[&_a]:decoration-[rgb(var(--accent))];
+
+	@apply [&_table]:my-12 [&_table]:w-full [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-2xl [&_table]:border;
+	border-color: rgb(var(--border-color));
+
 	@apply [&_thead]:bg-neutral-50 dark:[&_thead]:bg-neutral-900;
-	@apply [&_th]:border-b [&_th]:border-neutral-200 [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:text-sm [&_th]:font-bold [&_th]:uppercase [&_th]:tracking-wider [&_th]:text-neutral-900 dark:[&_th]:border-neutral-800 dark:[&_th]:text-neutral-50;
-	@apply [&_td]:border-b [&_td]:border-neutral-100 [&_td]:px-6 [&_td]:py-4 [&_td]:text-sm [&_td]:text-neutral-600 dark:[&_td]:border-neutral-800 dark:[&_td]:text-neutral-400;
+
+	@apply [&_th]:border-b [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:text-sm [&_th]:font-bold [&_th]:uppercase [&_th]:tracking-wider;
+	border-color: rgb(var(--border-color));
+	color: rgb(var(--text-heading));
+
+	@apply [&_td]:border-b [&_td]:px-6 [&_td]:py-4 [&_td]:text-sm;
+	border-color: rgb(var(--border-color));
+	color: rgb(var(--text-body));
+
 	@apply [&_tr:nth-child(even)]:bg-neutral-50/50 dark:[&_tr:nth-child(even)]:bg-neutral-800/30;
+
 	@apply [&_pre]:my-8 [&_pre]:overflow-x-auto [&_pre]:rounded-2xl [&_pre]:bg-neutral-900 [&_pre]:p-6 [&_pre]:text-sm [&_pre]:leading-relaxed [&_pre]:text-neutral-100;
-	@apply [&_code]:rounded [&_code]:bg-neutral-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-primary-600 dark:[&_code]:bg-neutral-800 dark:[&_code]:text-primary-400;
+
+	@apply [&_code]:rounded [&_code]:bg-neutral-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] dark:[&_code]:bg-neutral-800;
+	@apply [&_code]:text-[rgb(var(--accent))];
+
 	@apply [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit;
 }
 

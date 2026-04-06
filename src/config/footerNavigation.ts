@@ -1,16 +1,10 @@
 // Footer Navigation
 // ------------
 // Description: Os dados de navegação do rodapé do site.
-export interface Logo {
-	src: string
-	alt: string
-	text: string
-}
 
 export interface FooterAbout {
 	title: string
 	aboutText: string
-	logo: Logo
 }
 
 export interface SubCategory {
@@ -37,12 +31,7 @@ export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Foxi.',
 		aboutText:
-			'Componentes responsivos, acessíveis e feitos por especialistas em React e HTML, prontos para serem usados em seu site ou aplicativo. Basta copiar e colar em seu projeto Tailwind CSS.',
-		logo: {
-			src: '/logo.svg',
-			alt: 'O tema tailwind astro',
-			text: 'Foxi.'
-		}
+			'Componentes responsivos, acessíveis e feitos por especialistas em React e HTML, prontos para serem usados em seu site ou aplicativo. Basta copiar e colar em seu projeto Tailwind CSS.'
 	},
 	footerColumns: [
 		{

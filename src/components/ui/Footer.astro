@@ -11,6 +11,7 @@ import { Icon } from 'astro-icon/components'
 // Dados
 import { socialLinks } from '@config/socialLinks'
 import { footerNavigationData } from '@config/footerNavigation'
+import { configData } from '@config/config'
 
 const { footerAbout, footerColumns, subFooter } = footerNavigationData
 ---
@@ -22,8 +23,21 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 			<div class="footer__cols">
 				<div class="footer__col">
 					<a aria-label="logotipo do site" aria-current="page" class="footer__main-brand" href="/">
-						<img src={footerAbout.logo.src} alt={footerAbout.logo.alt} width="32" height="32" />
-						{footerAbout.logo.text}
+						<img
+							src={configData.logo.src}
+							alt={configData.logo.alt}
+							width="32"
+							height="32"
+							class="dark:hidden"
+						/>
+						<img
+							src={configData.logo.srcDark || configData.logo.src}
+							alt={configData.logo.alt}
+							width="32"
+							height="32"
+							class="hidden dark:block"
+						/>
+						{configData.logo.text}
 					</a>
 					<p>
 						{footerAbout.aboutText}

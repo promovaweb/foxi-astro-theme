@@ -1,5 +1,9 @@
 # Gemini — Instruções do Projeto Foxi Astro Theme
 
+> Este documento é a fonte única de verdade para instruções do projeto e diretrizes para o agente Gemini.
+
+---
+
 ## Idioma
 
 **Todo o código, comentários, documentação, nomes de variáveis descritivas, textos de interface e respostas geradas para este projeto devem estar em Português do Brasil (pt-BR).** Isso inclui comentários em arquivos `.astro`, `.ts` e `.css`, conteúdo de componentes, mensagens de erro e qualquer texto visível ao usuário.
@@ -14,12 +18,21 @@
 
 O `MARKDOWN.md` é a fonte única de verdade para formatação, linting e boas práticas de Markdown. Ele documenta todas as regras do markdownlint ativas, convenções de frontmatter para coleções de conteúdo (changelog, blog, podcast), padrões de tabelas, links, blocos de código e idioma.
 
-### Quando consultar o MARKDOWN.md
+---
 
-- Criar ou editar um arquivo de changelog em `src/content/changelog/` → verificar frontmatter obrigatório e estrutura do corpo
-- Criar ou editar um post de blog em `src/content/blog/` → verificar frontmatter e regras de formatação
-- Criar ou editar qualquer arquivo `.md` na raiz (`CLAUDE.md`, `GEMINI.md`, `DESIGN.md`, `README.md`) → aplicar todas as regras de linting
-- Usar listas, tabelas, blocos de código ou links em qualquer `.md` → seguir as convenções definidas
+## Referência ao TypeScript e Tipagem
+
+**Antes de criar ou modificar qualquer código TypeScript ou arquivo de configuração, leia o `TYPESCRIPT.md`.**
+
+O `TYPESCRIPT.md` define as regras de tipagem, modularização de configurações em `src/config/`, uso de aliases de path e padrões de nomenclatura que garantem a integridade técnica do projeto.
+
+---
+
+## Referência às Instruções para Agentes
+
+**Este projeto possui diretrizes específicas para agentes de IA documentadas em `AGENTS.md`.**
+
+Os arquivos `GEMINI.md`, `CLAUDE.md` e `AGENTS.md` devem estar sempre sincronizados. Qualquer alteração em um destes arquivos **DEVE** ser replicada nos outros dois para manter a consistência das diretrizes.
 
 ---
 
@@ -60,6 +73,8 @@ O `DESIGN.md` é a fonte única de verdade para a linguagem visual deste projeto
 12. **Padrões de Markdown** — Todo arquivo `.md` criado ou modificado em qualquer lugar do projeto (recursivamente) deve obedecer às regras do `MARKDOWN.md`. Use a skill `markdown-format` ao final de qualquer tarefa que envolva arquivos Markdown.
 13. **Materiais de Marketing** — Materiais para geração de leads (ebooks, webinars, etc.) são gerenciados como páginas Astro individuais em `src/pages/materiais/`. Cada página deve utilizar um dos layouts especializados de `src/layouts/landing/` e os componentes modulares de `src/components/blocks/landing/`.
 14. **Astro Image** — Usar o componente `<Image>` do Astro para todas as imagens estáticas. Nunca usar `<img>` bruto para novo conteúdo (o `<img>` legado nos logos de navegação/rodapé é aceitável).
+15. **Modularização de Configurações** — As configurações do site devem ser modularizadas em `src/config/`. O arquivo `src/config/config.ts` atua como um agregador central. Configurações de identidade e SEO ficam em `siteSettings.ts`, enquanto comportamentos do aplicativo e UI ficam em `appSettings.ts`. Todas as interfaces e tipos devem ser centralizados em `src/types/config.ts`.
+16. **Documentação Obrigatória (JSDoc)** — Todos os arquivos de definição em `src/types/` e arquivos de configuração em `src/config/` **DEVEM** conter documentação JSDoc em cada propriedade e estrutura (em pt-BR).
 
 ---
 
@@ -155,7 +170,10 @@ import { socialLinks } from '@config/socialLinks'
 | Blocos de página | `src/components/blocks/` |
 | Estilos globais | `src/styles/global.css` |
 | Config do Tailwind | `tailwind.config.mjs` |
-| Config do site | `src/config/config.ts` |
+| Config Agregadora | `src/config/config.ts` |
+| Config de Identidade/SEO | `src/config/siteSettings.ts` |
+| Config de Comportamento/App | `src/config/appSettings.ts` |
+| Tipos de Configuração | `src/config/types.ts` |
 | Config da navegação | `src/config/navigationBar.ts` |
 | Config do rodapé | `src/config/footerNavigation.ts` |
 | Links sociais | `src/config/socialLinks.ts` |
